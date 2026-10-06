@@ -202,3 +202,70 @@
 - Options: as in D-17.
 - Human response: 2026-10-06T19:07:39Z (received): "default, run npx playwright install chromium (user cache only)."
 - Resolution: D-17 option 1.
+
+## D-20: AC4 "an invoice is issued to the payer" conflicts with AR-08
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 AC4 (AC-001-04) requires that an invoice is issued to the payer when a registration completes. AR-08 says invoicing is owned by the accounting team and invoices are produced by a separate process of the accounting system, which is not part of this repository; `environments.md` lists the accounting system as "produces invoices; not part of this repository", with no local substitute and no manual test. Both are project inputs and no rule resolves the conflict (`AGENTS.md`: a conflict that no rule resolves is a decision record).
+- Options:
+  1. (default, conservative) Do not produce invoices in this repository (respect AR-08). The backend stores every completed registration with the payer data (`payerType`, company name, address, VAT ID) and amounts (`netFee`, `vat`, `grossFee`), which the organizer, and through them the accounting system, can read (`GET /api/registrations/{registrationNumber}`, organizer only; personal data shown to "organizers, accounting" per `security-requirements.md`). AC-001-04 keeps its wording; its tests check that the stored registration carries everything an invoice needs. Release notes list "invoice issued by the accounting system" for manual verification.
+  2. Generate and send an invoice (document or e-mail) from the backend; this contradicts AR-08 and needs an architecture change.
+  3. Add an export or hand-over interface to the accounting system; no interface is defined in `architecture.md`, so it would invent one.
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-21: Whether the 240/300 EUR fee is net or gross
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: AC1/AC2 state "the fee is 240 EUR" / "300 EUR". The API returns `netFee`, `vat` and `grossFee`, and configuration has `APP_FEE_EARLY` 240.00, `APP_FEE_REGULAR` 300.00 and a separate `APP_VAT_RATE` 0.22. The inputs do not say whether the configured fee includes VAT.
+- Options:
+  1. (default) The configured fee is the net fee: `netFee` 240.00, `vat` = net × rate rounded half-up to 2 decimals (52.80), `grossFee` 292.80. This matches the naming (`APP_FEE_*` next to a separate VAT rate, field `netFee`) and keeps the configured value unchanged in the stored record. The confirmation e-mail shows all three amounts, so the participant sees the total before paying.
+  2. The configured fee is gross: `grossFee` 240.00, `netFee` = 240 / 1.22 = 196.72, `vat` 43.28.
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-22: Workshop selection rules
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: the fixed API accepts `workshops` (an array of workshop ids) but stores a single `workshop` (id or null); `APP_WORKSHOPS` lists W1, W2, W3. The story says nothing about workshops (choice, limit, fee).
+- Options:
+  1. (default, conservative) A workshop is optional; at most one may be chosen; it must be a configured id; anything else is rejected (AC-001-08), so no submitted choice is silently dropped; a workshop does not change the fee; no capacity limit.
+  2. Accept several and store only the first (silently drops input).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-23: Input validation and rejection
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: the story and business rules define no field rules; SB-01 requires server-side validation, SB-12 collecting only needed data, SR-05 safe e-mail content, NFR-01 Slovenian characters.
+- Options:
+  1. (default, conservative) The rules in `docs/01_acceptance-criteria.md` ("Required fields and validation"): required names, e-mail and payer type; company fields required for `company` and not accepted for `private`; unknown properties rejected; length limits; no control characters. A rejected request returns 4xx with the invalid field names, stores nothing and sends no e-mail.
+  2. Lenient: ignore unexpected or mismatched fields (risks silently dropping input or storing data that is not needed).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-24: Repeated registrations with the same e-mail address
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: the inputs define no uniqueness rule. Rejecting duplicates could lock out legitimate users (for example a shared company address); accepting them may create double registrations.
+- Options:
+  1. (default) Accept each valid submission as a separate registration with its own number; organizers handle duplicates. No legitimate user is locked out, and nothing is inferred that the story does not state.
+  2. Reject a second registration with the same e-mail (409).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-25: Confirmation e-mail content and failure handling
+- Timestamp: 2026-10-06T19:10:40Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: AC3 requires a confirmation e-mail with the registration number and the fee when the request finishes. The inputs do not say what happens when the SMTP server does not accept the message.
+- Options:
+  1. (default, conservative) Registration and e-mail succeed or fail together: the backend stores the registration in a transaction, hands the e-mail to SMTP, and commits only if the hand-over succeeded; otherwise it rolls back and answers 5xx without details (AC-001-09), so the participant knows to retry and no participant holds a registration without a confirmation. The e-mail is plain text and shows the registration number, `netFee`, `vat` and `grossFee` in EUR and the chosen workshop.
+  2. Store the registration and answer 2xx even when the e-mail fails; log the failure (without personal data) for the organizers to resend.
+- Human response: none
+- Resolution: pending review (option 1 applied)

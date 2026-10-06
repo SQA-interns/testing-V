@@ -5,9 +5,9 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 1 (requirements), started 2026-10-06T19:09:11Z
-- Last gate result: phase 0 gate passed 2026-10-06T19:09:11Z
-- Next step: write `docs/01_acceptance-criteria.md` from US-001; raise AC4 (invoice issued) vs AR-08 (invoicing outside this repo) as a decision
+- Current phase: 2 (design), started 2026-10-06T19:10:53Z
+- Last gate result: phase 1 gate passed 2026-10-06T19:10:53Z (10 AC for US-001; gaps recorded as D-20 to D-25, pending review)
+- Next step: write `docs/02_specification.md` (declare backend architecture for AR-02) and `docs/02_contracts/` (OpenAPI, SQL schema, e-mail, UI); validate contracts with a parser
 - Waiting for the human on: nothing
 
 ## Done in phase 0
@@ -27,6 +27,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 
 - Human answered D-15 and D-17 at 19:07Z (D-18, D-19); backend scan passes; Playwright Chromium installed; all tools run
 - Phase 0 gate passed 2026-10-06T19:09:11Z
+
+- Phase 1: `docs/01_acceptance-criteria.md` (AC-001-01 to AC-001-10); decisions D-20 to D-25 pending review; gate passed 2026-10-06T19:10:53Z
 
 ## Interruptions
 
