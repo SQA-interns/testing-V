@@ -70,6 +70,7 @@ Every setting is read from an environment variable of the same name, with the de
 | `SMTP_HOST`, `SMTP_PORT` | `spring.mail.host`, `.port` | none (compose: `mailpit`, `1025`) | |
 | `SMTP_TLS` | `spring.mail.properties.mail.smtp.starttls.required` | `false` | must be `true` in production (8.6) |
 | `SMTP_USERNAME`, `SMTP_PASSWORD` | `spring.mail.username`, `.password` | none (secret) | production only |
+| `SMTP_AUTH` | `spring.mail.properties.mail.smtp.auth` | `false` | `true` in production when the SMTP account needs login (added in phase 4) |
 | `ORGANIZER_USERNAME`, `ORGANIZER_PASSWORD` | `app.organizer.username`, `.password` | none (secret) | startup fails if empty |
 | `SPRING_PROFILES_ACTIVE` | – | none | `prod` in production |
 
