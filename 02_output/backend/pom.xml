@@ -222,6 +222,10 @@
           <!-- OSS Index needs credentials not listed in secrets.env.example (D-04) -->
           <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
           <skipTestScope>false</skipTestScope>
+          <suppressionFiles>
+            <suppressionFile>dependency-check-suppressions.xml</suppressionFile>
+          </suppressionFiles>
+          <failBuildOnCVSS>7</failBuildOnCVSS>
           <formats>
             <format>HTML</format>
             <format>JSON</format>

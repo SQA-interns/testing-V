@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every entry is justified in docs/decisions-log.md (D-05); re-checked in phase 6. -->
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+  <suppress>
+    <notes>D-05 (a) false positive: Testcontainers Java library matched to the PostgreSQL server CPE.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.testcontainers/testcontainers-postgresql@.*$</packageUrl>
+    <cpe>cpe:/a:postgresql:postgresql</cpe>
+  </suppress>
+  <suppress>
+    <notes>D-05 (b) false positive: angus-activation matched to the angus_mail CPE; resolved angus-mail 2.0.5 is not affected by CVE-2025-7962.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.eclipse\.angus/angus-activation@.*$</packageUrl>
+    <cpe>cpe:/a:eclipse:angus_mail</cpe>
+  </suppress>
+  <suppress>
+    <notes>D-05 (c) accepted as Medium: shaded HttpComponents in the test-scope docker-java transport, which only talks to the local Docker daemon; no fixed release exists.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.apache\.httpcomponents\.(client5/httpclient5|core5/httpcore5(-h2)?)@.*$</packageUrl>
+    <vulnerabilityName>CVE-2026-71290</vulnerabilityName>
+    <vulnerabilityName>CVE-2026-64607</vulnerabilityName>
+    <vulnerabilityName>CVE-2026-54399</vulnerabilityName>
+    <vulnerabilityName>CVE-2026-54428</vulnerabilityName>
+  </suppress>
+  <suppress>
+    <notes>D-05 non-blocking false positive: hibernate-validator matched to the validator.nu (Nu Html Checker) CPE.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.hibernate\.validator/hibernate-validator@.*$</packageUrl>
+    <cpe>cpe:/a:validator:validator</cpe>
+  </suppress>
+</suppressions>
