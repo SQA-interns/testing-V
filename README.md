@@ -85,12 +85,27 @@ The previous project's dependencies stay in `tech-stack.md` (e.g. the Excel libr
 
 **Rules during the run**
 
-- Answer tooling and environment questions as usual.
-- Expected in every condition: in phase 0 the dependency scan reports CVE-2025-7962 (High) on `angus-activation`, and the agent asks to treat it as a false positive. Approve it, as in the v002 run: the CVE affects Angus Mail below 2.0.4, and the shipped `angus-mail` is 2.0.5.
+- Answer tooling and environment questions as usual, using the standard answers below so that everyone answers the same way.
+- Type at least one line of each answer yourself; the agent asks you to confirm an answer that is only pasted text.
 - To any question about **business behaviour** (what the system should do), answer only: *"No further information is available. Choose an option and record it as a decision."* Do not add anything.
 - Log every intervention, as the template already requires.
 - Do not change the input files during the run.
 - Keep the package folder outside the run folder and never mention the oracle to the agent.
+
+## Standard answers to expected tooling questions
+
+These questions came up in the first run (tanej, C2) and come from the fixed template and stack, so they will come up in every condition. Decision numbers (D-nn) may differ in your run; recognise them by their subject.
+
+| Phase | The agent asks about | Answer |
+|---|---|---|
+| 0 | The `.env` presence check (or a later command that reads `.env`) was refused by the permission classifier | Switch the chat's permission mode from Auto to the default ask-first mode, approve the command when prompted, and answer "allow the command". Switch back to Auto after phase 0. Simpler: start phase 0 in the ask-first mode. |
+| 0 | Host JDK or Node/npm differs from the pins (Temurin 21.0.10+7, Node 24.13.0, npm 11.6.2) | Approve the installed versions; if one causes a real failure later, the agent raises a new decision. |
+| 0 | `vitest` 3.2.7 has Critical vulnerabilities (via `tinypool`) | Move `vitest` and `@vitest/coverage-v8` to 5.0.3. |
+| 0 | `jscpd` 4.3.0 has High vulnerabilities | Move `jscpd` to 5.4.0. |
+| 0 | CVE-2025-7962 (High) on `angus-activation` | Treat it as a false positive (Low): the CVE is in the mail library before 2.0.4, and the shipped `angus-mail` is 2.0.5. Suppress it for that one artifact only. |
+| 6 | Semgrep "use of basic authentication" (maps to High) on the organizer endpoint | Lower it to Low and accept it: HTTP Basic is required by `architecture.md` and `security-requirements.md`, credentials only over HTTPS or localhost, password only as a BCrypt hash, failed logins rate limited. |
+
+Decisions the agent takes on its own (for example, the OSS Index analyser disabled for lack of credentials, or a scanner false positive rated Medium) need no answer.
 
 ## 3. After each run
 
