@@ -1,0 +1,6 @@
+OK      registration-api.openapi.yaml
+    columns: registration.id:bigint, registration.registration_number:character varying, registration.first_name:character varying, registration.last_name:character varying, registration.email:character varying, registration.payer_type:character varying, registration.company_name:character varying, registration.company_address:character varying, registration.company_vat_id:character varying, registration.workshop:character varying, registration.net_fee:numeric, registration.vat:numeric, registration.gross_fee:numeric, registration.created_at:timestamp with time zone
+OK      registration-storage.sql
+OK      confirmation-email.yaml
+OK      registration-form.yaml
+0 contract(s) failed

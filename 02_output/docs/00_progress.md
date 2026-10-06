@@ -5,9 +5,9 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 2 (design), started 2026-10-06T19:10:53Z
-- Last gate result: phase 1 gate passed 2026-10-06T19:10:53Z (10 AC for US-001; gaps recorded as D-20 to D-25, pending review)
-- Next step: write `docs/02_specification.md` (declare backend architecture for AR-02) and `docs/02_contracts/` (OpenAPI, SQL schema, e-mail, UI); validate contracts with a parser
+- Current phase: 3 (test design), started 2026-10-06T19:16:44Z
+- Last gate result: phase 2 gate passed 2026-10-06T19:16:44Z (traceability complete; 4 contracts valid, `out/logs/02_design/contract-validation.log`)
+- Next step: write acceptance tests (backend, through the HTTP API with Testcontainers PostgreSQL and Mailpit) and end-to-end tests (Playwright against the form) for AC-001-01 to AC-001-10 and ArchUnit rules for AR-02/AR-03; no production code; then the freeze commit
 - Waiting for the human on: nothing
 
 ## Done in phase 0
@@ -29,6 +29,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Phase 0 gate passed 2026-10-06T19:09:11Z
 
 - Phase 1: `docs/01_acceptance-criteria.md` (AC-001-01 to AC-001-10); decisions D-20 to D-25 pending review; gate passed 2026-10-06T19:10:53Z
+
+- Phase 2: `docs/02_specification.md`, contracts (OpenAPI, SQL, e-mail, form) and `out/tools/validate_contracts.py`; decisions D-26 to D-29 pending review; gate passed 2026-10-06T19:16:44Z
 
 ## Interruptions
 
