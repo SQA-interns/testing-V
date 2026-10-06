@@ -1,0 +1,5 @@
+semgrep: A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+gitleaks: v8.30.1
+cloc: 1.98
+mailpit: /mailpit v1.31.1 compiled with go1.27.1 on linux/amd64
+node image: v24.13.0 11.6.2 
