@@ -1,0 +1,12 @@
+# F-01 (Low): Spring Boot's auto-generated development password ("Using generated security
+# password"), printed by the bootstrap application during the phase 3 acceptance runs, before the
+# organizer security existed. Random per test process, already gone; not a project secret and not
+# an .env value. History is not rewritten (working-rules.md), so these exact hits are ignored.
+ec0727538cfab4752e5d8897d2c4a6a185dd948e:02_output/logs/03_backend-acceptance-diagnostic.log:generic-api-key:110
+ec0727538cfab4752e5d8897d2c4a6a185dd948e:02_output/logs/03_backend-acceptance-diagnostic.log:generic-api-key:342
+ec0727538cfab4752e5d8897d2c4a6a185dd948e:02_output/logs/03_backend-acceptance-first.log:generic-api-key:111
+ec0727538cfab4752e5d8897d2c4a6a185dd948e:02_output/logs/03_backend-acceptance-first.log:generic-api-key:357
+logs/03_backend-acceptance-diagnostic.log:generic-api-key:110
+logs/03_backend-acceptance-diagnostic.log:generic-api-key:342
+logs/03_backend-acceptance-first.log:generic-api-key:111
+logs/03_backend-acceptance-first.log:generic-api-key:357
