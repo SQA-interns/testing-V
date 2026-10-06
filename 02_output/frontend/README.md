@@ -50,10 +50,10 @@ npm audit                     # dependency scan
 
 ## Troubleshooting
 
-| Symptom | Cause and fix |
-|---|---|
-| Page shows "Registration is not possible right now" on load | the backend is not reachable through `/api`; start it (dev server proxies to port 8080) |
-| `npm run e2e` fails with `ECONNREFUSED 127.0.0.1:3000` | start the local stack first |
-| Playwright cannot find a browser | `npx playwright install chromium` |
-| `npm ci` fails on the lock file | use the npm version above; do not regenerate `package-lock.json` with another major version |
-| Stryker reports a very low mutation score | known runner issue with vitest 5 (F-11); the score is not valid |
+| Symptom                                                     | Cause and fix                                                                               |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Page shows "Registration is not possible right now" on load | the backend is not reachable through `/api`; start it (dev server proxies to port 8080)     |
+| `npm run e2e` fails with `ECONNREFUSED 127.0.0.1:3000`      | start the local stack first                                                                 |
+| Playwright cannot find a browser                            | `npx playwright install chromium`                                                           |
+| `npm ci` fails on the lock file                             | use the npm version above; do not regenerate `package-lock.json` with another major version |
+| Stryker reports a very low mutation score                   | known runner issue with vitest 5 (F-11); the score is not valid                             |
