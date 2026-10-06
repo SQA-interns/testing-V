@@ -1,0 +1,405 @@
+ Image confreg-frontend Building 
+ Image confreg-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [internal] booting buildkit
+#2 pulling image moby/buildkit:buildx-stable-1
+#2 pulling image moby/buildkit:buildx-stable-1 20.4s done
+#2 creating container buildx_buildkit_default
+#2 creating container buildx_buildkit_default 3.4s done
+#2 DONE 24.9s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile:
+#3 transferring dockerfile: 683B 0.0s done
+#3 DONE 0.2s
+
+#4 [backend internal] load build definition from Dockerfile
+#4 transferring dockerfile: 932B 0.0s done
+#4 DONE 0.2s
+
+#5 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#5 DONE 1.9s
+
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#6 DONE 2.0s
+
+#7 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#7 DONE 2.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context:
+#8 transferring context: 59B 0.0s done
+#8 DONE 0.1s
+
+#9 [backend internal] load build context
+#9 DONE 0.0s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 resolve docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9 0.1s done
+#10 DONE 0.1s
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 ...
+
+#12 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#12 DONE 2.3s
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.1s done
+#11 ...
+
+#13 [frontend internal] load .dockerignore
+#13 transferring context: 119B 0.0s done
+#13 DONE 0.2s
+
+#9 [backend internal] load build context
+#9 transferring context: 106.74kB 0.2s done
+#9 DONE 0.3s
+
+#14 [frontend internal] load build context
+#14 DONE 0.0s
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.1s done
+#15 ...
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 DONE 0.7s
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 ...
+
+#14 [frontend internal] load build context
+#14 transferring context: 266.15kB 0.1s done
+#14 DONE 0.6s
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 ...
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:07c1bb0b54884876ce179c9ad3683a68d7689b97597df8b1b2dfeeaaf5e7b60e 2.28kB / 2.28kB 0.2s done
+#10 sha256:5b440bedad35bcaf95f5c16474e5bcdc67677eca1377bc3b6bd9a64aa13552d0 130B / 130B 0.2s done
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 23.07MB / 158.12MB 5.6s
+#10 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 16.78MB / 21.32MB 5.6s
+#10 sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 3.86MB / 3.86MB 2.7s done
+#10 extracting sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 0.7s done
+#10 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 18.87MB / 21.32MB 6.0s
+#10 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 21.32MB / 21.32MB 6.6s done
+#10 extracting sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2
+#10 ...
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 sha256:8d660e9b10b3e184cb399d48eb01ecf741674c77553a9a4c3490696169041c5d 446B / 446B 0.2s done
+#15 sha256:14b92b0c10a5cc759604614d048be3aad4c013e9b574a6bff7f6fa78ac4e5860 0B / 1.26MB 0.2s
+#15 sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 0B / 50.98MB 0.2s
+#15 sha256:14b92b0c10a5cc759604614d048be3aad4c013e9b574a6bff7f6fa78ac4e5860 1.26MB / 1.26MB 0.6s done
+#15 sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 0B / 3.86MB 0.2s
+#15 sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 3.15MB / 50.98MB 1.4s
+#15 sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 1.05MB / 3.86MB 0.9s
+#15 sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 2.10MB / 3.86MB 1.2s
+#15 sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 6.29MB / 50.98MB 2.3s
+#15 sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 3.15MB / 3.86MB 1.7s
+#15 sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 3.86MB / 3.86MB 1.8s done
+#15 extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153
+#15 sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 9.44MB / 50.98MB 2.9s
+#15 extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 0.5s done
+#15 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.1s done
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 0B / 20.34MB 0.5s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 1.05MB / 20.34MB 0.6s
+#16 ...
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 ...
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 sha256:48e51247e7df3167f00ff9972116a308eb551b96eac8382fbf88e82d5866971c 2.28kB / 2.28kB 0.3s done
+#11 sha256:7659027a798a9c8fca5bfcbae2d24bd6b7ec65dfe5285d4b7c30c75ca0965299 128B / 128B 0.3s done
+#11 sha256:775c53a23a895a8fdcb2534de50a64b420d676e982f81a1e72e88f6b283280fe 16.84MB / 16.84MB 5.9s done
+#11 sha256:83cc7558c41737fe273044d032b589323a9acd96790bbfd6cf2792647fb88e3b 24.12MB / 53.17MB 7.2s
+#11 extracting sha256:775c53a23a895a8fdcb2534de50a64b420d676e982f81a1e72e88f6b283280fe 2.3s done
+#11 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 2.10MB / 20.34MB 1.1s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 3.15MB / 20.34MB 1.4s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 4.19MB / 20.34MB 1.7s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 5.24MB / 20.34MB 1.8s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 6.29MB / 20.34MB 2.1s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 7.34MB / 20.34MB 2.4s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 8.39MB / 20.34MB 2.7s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 9.44MB / 20.34MB 3.0s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 10.49MB / 20.34MB 3.3s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 11.53MB / 20.34MB 3.6s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 12.58MB / 20.34MB 3.8s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 13.63MB / 20.34MB 4.2s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 14.68MB / 20.34MB 4.7s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 15.73MB / 20.34MB 5.0s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 16.78MB / 20.34MB 5.3s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 17.83MB / 20.34MB 5.7s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 18.87MB / 20.34MB 6.2s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 19.92MB / 20.34MB 6.8s
+#16 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 20.34MB / 20.34MB 6.9s done
+#16 sha256:b335b7ac3a400afa780d0d89e0b778ee19dc3e3df95bed4b274a763af2264fd7 0B / 1.40kB 0.2s
+#16 sha256:b335b7ac3a400afa780d0d89e0b778ee19dc3e3df95bed4b274a763af2264fd7 1.40kB / 1.40kB 0.2s done
+#16 sha256:703c5424632fab32aa3327bebe6e5202ac53a93740062efb830f8188e580b9db 0B / 1.21kB 0.2s
+#16 sha256:703c5424632fab32aa3327bebe6e5202ac53a93740062efb830f8188e580b9db 1.21kB / 1.21kB 0.2s done
+#16 sha256:22e5a8a110ec69c6af30325ccfe8bb0bfb94e5783117808061bae5115e1e3dcb 0B / 963B 0.2s
+#16 sha256:22e5a8a110ec69c6af30325ccfe8bb0bfb94e5783117808061bae5115e1e3dcb 963B / 963B 0.3s done
+#16 ...
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 68.16MB / 158.12MB 17.0s
+#10 extracting sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 2.6s done
+#10 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 sha256:3d85d110b167fae23d8eb3a7060cd079682b682b04d295fc7bbdf454c9e722c8 0B / 626B 0.2s
+#16 sha256:3d85d110b167fae23d8eb3a7060cd079682b682b04d295fc7bbdf454c9e722c8 626B / 626B 0.3s done
+#16 sha256:6b4dfb2e8f8a72d7ae1380b667f50faccdc19147869b2afa09aeddfdea59ce64 0B / 403B 0.2s
+#16 sha256:6b4dfb2e8f8a72d7ae1380b667f50faccdc19147869b2afa09aeddfdea59ce64 403B / 403B 0.2s done
+#16 sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 0B / 1.88MB 0.2s
+#16 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 0B / 3.85MB 0.2s
+#16 sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 1.05MB / 1.88MB 0.8s
+#16 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 1.05MB / 3.85MB 0.8s
+#16 sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 1.88MB / 1.88MB 1.3s done
+#16 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 2.10MB / 3.85MB 1.1s
+#16 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 3.15MB / 3.85MB 1.2s
+#16 sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 3.85MB / 3.85MB 1.3s done
+#16 extracting sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5
+#16 extracting sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 0.6s done
+#16 extracting sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751
+#16 ...
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 50.98MB / 50.98MB 11.9s done
+#15 extracting sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9
+#15 ...
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 90.18MB / 158.12MB 20.3s
+#10 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 extracting sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 0.6s done
+#16 extracting sha256:3d85d110b167fae23d8eb3a7060cd079682b682b04d295fc7bbdf454c9e722c8 0.0s done
+#16 DONE 20.6s
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 sha256:83cc7558c41737fe273044d032b589323a9acd96790bbfd6cf2792647fb88e3b 53.17MB / 53.17MB 15.0s done
+#11 extracting sha256:83cc7558c41737fe273044d032b589323a9acd96790bbfd6cf2792647fb88e3b
+#11 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 extracting sha256:22e5a8a110ec69c6af30325ccfe8bb0bfb94e5783117808061bae5115e1e3dcb 0.0s done
+#16 extracting sha256:6b4dfb2e8f8a72d7ae1380b667f50faccdc19147869b2afa09aeddfdea59ce64 0.1s done
+#16 DONE 20.7s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 ...
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 extracting sha256:83cc7558c41737fe273044d032b589323a9acd96790bbfd6cf2792647fb88e3b 2.7s done
+#11 DONE 21.2s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 ...
+
+#11 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 extracting sha256:7659027a798a9c8fca5bfcbae2d24bd6b7ec65dfe5285d4b7c30c75ca0965299 0.1s done
+#11 extracting sha256:48e51247e7df3167f00ff9972116a308eb551b96eac8382fbf88e82d5866971c 0.1s done
+#11 DONE 21.3s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 99.61MB / 158.12MB 21.2s
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 108.00MB / 158.12MB 22.1s
+#10 ...
+
+#16 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#16 extracting sha256:703c5424632fab32aa3327bebe6e5202ac53a93740062efb830f8188e580b9db 0.1s done
+#16 extracting sha256:b335b7ac3a400afa780d0d89e0b778ee19dc3e3df95bed4b274a763af2264fd7 0.1s done
+#16 extracting sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 1.9s done
+#16 DONE 22.7s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 116.39MB / 158.12MB 22.6s
+#10 ...
+
+#17 [backend stage-1 2/4] RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app app
+#17 DONE 2.8s
+
+#18 [frontend stage-1 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#18 DONE 1.0s
+
+#19 [backend stage-1 3/4] WORKDIR /app
+#19 DONE 0.2s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 124.78MB / 158.12MB 23.5s
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 133.17MB / 158.12MB 24.3s
+#10 ...
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 extracting sha256:4ef00bbbc75186b55c2be094a1c5ac03cbfac8897f1f2ed86107bf908a95fda9 5.9s done
+#15 DONE 24.9s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 141.56MB / 158.12MB 24.9s
+#10 ...
+
+#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#15 extracting sha256:14b92b0c10a5cc759604614d048be3aad4c013e9b574a6bff7f6fa78ac4e5860 0.2s done
+#15 extracting sha256:8d660e9b10b3e184cb399d48eb01ecf741674c77553a9a4c3490696169041c5d 0.0s done
+#15 DONE 25.2s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 ...
+
+#20 [frontend build 2/7] WORKDIR /build
+#20 DONE 0.2s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 ...
+
+#21 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
+#21 DONE 0.2s
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 150.99MB / 158.12MB 25.5s
+#10 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 158.12MB / 158.12MB 26.2s done
+#10 extracting sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d
+#10 extracting sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 3.9s done
+#10 DONE 30.8s
+
+#22 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#22 ...
+
+#10 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#10 extracting sha256:5b440bedad35bcaf95f5c16474e5bcdc67677eca1377bc3b6bd9a64aa13552d0 0.0s done
+#10 extracting sha256:07c1bb0b54884876ce179c9ad3683a68d7689b97597df8b1b2dfeeaaf5e7b60e 0.0s done
+#10 DONE 30.9s
+
+#23 [backend build 2/7] WORKDIR /build
+#23 DONE 1.2s
+
+#22 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#22 ...
+
+#24 [backend build 3/7] COPY mvnw pom.xml spotbugs-exclude.xml dependency-check-suppressions.xml ./
+#24 DONE 0.2s
+
+#22 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#22 ...
+
+#25 [backend build 4/7] COPY .mvn .mvn
+#25 DONE 0.1s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#22 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#22 8.202 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#22 28.93 npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#22 36.90 
+#22 36.90 added 432 packages in 36s
+#22 36.92 npm notice
+#22 36.92 npm notice New minor version of npm available! 11.6.2 -> 11.21.0
+#22 36.92 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.21.0
+#22 36.92 npm notice To update run: npm install -g npm@11.21.0
+#22 36.92 npm notice
+#22 DONE 38.6s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#27 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
+#27 DONE 0.7s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#28 [frontend build 6/7] COPY src src
+#28 DONE 0.1s
+
+#29 [frontend build 7/7] RUN npx vite build
+#29 2.354 vite v6.4.3 building for production...
+#29 2.603 transforming...
+#29 8.396 ✓ 30 modules transformed.
+#29 8.868 rendering chunks...
+#29 8.907 computing gzip size...
+#29 8.930 dist/index.html                   0.41 kB │ gzip:  0.27 kB
+#29 8.930 dist/assets/index-By__-kcE.css    1.34 kB │ gzip:  0.61 kB
+#29 8.930 dist/assets/index-Yx03Qczi.js   230.62 kB │ gzip: 71.58 kB
+#29 8.933 ✓ built in 6.49s
+#29 DONE 9.3s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#30 [frontend stage-1 3/4] COPY --from=build /build/dist /usr/share/nginx/html
+#30 DONE 0.1s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#31 [frontend stage-1 4/4] RUN mkdir -p /tmp/nginx && chown -R nginx:nginx /tmp/nginx /var/cache/nginx
+#31 DONE 0.3s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#32 [frontend] exporting to oci image format
+#32 exporting layers
+#32 exporting layers 0.3s done
+#32 exporting manifest sha256:6f3b7409b6558c1aa07b1cca8ff586be40ad66ec2cd1f7328a9f96298d4a10a6 0.0s done
+#32 exporting config sha256:a52e7d47e4a0215a87558bfcd4a0a50db52b6a1443300064f354e0cde2379673 0.0s done
+#32 sending tarball
+#32 sending tarball 3.1s done
+#32 DONE 3.5s
+
+#33 importing to docker
+#33 DONE 0.0s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 ...
+
+#34 [frontend] resolving provenance for metadata file
+#34 DONE 0.1s
+
+#26 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#26 DONE 108.4s
+
+#35 [backend build 6/7] COPY src/main src/main
+#35 DONE 0.4s
+
+#36 [backend build 7/7] RUN ./mvnw -B -q package -DskipTests && cp target/registration-backend-*.jar /build/app.jar
+#36 DONE 13.4s
+
+#37 [backend stage-1 4/4] COPY --from=build --chown=app:app /build/app.jar app.jar
+#37 DONE 0.4s
+
+#38 [backend] exporting to oci image format
+#38 exporting layers
+#38 exporting layers 4.4s done
+#38 exporting manifest sha256:b4f09c9260d222aac2780026436899af40cba3dedfcc5f3930adccd42bd4857a 0.0s done
+#38 exporting config sha256:8cd40549df168b0e85c08c178189d41b48392329c97152f6a4e5522aa8f8b728 0.0s done
+#38 sending tarball
+#38 ...
+
+#39 importing to docker
+#39 DONE 0.0s
+
+#38 [backend] exporting to oci image format
+#38 sending tarball 13.6s done
+#38 DONE 18.1s
+
+#40 [backend] resolving provenance for metadata file
+#40 DONE 0.0s
+ Image confreg-backend Built 
+ Image confreg-frontend Built 

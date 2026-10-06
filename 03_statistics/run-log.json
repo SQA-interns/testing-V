@@ -169,6 +169,18 @@
       "type": "non-blocking",
       "start": "2026-10-06T14:31:28Z",
       "end": null
+    },
+    {
+      "id": "D-17",
+      "type": "non-blocking",
+      "start": "2026-10-06T15:08:00Z",
+      "end": "2026-10-06T15:08:00Z"
+    },
+    {
+      "id": "D-18",
+      "type": "blocking",
+      "start": "2026-10-06T15:08:00Z",
+      "end": null
     }
   ],
   "humanInterventions": [
@@ -181,6 +193,11 @@
       "start": "2026-10-06T14:19:28Z",
       "end": "2026-10-06T14:24:23Z",
       "reason": "Phase 0 preflight: Critical/High dependency-scan results in test/dev tooling (D-05)"
+    },
+    {
+      "start": "2026-10-06T15:08:00Z",
+      "end": null,
+      "reason": "Phase 4: frozen acceptance test AC-001-12 appears wrong (D-18)"
     }
   ],
   "codeMetrics": {

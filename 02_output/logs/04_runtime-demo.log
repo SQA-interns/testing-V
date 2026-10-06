@@ -1,0 +1,30 @@
+# DoD-P01 runtime demonstration 2026-10-06T15:07:01Z against the docker compose stack
+backend: Up About a minute (healthy)
+frontend: Up 59 seconds (healthy)
+mailpit: Up About a minute (healthy)
+postgres: Up About a minute (healthy)
+## health
+{"status":"UP"} HTTP 200
+## POST /api/registrations (fixed API, UTF-8 body file)
+{"registrationNumber":"CR-000002","firstName":"Žiga","lastName":"Čebašek","email":"demo-1791299220@example.org","payerType":"company","companyName":"Šola d.o.o.","companyAddress":"Trg 1, Ljubljana","companyVatId":"SI12345678","workshop":"W1","netFee":300.00,"vat":66.00,"grossFee":366.00,"student":false,"registeredAt":"2026-10-06T15:07:02.227055815Z"}
+HTTP 201
+## GET /api/registrations/CR-000002 as organizer (credentials from .env, not shown)
+{"registrationNumber":"CR-000002","firstName":"Žiga","lastName":"Čebašek","email":"demo-1791299220@example.org","payerType":"company","companyName":"Šola d.o.o.","companyAddress":"Trg 1, Ljubljana","companyVatId":"SI12345678","workshop":"W1","netFee":300.00,"vat":66.00,"grossFee":366.00,"student":false,"registeredAt":"2026-10-06T15:07:02.227056Z"}
+HTTP 200
+## same without credentials
+HTTP 401
+## frontend
+GET / HTTP 200
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+## backend security headers
+X-Content-Type-Options: nosniff
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+Referrer-Policy: no-referrer
+## Mailpit message
+"Subject":"Registration confirmation CR-000002"
+## e2e (Playwright, Chromium) against the stack: see logs/04_e2e-run.log (2 passed)

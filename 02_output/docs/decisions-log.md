@@ -194,3 +194,26 @@
   3. One shared bucket per client for all public endpoints (price refreshes on the form could use up the registration allowance).
 - Human response: none
 - Resolution: pending review (option 1)
+
+## D-17: JDK image for the backend container build stage
+- Timestamp: 2026-10-06T15:08:00Z
+- Phase: 4
+- Type: non-blocking
+- Trigger: `tech-stack.md` lists only the runtime image `eclipse-temurin:21.0.10_7-jre-alpine`; `docker compose up` (environments.md "local") must build the backend jar inside Docker, which needs a JDK. Rule in `tech-stack.md`: a tool not listed may be added with an exact version and a non-blocking decision.
+- Options:
+  1. (proposed default) Add build-only image `eclipse-temurin:21.0.10_7-jdk-alpine` (same Temurin version as the pinned JRE; GPL-2.0-with-classpath-exception, not shipped: only the JRE stage is the runtime image) as the first stage of `backend/Dockerfile`; scanned in phase 6 like any other entry.
+  2. Build the jar on the host first and copy it into the JRE image (compose would depend on a manual step).
+- Human response: none
+- Resolution: option 1
+
+## D-18: Frozen test AC-001-12 counts unrelated e-mails for the input "@example.org"
+- Timestamp: 2026-10-06T15:08:00Z
+- Phase: 4
+- Type: blocking
+- Trigger: First phase 4 run (`logs/04_backend-test-run1.log`): 43 of 44 backend acceptance tests pass; `ValidationAcceptanceTest.ac001_12_invalidEmailAddressIsRejected` fails at line 30 with "expected: 0 but was: 30". The API answers 400 for `"@example.org"` and stores nothing (the assertions before line 30 pass). Line 30 then counts mails "to" that address via the Mailpit search `to:"@example.org"`, which matches by substring, so it counts every confirmation that other tests correctly sent to `p-<uuid>@example.org`. No implementation can make the count 0 while the other acceptance tests pass; the test is frozen (`docs/03_acceptance-manifest.sha256`).
+- Options:
+  1. (proposed default) Change only the test input `"@example.org"` to `"@missing-local-part.invalid"` (still an address without local part, and no other test sends to that domain), then re-hash `backend/.../ValidationAcceptanceTest.java` in the manifest. The human updates the manifest (or authorizes the agent to do so as a recorded human action).
+  2. In `ValidationAcceptanceTest.assertRejected`, skip the mail check for addresses without a local part.
+  3. Leave the test unchanged and accept it as a known failing frozen test (the phase 4 gate "All frozen acceptance tests pass" then fails).
+- Human response: none
+- Resolution: pending
