@@ -1,0 +1,146 @@
+
+Running 4 tests using 1 worker
+
+  x  1 [chromium] › e2e\registration.e2e.spec.ts:19:1 › AC-001-05 AC-001-03 AC-001-06 private participant registers through the form (12.8s)
+  x  2 [chromium] › e2e\registration.e2e.spec.ts:54:1 › AC-001-04 company payer details are entered and stored for the invoice (5.8s)
+  x  3 [chromium] › e2e\registration.e2e.spec.ts:81:1 › AC-001-07 workshop is chosen from the configured list and stored (5.7s)
+  x  4 [chromium] › e2e\registration.e2e.spec.ts:110:1 › AC-001-08 invalid e-mail is reported and nothing is registered (5.7s)
+
+
+  1) [chromium] › e2e\registration.e2e.spec.ts:19:1 › AC-001-05 AC-001-03 AC-001-06 private participant registers through the form 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('first-name')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('first-name') with timeout 5000ms
+      - waiting for getByTestId('first-name')
+
+
+      22 | }) => {
+      23 |   const email = uniqueEmail("private");
+    > 24 |   await expect(page.getByTestId("first-name")).toBeVisible();
+         |                                                ^
+      25 |   await fillPerson(page, email);
+      26 |   await page.getByTestId("payer-type-private").check();
+      27 |   await page.getByTestId("submit").click();
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C1\02_output\frontend\e2e\registration.e2e.spec.ts:24:48
+
+    Error Context: test-results\registration.e2e-AC-001-05-29b7d--registers-through-the-form-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration.e2e-AC-001-05-29b7d--registers-through-the-form-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration.e2e-AC-001-05-29b7d--registers-through-the-form-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\registration.e2e.spec.ts:54:1 › AC-001-04 company payer details are entered and stored for the invoice 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('first-name')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('first-name') with timeout 5000ms
+      - waiting for getByTestId('first-name')
+
+
+      58 |   const email = uniqueEmail("company");
+      59 |   await expect(page.getByTestId("company-name")).toBeHidden();
+    > 60 |   await expect(page.getByTestId("first-name")).toBeVisible();
+         |                                                ^
+      61 |   await fillPerson(page, email);
+      62 |   await page.getByTestId("payer-type-company").check();
+      63 |   await expect(page.getByTestId("company-name")).toBeVisible();
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C1\02_output\frontend\e2e\registration.e2e.spec.ts:60:48
+
+    Error Context: test-results\registration.e2e-AC-001-04-37825--and-stored-for-the-invoice-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration.e2e-AC-001-04-37825--and-stored-for-the-invoice-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration.e2e-AC-001-04-37825--and-stored-for-the-invoice-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › e2e\registration.e2e.spec.ts:81:1 › AC-001-07 workshop is chosen from the configured list and stored 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('workshop')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('workshop') with timeout 5000ms
+      - waiting for getByTestId('workshop')
+
+
+      84 | }) => {
+      85 |   const select = page.getByTestId("workshop");
+    > 86 |   await expect(select).toBeVisible();
+         |                        ^
+      87 |   const workshops = (await (
+      88 |     await request.get(`${apiUrl}/api/workshops`)
+      89 |   ).json()) as {
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C1\02_output\frontend\e2e\registration.e2e.spec.ts:86:24
+
+    Error Context: test-results\registration.e2e-AC-001-07-10537--configured-list-and-stored-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration.e2e-AC-001-07-10537--configured-list-and-stored-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration.e2e-AC-001-07-10537--configured-list-and-stored-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › e2e\registration.e2e.spec.ts:110:1 › AC-001-08 invalid e-mail is reported and nothing is registered 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('first-name')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('first-name') with timeout 5000ms
+      - waiting for getByTestId('first-name')
+
+
+      113 | }) => {
+      114 |   const email = "not-an-address";
+    > 115 |   await expect(page.getByTestId("first-name")).toBeVisible();
+          |                                                ^
+      116 |   await fillPerson(page, email);
+      117 |   await page.getByTestId("submit").click();
+      118 |
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C1\02_output\frontend\e2e\registration.e2e.spec.ts:115:48
+
+    Error Context: test-results\registration.e2e-AC-001-08-c07ee-d-and-nothing-is-registered-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration.e2e-AC-001-08-c07ee-d-and-nothing-is-registered-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration.e2e-AC-001-08-c07ee-d-and-nothing-is-registered-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › e2e\registration.e2e.spec.ts:19:1 › AC-001-05 AC-001-03 AC-001-06 private participant registers through the form 
+    [chromium] › e2e\registration.e2e.spec.ts:54:1 › AC-001-04 company payer details are entered and stored for the invoice 
+    [chromium] › e2e\registration.e2e.spec.ts:81:1 › AC-001-07 workshop is chosen from the configured list and stored 
+    [chromium] › e2e\registration.e2e.spec.ts:110:1 › AC-001-08 invalid e-mail is reported and nothing is registered 
