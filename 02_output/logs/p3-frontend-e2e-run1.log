@@ -1,0 +1,129 @@
+
+Running 4 tests using 1 worker
+
+  x  1 [chromium] › e2e\registration.spec.ts:25:1 › AC-001-06 AC-001-03 private registration through the form is confirmed by e-mail (30.1s)
+  x  2 [chromium] › e2e\registration.spec.ts:41:1 › AC-001-11 company payer must give company data and is registered with it (30.1s)
+  x  3 [chromium] › e2e\registration.spec.ts:67:1 › AC-001-12 company fields are hidden for a private payer (30.1s)
+  x  4 [chromium] › e2e\registration.spec.ts:78:1 › AC-001-14 workshop chosen in the form is registered (30.1s)
+
+
+  1) [chromium] › e2e\registration.spec.ts:25:1 › AC-001-06 AC-001-03 private registration through the form is confirmed by e-mail 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('First name')
+
+
+       5 |
+       6 | async function fillParticipant(page: Page, email: string): Promise<void> {
+    >  7 |   await page.getByLabel("First name").fill("Ana");
+         |                                       ^
+       8 |   await page.getByLabel("Last name").fill("Kovač");
+       9 |   await page.getByLabel("E-mail").fill(email);
+      10 | }
+        at fillParticipant (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:7:39)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:31:9
+
+    Error Context: test-results\registration-AC-001-06-AC--53d3c-form-is-confirmed-by-e-mail-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration-AC-001-06-AC--53d3c-form-is-confirmed-by-e-mail-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration-AC-001-06-AC--53d3c-form-is-confirmed-by-e-mail-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\registration.spec.ts:41:1 › AC-001-11 company payer must give company data and is registered with it 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('First name')
+
+
+       5 |
+       6 | async function fillParticipant(page: Page, email: string): Promise<void> {
+    >  7 |   await page.getByLabel("First name").fill("Ana");
+         |                                       ^
+       8 |   await page.getByLabel("Last name").fill("Kovač");
+       9 |   await page.getByLabel("E-mail").fill(email);
+      10 | }
+        at fillParticipant (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:7:39)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:47:9
+
+    Error Context: test-results\registration-AC-001-11-com-106d2-a-and-is-registered-with-it-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration-AC-001-11-com-106d2-a-and-is-registered-with-it-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration-AC-001-11-com-106d2-a-and-is-registered-with-it-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › e2e\registration.spec.ts:67:1 › AC-001-12 company fields are hidden for a private payer 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.check: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Private person')
+
+
+      69 | }) => {
+      70 |   await page.goto("/");
+    > 71 |   await page.getByLabel("Private person").check();
+         |                                           ^
+      72 |
+      73 |   for (const label of ["Company name", "Company address", "VAT ID"]) {
+      74 |     await expect(page.getByLabel(label)).toHaveCount(0);
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:71:43
+
+    Error Context: test-results\registration-AC-001-12-com-4f484--hidden-for-a-private-payer-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration-AC-001-12-com-4f484--hidden-for-a-private-payer-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration-AC-001-12-com-4f484--hidden-for-a-private-payer-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › e2e\registration.spec.ts:78:1 › AC-001-14 workshop chosen in the form is registered 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('First name')
+
+
+       5 |
+       6 | async function fillParticipant(page: Page, email: string): Promise<void> {
+    >  7 |   await page.getByLabel("First name").fill("Ana");
+         |                                       ^
+       8 |   await page.getByLabel("Last name").fill("Kovač");
+       9 |   await page.getByLabel("E-mail").fill(email);
+      10 | }
+        at fillParticipant (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:7:39)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\frontend\e2e\registration.spec.ts:84:9
+
+    Error Context: test-results\registration-AC-001-14-wor-35a2c-n-in-the-form-is-registered-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\registration-AC-001-14-wor-35a2c-n-in-the-form-is-registered-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\registration-AC-001-14-wor-35a2c-n-in-the-form-is-registered-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › e2e\registration.spec.ts:25:1 › AC-001-06 AC-001-03 private registration through the form is confirmed by e-mail 
+    [chromium] › e2e\registration.spec.ts:41:1 › AC-001-11 company payer must give company data and is registered with it 
+    [chromium] › e2e\registration.spec.ts:67:1 › AC-001-12 company fields are hidden for a private payer 
+    [chromium] › e2e\registration.spec.ts:78:1 › AC-001-14 workshop chosen in the form is registered 

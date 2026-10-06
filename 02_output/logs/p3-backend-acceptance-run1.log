@@ -1,0 +1,1456 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to "-javaagent:C:\\Users\\sense\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=E:\\13 - Lab Projects\\03_Vasilka_Testing\\kyuhi\\confreg-C1\\02_output\\backend\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\src\main\resources
+[INFO] skip non existing resourceDirectory E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 9 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+20:10:48.124 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest]: ConfirmationEmailAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:10:48.415 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+20:10:48.580 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest]: ConfirmationEmailAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:10:48.581 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:10:48.584 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+20:10:48.671 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:10:48.674 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:10:49.295 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+20:10:49.899 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:10:50.504 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+20:10:50.506 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:10:50.534 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.1
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 40065 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+20:10:50.675 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling docker image: testcontainers/ryuk:0.14.0. Please be patient; this may take some time but only needs to be done once.
+20:10:51.958 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Starting to pull image
+20:10:51.984 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+20:10:52.804 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling image layers:  1 pending,  1 downloaded,  0 extracted, (1 MB/? MB)
+20:10:52.805 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling image layers:  0 pending,  2 downloaded,  0 extracted, (1 MB/2 MB)
+20:10:52.815 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling image layers:  0 pending,  2 downloaded,  1 extracted, (1 MB/2 MB)
+20:10:52.866 [docker-java-stream-1472201361] INFO tc.testcontainers/ryuk:0.14.0 -- Pulling image layers:  0 pending,  2 downloaded,  2 extracted, (1 MB/2 MB)
+20:10:52.872 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Image testcontainers/ryuk:0.14.0 pull took PT2.1963624S
+20:10:52.958 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+20:10:53.156 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 9e29089bca521573cd046d515cf2d4d51c084e2b3c6db4bd2a367f5b935e3dfb
+20:10:53.609 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.6505805S
+20:10:53.641 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:10:53.641 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:10:53.642 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+20:10:53.643 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+20:10:53.787 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: f7d4a5a310b921507181aaed97d7cd6d99388ead105d6d82e95c2448f0ff4a4f
+20:10:56.091 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT2.4476468S
+20:10:56.092 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:62968/test?loggerLevel=OFF)
+20:10:56.093 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+20:10:56.247 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: 0a142adca1b0cd7c07815b1e435f6ce57c30aa9140d221acf1f776551707e519
+20:10:56.683 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT0.5906813S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T20:10:57.137+02:00  INFO 30172 --- [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Starting ConfirmationEmailAcceptanceTest using Java 21.0.10 with PID 30172 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend)
+2026-10-06T20:10:57.147+02:00  INFO 30172 --- [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T20:10:58.209+02:00  INFO 30172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T20:10:58.249+02:00  INFO 30172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JPA repository interfaces.
+2026-10-06T20:10:59.525+02:00  INFO 30172 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T20:10:59.549+02:00  INFO 30172 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T20:10:59.551+02:00  INFO 30172 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T20:10:59.653+02:00  INFO 30172 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2474 ms
+2026-10-06T20:11:00.406+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T20:11:00.736+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f04ab10
+2026-10-06T20:11:00.738+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T20:11:00.782+02:00  INFO 30172 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:62968/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T20:11:00.861+02:00  INFO 30172 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T20:11:00.867+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.019s)
+2026-10-06T20:11:00.867+02:00  WARN 30172 --- [           main] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2026-10-06T20:11:00.896+02:00  INFO 30172 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T20:11:00.981+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T20:11:00.986+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T20:11:01.140+02:00  INFO 30172 --- [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T20:11:01.232+02:00  INFO 30172 --- [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-06T20:11:01.943+02:00  INFO 30172 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T20:11:02.090+02:00  INFO 30172 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:62968/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T20:11:02.719+02:00  INFO 30172 --- [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T20:11:02.730+02:00  INFO 30172 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T20:11:02.797+02:00  WARN 30172 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-06T20:11:03.451+02:00  WARN 30172 --- [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8065dad5-dd2d-459e-a32d-33e941bf08de
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-06T20:11:03.484+02:00  INFO 30172 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-06T20:11:03.779+02:00  INFO 30172 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T20:11:03.944+02:00  INFO 30172 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 59924 (http) with context path '/'
+2026-10-06T20:11:03.954+02:00  INFO 30172 --- [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Started ConfirmationEmailAcceptanceTest in 7.222 seconds (process running for 17.948)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\sense\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-06T20:11:04.947+02:00  INFO 30172 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T20:11:04.947+02:00  INFO 30172 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T20:11:04.949+02:00  INFO 30172 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 17.50 s <<< FAILURE! -- in si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac_001_03_companyRegistrationAlsoConfirmedToParticipant -- Time elapsed: 1.115 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac_001_03_companyRegistrationAlsoConfirmedToParticipant(ConfirmationEmailAcceptanceTest.java:36)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac_001_03_confirmationEmailSentToParticipantWithNumberAndFee -- Time elapsed: 0.036 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac_001_03_confirmationEmailSentToParticipantWithNumberAndFee(ConfirmationEmailAcceptanceTest.java:20)
+
+[INFO] Running si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T20:11:05.223+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.224+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T20:11:05.227+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.227+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.228+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+[ERROR] Tests run: 9, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.325 s <<< FAILURE! -- in si.confreg.registration.acceptance.FeeAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeOnLastInstantOfDeadlineDay -- Time elapsed: 0.038 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeOnLastInstantOfDeadlineDay(FeeAcceptanceTest.java:17)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_regularFeeWellAfterDeadline -- Time elapsed: 0.039 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_regularFeeWellAfterDeadline(FeeAcceptanceTest.java:51)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeWellBeforeDeadline -- Time elapsed: 0.039 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeWellBeforeDeadline(FeeAcceptanceTest.java:26)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_05_regularAmountsSplitIntoNetAndVat -- Time elapsed: 0.035 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_05_regularAmountsSplitIntoNetAndVat(FeeAcceptanceTest.java:76)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeAtStartOfDeadlineDayInConferenceZone -- Time elapsed: 0.034 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_earlyFeeAtStartOfDeadlineDayInConferenceZone(FeeAcceptanceTest.java:35)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_17_workshopDoesNotChangeFee -- Time elapsed: 0.031 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_17_workshopDoesNotChangeFee(FeeAcceptanceTest.java:87)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_deadlineIsInterpretedInConferenceZoneNotUtc -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_deadlineIsInterpretedInConferenceZoneNotUtc(FeeAcceptanceTest.java:62)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_regularFeeOnFirstInstantAfterDeadline -- Time elapsed: 0.027 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_regularFeeOnFirstInstantAfterDeadline(FeeAcceptanceTest.java:42)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_05_earlyAmountsSplitIntoNetAndVat -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_05_earlyAmountsSplitIntoNetAndVat(FeeAcceptanceTest.java:69)
+
+[INFO] Running si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+2026-10-06T20:11:05.550+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.InvoiceDataAcceptanceTest]: InvoiceDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.551+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+2026-10-06T20:11:05.552+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.InvoiceDataAcceptanceTest]: InvoiceDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.552+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.553+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+[ERROR] Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! -- in si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_invoiceDataNotAvailableWithoutOrganizerCredentials -- Time elapsed: 0.026 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_invoiceDataNotAvailableWithoutOrganizerCredentials(InvoiceDataAcceptanceTest.java:52)
+
+[ERROR] si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_privatePayerInvoiceDataAvailableToOrganizer -- Time elapsed: 0.026 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_privatePayerInvoiceDataAvailableToOrganizer(InvoiceDataAcceptanceTest.java:37)
+
+[ERROR] si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_companyPayerInvoiceDataAvailableToOrganizer -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.InvoiceDataAcceptanceTest.ac_001_04_companyPayerInvoiceDataAvailableToOrganizer(InvoiceDataAcceptanceTest.java:16)
+
+[INFO] Running si.confreg.registration.acceptance.MailFailureAcceptanceTest
+2026-10-06T20:11:05.642+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.MailFailureAcceptanceTest]: MailFailureAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.643+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.MailFailureAcceptanceTest
+2026-10-06T20:11:05.644+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.MailFailureAcceptanceTest]: MailFailureAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.645+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:05.646+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.MailFailureAcceptanceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T20:11:05.680+02:00  INFO 30172 --- [           main] s.c.r.a.MailFailureAcceptanceTest        : Starting MailFailureAcceptanceTest using Java 21.0.10 with PID 30172 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend)
+2026-10-06T20:11:05.681+02:00  INFO 30172 --- [           main] s.c.r.a.MailFailureAcceptanceTest        : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T20:11:05.885+02:00  INFO 30172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T20:11:05.891+02:00  INFO 30172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2026-10-06T20:11:06.024+02:00  INFO 30172 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T20:11:06.025+02:00  INFO 30172 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T20:11:06.026+02:00  INFO 30172 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T20:11:06.089+02:00  INFO 30172 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 406 ms
+2026-10-06T20:11:06.196+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-06T20:11:06.214+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@4bca73e7
+2026-10-06T20:11:06.214+02:00  INFO 30172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-06T20:11:06.216+02:00  INFO 30172 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:62968/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T20:11:06.246+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.008s)
+2026-10-06T20:11:06.246+02:00  WARN 30172 --- [           main] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2026-10-06T20:11:06.278+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T20:11:06.279+02:00  INFO 30172 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T20:11:06.299+02:00  INFO 30172 --- [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T20:11:06.328+02:00  INFO 30172 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T20:11:06.338+02:00  INFO 30172 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:62968/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T20:11:06.369+02:00  INFO 30172 --- [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T20:11:06.370+02:00  INFO 30172 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T20:11:06.388+02:00  WARN 30172 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-06T20:11:06.536+02:00  WARN 30172 --- [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9467cbc2-9c9d-4fd9-a3a0-7830f49ae877
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-06T20:11:06.546+02:00  INFO 30172 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-06T20:11:06.569+02:00  INFO 30172 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T20:11:06.601+02:00  INFO 30172 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 59938 (http) with context path '/'
+2026-10-06T20:11:06.607+02:00  INFO 30172 --- [           main] s.c.r.a.MailFailureAcceptanceTest        : Started MailFailureAcceptanceTest in 0.954 seconds (process running for 20.6)
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.018 s <<< FAILURE! -- in si.confreg.registration.acceptance.MailFailureAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.MailFailureAcceptanceTest.ac_001_18_registrationNotStoredWhenEmailCannotBeSent -- Time elapsed: 0.046 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.MailFailureAcceptanceTest.ac_001_18_registrationNotStoredWhenEmailCannotBeSent(MailFailureAcceptanceTest.java:28)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 1 more
+
+[INFO] Running si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+2026-10-06T20:11:06.661+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest]: RegistrationResponseAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.663+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+2026-10-06T20:11:06.664+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest]: RegistrationResponseAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.664+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.666+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+[ERROR] Tests run: 4, Failures: 3, Errors: 1, Skipped: 0, Time elapsed: 0.129 s <<< FAILURE! -- in si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_responseContainsStoredRegistrationWithSubmittedFields -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_responseContainsStoredRegistrationWithSubmittedFields(RegistrationResponseAcceptanceTest.java:20)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_07_registrationsGetDifferentNumbersEvenWithSameEmail -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_07_registrationsGetDifferentNumbersEvenWithSameEmail(RegistrationResponseAcceptanceTest.java:82)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_organizerReadsSameRegistration -- Time elapsed: 0.027 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_organizerReadsSameRegistration(RegistrationResponseAcceptanceTest.java:41)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_registrationIsStored -- Time elapsed: 0.036 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest.ac_001_06_registrationIsStored(RegistrationResponseAcceptanceTest.java:68)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 1 more
+
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T20:11:06.793+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.795+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T20:11:06.796+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.797+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:06.798+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] Tests run: 39, Failures: 6, Errors: 33, Skipped: 0, Time elapsed: 1.415 s <<< FAILURE! -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_emailLongerThanLimitRejected -- Time elapsed: 0.038 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_emailLongerThanLimitRejected(ValidationAcceptanceTest.java:122)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(String)[1] -- Time elapsed: 0.047 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(ValidationAcceptanceTest.java:56)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(String)[2] -- Time elapsed: 0.036 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(ValidationAcceptanceTest.java:56)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(String)[3] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected(ValidationAcceptanceTest.java:56)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(String)[1] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(ValidationAcceptanceTest.java:29)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(String)[2] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(ValidationAcceptanceTest.java:29)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(String)[3] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(ValidationAcceptanceTest.java:29)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(String)[4] -- Time elapsed: 0.031 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected(ValidationAcceptanceTest.java:29)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(String)[1] -- Time elapsed: 0.021 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(ValidationAcceptanceTest.java:140)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(String)[2] -- Time elapsed: 0.024 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(ValidationAcceptanceTest.java:140)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(String)[3] -- Time elapsed: 0.027 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(ValidationAcceptanceTest.java:140)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(String)[4] -- Time elapsed: 0.022 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(ValidationAcceptanceTest.java:140)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(String)[5] -- Time elapsed: 0.026 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted(ValidationAcceptanceTest.java:140)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(String)[1] -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(ValidationAcceptanceTest.java:20)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(String)[2] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(ValidationAcceptanceTest.java:20)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(String)[3] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(ValidationAcceptanceTest.java:20)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(String)[4] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected(ValidationAcceptanceTest.java:20)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(String)[1] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(ValidationAcceptanceTest.java:65)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(String)[2] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(ValidationAcceptanceTest.java:65)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(String)[3] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected(ValidationAcceptanceTest.java:65)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(String)[1] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(ValidationAcceptanceTest.java:74)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(String)[2] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(ValidationAcceptanceTest.java:74)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(String)[3] -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected(ValidationAcceptanceTest.java:74)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(String)[1] -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(ValidationAcceptanceTest.java:113)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(String)[2] -- Time elapsed: 0.031 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(ValidationAcceptanceTest.java:113)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(String)[3] -- Time elapsed: 0.031 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(ValidationAcceptanceTest.java:113)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(String)[4] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(ValidationAcceptanceTest.java:113)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(String)[5] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected(ValidationAcceptanceTest.java:113)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithBlankCompanyFieldsAccepted -- Time elapsed: 0.023 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithBlankCompanyFieldsAccepted(ValidationAcceptanceTest.java:92)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[1] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[2] -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[3] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[4] -- Time elapsed: 0.030 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[5] -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[6] -- Time elapsed: 0.031 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(String)[7] -- Time elapsed: 0.036 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_09_invalidEmailRejected(ValidationAcceptanceTest.java:47)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(String)[1] -- Time elapsed: 0.043 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(ValidationAcceptanceTest.java:83)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(String)[2] -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(ValidationAcceptanceTest.java:83)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(String)[3] -- Time elapsed: 0.032 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected(ValidationAcceptanceTest.java:83)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[INFO] Running si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T20:11:08.208+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:08.210+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T20:11:08.211+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:08.211+02:00  INFO 30172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T20:11:08.212+02:00  INFO 30172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[ERROR] Tests run: 6, Failures: 3, Errors: 3, Skipped: 0, Time elapsed: 0.211 s <<< FAILURE! -- in si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_14_eachConfiguredWorkshopIsStored -- Time elapsed: 0.024 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_14_eachConfiguredWorkshopIsStored(WorkshopAcceptanceTest.java:19)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_moreThanOneWorkshopRejected -- Time elapsed: 0.045 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_moreThanOneWorkshopRejected(WorkshopAcceptanceTest.java:61)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_15_emptyWorkshopsStoresNull -- Time elapsed: 0.021 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_15_emptyWorkshopsStoresNull(WorkshopAcceptanceTest.java:40)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_15_absentWorkshopsStoresNull -- Time elapsed: 0.033 s <<< FAILURE!
+java.lang.AssertionError: 
+[status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+	at si.confreg.registration.acceptance.AcceptanceTestBase.completed(AcceptanceTestBase.java:233)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_15_absentWorkshopsStoresNull(WorkshopAcceptanceTest.java:30)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_unknownWorkshopRejected -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_unknownWorkshopRejected(WorkshopAcceptanceTest.java:51)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_sameWorkshopTwiceRejected -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.IllegalStateException: Cannot read the registration table
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:248)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.assertRejected(AcceptanceTestBase.java:299)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_16_sameWorkshopTwiceRejected(WorkshopAcceptanceTest.java:69)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "registration" does not exist
+  Position: 22
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:371)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:356)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:332)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:282)
+	at si.confreg.registration.acceptance.AcceptanceTestBase.storedRegistrations(AcceptanceTestBase.java:244)
+	... 2 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac_001_03_companyRegistrationAlsoConfirmedToParticipant:36->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ConfirmationEmailAcceptanceTest.ac_001_03_confirmationEmailSentToParticipantWithNumberAndFee:20->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_01_earlyFeeAtStartOfDeadlineDayInConferenceZone:35->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_01_earlyFeeOnLastInstantOfDeadlineDay:17->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_01_earlyFeeWellBeforeDeadline:26->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_02_deadlineIsInterpretedInConferenceZoneNotUtc:62->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_02_regularFeeOnFirstInstantAfterDeadline:42->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_02_regularFeeWellAfterDeadline:51->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_05_earlyAmountsSplitIntoNetAndVat:69->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_05_regularAmountsSplitIntoNetAndVat:76->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   FeeAcceptanceTest.ac_001_17_workshopDoesNotChangeFee:87->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   InvoiceDataAcceptanceTest.ac_001_04_companyPayerInvoiceDataAvailableToOrganizer:16->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   InvoiceDataAcceptanceTest.ac_001_04_invoiceDataNotAvailableWithoutOrganizerCredentials:52->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   InvoiceDataAcceptanceTest.ac_001_04_privatePayerInvoiceDataAvailableToOrganizer:37->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   RegistrationResponseAcceptanceTest.ac_001_06_organizerReadsSameRegistration:41->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   RegistrationResponseAcceptanceTest.ac_001_06_responseContainsStoredRegistrationWithSubmittedFields:20->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   RegistrationResponseAcceptanceTest.ac_001_07_registrationsGetDifferentNumbersEvenWithSameEmail:82->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_12_privatePayerWithBlankCompanyFieldsAccepted:92->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted:140->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted:140->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted:140->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted:140->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldAtLimitAccepted:140->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   WorkshopAcceptanceTest.ac_001_14_eachConfiguredWorkshopIsStored:19->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   WorkshopAcceptanceTest.ac_001_15_absentWorkshopsStoresNull:30->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR]   WorkshopAcceptanceTest.ac_001_15_emptyWorkshopsStoresNull:40->AcceptanceTestBase.completed:233 [status, body: ] 
+Expecting actual:
+  401
+to be between:
+  [200, 299]
+
+[ERROR] Errors: 
+[ERROR]   MailFailureAcceptanceTest.ac_001_18_registrationNotStoredWhenEmailCannotBeSent:28->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   RegistrationResponseAcceptanceTest.ac_001_06_registrationIsStored:68->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected:29->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected:29->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected:29->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_blankRequiredFieldRejected:29->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected:20->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected:20->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected:20->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_08_missingRequiredFieldRejected:20->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_09_invalidEmailRejected:47->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected:56->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected:56->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_10_unknownPayerTypeRejected:56->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected:74->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected:74->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithBlankCompanyFieldRejected:74->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected:65->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected:65->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_11_companyPayerWithoutCompanyFieldRejected:65->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected:83->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected:83->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_12_privatePayerWithCompanyFieldRejected:83->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_emailLongerThanLimitRejected:122->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected:113->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected:113->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected:113->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected:113->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   ValidationAcceptanceTest.ac_001_13_fieldLongerThanLimitRejected:113->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   WorkshopAcceptanceTest.ac_001_16_moreThanOneWorkshopRejected:61->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   WorkshopAcceptanceTest.ac_001_16_sameWorkshopTwiceRejected:69->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[ERROR]   WorkshopAcceptanceTest.ac_001_16_unknownWorkshopRejected:51->AcceptanceTestBase.assertRejected:299->AcceptanceTestBase.storedRegistrations:248 » IllegalState Cannot read the registration table
+[INFO] 
+[ERROR] Tests run: 64, Failures: 26, Errors: 38, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.716 s
+[INFO] Finished at: 2026-10-06T20:11:09+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project registration-backend: There are test failures.
+[ERROR] 
+[ERROR] See E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

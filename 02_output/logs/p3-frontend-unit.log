@@ -1,0 +1,12 @@
+
+> registration-frontend@1.0.0 test
+> vitest run --passWithNoTests
+
+
+ RUN  v5.0.3 E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/frontend
+
+No test files found, exiting with code 0
+
+include: src/**/*.test.{ts,tsx}, tests/**/*.test.{ts,tsx}
+exclude:  **/node_modules/**, **/.git/**
+
