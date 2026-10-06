@@ -127,3 +127,12 @@
 - Options: 1. `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_MAIL_HOST`, `SPRING_MAIL_PORT`, `APP_MAIL_STARTTLS` (default false), `APP_MAIL_FROM` (default `registration@confreg.local`); `APP_WORKSHOPS` as `W1=title;W2=title;…`; frontend on 127.0.0.1:3000 (proposed, `docs/02_specification.md` 3); 2. other names chosen by the human.
 - Human response: none
 - Resolution: pending review (option 1)
+
+## D-15: Acceptance manifest also lists the three phase 3 run logs
+- Timestamp: 2026-10-06T23:07:27Z
+- Phase: 3
+- Type: non-blocking
+- Trigger: `docs/03_acceptance-manifest.sha256` (freeze commit 3fece11) was built from every tracked path containing `acceptance` or `e2e`; besides the 13 test files it lists `logs/03_backend-acceptance-first-run.log`, `logs/03_frontend-acceptance-first-run.log` and `logs/03_frontend-e2e-first-run.log`. Only a human may change the manifest after the freeze (`general/working-rules.md`).
+- Options: 1. keep the manifest unchanged: the logs are evidence that never changes, freezing them is harmless; later runs write to new log files (proposed); 2. the human removes the three lines.
+- Human response: none
+- Resolution: pending review (option 1)

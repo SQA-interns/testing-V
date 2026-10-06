@@ -31,12 +31,12 @@
       "phase": 3,
       "name": "test-design",
       "start": "2026-10-06T22:56:01Z",
-      "end": null
+      "end": "2026-10-06T23:07:27Z"
     },
     {
       "phase": 4,
       "name": "build",
-      "start": null,
+      "start": "2026-10-06T23:07:27Z",
       "end": null
     },
     {
@@ -156,6 +156,12 @@
       "id": "D-14",
       "type": "non-blocking",
       "start": "2026-10-06T22:51:13Z",
+      "end": null
+    },
+    {
+      "id": "D-15",
+      "type": "non-blocking",
+      "start": "2026-10-06T23:07:27Z",
       "end": null
     }
   ],
