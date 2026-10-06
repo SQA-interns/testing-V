@@ -1,0 +1,5 @@
+src/api.ts {"Killed":64,"Survived":9} 87.7%
+src/App.tsx {"Killed":24,"Survived":14} 63.2%
+src/config.ts {"Killed":54,"Survived":8} 87.1%
+src/formModel.ts {"Killed":16,"Survived":6} 72.7%
+src/RegistrationForm.tsx {"Killed":80,"Survived":31} 72.1%

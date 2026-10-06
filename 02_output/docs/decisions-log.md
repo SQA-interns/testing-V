@@ -316,3 +316,12 @@
 - Options: as in D-31.
 - Human response: "Use the assigned ports 18080, 15173 and 18025" (2026-10-06T18:42:24Z)
 - Resolution: D-31 option 1. The compose defaults stay 8080, 5173 and 8025 (`environments.md`). For this run's checks and the phase 6 runtime demonstration the agent sets `BACKEND_HOST_PORT=18080`, `FRONTEND_HOST_PORT=15173` and `MAILPIT_HOST_PORT=18025` and records them in the evidence.
+
+## D-36: Stryker runs the frontend tests through its command runner
+- Timestamp: 2026-10-06T19:34:58Z
+- Phase: 6
+- Type: non-blocking
+- Trigger: with `@stryker-mutator/vitest-runner` 10.0.0 and `vitest` 5.0.3 (D-10), Stryker reported 298 of 306 mutants as surviving, both with `perTest` and `off` coverage analysis. That included mutants the tests clearly detect, such as `formatAmount` returning `""`, so mutants were not being activated (`out/logs/p6-frontend-mutation.log`, first runs).
+- Options: 1. (chosen) Use Stryker's built-in command runner (`npx vitest run` per mutant, mutant chosen through the environment); `@stryker-mutator/core` 10.0.0 and `vitest` 5.0.3 stay as pinned; result 238 of 306 killed (77.8%). `@stryker-mutator/vitest-runner` stays installed but unused. 2. Move vitest back to a version the vitest runner supports (a pin change, needs the human). 3. Record no frontend mutation score.
+- Human response: none
+- Resolution: option 1, pending review

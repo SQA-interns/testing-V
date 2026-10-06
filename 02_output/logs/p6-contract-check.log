@@ -1,0 +1,8 @@
+
+> contract-check@1.0.0 validate
+> node validate.mjs
+
+registration-api.openapi.yaml: valid OpenAPI 3.1.0, 4 paths
+confirmation-email.yaml: valid YAML, required keys present
+registration-form.yaml: valid YAML, 8 fields all in the API
+frontend-config.schema.json: valid JSON Schema 2020-12, sample accepted

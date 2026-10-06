@@ -1,0 +1,59 @@
+# Runtime demonstration 2026-10-06T19:26:52Z, ports 18080/15173/18025 (D-35)
+compose up exit 0
+backend: Up 16 seconds (healthy)
+db: Up 22 seconds (healthy)
+frontend: Up 6 seconds (healthy)
+mailpit: Up 22 seconds (healthy)
+## container users
+backend: 10001  frontend: 101
+## health
+{"status":"UP"}
+{"status":"UP"}
+## frontend page and config
+GET / 200
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+{"workshops":[{"id":"W1","name":"Requirements engineering for AI coding agents"},{"id":"W2","name":"Data spaces in practice"},{"id":"W3","name":"Secure software supply chains"}]}
+## registration through the frontend proxy (DoD-P01)
+400
+fees net/vat/gross: undefined undefined undefined workshop: undefined
+number undefined
+## organizer read (stored)
+HTTP 404 stored: undefined undefined undefined undefined
+without credentials: 401
+## confirmation e-mail in Mailpit
+messages: 0 subject: undefined
+## invalid registration
+invalid -> 400
+## test clock disabled locally: header ignored
+grossFee (today is after the deadline, so regular): 300
+## personal data in container logs
+demo-1791314847@example.com: 0
+Šuštar: 0
+Čebelica: 0
+SI12345678: 0
+Kovač: 0
+s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [firstName, email, payerType]
+s.c.r.service.RegistrationService        : Registration REG-000010 stored and confirmed
+
+## registration through the frontend proxy, UTF-8 body from file (DoD-P01, NFR-01)
+(the earlier 400 above came from passing non-ASCII text as a Windows command-line argument to curl; the backend logged no validation failure for it)
+HTTP 201
+number REG-000012 net/vat/gross 245.9 54.1 300 workshop W2
+organizer GET: stored REG-000012 names intact: true
+e-mail subject: Registration confirmation REG-000012
+e-mail contains number, fee and names intact: true
+## end-to-end suite against the stack
+  4 passed (2.1s)
+## personal data in container logs after all flows
+demo2-1791314878@example.com: 0
+Žiga: 0
+Šuštar: 0
+Čebelica: 0
+SI12345678: 0
+Kovač: 0
+example.com: 0

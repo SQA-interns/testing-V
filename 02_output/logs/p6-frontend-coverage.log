@@ -1,0 +1,25 @@
+
+ RUN  v5.0.3 E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/frontend
+      Coverage enabled with v8
+
+
+ Test Files  5 passed (5)
+      Tests  27 passed (27)
+   Start at  21:15:00
+   Duration  1.46s (environment 58%, setup 21%, tests 10%, transform 7%, worker 3%, import 1%)
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   93.87 |    97.29 |   90.62 |   93.68 |                   
+ ...rationForm.tsx |   93.18 |      100 |   82.35 |   93.02 | 177-208           
+ main.tsx          |       0 |        0 |     100 |       0 | 6-8               
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 93.87% ( 92/98 )
+Branches     : 97.29% ( 72/74 )
+Functions    : 90.62% ( 29/32 )
+Lines        : 93.68% ( 89/95 )
+================================================================================

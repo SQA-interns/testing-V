@@ -1,0 +1,405 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to "-javaagent:C:\\Users\\sense\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=E:\\13 - Lab Projects\\03_Vasilka_Testing\\kyuhi\\confreg-C1\\02_output\\backend\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+21:30:56.034 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest]: ConfirmationEmailAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:30:56.246 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+21:30:56.412 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest]: ConfirmationEmailAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:30:56.413 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:30:56.415 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+21:30:56.483 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+21:30:56.485 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+21:30:57.019 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+21:30:57.532 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+21:30:58.059 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+21:30:58.061 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+21:30:58.085 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.1
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 40065 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+21:30:58.200 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+21:30:58.577 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: b0a7e918dcc9223d27b8d09f032440925eccd77bcc65094a89f6e44ea09a2751
+21:30:59.014 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.8139289S
+21:30:59.043 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+21:30:59.044 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+21:30:59.045 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+21:30:59.046 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+21:30:59.175 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: 81b7fd12621fe7d9c64bc36d6486cb35326274533dc5c256e2496c2924403c05
+21:31:01.452 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT2.4057095S
+21:31:01.452 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:63996/test?loggerLevel=OFF)
+21:31:01.453 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+21:31:01.577 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: dfe3d6f9cda2ea39f80652511000c87b2303f848ed5e078f23fa5159b69965cd
+21:31:01.971 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT0.5174375S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T21:31:02.543+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Starting ConfirmationEmailAcceptanceTest using Java 21.0.10 with PID 44280 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend)
+2026-10-06T21:31:02.545+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T21:31:03.701+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T21:31:03.799+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2026-10-06T21:31:05.049+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T21:31:05.076+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T21:31:05.077+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T21:31:05.178+02:00  INFO 44280 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2603 ms
+2026-10-06T21:31:05.863+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T21:31:06.106+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fa9d195
+2026-10-06T21:31:06.109+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T21:31:06.146+02:00  INFO 44280 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:63996/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T21:31:06.232+02:00  INFO 44280 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T21:31:06.239+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.027s)
+2026-10-06T21:31:06.260+02:00  INFO 44280 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T21:31:06.333+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T21:31:06.350+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create registration"
+2026-10-06T21:31:06.396+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.021s)
+2026-10-06T21:31:06.545+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T21:31:06.639+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-06T21:31:07.313+02:00  INFO 44280 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T21:31:07.487+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:63996/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T21:31:08.728+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T21:31:08.797+02:00  INFO 44280 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T21:31:08.900+02:00  INFO 44280 --- [registration-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-06T21:31:09.555+02:00  INFO 44280 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name organizers
+2026-10-06T21:31:10.344+02:00  INFO 44280 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T21:31:10.441+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 49154 (http) with context path '/'
+2026-10-06T21:31:10.451+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Started ConfirmationEmailAcceptanceTest in 8.421 seconds (process running for 16.549)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\sense\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-06T21:31:11.253+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T21:31:11.253+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T21:31:11.256+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-06T21:31:16.656+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration REG-000001 stored and confirmed
+2026-10-06T21:31:21.373+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration REG-000002 stored and confirmed
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.71 s -- in si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T21:31:21.398+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:21.399+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T21:31:21.401+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:21.401+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:21.403+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T21:31:21.453+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration REG-000003 stored and confirmed
+2026-10-06T21:31:21.510+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration REG-000004 stored and confirmed
+2026-10-06T21:31:21.564+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration REG-000005 stored and confirmed
+2026-10-06T21:31:21.614+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration REG-000006 stored and confirmed
+2026-10-06T21:31:21.666+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration REG-000007 stored and confirmed
+2026-10-06T21:31:21.717+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration REG-000008 stored and confirmed
+2026-10-06T21:31:21.744+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration REG-000009 stored and confirmed
+2026-10-06T21:31:21.793+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration REG-000010 stored and confirmed
+2026-10-06T21:31:26.827+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration REG-000011 stored and confirmed
+2026-10-06T21:31:31.437+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration REG-000012 stored and confirmed
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.05 s -- in si.confreg.registration.acceptance.FeeAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+2026-10-06T21:31:31.447+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.InvoiceDataAcceptanceTest]: InvoiceDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:31.449+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+2026-10-06T21:31:31.450+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.InvoiceDataAcceptanceTest]: InvoiceDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:31.450+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:31.451+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+2026-10-06T21:31:31.492+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration REG-000013 stored and confirmed
+2026-10-06T21:31:31.553+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration REG-000014 stored and confirmed
+2026-10-06T21:31:37.295+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration REG-000015 stored and confirmed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.928 s -- in si.confreg.registration.acceptance.InvoiceDataAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.MailFailureAcceptanceTest
+2026-10-06T21:31:37.376+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.MailFailureAcceptanceTest]: MailFailureAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:37.378+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.MailFailureAcceptanceTest
+2026-10-06T21:31:37.379+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.MailFailureAcceptanceTest]: MailFailureAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:37.379+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:37.380+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.MailFailureAcceptanceTest
+2026-10-06T21:31:42.464+02:00  WARN 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration REG-000016 rolled back: confirmation e-mail not sent (MailSendException)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.152 s -- in si.confreg.registration.acceptance.MailFailureAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+2026-10-06T21:31:42.530+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest]: RegistrationResponseAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:42.531+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+2026-10-06T21:31:42.532+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest]: RegistrationResponseAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:42.533+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:42.534+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+2026-10-06T21:31:47.540+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration REG-000017 stored and confirmed
+2026-10-06T21:31:52.150+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration REG-000018 stored and confirmed
+2026-10-06T21:31:52.197+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration REG-000019 stored and confirmed
+2026-10-06T21:31:52.222+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration REG-000020 stored and confirmed
+2026-10-06T21:31:52.267+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration REG-000021 stored and confirmed
+2026-10-06T21:31:52.405+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration REG-000022 stored and confirmed
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.898 s -- in si.confreg.registration.acceptance.RegistrationResponseAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T21:31:52.429+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:52.431+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T21:31:52.432+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:52.432+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:31:52.433+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T21:31:52.470+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:31:52.897+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [payerType]
+2026-10-06T21:31:53.258+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [payerType]
+2026-10-06T21:31:53.629+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [payerType]
+2026-10-06T21:31:54.002+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [firstName]
+2026-10-06T21:31:54.373+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [lastName]
+2026-10-06T21:31:54.742+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:31:54.796+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [payerType]
+2026-10-06T21:32:00.120+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration REG-000023 stored and confirmed
+2026-10-06T21:32:04.745+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration REG-000024 stored and confirmed
+2026-10-06T21:32:04.792+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration REG-000025 stored and confirmed
+2026-10-06T21:32:04.861+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration REG-000026 stored and confirmed
+2026-10-06T21:32:04.904+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration REG-000027 stored and confirmed
+2026-10-06T21:32:04.944+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [firstName]
+2026-10-06T21:32:05.302+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [lastName]
+2026-10-06T21:32:05.671+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:05.726+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [payerType]
+2026-10-06T21:32:06.087+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyName]
+2026-10-06T21:32:06.460+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyAddress]
+2026-10-06T21:32:06.837+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyVatId]
+2026-10-06T21:32:07.201+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyName]
+2026-10-06T21:32:07.572+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyAddress]
+2026-10-06T21:32:07.941+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyVatId]
+2026-10-06T21:32:08.313+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [firstName]
+2026-10-06T21:32:08.678+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [lastName]
+2026-10-06T21:32:09.052+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyName]
+2026-10-06T21:32:09.419+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyAddress]
+2026-10-06T21:32:09.786+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyVatId]
+2026-10-06T21:32:15.143+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration REG-000028 stored and confirmed
+2026-10-06T21:32:15.183+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:15.236+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:15.294+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:15.665+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:16.037+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:16.401+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:16.770+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:32:17.143+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-3] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyName]
+2026-10-06T21:32:17.510+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-4] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyAddress]
+2026-10-06T21:32:17.878+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-5] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [companyVatId]
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.78 s -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T21:32:18.214+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:18.215+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T21:32:18.216+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:18.217+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:18.217+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T21:32:23.248+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-6] s.c.r.service.RegistrationService        : Registration REG-000029 stored and confirmed
+2026-10-06T21:32:27.840+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-7] s.c.r.service.RegistrationService        : Registration REG-000030 stored and confirmed
+2026-10-06T21:32:27.879+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-8] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [workshops]
+2026-10-06T21:32:28.267+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-9] s.c.r.service.RegistrationService        : Registration REG-000031 stored and confirmed
+2026-10-06T21:32:33.284+02:00  INFO 44280 --- [registration-backend] [-auto-1-exec-10] s.c.r.service.RegistrationService        : Registration REG-000032 stored and confirmed
+2026-10-06T21:32:33.321+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-1] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [workshops]
+2026-10-06T21:32:33.684+02:00  INFO 44280 --- [registration-backend] [o-auto-1-exec-2] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [workshops]
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.81 s -- in si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[INFO] Running si.confreg.registration.api.ApiExceptionHandlerTest
+2026-10-06T21:32:34.028+02:00 ERROR 44280 --- [registration-backend] [           main] s.c.r.api.ApiExceptionHandler            : Unexpected error: java.lang.IllegalStateException
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in si.confreg.registration.api.ApiExceptionHandlerTest
+[INFO] Running si.confreg.registration.architecture.ArchitectureTest
+2026-10-06T21:32:34.054+02:00  INFO 44280 --- [registration-backend] [           main] com.tngtech.archunit.core.PluginLoader   : Detected Java version 21.0.10
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.472 s -- in si.confreg.registration.architecture.ArchitectureTest
+[INFO] Running si.confreg.registration.config.AppPropertiesTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s -- in si.confreg.registration.config.AppPropertiesTest
+[INFO] Running si.confreg.registration.domain.PricingPolicyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in si.confreg.registration.domain.PricingPolicyTest
+[INFO] Running si.confreg.registration.domain.RegistrationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in si.confreg.registration.domain.RegistrationTest
+[INFO] Running si.confreg.registration.domain.RegistrationValidatorTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in si.confreg.registration.domain.RegistrationValidatorTest
+[INFO] Running si.confreg.registration.integration.LimitsIntegrationTest
+2026-10-06T21:32:36.646+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.LimitsIntegrationTest]: LimitsIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:36.657+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.integration.LimitsIntegrationTest
+2026-10-06T21:32:36.658+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.LimitsIntegrationTest]: LimitsIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:36.659+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.IntegrationTestBase]: IntegrationTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:36.660+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.integration.LimitsIntegrationTest
+2026-10-06T21:32:36.665+02:00  INFO 44280 --- [registration-backend] [           main] tc.postgres:16.15-alpine                 : Creating container for image: postgres:16.15-alpine
+2026-10-06T21:32:36.804+02:00  INFO 44280 --- [registration-backend] [           main] tc.postgres:16.15-alpine                 : Container postgres:16.15-alpine is starting: f2bbf3863ea1fc2fc6af0ef821c4fcb41477d5e33494c9c69e142aec89651e6a
+2026-10-06T21:32:38.953+02:00  INFO 44280 --- [registration-backend] [           main] tc.postgres:16.15-alpine                 : Container postgres:16.15-alpine started in PT2.2879421S
+2026-10-06T21:32:38.953+02:00  INFO 44280 --- [registration-backend] [           main] tc.postgres:16.15-alpine                 : Container is started (JDBC URL: jdbc:postgresql://localhost:55784/test?loggerLevel=OFF)
+2026-10-06T21:32:38.953+02:00  INFO 44280 --- [registration-backend] [           main] tc.axllent/mailpit:v1.31.1               : Creating container for image: axllent/mailpit:v1.31.1
+2026-10-06T21:32:39.078+02:00  INFO 44280 --- [registration-backend] [           main] tc.axllent/mailpit:v1.31.1               : Container axllent/mailpit:v1.31.1 is starting: 04f418b0ce84144f2d1f896a9fafdee595be3b9df398849c9fd4e6307b61f494
+2026-10-06T21:32:39.453+02:00  INFO 44280 --- [registration-backend] [           main] tc.axllent/mailpit:v1.31.1               : Container axllent/mailpit:v1.31.1 started in PT0.4997863S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T21:32:39.493+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.integration.LimitsIntegrationTest  : Starting LimitsIntegrationTest using Java 21.0.10 with PID 44280 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend)
+2026-10-06T21:32:39.494+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.integration.LimitsIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T21:32:39.703+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T21:32:39.725+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interface.
+2026-10-06T21:32:39.830+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T21:32:39.831+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T21:32:39.832+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T21:32:39.888+02:00  INFO 44280 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 393 ms
+2026-10-06T21:32:39.960+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-06T21:32:39.986+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@469924a
+2026-10-06T21:32:39.986+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-06T21:32:39.989+02:00  INFO 44280 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:55784/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T21:32:40.014+02:00  INFO 44280 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T21:32:40.015+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.005s)
+2026-10-06T21:32:40.031+02:00  INFO 44280 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T21:32:40.073+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T21:32:40.081+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create registration"
+2026-10-06T21:32:40.110+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.016s)
+2026-10-06T21:32:40.134+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T21:32:40.164+02:00  INFO 44280 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T21:32:40.174+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:55784/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T21:32:40.222+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T21:32:40.240+02:00  INFO 44280 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T21:32:40.400+02:00  INFO 44280 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name organizers
+2026-10-06T21:32:40.529+02:00  INFO 44280 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T21:32:40.564+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 55805 (http) with context path '/'
+2026-10-06T21:32:40.568+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.integration.LimitsIntegrationTest  : Started LimitsIntegrationTest in 1.109 seconds (process running for 106.666)
+2026-10-06T21:32:40.581+02:00  INFO 44280 --- [registration-backend] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T21:32:40.582+02:00  INFO 44280 --- [registration-backend] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T21:32:40.583+02:00  INFO 44280 --- [registration-backend] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-06T21:32:45.610+02:00  INFO 44280 --- [registration-backend] [o-auto-2-exec-1] s.c.r.service.RegistrationService        : Registration REG-000001 stored and confirmed
+2026-10-06T21:32:50.752+02:00  INFO 44280 --- [registration-backend] [o-auto-2-exec-3] s.c.r.service.RegistrationService        : Registration REG-000002 stored and confirmed
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.15 s -- in si.confreg.registration.integration.LimitsIntegrationTest
+[INFO] Running si.confreg.registration.integration.RegistrationIntegrationTest
+2026-10-06T21:32:50.796+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:50.797+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.integration.RegistrationIntegrationTest
+2026-10-06T21:32:50.798+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:50.798+02:00  INFO 44280 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.integration.IntegrationTestBase]: IntegrationTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T21:32:50.799+02:00  INFO 44280 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.integration.RegistrationIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T21:32:50.835+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.i.RegistrationIntegrationTest      : Starting RegistrationIntegrationTest using Java 21.0.10 with PID 44280 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend)
+2026-10-06T21:32:50.835+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.i.RegistrationIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T21:32:51.022+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T21:32:51.044+02:00  INFO 44280 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 1 JPA repository interface.
+2026-10-06T21:32:51.131+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T21:32:51.132+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T21:32:51.133+02:00  INFO 44280 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T21:32:51.184+02:00  INFO 44280 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 347 ms
+2026-10-06T21:32:51.266+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-10-06T21:32:51.282+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@7900272
+2026-10-06T21:32:51.283+02:00  INFO 44280 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-10-06T21:32:51.284+02:00  INFO 44280 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:55784/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T21:32:51.314+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.009s)
+2026-10-06T21:32:51.344+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 1
+2026-10-06T21:32:51.345+02:00  INFO 44280 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T21:32:51.366+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T21:32:51.393+02:00  INFO 44280 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T21:32:51.402+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:55784/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T21:32:51.446+02:00  INFO 44280 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T21:32:51.466+02:00  INFO 44280 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T21:32:51.612+02:00  INFO 44280 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name organizers
+2026-10-06T21:32:51.726+02:00  INFO 44280 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T21:32:51.742+02:00  INFO 44280 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 52330 (http) with context path '/'
+2026-10-06T21:32:51.746+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.i.RegistrationIntegrationTest      : Started RegistrationIntegrationTest in 0.941 seconds (process running for 117.844)
+2026-10-06T21:32:51.756+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T21:32:51.756+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T21:32:51.759+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-10-06T21:32:56.821+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-5] s.c.r.service.RegistrationService        : Registration REG-000003 stored and confirmed
+2026-10-06T21:33:01.423+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-6] s.c.r.service.RegistrationService        : Registration REG-000004 stored and confirmed
+2026-10-06T21:33:01.430+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-7] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [email]
+2026-10-06T21:33:01.612+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-3] s.c.r.service.RegistrationService        : Registration REG-000005 stored and confirmed
+2026-10-06T21:33:01.675+02:00  INFO 44280 --- [registration-backend] [o-auto-3-exec-7] s.c.r.service.RegistrationService        : Registration REG-000006 stored and confirmed
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.13 s -- in si.confreg.registration.integration.RegistrationIntegrationTest
+[INFO] Running si.confreg.registration.mail.ConfirmationMailerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.664 s -- in si.confreg.registration.mail.ConfirmationMailerTest
+[INFO] Running si.confreg.registration.security.SecurityFiltersTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 s -- in si.confreg.registration.security.SecurityFiltersTest
+[INFO] Running si.confreg.registration.service.RegistrationServiceTest
+2026-10-06T21:33:08.328+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.service.RegistrationService        : Registration REG-1234567 stored and confirmed
+2026-10-06T21:33:08.339+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.service.RegistrationService        : Registration REG-000042 stored and confirmed
+2026-10-06T21:33:08.348+02:00  INFO 44280 --- [registration-backend] [           main] s.c.r.service.RegistrationService        : Registration rejected; invalid fields: [firstName, email, companyName, workshops]
+2026-10-06T21:33:08.368+02:00  WARN 44280 --- [registration-backend] [           main] s.c.r.service.RegistrationService        : Registration REG-000001 rolled back: confirmation e-mail not sent (IllegalStateException)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.545 s -- in si.confreg.registration.service.RegistrationServiceTest
+[INFO] Running si.confreg.registration.time.AppClockTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in si.confreg.registration.time.AppClockTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ registration-backend ---
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ registration-backend ---
+[INFO] Replacing main artifact E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\registration-backend-1.0.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\registration-backend-1.0.0.jar.original
+[INFO] 
+[INFO] --- jacoco:0.8.12:report (report) @ registration-backend ---
+[INFO] Loading execution data file E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\jacoco.exec
+[INFO] Analyzed bundle 'registration-backend' with 33 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:19 min
+[INFO] Finished at: 2026-10-06T21:33:11+02:00
+[INFO] ------------------------------------------------------------------------

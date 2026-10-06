@@ -1,0 +1,15 @@
+== backend-prod
+31,Java,207,104,1245
+1,SQL,2,1,29
+34,SUM,214,111,1355
+== backend-test
+22,Java,411,38,2141
+24,SUM,411,44,2161
+== frontend-prod
+6,TypeScript,34,8,441
+7,SUM,41,8,479
+== frontend-test
+9,TypeScript,57,4,462
+9,SUM,57,4,462
+frontend jscpd duplicated lines 0 of 908 = 0%
+backend CPD duplications: 0

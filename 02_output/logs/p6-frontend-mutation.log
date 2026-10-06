@@ -1,0 +1,376 @@
+[32m21:19:24 (51928) INFO ProjectReader[39m Found 5 of 36 file(s) to be mutated.
+[32m21:19:24 (51928) INFO Instrumenter[39m Instrumented 5 source file(s) with 306 mutant(s)
+[32m21:19:24 (51928) INFO ConcurrencyTokenProvider[39m Creating 8 test runner process(es).
+[32m21:19:25 (51928) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m21:19:28 (51928) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 2 seconds (net 2750 ms, overhead 1 ms).
+
+All tests
+  ✓ All tests (killed 238)
+
+[Survived] ConditionalExpression
+src/api.ts:35:7
+-     if (typeof body !== "object" || body === null) {
++     if (false || body === null) {
+
+[Survived] ConditionalExpression
+src/api.ts:44:7
+-         typeof error === "object" &&
+-         error !== null &&
++         true &&
+
+[Survived] LogicalOperator
+src/api.ts:44:7
+-         typeof error === "object" &&
+-         error !== null &&
++         typeof error === "object" || error !== null &&
+
+[Survived] ConditionalExpression
+src/api.ts:44:7
+-         typeof error === "object" &&
++         true &&
+
+[Survived] ConditionalExpression
+src/api.ts:45:7
+-         error !== null &&
++         true &&
+
+[Survived] ConditionalExpression
+src/api.ts:47:7
+-         typeof (error as FieldError).message === "string",
++         true,
+
+[Survived] StringLiteral
+src/api.ts:61:17
+-           Accept: "application/json",
++           Accept: "",
+
+[Survived] ConditionalExpression
+src/api.ts:68:34
+-     if (response.status === 201 || response.status === 200) {
++     if (response.status === 201 || false) {
+
+[Survived] ArrowFunction
+src/api.ts:75:55
+-       const body: unknown = await response.json().catch(() => null);
++       const body: unknown = await response.json().catch(() => undefined);
+
+[Survived] ObjectLiteral
+src/App.tsx:15:45
+-     const [state, setState] = useState<State>({ kind: "loading" });
++     const [state, setState] = useState<State>({});
+
+[Survived] StringLiteral
+src/App.tsx:15:53
+-     const [state, setState] = useState<State>({ kind: "loading" });
++     const [state, setState] = useState<State>({ kind: "" });
+
+[Survived] BlockStatement
+src/App.tsx:22:18
+-       return () => {
+-         active = false;
+-       };
++       return () => {};
+
+[Survived] BooleanLiteral
+src/App.tsx:23:16
+-         active = false;
++         active = true;
+
+[Survived] ArrayDeclaration
+src/App.tsx:25:6
+-     }, [load]);
++     }, []);
+
+[Survived] ConditionalExpression
+src/App.tsx:30:8
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {true}
+
+[Survived] ConditionalExpression
+src/App.tsx:30:8
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {false}
+
+[Survived] LogicalOperator
+src/App.tsx:30:8
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {state.kind === "loading" || <p>Loading…</p>}
+
+[Survived] ConditionalExpression
+src/App.tsx:30:8
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {true && <p>Loading…</p>}
+
+[Survived] EqualityOperator
+src/App.tsx:30:8
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {state.kind !== "loading" && <p>Loading…</p>}
+
+[Survived] StringLiteral
+src/App.tsx:30:23
+-         {state.kind === "loading" && <p>Loading…</p>}
++         {state.kind === "" && <p>Loading…</p>}
+
+[Survived] LogicalOperator
+src/App.tsx:31:8
+-         {state.kind === "error" && (
+-           <p role="alert">
+-             The registration form is not available. Please try again later.
+-           </p>
+-         )}
++         {state.kind === "error" || <p role="alert">
++             The registration form is not available. Please try again later.
++           </p>}
+
+[Survived] ConditionalExpression
+src/App.tsx:31:8
+-         {state.kind === "error" && (
++         {true && (
+
+[Survived] EqualityOperator
+src/App.tsx:31:8
+-         {state.kind === "error" && (
++         {state.kind !== "error" && (
+
+[Survived] ConditionalExpression
+src/config.ts:15:7
+-     if (typeof value !== "object" || value === null) {
++     if (false || value === null) {
+
+[Survived] ConditionalExpression
+src/config.ts:20:5
+-       typeof candidate.id === "string" &&
++       true &&
+
+[Survived] ConditionalExpression
+src/config.ts:23:5
+-       candidate.name.length > 0
++       true
+
+[Survived] EqualityOperator
+src/config.ts:23:5
+-       candidate.name.length > 0
++       candidate.name.length >= 0
+
+[Survived] ConditionalExpression
+src/config.ts:28:7
+-     if (typeof value !== "object" || value === null) {
++     if (false || value === null) {
+
+[Survived] ObjectLiteral
+src/config.ts:41:52
+-     const response = await fetchImpl("/config.json", {
+-       headers: { Accept: "application/json" },
+-     });
++     const response = await fetchImpl("/config.json", {});
+
+[Survived] ObjectLiteral
+src/config.ts:42:14
+-       headers: { Accept: "application/json" },
++       headers: {},
+
+[Survived] StringLiteral
+src/config.ts:42:24
+-       headers: { Accept: "application/json" },
++       headers: { Accept: "" },
+
+[Survived] StringLiteral
+src/formModel.ts:19:13
+-     lastName: "",
++     lastName: "Stryker was here!",
+
+[Survived] StringLiteral
+src/formModel.ts:20:10
+-     email: "",
++     email: "Stryker was here!",
+
+[Survived] StringLiteral
+src/formModel.ts:21:14
+-     payerType: "",
++     payerType: "Stryker was here!",
+
+[Survived] StringLiteral
+src/formModel.ts:22:16
+-     companyName: "",
++     companyName: "Stryker was here!",
+
+[Survived] StringLiteral
+src/formModel.ts:23:19
+-     companyAddress: "",
++     companyAddress: "Stryker was here!",
+
+[Survived] StringLiteral
+src/formModel.ts:24:17
+-     companyVatId: "",
++     companyVatId: "Stryker was here!",
+
+[Survived] ObjectLiteral
+src/RegistrationForm.tsx:28:51
+-     const [outcome, setOutcome] = useState<Outcome>({ kind: "none" });
++     const [outcome, setOutcome] = useState<Outcome>({});
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:28:59
+-     const [outcome, setOutcome] = useState<Outcome>({ kind: "none" });
++     const [outcome, setOutcome] = useState<Outcome>({ kind: "" });
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:29:36
+-     const [busy, setBusy] = useState(false);
++     const [busy, setBusy] = useState(true);
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:38:5
+-       event.preventDefault();
++       ;
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:39:13
+-       setBusy(true);
++       setBusy(false);
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:40:5
+-       setErrors({});
++       ;
+
+[Survived] ObjectLiteral
+src/RegistrationForm.tsx:41:16
+-       setOutcome({ kind: "none" });
++       setOutcome({});
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:41:24
+-       setOutcome({ kind: "none" });
++       setOutcome({ kind: "" });
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:43:13
+-       setBusy(false);
++       setBusy(true);
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:59:13
+-           if (result.errors.length === 0) {
++           if (true) {
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:97:43
+-               aria-describedby={describedBy("firstName")}
++               aria-describedby={describedBy("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:100:22
+-             {errorText("firstName")}
++             {errorText("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:113:43
+-               aria-describedby={describedBy("lastName")}
++               aria-describedby={describedBy("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:116:22
+-             {errorText("lastName")}
++             {errorText("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:137:41
+-             aria-describedby={describedBy("payerType")}
++             aria-describedby={describedBy("")}
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:146:24
+-                 checked={values.payerType === "private"}
++                 checked={false}
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:156:24
+-                 checked={values.payerType === "company"}
++                 checked={false}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:161:22
+-             {errorText("payerType")}
++             {errorText("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:176:47
+-                   aria-describedby={describedBy("companyName")}
++                   aria-describedby={describedBy("")}
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:177:27
+-                   onChange={(e) => update("companyName", e.target.value)}
++                   onChange={() => undefined}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:177:41
+-                   onChange={(e) => update("companyName", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:179:26
+-                 {errorText("companyName")}
++                 {errorText("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:192:47
+-                   aria-describedby={describedBy("companyAddress")}
++                   aria-describedby={describedBy("")}
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:193:27
+-                   onChange={(e) => update("companyAddress", e.target.value)}
++                   onChange={() => undefined}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:193:41
+-                   onChange={(e) => update("companyAddress", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:195:26
+-                 {errorText("companyAddress")}
++                 {errorText("")}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:207:47
+-                   aria-describedby={describedBy("companyVatId")}
++                   aria-describedby={describedBy("")}
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:208:27
+-                   onChange={(e) => update("companyVatId", e.target.value)}
++                   onChange={() => undefined}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:208:41
+-                   onChange={(e) => update("companyVatId", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:210:26
+-                 {errorText("companyVatId")}
++                 {errorText("")}
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:238:10
+-           {outcome.kind === "success" ? outcome.text : null}
++           {true ? outcome.text : null}
+
+Ran 1.00 tests per mutant on average.
+----------------------|------------------|----------|-----------|------------|----------|----------|
+                      | % Mutation score |          |           |            |          |          |
+File                  |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+All files             |  77.78 |   77.78 |      238 |         0 |         68 |        0 |        0 |
+ api.ts               |  87.67 |   87.67 |       64 |         0 |          9 |        0 |        0 |
+ App.tsx              |  63.16 |   63.16 |       24 |         0 |         14 |        0 |        0 |
+ config.ts            |  87.10 |   87.10 |       54 |         0 |          8 |        0 |        0 |
+ formModel.ts         |  72.73 |   72.73 |       16 |         0 |          6 |        0 |        0 |
+ RegistrationForm.tsx |  72.07 |   72.07 |       80 |         0 |         31 |        0 |        0 |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m21:22:41 (51928) INFO JsonReporter[39m Your report can be found at: file:///E:/13%20-%20Lab%20Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/frontend/reports/mutation/mutation.json
+[32m21:22:41 (51928) INFO HtmlReporter[39m Your report can be found at: file:///E:/13%20-%20Lab%20Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/frontend/reports/mutation/mutation.html
+[32m21:22:41 (51928) INFO MutationTestExecutor[39m Done in 3 minutes and 18 seconds.

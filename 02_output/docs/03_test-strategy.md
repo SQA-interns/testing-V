@@ -81,3 +81,21 @@ Non-frozen test defects: none. Frozen tests that appear wrong: none in this run 
 Backend 170/170 (`out/logs/p5-final-run-backend.log`), frontend 27/27, end-to-end 4/4 (first run, unchanged code paths). Coverage and mutation scores are measured in phase 6.
 
 ## Final run (phase 6)
+
+2026-10-06, after the phase 6 fixes (`docs/06_verification-report.md`).
+
+| Suite | Tests | Passed | Failed | Log |
+|---|---|---|---|---|
+| Backend acceptance | 64 | 64 | 0 | `out/logs/p6-final-backend-verify.log` |
+| Backend unit, architecture, integration | 108 | 108 | 0 | same |
+| Frontend unit and component | 27 | 27 | 0 | `out/logs/p6-final-frontend-test.log` |
+| End-to-end (stack on 18080/15173/18025, D-35) | 4 | 4 | 0 | `out/logs/p6-runtime-demo.log` |
+| **Total** | **203** | **203** | **0** | |
+
+Changed since phase 5: unit tests added for mutation-testing gaps (F-04). No frozen test changed in phase 6.
+
+| Measure | Backend | Frontend |
+|---|---|---|
+| Line coverage | unit 81.3%, acceptance + integration 88.8%, all 97.2% | unit 93.7% |
+| Branch coverage | unit 89.1%, acceptance + integration 66.3%, all 90.3% | unit 97.3% |
+| Mutation score | 85% (PIT, unit tests; domain, security, config, service, mail, time) | 77.8% (Stryker command runner, D-36) |
