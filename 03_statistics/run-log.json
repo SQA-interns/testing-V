@@ -13,12 +13,12 @@
       "phase": 0,
       "name": "preflight-and-bootstrap",
       "start": "2026-10-06T22:18:37Z",
-      "end": null
+      "end": "2026-10-06T22:44:26Z"
     },
     {
       "phase": 1,
       "name": "requirements",
-      "start": null,
+      "start": "2026-10-06T22:44:26Z",
       "end": null
     },
     {
@@ -96,13 +96,13 @@
       "id": "D-04",
       "type": "blocking",
       "start": "2026-10-06T22:31:30Z",
-      "end": null
+      "end": "2026-10-06T22:43:01Z"
     },
     {
       "id": "D-05",
       "type": "blocking",
       "start": "2026-10-06T22:31:30Z",
-      "end": null
+      "end": "2026-10-06T22:43:01Z"
     }
   ],
   "humanInterventions": [
@@ -114,7 +114,7 @@
     },
     {
       "start": "2026-10-06T22:33:47Z",
-      "end": null,
+      "end": "2026-10-06T22:43:01Z",
       "reason": "phase 0 blocking decisions D-04, D-05 (dependency vulnerabilities)"
     }
   ],

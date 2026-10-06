@@ -11,7 +11,7 @@ Run `kyuhi-confreg-C2-r1`, starting commit `2bab314fc372c581a8b5b8d7f148355ec772
 | Local environments and services running or reachable | `project/00_setup/environments.md` | pass: Docker daemon up (`docker info`); Docker Hub, Maven Central, npm registry reachable; `postgres` and `axllent/mailpit` images pulled and their binaries run in a container |
 | Secrets present in `.env` or marked test-only | `project/00_setup/secrets.env.example` | pass: `POSTGRES_PASSWORD`, `ORGANIZER_USERNAME`, `ORGANIZER_PASSWORD`, `NVD_API_KEY` non-empty; `ORGANIZER_PASSWORD` ≥ 16 characters; `SMTP_USERNAME`, `SMTP_PASSWORD` marked "not needed" (also non-empty) |
 | Every listed dependency resolves | `project/00_setup/tech-stack.md` | pass: all resolve at the exact version (see "Dependency results") |
-| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | **open: D-04 (backend, likely false positive), D-05 (frontend dev tooling)** |
+| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | pass after D-04, D-05: backend no result with CVSS ≥ 7 (CVE-2025-7962 suppressed for `angus-activation` only); frontend 0 Critical, 0 High; remaining Medium/Moderate listed below |
 | Clean working tree on the starting commit | repository | pass: `git status --porcelain` empty apart from ignored `.env`, HEAD = starting commit |
 | Input manifest written | `docs/00_input-manifest.sha256` | pass: 26 files (all of `01_input/`, `AGENTS.md`, `README.md`, `03_statistics/metrics.md`, `03_statistics/run-log.template.json`, `03_statistics/usage.md`), LF-normalised |
 
@@ -47,10 +47,10 @@ Run `kyuhi-confreg-C2-r1`, starting commit `2bab314fc372c581a8b5b8d7f148355ec772
 | eslint-plugin-react-hooks | 5.2.0 | 5.2.0 | pass |
 | eslint-plugin-react-refresh | 0.4.26 | 0.4.26 | pass |
 | prettier | 3.9.9 | 3.9.9 | pass |
-| vitest, @vitest/coverage-v8 | 3.2.7 | vitest/3.2.7 | pass |
+| vitest, @vitest/coverage-v8 | 5.0.3 (D-05; was 3.2.7) | vitest/5.0.3 | pass |
 | @playwright/test | 1.63.0 | 1.63.0; Chromium build 1243 already present on host | pass |
 | @stryker-mutator/core, vitest-runner | 10.0.0 | 10.0.0 | pass |
-| jscpd | 4.3.0 | 4.3.0 | pass |
+| jscpd | 5.4.0 (D-05; was 4.3.0) | 5.4.0 (ran on `src`) | pass |
 | npm audit | 11.6.2 | npm 11.6.2 | pass |
 | semgrep/semgrep | 1.177.0 | 1.177.0 | pass |
 | zricethezav/gitleaks | v8.30.1 | v8.30.1 | pass |
@@ -64,7 +64,7 @@ Run `kyuhi-confreg-C2-r1`, starting commit `2bab314fc372c581a8b5b8d7f148355ec772
 | org.springframework.boot:spring-boot-starter-webmvc | 4.1.1 | yes | none (Tomcat overridden to 11.0.26) |
 | org.springframework.boot:spring-boot-starter-data-jpa | 4.1.1 | yes | none |
 | org.springframework.boot:spring-boot-starter-validation | 4.1.1 | yes | Medium: CVE-2025-15104 (5.3) on transitive `hibernate-validator` 9.1.3; CPE `validator:validator` is Nu Html Checker, likely false positive |
-| org.springframework.boot:spring-boot-starter-mail | 4.1.1 | yes | High: CVE-2025-7962 (7.5) on transitive `angus-activation` 2.0.3; likely false positive, D-04 |
+| org.springframework.boot:spring-boot-starter-mail | 4.1.1 | yes | none after D-04: CVE-2025-7962 (7.5) on transitive `angus-activation` 2.0.3 classified false positive (Low) and suppressed for that artifact only |
 | org.springframework.boot:spring-boot-starter-actuator | 4.1.1 | yes | none |
 | org.springframework.boot:spring-boot-starter-security | 4.1.1 | yes | none (Security 7.1.1) |
 | org.springframework.boot:spring-boot-starter-flyway | 4.1.1 | yes | none |
@@ -89,9 +89,9 @@ Run `kyuhi-confreg-C2-r1`, starting commit `2bab314fc372c581a8b5b8d7f148355ec772
 | @testing-library/jest-dom | 6.9.1 | yes | none |
 | jsdom | 26.1.0 | yes | none |
 | globals | 15.15.0 | yes | none |
-| vitest (tooling) | 3.2.7 | yes | Critical: `tinypool` 1.1.1 (GHSA-5gmw-xhrv-c9v3, GHSA-85c8-ppgw-ccpr), D-05 |
-| jscpd (tooling) | 4.3.0 | yes | High: `braces` 3.0.3 (GHSA-vfj7-8cjw-p6xm), D-05 |
-| @stryker-mutator/core (tooling) | 10.0.0 | yes | Moderate: `qs` via `typed-rest-client`, D-05 |
+| vitest, @vitest/coverage-v8 (tooling) | 5.0.3 (D-05) | yes | none (3.2.7 had Critical via `tinypool`) |
+| jscpd (tooling) | 5.4.0 (D-05) | yes | none (4.3.0 had High via `braces`) |
+| @stryker-mutator/core (tooling) | 10.0.0 | yes | Moderate: `qs` via `typed-rest-client` (2 advisories, dev-only, not blocking) |
 | postgres (image) | 16.15-alpine | yes, PostgreSQL 16.15 | not scanned (no image scanner listed) |
 | eclipse-temurin (image) | 21.0.10_7-jre-alpine | yes, 21.0.10+7 | not scanned |
 | node (image) | 24.13.0-alpine | yes, v24.13.0 | not scanned |
@@ -102,7 +102,7 @@ Run `kyuhi-confreg-C2-r1`, starting commit `2bab314fc372c581a8b5b8d7f148355ec772
 
 | When | What was missing | Answer | Re-check |
 |---|---|---|---|
-| 2026-10-06 (phase 0) | D-04: accept CVE-2025-7962 as false positive; D-05: accept or upgrade vulnerable frontend dev tooling | pending | |
+| 2026-10-06 (phase 0) | D-04: accept CVE-2025-7962 as false positive; D-05: accept or upgrade vulnerable frontend dev tooling | D-04 option 1, D-05 option 2 (2026-10-06T22:43Z) | Dependency-Check re-run: CVE suppressed, nothing ≥ 7; `npm install`, `npm run check`/`build`/`test` pass; `npm audit` 0 Critical/High, `--omit=dev` 0 |
 
 ## Notes
 
