@@ -1,0 +1,41 @@
+== input manifest (repository root)
+OK 01_input/00_general/engineering-standards.md
+OK 01_input/00_general/phases.md
+OK 01_input/00_general/quality/definition-of-done.md
+OK 01_input/00_general/quality/severity-scale.md
+OK 01_input/00_general/quality/test-strategy.md
+OK 01_input/00_general/security/security-baseline.md
+OK 01_input/00_general/skills/preflight/SKILL.md
+OK 01_input/00_general/skills/verify-release/SKILL.md
+OK 01_input/00_general/skills/write-acceptance-tests/SKILL.md
+OK 01_input/00_general/working-rules.md
+OK 01_input/01_project/00_setup/environments.md
+OK 01_input/01_project/00_setup/run-config.md
+OK 01_input/01_project/00_setup/secrets.env.example
+OK 01_input/01_project/00_setup/tech-stack.md
+OK 01_input/01_project/01_requirements/business-rules.md
+OK 01_input/01_project/01_requirements/scope.md
+OK 01_input/01_project/01_requirements/user-stories.md
+OK 01_input/01_project/02_design/architecture.md
+OK 01_input/01_project/02_design/quality-requirements.md
+OK 01_input/01_project/02_design/security-requirements.md
+OK 03_statistics/metrics.md
+OK 03_statistics/run-log.template.json
+OK 03_statistics/usage.md
+OK AGENTS.md
+OK README.md
+== acceptance manifest (02_output)
+OK backend/src/test/java/si/confreg/registration/acceptance/AcceptanceTestBase.java
+OK backend/src/test/java/si/confreg/registration/acceptance/ArchitectureAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/ConfirmationEmailAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/MailFailureAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/RegistrationFeeAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/RegistrationStorageAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/ValidationAcceptanceTest.java
+OK backend/src/test/java/si/confreg/registration/acceptance/WorkshopAcceptanceTest.java
+OK backend/src/test/resources/acceptance/acceptance-test.properties
+OK frontend/e2e/registration.e2e.spec.ts
+OK frontend/e2e/support.ts
+OK frontend/playwright.config.ts
+== files under 01_input not in manifest
+== git diff of inputs since start commit

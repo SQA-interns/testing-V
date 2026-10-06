@@ -79,4 +79,22 @@ No implementation defect was found.
 
 ## Final run (phase 6)
 
-Recorded in phase 6.
+2026-10-06, after fix loops F-01 and F-02 (`out/logs/06_verify/final-run-*.log`):
+
+| Level | Tests | Passed | Failed |
+|---|---|---|---|
+| Backend acceptance (frozen) | 52 | 52 | 0 |
+| Backend unit and integration | 129 | 129 | 0 |
+| Frontend unit and component | 18 | 18 | 0 |
+| End-to-end (frozen) | 4 | 4 | 0 |
+| **Total** | **203** | **203** | **0** |
+
+| Measure | Backend | Frontend |
+|---|---|---|
+| Line coverage, unit | 78.9 % (429/544) | 100 % (Vitest, unit and component) |
+| Branch coverage, unit | 85.1 % (177/208) | 97.91 % |
+| Line / branch coverage, acceptance + integration | 90.1 % / 70.7 % | e2e not instrumented |
+| Line / branch coverage, all levels | 96.9 % / 90.4 % | – |
+| Mutation score | PIT, unit tests, all packages: 81 % (205/254), test strength 93 % | Stryker 10.0.0: not measurable with Vitest 5.0.3; 78.4 % (163/208) with Vitest 4.1.11 (D-34) |
+
+Defects in non-frozen tests fixed in phase 6: the content-type assertion added in F-02 first compared exactly and failed on `application/json;charset=UTF-8`; it now checks the prefix.

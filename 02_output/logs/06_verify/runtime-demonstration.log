@@ -1,0 +1,53 @@
+== 2026-10-06T20:54:59Z runtime demonstration, commit 9734c17
+compose up --wait exit 0
+backend: running healthy 127.0.0.1:8080->8080/tcp
+frontend: running healthy 127.0.0.1:3000->8080/tcp
+mailpit: running healthy 127.0.0.1:8025->8025/tcp
+postgres: running healthy 5432/tcp
+== NFR-02 health and readiness (management port, inside the container)
+{"status":"UP"}
+{"status":"UP"}
+management port published on host? 000 (000 = not reachable)
+== frontend page and SB-10 headers
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+== backend API headers
+HTTP/1.1 200 
+X-Content-Type-Options: nosniff
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+Referrer-Policy: no-referrer
+== containers run as non-root (SB-11)
+backend uid: 10001
+frontend uid: 101
+== DoD-P01 / US-001 flow at 2026-10-06T20:56:20+00:00
+POST /api/registrations via frontend proxy: 201 Location: /api/registrations/REG-000014
+{"registrationNumber":"REG-000014","firstName":"Špela","lastName":"Žagar Čeč","email":"runtime-demo@example.com","payerType":"company","companyName":"Žičnice Čatež d.o.o.","companyAddress":"Šmartinska cesta 152, 1000 Ljubljana","companyVatId":"SI12345678","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00}
+GET as organizer: 200
+{"registrationNumber":"REG-000014","firstName":"Špela","lastName":"Žagar Čeč","email":"runtime-demo@example.com","payerType":"company","companyName":"Žičnice Čatež d.o.o.","companyAddress":"Šmartinska cesta 152, 1000 Ljubljana","companyVatId":"SI12345678","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00}
+identical to POST response: True
+submitted names unchanged (NFR-01): True
+GET without credentials: 401
+stored row: REG-000014 | Špela Žagar Čeč | company | W2 | 300.00 / 66.00 / 366.00 | 2026-10-06 20:56:20.522381+00
+Mailpit messages to the participant: 1
+Subject: Registration confirmation REG-000014
+Dear Špela Žagar Čeč,
+
+thank you for registering for the conference. Your registration is confirmed.
+
+Registration number: REG-000014
+Workshop: Data spaces in practice
+Fee (net): 300.00 EUR
+VAT (22 %): 66.00 EUR
+Total (gross): 366.00 EUR
+
+Payer: Žičnice Čatež d.o.o., Šmartinska cesta 152, 1000 Ljubljana, VAT ID SI12345678
+
+The invoice will be sent to the payer by the conference accounting office.
+
+e-mail contains number and gross fee: True
+GET /api/workshops (public): 200 [{"id":"W1","title":"Requirements engineering for AI coding agents"},{"id":"W2","title":"Data spaces in practice"},{"id":"W3","title":"Secure software supply chains"}]

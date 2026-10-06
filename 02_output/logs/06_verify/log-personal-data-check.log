@@ -1,0 +1,12 @@
+== 2026-10-06T20:56:33Z backend and frontend container logs after the runtime demonstration
+lines: 67
+matches for runtime-demo@example.com: 0
+matches for Špela: 0
+matches for Žagar: 0
+matches for Čatež: 0
+matches for Šmartinska: 0
+matches for SI12345678: 0
+matches for @example.com: 0
+matches for .env values: 0
+WARN/ERROR lines:
+backend-1   | 2026-10-06T20:55:53.649Z  WARN 1 --- [registration-backend] [nio-8080-exec-2] o.s.web.servlet.PageNotFound             : No mapping for GET /api/registrations/

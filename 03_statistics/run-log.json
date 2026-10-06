@@ -63,16 +63,35 @@
     "failed": 2
   },
   "finalTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 203,
+    "failed": 0
   },
   "findings": {
     "critical": 0,
     "high": 0,
-    "medium": 0,
-    "low": 0
+    "medium": 4,
+    "low": 6
   },
-  "fixLoops": [],
+  "fixLoops": [
+    {
+      "loop": 1,
+      "findings": [
+        "F-01"
+      ],
+      "change": "redacted generated skeleton password in two phase 3 logs; scoped .gitleaksignore for history",
+      "start": "2026-10-06T20:57:00Z",
+      "end": "2026-10-06T20:58:00Z"
+    },
+    {
+      "loop": 2,
+      "findings": [
+        "F-02"
+      ],
+      "change": "filter unit tests assert pass-through and JSON errors; boundary tests; FindRegistration positive case",
+      "start": "2026-10-06T20:58:00Z",
+      "end": "2026-10-06T21:03:00Z"
+    }
+  ],
   "decisions": [
     {
       "id": "D-01",
@@ -271,6 +290,12 @@
       "type": "blocking",
       "start": "2026-10-06T20:03:40Z",
       "end": "2026-10-06T20:03:40Z"
+    },
+    {
+      "id": "D-34",
+      "type": "blocking",
+      "start": "2026-10-06T21:06:26Z",
+      "end": null
     }
   ],
   "humanInterventions": [
@@ -301,9 +326,35 @@
     }
   ],
   "codeMetrics": {
-    "components": [],
+    "components": [
+      {
+        "name": "backend",
+        "productionLoc": {
+          "Java": 1361,
+          "SQL": 28,
+          "Properties": 40
+        },
+        "testLoc": {
+          "Java": 1997,
+          "Properties": 9
+        },
+        "tool": "aldanial/cloc:2.10 (reports 1.98, D-03)"
+      },
+      {
+        "name": "frontend",
+        "productionLoc": {
+          "TypeScript": 345
+        },
+        "testLoc": {
+          "TypeScript": 497
+        },
+        "tool": "aldanial/cloc:2.10 (reports 1.98, D-03)"
+      }
+    ],
     "complexity": null,
-    "duplicationPct": null
+    "complexityReason": "no tool with purpose complexity is listed in tech-stack.md; not measured",
+    "duplicationPct": 0.0,
+    "duplicationNote": "backend PMD CPD 0 duplications; frontend jscpd 0.0 %"
   },
   "commits": [],
   "usage": {

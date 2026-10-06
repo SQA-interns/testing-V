@@ -1,0 +1,25 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C1/02_output/frontend
+      Coverage enabled with v8
+
+
+ Test Files  3 passed (3)
+      Tests  18 passed (18)
+   Start at  23:08:52
+   Duration  3.69s (environment 82%, setup 9%, transform 3%, import 3%, tests 2%, worker 1%)
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+---------------|---------|----------|---------|---------|-------------------
+File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------|---------|----------|---------|---------|-------------------
+All files      |   98.79 |    97.91 |   95.83 |     100 |                   
+ App.tsx       |     100 |    96.15 |     100 |     100 | 69                
+ api.ts        |   93.33 |      100 |   66.66 |     100 |                   
+---------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 98.79% ( 82/83 )
+Branches     : 97.91% ( 47/48 )
+Functions    : 95.83% ( 23/24 )
+Lines        : 100% ( 81/81 )
+================================================================================

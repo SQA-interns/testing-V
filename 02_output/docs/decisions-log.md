@@ -359,3 +359,15 @@
 - Options: as in D-32.
 - Human response: 2026-10-06T20:03:40Z (received): "D-32: option 1. Add only that one line to MailFailureAcceptanceTest.unreachableSmtp, leave every assertion unchanged, update only that file's hash in the manifest in one commit naming D-32, record my answer and its time, re-run the full suite and continue."
 - Resolution: D-32 option 1, applied as one commit that changes only that line and that file's manifest hash.
+
+## D-34: Stryker 10.0.0 cannot measure mutation with Vitest 5.0.3
+- Timestamp: 2026-10-06T21:06:26Z
+- Phase: 6
+- Type: blocking
+- Trigger: DoD-03 and `general/quality/test-strategy.md` require a mutation score per component. Tooling `@stryker-mutator/core` and `@stryker-mutator/vitest-runner` 10.0.0 (latest release, peer `vitest >=2.0.0`) run with `vitest` 5.0.3 (D-11) but never activate the mutants: 208 mutants, 14 killed, 194 survived (6.7 %), including mutants that a test covers and checks exactly, e.g. `missing.push("firstName")` → `push("")` in `validation.ts` survives `checkRequired`'s `toEqual(["firstName", …])` (`out/logs/06_verify/frontend-stryker.log`, `frontend-stryker-vitest-5.0.3.json`). The same sources, tests and Stryker 10.0.0 with `vitest` 4.1.11 in a scratch copy (lock file made with npm 11.6.2 in `node:24.13.0-alpine`, `npm ci` on the host) give 208 mutants, 163 killed, 45 survived: 78.4 % (`frontend-stryker-experiment-vitest-4.1.11.log`, `.json`). Vitest 4.1.11 had no Critical or High finding in the D-04 audit. The project threshold for mutation is "record only".
+- Options:
+  1. (default) Keep `vitest` 5.0.3 in the project. Record the frontend mutation score as 78.4 %, measured with Stryker 10.0.0 and `vitest` 4.1.11 on identical sources and tests in a scratch copy, with the 5.0.3 result listed as invalid. Frontend line and branch coverage stay measured with 5.0.3.
+  2. Amend `vitest` and `@vitest/coverage-v8` to 4.1.11 in the project (D-04 option 1), re-run the frontend checks, tests and mutation in the project.
+  3. Record the frontend mutation score as not measurable with the pinned tools.
+- Human response: none
+- Resolution: pending review

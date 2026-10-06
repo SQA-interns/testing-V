@@ -1,0 +1,502 @@
+[32m23:02:27 (6360) INFO ProjectReader[39m Found 3 of 25 file(s) to be mutated.
+[32m23:02:28 (6360) INFO Instrumenter[39m Instrumented 3 source file(s) with 208 mutant(s)
+[32m23:02:28 (6360) INFO ConcurrencyTokenProvider[39m Creating 2 test runner process(es).
+[32m23:02:31 (6360) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "all" coverage analysis). This may take a while.
+[32m23:02:51 (6360) INFO DryRunExecutor[39m Initial test run succeeded. Ran 18 tests in 20 seconds (net 188.97149999999237 ms, overhead 19880.028500000008 ms).
+
+All tests
+  api.test.ts
+    ✓ submitRegistration posts JSON to /api/registrations and returns the registration on 201 (killed 8)
+    ✓ submitRegistration returns the invalid fields on 400 (killed 6)
+    ✓ submitRegistration treats a 400 without fields as invalid with no field names (killed 1)
+    ✓ submitRegistration reports failure on 429 (killed 3)
+    ~ submitRegistration reports failure on 500 (covered 16)
+    ~ submitRegistration reports failure on 503 (covered 16)
+    ✓ submitRegistration reports failure when the network fails (killed 3)
+    ~ fetchWorkshops returns the list from /api/workshops (covered 8)
+    ✓ fetchWorkshops returns an empty list on error (killed 3)
+  App.test.tsx
+    ✓ registration form shows the fields with private payer preselected and company fields hidden (killed 22)
+    ✓ registration form submits a private registration and shows the confirmation with two-decimal amounts (killed 49)
+    ✓ registration form sends company fields and the chosen workshop (killed 22)
+    ✓ registration form marks missing fields without calling the API (killed 17)
+    ✓ registration form marks the fields the backend rejected and keeps the values (killed 6)
+    ✓ registration form shows a generic message when registration is unavailable (killed 5)
+  validation.test.ts
+    ✓ checkRequired accepts a complete private registration (killed 1)
+    ✓ checkRequired reports empty names and a malformed e-mail (killed 2)
+    ✓ checkRequired requires company fields only for a company payer (killed 15)
+
+[Survived] ObjectLiteral
+src/api.ts:34:50
+-     const response = await fetch("/api/workshops", {
+-       headers: { Accept: "application/json" },
+-     });
++     const response = await fetch("/api/workshops", {});
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 5 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:35:14
+-       headers: { Accept: "application/json" },
++       headers: {},
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 5 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:35:24
+-       headers: { Accept: "application/json" },
++       headers: { Accept: "" },
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 5 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:50:16
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
++         headers: {},
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 8 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:51:25
+-           "Content-Type": "application/json",
++           "Content-Type": "",
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 8 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:52:17
+-           Accept: "application/json",
++           Accept: "",
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 8 more tests!
+
+
+[Survived] MethodExpression
+src/App.tsx:28:16
+-       firstName: values.firstName.trim(),
++       firstName: values.firstName,
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 1 more test!
+
+
+[Survived] MethodExpression
+src/App.tsx:29:15
+-       lastName: values.lastName.trim(),
++       lastName: values.lastName,
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 1 more test!
+
+
+[Survived] MethodExpression
+src/App.tsx:30:12
+-       email: values.email.trim(),
++       email: values.email,
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 1 more test!
+
+
+[Survived] MethodExpression
+src/App.tsx:33:31
+-       companyAddress: company ? values.companyAddress.trim() : null,
++       companyAddress: company ? values.companyAddress : null,
+Tests ran:
+    registration form sends company fields and the chosen workshop
+
+
+[Survived] MethodExpression
+src/App.tsx:34:29
+-       companyVatId: company ? values.companyVatId.trim() : null,
++       companyVatId: company ? values.companyVatId : null,
+Tests ran:
+    registration form sends company fields and the chosen workshop
+
+
+[Survived] ConditionalExpression
+src/App.tsx:44:7
+-     if (!invalid.includes(name)) {
++     if (false) {
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:44:32
+-     if (!invalid.includes(name)) {
+-       return null;
+-     }
++     if (!invalid.includes(name)) {}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:60:58
+-     const [workshops, setWorkshops] = useState<Workshop[]>([]);
++     const [workshops, setWorkshops] = useState<Workshop[]>(["Stryker was here"]);
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:61:52
+-     const [invalid, setInvalid] = useState<string[]>([]);
++     const [invalid, setInvalid] = useState<string[]>(["Stryker was here"]);
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:62:40
+-     const [failed, setFailed] = useState(false);
++     const [failed, setFailed] = useState(true);
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:69:11
+-         if (active) {
++         if (true) {
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:73:18
+-       return () => {
+-         active = false;
+-       };
++       return () => {};
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:74:16
+-         active = false;
++         active = true;
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:76:6
+-     }, []);
++     }, ["Stryker was here"]);
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:83:5
+-       event.preventDefault();
++       ;
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks missing fields without calling the API
+  and 2 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:84:15
+-       setFailed(false);
++       setFailed(true);
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks missing fields without calling the API
+  and 2 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:90:16
+-       setSending(true);
++       setSending(false);
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 1 more test!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:92:16
+-       setSending(false);
++       setSending(true);
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks the fields the backend rejected and keeps the values
+  and 1 more test!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:94:18
+-         setInvalid([]);
++         setInvalid(["Stryker was here"]);
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:99:18
+-         setInvalid([]);
++         setInvalid(["Stryker was here"]);
+Tests ran:
+    registration form shows a generic message when registration is unavailable
+
+
+[Survived] StringLiteral
+src/App.tsx:109:77
+-             Registration {registration.registrationNumber} is confirmed. Fee:{" "}
++             Registration {registration.registrationNumber} is confirmed. Fee:{""}
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+
+
+[Survived] ConditionalExpression
+src/App.tsx:175:16
+-                 {type === "private" ? "Private person" : "Company"}
++                 {true ? "Private person" : "Company"}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:175:16
+-                 {type === "private" ? "Private person" : "Company"}
++                 {false ? "Private person" : "Company"}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:175:16
+-                 {type === "private" ? "Private person" : "Company"}
++                 {type !== "private" ? "Private person" : "Company"}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:175:25
+-                 {type === "private" ? "Private person" : "Company"}
++                 {type === "" ? "Private person" : "Company"}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:175:37
+-                 {type === "private" ? "Private person" : "Company"}
++                 {type === "private" ? "" : "Company"}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:175:56
+-                 {type === "private" ? "Private person" : "Company"}
++                 {type === "private" ? "Private person" : ""}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:242:10
+-           {failed && (
+-             <p data-testid="error-message" role="alert">
+-               Registration is not possible right now. Please try again later.
+-             </p>
+-           )}
++           {failed || <p data-testid="error-message" role="alert">
++               Registration is not possible right now. Please try again later.
++             </p>}
+Tests ran:
+    registration form shows the fields with private payer preselected and company fields hidden
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+  and 3 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:17:10
+-     email: "",
++     email: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:19:16
+-     companyName: "",
++     companyName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:20:19
+-     companyAddress: "",
++     companyAddress: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:21:17
+-     companyVatId: "",
++     companyVatId: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] MethodExpression
+src/validation.ts:24:8
+-     if (!values.lastName.trim()) {
++     if (!values.lastName) {
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks missing fields without calling the API
+  and 5 more tests!
+
+
+[Survived] MethodExpression
+src/validation.ts:27:19
+-     if (!EMAIL.test(values.email.trim())) {
++     if (!EMAIL.test(values.email)) {
+Tests ran:
+    registration form submits a private registration and shows the confirmation with two-decimal amounts
+    registration form sends company fields and the chosen workshop
+    registration form marks missing fields without calling the API
+  and 5 more tests!
+
+
+[Survived] MethodExpression
+src/validation.ts:31:10
+-       if (!values.companyName.trim()) {
++       if (!values.companyName) {
+Tests ran:
+    registration form sends company fields and the chosen workshop
+    checkRequired requires company fields only for a company payer
+
+
+[Survived] MethodExpression
+src/validation.ts:34:10
+-       if (!values.companyAddress.trim()) {
++       if (!values.companyAddress) {
+Tests ran:
+    registration form sends company fields and the chosen workshop
+    checkRequired requires company fields only for a company payer
+
+
+[Survived] MethodExpression
+src/validation.ts:37:10
+-       if (!values.companyVatId.trim()) {
++       if (!values.companyVatId) {
+Tests ran:
+    registration form sends company fields and the chosen workshop
+    checkRequired requires company fields only for a company payer
+
+
+[Survived] Regex
+src/validation.ts:16:15
+-   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
++   const EMAIL = /[^\s@]+@[^\s@]+\.[^\s@]+$/;
+Ran all tests for this mutant.
+
+[Survived] Regex
+src/validation.ts:16:15
+-   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
++   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+/;
+Ran all tests for this mutant.
+
+Ran 2.44 tests per mutant on average.
+---------------|------------------|----------|-----------|------------|----------|----------|
+               | % Mutation score |          |           |            |          |          |
+File           |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+---------------|--------|---------|----------|-----------|------------|----------|----------|
+All files      |  78.37 |   78.37 |      163 |         0 |         45 |        0 |        0 |
+ api.ts        |  83.33 |   83.33 |       30 |         0 |          6 |        0 |        0 |
+ App.tsx       |  72.88 |   72.88 |       86 |         0 |         32 |        0 |        0 |
+ validation.ts |  87.04 |   87.04 |       47 |         0 |          7 |        0 |        0 |
+---------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m23:06:08 (6360) INFO JsonReporter[39m Your report can be found at: file:///C:/Users/tanej/AppData/Local/Temp/claude/c--Users-tanej-Documents-LAB-tanej-confreg-C1/707941d4-fc8f-4bd6-bc1a-a6c8077ff6ab/scratchpad/stryker-v4/reports/mutation/mutation.json
+[32m23:06:08 (6360) INFO MutationTestExecutor[39m Done in 3 minutes and 42 seconds.

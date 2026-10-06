@@ -1,0 +1,65 @@
+api          16/36 killed (44%)
+application  9/10 killed (90%)
+clock        15/17 killed (88%)
+config       22/30 killed (73%)
+domain       61/63 killed (97%)
+mail         15/15 killed (100%)
+persistence  20/20 killed (100%)
+security     40/63 killed (63%)
+
+api | ApiExceptionHandler | confirmationFailed | 58 | NO_COVERAGE | negated conditional
+api | ApiExceptionHandler | confirmationFailed | 59 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::confirmationFailed
+api | ApiExceptionHandler | malformed | 34 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::malformed
+api | ApiExceptionHandler | notFound | 51 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::notFound
+api | ApiExceptionHandler | rejected | 29 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::rejected
+api | ApiExceptionHandler | unexpected | 66 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::unexpected
+api | ApiExceptionHandler | unsupportedMediaType | 39 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ApiExceptionHandler::unsupportedMediaType
+api | ErrorBody | of | 11 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/ErrorBody::of
+api | RegistrationController | get | 50 | NO_COVERAGE | negated conditional
+api | RegistrationController | get | 53 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/RegistrationController::get
+api | RegistrationController | register | 43 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/RegistrationController::register
+api | RegistrationRequestReader | text | 74 | SURVIVED | replaced return value with "" for si/confreg/registration/api/RegistrationRequestReader::text
+api | RegistrationRequestReader | workshops | 86 | SURVIVED | replaced return value with Collections.emptyList for si/confreg/registration/api/RegistrationRequestReader::workshops
+api | RegistrationRequestReader | workshops | 92 | SURVIVED | replaced return value with Collections.emptyList for si/confreg/registration/api/RegistrationRequestReader::workshops
+api | RegistrationResponse | from | 26 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/RegistrationResponse::from
+api | RegistrationResponse | from | 32 | NO_COVERAGE | negated conditional
+api | RegistrationResponse | from | 33 | NO_COVERAGE | negated conditional
+api | RegistrationResponse | from | 34 | NO_COVERAGE | negated conditional
+api | WorkshopController | lambda$workshops$0 | 24 | NO_COVERAGE | replaced return value with null for si/confreg/registration/api/WorkshopController::lambda$workshops$0
+api | WorkshopController | workshops | 23 | NO_COVERAGE | replaced return value with Collections.emptyList for si/confreg/registration/api/WorkshopController::workshops
+application | FindRegistration | find | 20 | SURVIVED | replaced return value with Optional.empty for si/confreg/registration/application/FindRegistration::find
+clock | TestClockFilter | doFilterInternal | 42 | SURVIVED | removed call to jakarta/servlet/http/HttpServletResponse::setContentType
+clock | TestClockFilter | doFilterInternal | 43 | SURVIVED | removed call to jakarta/servlet/http/HttpServletResponse::setCharacterEncoding
+config | AppProperties$Organizer | toString | 28 | SURVIVED | replaced return value with "" for si/confreg/registration/config/AppProperties$Organizer::toString
+config | ApplicationConfiguration | amount | 108 | SURVIVED | changed conditional boundary
+config | ApplicationConfiguration | amount | 111 | SURVIVED | replaced return value with null for si/confreg/registration/config/ApplicationConfiguration::amount
+config | ApplicationConfiguration | businessSettings | 42 | SURVIVED | changed conditional boundary
+config | ApplicationConfiguration | businessSettings | 42 | SURVIVED | changed conditional boundary
+config | ApplicationConfiguration | testClockFilter | 77 | NO_COVERAGE | removed call to org/springframework/boot/web/servlet/FilterRegistrationBean::setOrder
+config | ApplicationConfiguration | testClockFilter | 78 | NO_COVERAGE | replaced return value with null for si/confreg/registration/config/ApplicationConfiguration::testClockFilter
+config | ApplicationConfiguration | timeSource | 70 | NO_COVERAGE | replaced return value with null for si/confreg/registration/config/ApplicationConfiguration::timeSource
+domain | RegistrationValidator | workshop | 131 | SURVIVED | replaced return value with "" for si/confreg/registration/domain/RegistrationValidator::workshop
+domain | RegistrationValidator | workshop | 136 | SURVIVED | replaced return value with "" for si/confreg/registration/domain/RegistrationValidator::workshop
+security | JsonError | write | 15 | SURVIVED | removed call to jakarta/servlet/http/HttpServletResponse::setContentType
+security | JsonError | write | 16 | SURVIVED | removed call to jakarta/servlet/http/HttpServletResponse::setCharacterEncoding
+security | RateLimitFilter | doFilterInternal | 45 | SURVIVED | changed conditional boundary
+security | RateLimitFilter | doFilterInternal | 45 | SURVIVED | negated conditional
+security | RateLimitFilter | doFilterInternal | 61 | SURVIVED | removed call to jakarta/servlet/FilterChain::doFilter
+security | RateLimitFilter | lambda$doFilterInternal$0 | 46 | NO_COVERAGE | negated conditional
+security | RateLimitFilter | lambda$doFilterInternal$0 | 46 | NO_COVERAGE | replaced boolean return with true for si/confreg/registration/security/RateLimitFilter::lambda$doFilterInternal$0
+security | RequestSizeFilter | doFilterInternal | 37 | SURVIVED | changed conditional boundary
+security | RequestSizeFilter | doFilterInternal | 38 | SURVIVED | removed call to jakarta/servlet/FilterChain::doFilter
+security | RequestSizeFilter | doFilterInternal | 43 | SURVIVED | changed conditional boundary
+security | RequestSizeFilter$CachedBodyRequest | getContentLength | 95 | NO_COVERAGE | replaced int return with 0 for si/confreg/registration/security/RequestSizeFilter$CachedBodyRequest::getContentLength
+security | RequestSizeFilter$CachedBodyRequest | getContentLengthLong | 100 | NO_COVERAGE | replaced long return with 0 for si/confreg/registration/security/RequestSizeFilter$CachedBodyRequest::getContentLengthLong
+security | RequestSizeFilter$CachedBodyRequest | getReader | 89 | NO_COVERAGE | negated conditional
+security | RequestSizeFilter$CachedBodyRequest | getReader | 90 | NO_COVERAGE | replaced return value with null for si/confreg/registration/security/RequestSizeFilter$CachedBodyRequest::getReader
+security | RequestSizeFilter$CachedBodyRequest$1 | isFinished | 71 | NO_COVERAGE | negated conditional
+security | RequestSizeFilter$CachedBodyRequest$1 | isFinished | 71 | NO_COVERAGE | replaced boolean return with true for si/confreg/registration/security/RequestSizeFilter$CachedBodyRequest$1::isFinished
+security | RequestSizeFilter$CachedBodyRequest$1 | isReady | 76 | NO_COVERAGE | replaced boolean return with false for si/confreg/registration/security/RequestSizeFilter$CachedBodyRequest$1::isReady
+security | SecurityConfiguration | apiSecurity | 88 | NO_COVERAGE | replaced return value with null for si/confreg/registration/security/SecurityConfiguration::apiSecurity
+security | SecurityConfiguration | lambda$apiSecurity$0 | 55 | NO_COVERAGE | removed call to jakarta/servlet/http/HttpServletResponse::setHeader
+security | SecurityConfiguration | lambda$apiSecurity$0 | 56 | NO_COVERAGE | removed call to si/confreg/registration/security/JsonError::write
+security | SecurityConfiguration | organizer | 43 | NO_COVERAGE | replaced return value with null for si/confreg/registration/security/SecurityConfiguration::organizer
+security | SecurityConfiguration | passwordEncoder | 35 | NO_COVERAGE | replaced return value with null for si/confreg/registration/security/SecurityConfiguration::passwordEncoder
+security | TransportFilter | doFilterInternal | 36 | SURVIVED | removed call to jakarta/servlet/FilterChain::doFilter
