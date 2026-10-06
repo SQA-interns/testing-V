@@ -1,0 +1,80 @@
+
+Running 3 tests using 1 worker
+
+  x  1 [chromium] › e2e\registration.e2e.spec.ts:77:1 › AC-001-11 the form offers exactly the workshops of the API (151ms)
+  x  2 [chromium] › e2e\registration.e2e.spec.ts:97:1 › AC-001-11 AC-001-04 registration through the page shows the confirmation and sends one e-mail (129ms)
+  x  3 [chromium] › e2e\registration.e2e.spec.ts:140:1 › AC-001-11 AC-001-07 server-side validation error is shown next to the field (5.2s)
+
+
+  1) [chromium] › e2e\registration.e2e.spec.ts:77:1 › AC-001-11 the form offers exactly the workshops of the API 
+
+    Error: GET /api/workshops
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 401
+
+      65 | async function apiWorkshops(request: APIRequestContext): Promise<Workshop[]> {
+      66 |   const response = await request.get("/api/workshops");
+    > 67 |   expect(response.status(), "GET /api/workshops").toBe(200);
+         |                                                   ^
+      68 |   return (await response.json()) as Workshop[];
+      69 | }
+      70 |
+        at apiWorkshops (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:67:51)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:81:21
+
+    Error Context: test-results\registration.e2e-AC-001-11-e5009-ly-the-workshops-of-the-API-chromium\error-context.md
+
+  2) [chromium] › e2e\registration.e2e.spec.ts:97:1 › AC-001-11 AC-001-04 registration through the page shows the confirmation and sends one e-mail 
+
+    Error: GET /api/workshops
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 401
+
+      65 | async function apiWorkshops(request: APIRequestContext): Promise<Workshop[]> {
+      66 |   const response = await request.get("/api/workshops");
+    > 67 |   expect(response.status(), "GET /api/workshops").toBe(200);
+         |                                                   ^
+      68 |   return (await response.json()) as Workshop[];
+      69 | }
+      70 |
+        at apiWorkshops (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:67:51)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:101:21
+
+    Error Context: test-results\registration.e2e-AC-001-11-10eb7-mation-and-sends-one-e-mail-chromium\error-context.md
+
+  3) [chromium] › e2e\registration.e2e.spec.ts:140:1 › AC-001-11 AC-001-07 server-side validation error is shown next to the field 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#registration-form')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('#registration-form') with timeout 5000ms
+      - waiting for locator('#registration-form')
+
+
+      54 |     page.getByRole("heading", { name: "Conference registration" }),
+      55 |   ).toBeVisible();
+    > 56 |   await expect(page.locator("#registration-form")).toBeVisible();
+         |                                                    ^
+      57 | }
+      58 |
+      59 | async function fillParticipant(page: Page, email: string) {
+        at openForm (E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:56:52)
+        at E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\frontend\e2e\registration.e2e.spec.ts:146:3
+
+    Error Context: test-results\registration.e2e-AC-001-11-ff8d1--is-shown-next-to-the-field-chromium\error-context.md
+
+  3 failed
+    [chromium] › e2e\registration.e2e.spec.ts:77:1 › AC-001-11 the form offers exactly the workshops of the API 
+    [chromium] › e2e\registration.e2e.spec.ts:97:1 › AC-001-11 AC-001-04 registration through the page shows the confirmation and sends one e-mail 
+    [chromium] › e2e\registration.e2e.spec.ts:140:1 › AC-001-11 AC-001-07 server-side validation error is shown next to the field 

@@ -1,0 +1,62 @@
+
+ RUN  v5.0.3 E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C2/02_output/frontend
+
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx (10 tests | 10 failed) 10281ms
+   ❯ AC-001-11 registration form (10)
+     × AC-001-11 shows the participant, payer and workshop fields of the contract 1084ms
+     × AC-001-11 shows company fields only for a company payer 1016ms
+     × AC-001-11 private payer without workshop: one POST without company fields 1030ms
+     × AC-001-11 selected workshop is sent as a one-element list 1024ms
+     × AC-001-11 company payer sends the company fields 1020ms
+     × AC-001-11 on 201 shows registration number, net fee, VAT and gross fee 1027ms
+     × AC-001-11 on 422 shows each field error next to its field and keeps the input 1021ms
+     × AC-001-11 workshop error from the API is shown at the workshop field 1026ms
+     × AC-001-11 on 429 shows one general error and keeps the input 1009ms
+     × AC-001-11 submit is disabled while the request is pending (no double submission) 1023ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 shows the participant, payer and workshop fields of the contract
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 shows company fields only for a company payer
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 private payer without workshop: one POST without company fields
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 selected workshop is sent as a one-element list
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 company payer sends the company fields
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 on 201 shows registration number, net fee, VAT and gross fee
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 on 422 shows each field error next to its field and keeps the input
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 workshop error from the API is shown at the workshop field
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 on 429 shows one general error and keeps the input
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > AC-001-11 registration form > AC-001-11 submit is disabled while the request is pending (no double submission)
+AssertionError: expected null not to be null
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<main>[39m
+        [36m<h1>[39m
+          [0mConference registration[0m
+        [36m</h1>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:107:56
+    105|   await screen.findByRole("heading", { name: "Conference registration"…
+    106|   await waitFor(() =>
+    107|     expect(document.getElementById("workshop-WA")).not.toBeNull(),
+       |                                                        ^
+    108|   );
+    109| }
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed (10)
+   Start at  01:05:22
+   Duration  11.17s (tests 93%, environment 5%, import 1%, setup 1%, transform 1%)
+
