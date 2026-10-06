@@ -16,6 +16,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
  */
 class CredentialTransportFilter extends OncePerRequestFilter {
 
+  // The loopback names are the rule itself (SR-03: "except on localhost"); resolving the Host
+  // header through DNS instead would let clients trigger lookups.
+  @SuppressWarnings("PMD.AvoidUsingHardCodedIP")
   private static final Set<String> LOCAL_HOSTS = Set.of("localhost", "127.0.0.1", "::1", "[::1]");
 
   private final ProblemAuthenticationEntryPoint entryPoint;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SpotBugs exclusions, each with its reason. Everything else fails the check. -->
+<FindBugsFilter>
+  <!-- Constructor injection of Spring singletons (clock, mapper): sharing is intended. -->
+  <Match>
+    <Bug pattern="EI_EXPOSE_REP2"/>
+    <Package name="~si\.confreg\.registration\..*"/>
+  </Match>
+  <!-- The wrapper must hand its counting stream to the servlet stack (SR-02). -->
+  <Match>
+    <Class name="si.confreg.registration.security.BodySizeFilter$LimitedRequest"/>
+    <Bug pattern="EI_EXPOSE_REP"/>
+  </Match>
+  <!-- HttpSecurity.build() declares Exception. -->
+  <Match>
+    <Class name="si.confreg.registration.security.SecurityConfig"/>
+    <Bug pattern="THROWS_METHOD_THROWS_CLAUSE_BASIC_EXCEPTION"/>
+  </Match>
+</FindBugsFilter>
