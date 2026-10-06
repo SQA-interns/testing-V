@@ -1,0 +1,78 @@
+# Local stack (project/00_setup/environments.md): backend, frontend, PostgreSQL,
+# Mailpit; published on 127.0.0.1 only. Secrets come from the repository .env:
+#   docker compose --env-file ../.env up --build
+# Settings are passed through when set in the shell; otherwise the backend's
+# defaults from environments.md apply. APP_WORKSHOPS is shared with the frontend.
+# Host ports (default 8080, 5173, 8025) can be moved with BACKEND_HOST_PORT,
+# FRONTEND_HOST_PORT and MAILPIT_HOST_PORT when they are taken on the host.
+name: confreg
+
+x-workshops: &workshops
+  APP_WORKSHOPS: ${APP_WORKSHOPS:-W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains}
+
+services:
+  db:
+    image: postgres:16.15-alpine
+    environment:
+      POSTGRES_DB: confreg
+      POSTGRES_USER: confreg
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U confreg -d confreg"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:v1.31.1
+    ports:
+      - "127.0.0.1:${MAILPIT_HOST_PORT:-8025}:8025"
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      <<: *workshops
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/confreg
+      SPRING_DATASOURCE_USERNAME: confreg
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      ORGANIZER_USERNAME: ${ORGANIZER_USERNAME:?set ORGANIZER_USERNAME in .env}
+      ORGANIZER_PASSWORD: ${ORGANIZER_PASSWORD:?set ORGANIZER_PASSWORD in .env}
+      SPRING_MAIL_HOST: mailpit
+      SPRING_MAIL_PORT: "1025"
+      # Local stack only: the backend port is bound to 127.0.0.1 (SR-03, D-26).
+      APP_INSECURE_AUTH_ALLOWED: "true"
+      APP_CONFERENCE_TZ: ${APP_CONFERENCE_TZ:-Europe/Ljubljana}
+      APP_EARLY_BIRD_DEADLINE: ${APP_EARLY_BIRD_DEADLINE:-2026-07-31}
+      APP_FEE_EARLY: ${APP_FEE_EARLY:-240.00}
+      APP_FEE_REGULAR: ${APP_FEE_REGULAR:-300.00}
+      APP_VAT_RATE: ${APP_VAT_RATE:-0.22}
+      APP_RATE_LIMIT_PER_HOUR: ${APP_RATE_LIMIT_PER_HOUR:-100}
+      APP_TEST_CLOCK: ${APP_TEST_CLOCK:-disabled}
+      APP_MAIL_FROM: ${APP_MAIL_FROM:-registration@confreg.local}
+    ports:
+      - "127.0.0.1:${BACKEND_HOST_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    environment:
+      <<: *workshops
+    ports:
+      - "127.0.0.1:${FRONTEND_HOST_PORT:-5173}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  db-data:
