@@ -1,0 +1,195 @@
+ Image confreg-backend Building 
+ Image confreg-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 454B 0.0s done
+#2 DONE 0.1s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 457B 0.0s done
+#3 DONE 0.1s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#4 DONE 0.3s
+
+#5 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#5 DONE 0.3s
+
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#6 DONE 0.3s
+
+#7 [backend internal] load .dockerignore
+#7 transferring context: 81B 0.0s done
+#7 DONE 0.0s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 144B 0.0s done
+#8 DONE 0.1s
+
+#9 [backend 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#9 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#9 ...
+
+#10 [frontend internal] load build context
+#10 DONE 0.0s
+
+#9 [backend 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#9 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.1s done
+#9 CACHED
+
+#11 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#11 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.1s done
+#11 DONE 0.1s
+
+#12 [frontend build 1/6] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#12 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.1s done
+#12 DONE 0.1s
+
+#10 [frontend internal] load build context
+#10 transferring context: 271.17kB 0.1s done
+#10 DONE 0.1s
+
+#13 [frontend build 2/6] WORKDIR /app
+#13 CACHED
+
+#11 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#11 CACHED
+
+#14 [frontend stage-1 2/3] COPY nginx.conf /etc/nginx/nginx.conf
+#14 DONE 0.1s
+
+#15 [frontend build 3/6] COPY package.json package-lock.json .npmrc ./
+#15 DONE 0.2s
+
+#16 [backend internal] load build context
+#16 ...
+
+#17 [backend 2/4] RUN addgroup -S app && adduser -S -G app -u 10001 app
+#17 DONE 1.6s
+
+#16 [backend internal] load build context
+#16 ...
+
+#18 [backend 3/4] WORKDIR /app
+#18 DONE 0.1s
+
+#16 [backend internal] load build context
+#16 transferring context: 66.47MB 5.3s
+#16 transferring context: 80.21MB 6.3s done
+#16 DONE 6.3s
+
+#19 [backend 4/4] COPY target/registration-backend-0.1.0.jar /app/app.jar
+#19 DONE 0.8s
+
+#20 [frontend build 4/6] RUN npm ci --ignore-scripts --no-audit --no-fund
+#20 ...
+
+#21 [backend] exporting to image
+#21 exporting layers
+#21 exporting layers 7.4s done
+#21 exporting manifest sha256:ba08a6da947cdcfb09c199592d380051c1a445b14430733d37467f7a4547e72d 0.1s done
+#21 exporting config sha256:2b01118704c629bbc77553de20b078c70adaf3d9b3ff1688661ce67e3dbf5643 0.1s done
+#21 exporting attestation manifest sha256:a35d219397403723d5540c49a9ad0d8a2e469fe92c8e2364e63716b54b0b9571 0.0s done
+#21 exporting manifest list sha256:a9bf584d1dab14dda92e4dd9a9b0a74969872e2d45aa32046bb41162160ff815 0.0s done
+#21 naming to docker.io/library/confreg-backend:latest done
+#21 unpacking to docker.io/library/confreg-backend:latest
+#21 unpacking to docker.io/library/confreg-backend:latest 1.2s done
+#21 DONE 9.0s
+
+#20 [frontend build 4/6] RUN npm ci --ignore-scripts --no-audit --no-fund
+#20 10.58 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#20 ...
+
+#22 [backend] resolving provenance for metadata file
+#22 DONE 0.1s
+
+#20 [frontend build 4/6] RUN npm ci --ignore-scripts --no-audit --no-fund
+#20 27.99 npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#20 35.34 
+#20 35.34 added 431 packages in 33s
+#20 35.34 npm notice
+#20 35.34 npm notice New minor version of npm available! 11.6.2 -> 11.21.0
+#20 35.34 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.21.0
+#20 35.34 npm notice To update run: npm install -g npm@11.21.0
+#20 35.34 npm notice
+#20 DONE 37.5s
+
+#23 [frontend build 5/6] COPY . .
+#23 DONE 0.6s
+
+#24 [frontend build 6/6] RUN npm run build
+#24 0.990 
+#24 0.990 > registration-frontend@0.1.0 build
+#24 0.990 > tsc --noEmit && vite build
+#24 0.990 
+#24 8.213 vite v6.4.3 building for production...
+#24 8.429 transforming...
+#24 12.85 ✓ 30 modules transformed.
+#24 13.26 rendering chunks...
+#24 13.29 computing gzip size...
+#24 13.33 dist/index.html                  0.33 kB │ gzip:  0.24 kB
+#24 13.33 dist/assets/index-DWifa7xu.js  228.92 kB │ gzip: 71.11 kB
+#24 13.33 ✓ built in 5.03s
+#24 DONE 13.6s
+
+#25 [frontend stage-1 3/3] COPY --from=build /app/dist /usr/share/nginx/html
+#25 DONE 0.1s
+
+#26 [frontend] exporting to image
+#26 exporting layers
+#26 exporting layers 0.3s done
+#26 exporting manifest sha256:b2dd555ae62b74927e43ab947787882cf643decfa0d598e5ce96b556e364d099 0.1s done
+#26 exporting config sha256:babd22c6bc164cfc594d8f29f4da4485cc8f03effc7ff5aba4d279d639e6fdb9 0.0s done
+#26 exporting attestation manifest sha256:0bb1780215fc2cb3fbeee2069817d0c957d3c293395db1f9f2aaf94dafa73e27
+#26 exporting attestation manifest sha256:0bb1780215fc2cb3fbeee2069817d0c957d3c293395db1f9f2aaf94dafa73e27 0.0s done
+#26 exporting manifest list sha256:d045e6f684b0ece7284e31dc92d60b3f79afa493877af8aa21f84743130e4bea 0.0s done
+#26 naming to docker.io/library/confreg-frontend:latest done
+#26 unpacking to docker.io/library/confreg-frontend:latest
+#26 unpacking to docker.io/library/confreg-frontend:latest 0.2s done
+#26 DONE 0.8s
+
+#27 [frontend] resolving provenance for metadata file
+#27 DONE 0.0s
+ Image confreg-backend Built 
+ Image confreg-frontend Built 
+ Network confreg_default Creating 
+ Volume confreg_pgdata Creating 
+ Network confreg_default Creating 
+ Volume confreg_pgdata Creating 
+ Volume confreg_pgdata Created 
+ Volume confreg_pgdata Created 
+ Network confreg_default Created 
+ Network confreg_default Created 
+ Container confreg-postgres-1 Creating 
+ Container confreg-mailpit-1 Creating 
+ Container confreg-mailpit-1 Created 
+ Container confreg-postgres-1 Created 
+ Container confreg-backend-1 Creating 
+ Container confreg-backend-1 Created 
+ Container confreg-frontend-1 Creating 
+ Container confreg-frontend-1 Created 
+ Container confreg-mailpit-1 Starting 
+ Container confreg-postgres-1 Starting 
+ Container confreg-mailpit-1 Started 
+ Container confreg-postgres-1 Started 
+ Container confreg-mailpit-1 Waiting 
+ Container confreg-postgres-1 Waiting 
+ Container confreg-mailpit-1 Healthy 
+ Container confreg-postgres-1 Healthy 
+ Container confreg-backend-1 Starting 
+ Container confreg-backend-1 Started 
+ Container confreg-backend-1 Waiting 
+ Container confreg-backend-1 Healthy 
+ Container confreg-frontend-1 Starting 
+ Container confreg-frontend-1 Started 
+ Container confreg-backend-1 Waiting 
+ Container confreg-frontend-1 Waiting 
+ Container confreg-postgres-1 Waiting 
+ Container confreg-mailpit-1 Waiting 
+ Container confreg-mailpit-1 Healthy 
+ Container confreg-postgres-1 Healthy 
+ Container confreg-backend-1 Healthy 
+ Container confreg-frontend-1 Healthy 

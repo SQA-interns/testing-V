@@ -1,0 +1,7 @@
+== 2026-10-06T19:56:03Z AC-001-09 runtime check (D-32)
+rows before: 3
+mailpit stopped
+status 503
+body: {"error":"registration_unavailable"}
+rows after: 3
+mailpit started

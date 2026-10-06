@@ -6,9 +6,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
 - Current phase: 4 (build), started 2026-10-06T19:34:51Z
-- Last gate result: phase 3 gate passed 2026-10-06T19:34:51Z; freeze commit `05ef03e` (`docs/03_acceptance-manifest.sha256`, 12 files)
-- Next step: implement the backend per `docs/02_specification.md` (domain, application, persistence, mail, clock, security, config, api) and the frontend form; Dockerfiles and `docker-compose.yml`; commit per AC group of US-001; all frozen tests must pass
-- Waiting for the human on: nothing
+- Last gate result: phase 4 gate not passed: 50/52 backend acceptance tests pass; the 2 AC-001-09 tests fail because of a frozen-harness defect (D-32); 4/4 e2e pass; checks clean
+- Next step: after D-32 is answered, apply the approved one-line fix and manifest update in one commit, re-run the full backend suite, then close phase 4 and start phase 5 (unit and integration tests)
+- Waiting for the human on: D-32 (asked 2026-10-06T19:56Z)
 
 ## Done in phase 0
 
@@ -33,6 +33,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Phase 2: `docs/02_specification.md`, contracts (OpenAPI, SQL, e-mail, form) and `out/tools/validate_contracts.py`; decisions D-26 to D-29 pending review; gate passed 2026-10-06T19:16:44Z
 
 - Phase 3: 52 backend acceptance tests and 4 e2e tests, all failing on the skeleton for behavioural reasons except 3 vacuous ArchUnit passes; D-30, D-31; frozen at `05ef03e`; gate passed 2026-10-06T19:34:51Z
+
+- Phase 4: backend (domain, application, persistence, mail, clock, security, config, api) and frontend form implemented; Dockerfiles and `docker-compose.yml`; stack healthy; e2e 4/4; AC-001-09 verified at runtime (`out/logs/04_build/runtime-mail-failure-check.log`); D-32 raised
 
 ## Interruptions
 
