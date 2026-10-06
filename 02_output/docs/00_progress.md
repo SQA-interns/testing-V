@@ -5,9 +5,9 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 5 (unit tests), started 2026-10-06T20:07:52Z
-- Last gate result: phase 4 gate passed 2026-10-06T20:07:52Z (backend acceptance 52/52, e2e 4/4, checks clean)
-- Next step: write unit and integration tests per area (domain, application, api, security, clock, config, mail, persistence; frontend validation, api client, form); record and classify the first full run before any fix
+- Current phase: 6 (verify), started 2026-10-06T20:22:50Z
+- Last gate result: phase 5 gate passed 2026-10-06T20:22:50Z (first run 200/202 recorded and classified; full suite 202/202)
+- Next step: phase 6 per `general/skills/verify-release`: hashes, full suite with coverage and mutation, runtime demonstration, SB/SR evidence, scanners (Dependency-Check, npm audit, semgrep, gitleaks), secret-leak check, traceability, DoD, `docs/06_verification-report.md`
 - Waiting for the human on: nothing
 
 ## Done in phase 0
@@ -37,6 +37,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Phase 4: backend (domain, application, persistence, mail, clock, security, config, api) and frontend form implemented; Dockerfiles and `docker-compose.yml`; stack healthy; e2e 4/4; AC-001-09 verified at runtime (`out/logs/04_build/runtime-mail-failure-check.log`); D-32 raised
 
 - D-32 answered (D-33, 20:03Z): one line added to the frozen AC-001-09 test, manifest hash updated in the same commit; phase 4 gate passed 2026-10-06T20:07:52Z
+
+- Phase 5: 128 backend unit/integration and 18 frontend tests; first run 200 passed / 2 failed (both non-frozen test defects, fixed); full suite 202/202; gate passed 2026-10-06T20:22:50Z
 
 ## Interruptions
 
