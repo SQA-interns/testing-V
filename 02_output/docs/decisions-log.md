@@ -82,3 +82,48 @@
 - Options: 1. the registration stays stored and the API still returns 201 (the participant must not lose a valid registration or be pushed to register twice); the failure is logged with the registration number only, no personal data (SR-01); no automatic resend (proposed); 2. roll back the registration and return an error; 3. store and queue the e-mail for retry.
 - Human response: none
 - Resolution: pending review (option 1); the release notes will list it for manual review.
+
+## D-10: Public read-only endpoint for the workshop list
+- Timestamp: 2026-10-06T22:51:13Z
+- Phase: 2
+- Type: blocking
+- Trigger: the form (AR-01, AC-001-11) must offer the workshops configured in `APP_WORKSHOPS` (AR-04: read where used). `security-requirements.md` says every endpoint requires organizer authentication unless a requirement explicitly makes it public; REQ-REG-01 makes only `POST /api/registrations` public. Making another endpoint public changes a project security requirement.
+- Options: 1. add `GET /api/workshops`, public, read-only, returns only workshop ids and titles (no personal data), rate limited per client like registrations (proposed; in `docs/02_specification.md` 5.3 and the OpenAPI contract); 2. no new endpoint: the frontend container reads `APP_WORKSHOPS` at start-up and writes it into a static `config.js` served by nginx (the same variable is then parsed in two components); 3. another approach named by the human.
+- Human response: none
+- Resolution: pending
+
+## D-11: Health endpoints on an unpublished management port
+- Timestamp: 2026-10-06T22:51:13Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: ES-09 and NFR-02 need health and readiness for container health checks; `security-requirements.md` requires authentication on every endpoint not made public by a requirement.
+- Options: 1. Actuator on management port 8081, never published by compose, only `health` (liveness, readiness) exposed, no details, no authentication (reachable only inside the container network) (proposed); 2. health under `/api` behind organizer authentication (health checks would need the organizer password in the container).
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-12: OpenAPI validator added as dev-only tool
+- Timestamp: 2026-10-06T22:51:13Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: the phase 2 gate needs the contracts validated with a parser; `tech-stack.md` lists no OpenAPI parser.
+- Options: 1. `redocly/cli` container image, version 2.57.0, MIT licence, run with `docker run` (nothing installed on the host), dev-only (proposed); 2. no OpenAPI-specific validation (YAML parse only).
+- Human response: none
+- Resolution: pending review (option 1); JSON contracts are checked with `JSON.parse` (node), the SQL contract by applying it in `postgres` 16.15.
+
+## D-13: Plain-HTTP credentials in the local and test profiles (SR-03)
+- Timestamp: 2026-10-06T22:51:13Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: SR-03 allows organizer credentials over plain HTTP only on localhost. In the local Docker stack (bound to 127.0.0.1 only, `environments.md`) the backend sees requests from the Docker bridge gateway, not a loopback address, so a pure address check would block the organizer locally.
+- Options: 1. the check is strict by default and in production (secure request or loopback client); profiles `local` and `test` skip it because those environments listen on 127.0.0.1 only (proposed); 2. strict everywhere, organizer reads only from inside the container network in the local stack.
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-14: Names of settings that `environments.md` lists without a variable name
+- Timestamp: 2026-10-06T22:51:13Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: `environments.md` lists "Database URL and user", "SMTP host, port, TLS" and "Sender address" without variable names, and no frontend port; `APP_WORKSHOPS` has no stated encoding.
+- Options: 1. `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_MAIL_HOST`, `SPRING_MAIL_PORT`, `APP_MAIL_STARTTLS` (default false), `APP_MAIL_FROM` (default `registration@confreg.local`); `APP_WORKSHOPS` as `W1=title;W2=title;…`; frontend on 127.0.0.1:3000 (proposed, `docs/02_specification.md` 3); 2. other names chosen by the human.
+- Human response: none
+- Resolution: pending review (option 1)

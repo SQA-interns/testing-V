@@ -127,6 +127,36 @@
       "type": "non-blocking",
       "start": "2026-10-06T22:46:04Z",
       "end": null
+    },
+    {
+      "id": "D-10",
+      "type": "blocking",
+      "start": "2026-10-06T22:51:13Z",
+      "end": null
+    },
+    {
+      "id": "D-11",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:51:13Z",
+      "end": null
+    },
+    {
+      "id": "D-12",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:51:13Z",
+      "end": null
+    },
+    {
+      "id": "D-13",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:51:13Z",
+      "end": null
+    },
+    {
+      "id": "D-14",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:51:13Z",
+      "end": null
     }
   ],
   "humanInterventions": [
@@ -140,6 +170,11 @@
       "start": "2026-10-06T22:33:47Z",
       "end": "2026-10-06T22:43:01Z",
       "reason": "phase 0 blocking decisions D-04, D-05 (dependency vulnerabilities)"
+    },
+    {
+      "start": "2026-10-06T22:51:13Z",
+      "end": null,
+      "reason": "phase 2 blocking decision D-10 (public workshop endpoint)"
     }
   ],
   "codeMetrics": {

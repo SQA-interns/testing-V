@@ -1,0 +1,13 @@
+No configurations were provided -- using built in recommended configuration by default.
+
+validating registration-api.openapi.yaml...
+registration-api.openapi.yaml: validated in 120ms
+
+Woohoo! Your API description is valid. 🎉
+
+
+== JSON contracts
+confirmation-email.json: parses (JSON.parse, node 24.13.0)
+registration-form.json: parses (JSON.parse, node 24.13.0)
+== SQL contract
+registration-storage.sql: applied with psql -v ON_ERROR_STOP=1 in postgres:16.15-alpine; private row inserted; company row without company data rejected by ck_registration_company_data
