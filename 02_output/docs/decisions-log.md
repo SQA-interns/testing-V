@@ -88,5 +88,16 @@
 - Options:
   1. (proposed default) Classify as a false positive (Low), add a dependency-check suppression for CVE-2025-7962 on `angus-activation` with this evidence, and continue. The design still neutralises CR/LF in any user value written to a mail header (SMTP injection is relevant to US e-mail flows).
   2. Keep it as High; the backend set fails the phase 0 gate until a non-affected version or a human-approved override exists (none needed in practice, since the affected library is not present).
-- Human response: none
-- Resolution: pending review
+- Human response: Option 1; treat as false positive (Low) with the stated evidence, suppress for that one artifact only, keep the raw report, re-run the scan (2026-10-06T11:17:25Z)
+- Resolution: 1, Low (false positive); suppression in `backend/dependency-check-suppressions.xml` limited to `pkg:maven/org.eclipse.angus/angus-activation@2.0.3`; raw report kept in `out/logs/00_backend-depcheck-raw.json`
+
+## D-09: Playwright and Vite config files left out of the TypeScript type-check scope
+- Timestamp: 2026-10-06T11:17:25Z
+- Phase: 0
+- Type: non-blocking
+- Trigger: frontend bootstrap, `tsc --noEmit` failed with TS2591 (`process` unknown) in `frontend/playwright.config.ts` because `@types/node` is not in `tech-stack.md` (`out/logs/00_frontend-tools.log`).
+- Options:
+  1. (proposed default) Limit `tsconfig.json` `include` to `src` and `tests`; the config files are still linted by ESLint and loaded by their tools.
+  2. Add `@types/node` as an unlisted dev dependency with an exact version and a non-blocking record.
+- Human response: none (human asked at 2026-10-06T11:17:25Z that this be recorded)
+- Resolution: 1, applied in commit 061b6e6

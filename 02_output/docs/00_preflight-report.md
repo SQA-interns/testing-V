@@ -9,9 +9,9 @@ Run 1: 2026-10-06, starting commit `8b4fb643b0c36b7a8e36ef9d977dc7595e4ade61` (b
 | Run configuration complete | `project/00_setup/run-config.md` | PASS: model, effort, template version, run id present |
 | Platforms and tools installed at the listed versions | `project/00_setup/tech-stack.md` | Run 1 FAIL: JDK (D-01), Node/npm (D-02). Run 2 PASS as amended: Oracle JDK 21.0.11 (D-01), Node 24.10.0 / npm 10.9.4 (D-02); every Maven and npm tool runs (see "Bootstrap") |
 | Local environments and services running or reachable | `project/00_setup/environments.md` | PASS: Docker engine running; `postgres:16.15-alpine` and `axllent/mailpit:v1.31.1` pulled and run; ports 8080, 8025, 5432 free |
-| Secrets present in `.env` or marked test-only | `project/00_setup/secrets.env.example` | Run 1 NOT CHECKED (D-06). Run 2 PASS: skill step 4 command; `POSTGRES_PASSWORD`, `ORGANIZER_USERNAME`, `ORGANIZER_PASSWORD`, `NVD_API_KEY` set; `SMTP_*` not needed locally. Second method: OWASP scan authenticated to NVD with `NVD_API_KEY`. Organizer password length not inspected (value never read) |
+| Secrets present in `.env` or marked test-only | `project/00_setup/secrets.env.example` | Run 1 NOT CHECKED (D-06). Run 2 PASS: skill step 4 command; `POSTGRES_PASSWORD`, `ORGANIZER_USERNAME`, `ORGANIZER_PASSWORD`, `NVD_API_KEY` set; `SMTP_*` not needed locally. Second method: OWASP scan authenticated to NVD with `NVD_API_KEY`. Organizer password length not inspected by the agent; human confirmed ≥ 16 characters (2026-10-06T11:17Z) |
 | Every listed dependency resolves | `project/00_setup/tech-stack.md` | PASS: 30 Maven coordinates (HTTP 200 on Maven Central `.pom`), 24 npm packages (`npm view`), 8 container images (`docker manifest inspect`) |
-| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | Run 1 FAIL (frontend: D-03, D-04). Run 2 frontend PASS: 0 Critical/High, 2 Moderate. Backend: OWASP Dependency-Check (NVD; OSS Index disabled, D-07): 1 High-by-CVSS-v3 false positive pending D-08, 1 Medium false positive |
+| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | Run 1 FAIL (frontend: D-03, D-04). Run 2 frontend PASS: 0 Critical/High, 2 Moderate. Backend: OWASP Dependency-Check (NVD; OSS Index disabled, D-07): Run 3 PASS: CVE-2025-7962 classified Low (false positive, D-08) and suppressed for `angus-activation` 2.0.3 only; 1 Medium false positive (CVE-2025-15104) remains; raw report `out/logs/00_backend-depcheck-raw.json` |
 | Clean working tree on the starting commit | repository | PASS: `git status --porcelain` empty except ignored `.env`; HEAD = starting commit, which contains the filled inputs |
 | Input manifest written | `docs/00_input-manifest.sha256` | PASS: 26 files (21 under `01_input/`, 5 protected root files), LF-normalised |
 
@@ -49,7 +49,7 @@ Re-audit with D-03 and D-04 option 1 (vitest and coverage-v8 5.0.3, jscpd 5.4.0)
 | When | What was missing | Answer | Re-check |
 |---|---|---|---|
 | 2026-10-06T11:01Z | D-01 JDK, D-02 Node/npm, D-03 vitest, D-04 jscpd, D-06 secret check | 2026-10-06T11:06Z: D-01 opt 2, D-02 opt 2, D-03 opt 1, D-04 opt 1, D-06 opt 1 | run 2: all re-checked, pass |
-| 2026-10-06T11:14Z | D-08 downgrade of CVE-2025-7962 | pending | pending |
+| 2026-10-06T11:14Z | D-08 downgrade of CVE-2025-7962 | 2026-10-06T11:17Z: option 1; organizer password ≥ 16 characters confirmed | run 3: scan passes |
 
 ## Bootstrap (run 2)
 
@@ -67,3 +67,14 @@ Re-audit with D-03 and D-04 option 1 (vitest and coverage-v8 5.0.3, jscpd 5.4.0)
 | frontend | `npx playwright --version` | 1.63.0; Chromium v1243 present | – |
 | frontend | `npm audit` | 0 Critical, 0 High, 2 Moderate | – |
 | all | gitleaks v8.30.1 `dir 02_output` | no leaks | – |
+
+## Gate (2026-10-06T11:18Z)
+
+Phase 0 gate PASSED: every preflight check passes (as amended by D-01 to D-04, D-07, D-08); both components build; `pom.xml` and `package.json`/`package-lock.json` match `tech-stack.md` as amended; every listed tool runs; input manifest written and re-verified (26/26 hashes match).
+
+Component commands (ES-05; `architecture.md` leaves them empty):
+
+| Component | build | test | check | run |
+|---|---|---|---|---|
+| backend | `./mvnw -DskipTests package` | `./mvnw verify` | `./mvnw compile spotless:check pmd:check pmd:cpd-check spotbugs:check` | `./mvnw spring-boot:run` (or `docker compose up` in `02_output/`, phase 4) |
+| frontend | `npm run build` | `npm test` (unit/acceptance), `npm run test:e2e` | `npm run check` | `npm run dev` |
