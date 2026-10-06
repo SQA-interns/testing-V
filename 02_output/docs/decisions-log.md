@@ -101,3 +101,36 @@
   2. Add `@types/node` as an unlisted dev dependency with an exact version and a non-blocking record.
 - Human response: none (human asked at 2026-10-06T11:17:25Z that this be recorded)
 - Resolution: 1, applied in commit 061b6e6
+
+## D-10: What counts as an invalid registration field (AC-001-07)
+- Timestamp: 2026-10-06T11:19:59Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: REQ-REG-01 AC7 says "missing or invalid" but does not define invalid; the choice is visible to users (which inputs are rejected with 422).
+- Options:
+  1. (proposed default, conservative: rejects only clearly unusable data, never a legitimate name, address or foreign VAT ID) A text field is missing when absent, null or blank after trimming. `email` is invalid unless it is one syntactically valid address (local part @ domain with a dot), at most 254 characters. `payerType` is invalid unless exactly `private` or `company`. `workshops` is invalid when it holds more than one entry or an id not in `APP_WORKSHOPS`; absent, null or empty means no workshop. Names at most 100, company name 200, company address 500, VAT ID 30 characters; any field containing a control character (CR, LF, etc.) is invalid (SR-05). No country-specific VAT ID format check. For a private payer, company fields sent by the client are ignored and not stored (AC-001-05). A body that is not a JSON object answers 400.
+  2. Stricter: country-specific VAT ID patterns and 422 for company fields sent with a private payer.
+- Human response: none
+- Resolution: 1, pending review
+
+## D-11: How the registration rate limit counts (AC-001-13)
+- Timestamp: 2026-10-06T11:19:59Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: `security-requirements.md` and REQ-REG-01 require rate limiting per client at `APP_RATE_LIMIT_PER_HOUR` but do not say what a client is, which requests count, or which window.
+- Options:
+  1. (proposed default, conservative: also limits floods of invalid requests) Client = remote IP address as seen by the backend (in production, the reverse proxy's forwarded address, configured in phase 2); every `POST /api/registrations` counts, valid or not; sliding one-hour window; over the limit: 429 with `Retry-After`, nothing stored, no e-mail.
+  2. Count only accepted registrations.
+- Human response: none
+- Resolution: 1, pending review
+
+## D-12: Behaviour when the confirmation e-mail cannot be sent (AC-001-04)
+- Timestamp: 2026-10-06T11:19:59Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: AC4 requires exactly one confirmation e-mail per stored registration but does not say what happens when the SMTP server is unavailable.
+- Options:
+  1. (proposed default, conservative: no accepted registration is ever lost and no duplicate e-mail is sent) The registration is stored and the API answers 201 regardless; the confirmation is recorded as pending in the same transaction and sent by the backend's mail component, which retries pending confirmations until each is sent once. The failure is logged with the registration number only (SR-01).
+  2. Roll back and answer 503 so the participant retries; registrations are impossible while SMTP is down.
+- Human response: none
+- Resolution: 1, pending review
