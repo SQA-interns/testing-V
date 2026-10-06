@@ -1,0 +1,40 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 119,
+  "EndLine": 119,
+  "StartColumn": 27,
+  "EndColumn": 72,
+  "Match": "password: REDACTED",
+  "Secret": "REDACTED",
+  "File": "02_output/logs/p3-backend-acceptance-run1.log",
+  "SymlinkFile": "",
+  "Commit": "3781494ba21e9c951627c180316392e788b96001",
+  "Link": "https://github.com/SQA-interns/testing-V/blob/3781494ba21e9c951627c180316392e788b96001/02_output/logs/p3-backend-acceptance-run1.log#L119",
+  "Entropy": 3.6722543,
+  "Date": "2026-10-06T18:15:30Z",
+  "Message": "docs: record phase 3 test design and failing run (US-001)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+  "Tags": [],
+  "Fingerprint": "3781494ba21e9c951627c180316392e788b96001:02_output/logs/p3-backend-acceptance-run1.log:generic-api-key:119"
+ },
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 356,
+  "EndLine": 356,
+  "StartColumn": 27,
+  "EndColumn": 72,
+  "Match": "password: REDACTED",
+  "Secret": "REDACTED",
+  "File": "02_output/logs/p3-backend-acceptance-run1.log",
+  "SymlinkFile": "",
+  "Commit": "3781494ba21e9c951627c180316392e788b96001",
+  "Link": "https://github.com/SQA-interns/testing-V/blob/3781494ba21e9c951627c180316392e788b96001/02_output/logs/p3-backend-acceptance-run1.log#L356",
+  "Entropy": 3.7289722,
+  "Date": "2026-10-06T18:15:30Z",
+  "Message": "docs: record phase 3 test design and failing run (US-001)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+  "Tags": [],
+  "Fingerprint": "3781494ba21e9c951627c180316392e788b96001:02_output/logs/p3-backend-acceptance-run1.log:generic-api-key:356"
+ }
+]

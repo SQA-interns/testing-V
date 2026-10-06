@@ -1,0 +1,38 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 119,
+  "EndLine": 119,
+  "StartColumn": 27,
+  "EndColumn": 73,
+  "Match": "password: REDACTED\r",
+  "Secret": "REDACTED",
+  "File": "/repo/02_output/logs/p3-backend-acceptance-run1.log",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 3.6722543,
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "Fingerprint": "/repo/02_output/logs/p3-backend-acceptance-run1.log:generic-api-key:119"
+ },
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 356,
+  "EndLine": 356,
+  "StartColumn": 27,
+  "EndColumn": 73,
+  "Match": "password: REDACTED\r",
+  "Secret": "REDACTED",
+  "File": "/repo/02_output/logs/p3-backend-acceptance-run1.log",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 3.7289722,
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "Fingerprint": "/repo/02_output/logs/p3-backend-acceptance-run1.log:generic-api-key:356"
+ }
+]
