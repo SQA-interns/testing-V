@@ -1,0 +1,9 @@
+# ES-03: normalise every text file to LF in the repository and working tree
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.jar binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.xlsx binary
