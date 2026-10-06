@@ -235,3 +235,12 @@
 - Options: 1. (chosen) Use `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_MAIL_HOST`, `SPRING_MAIL_PORT`, `APP_MAIL_TLS` (default `false`, required `true` in `prod`) and `APP_MAIL_FROM` (default `registration@confreg.local`). Add `APP_INSECURE_AUTH_ALLOWED` (default `false`; set to `true` only by the local compose file; the `prod` profile refuses to start with it), so credentials over plain HTTP are accepted only from loopback or in the localhost-bound local stack (spec 6.3). 2. Treat every non-TLS request in the local stack as allowed by profile, with no explicit setting (less visible). 3. Refuse organizer access in the local stack (DoD-P01 and the runtime demonstration could not read registrations).
 - Human response: none
 - Resolution: option 1, pending review
+
+## D-27: Phase 2 contracts committed in one commit instead of one each
+- Timestamp: 2026-10-06T18:07:06Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: a shell command error made the five contracts in `docs/02_contracts/` land in one commit (2f00194, together with D-25, D-26 and the contract-check logs) instead of one commit per contract (`general/phases.md`, commit units). The specification has its own commit (e81dfe4) and the tool too (9a6961c). `general/working-rules.md` forbids rewriting history.
+- Options: 1. (chosen) Keep the history, record the deviation here, and list it in the phase 6 evidence. 2. Rewrite history (not allowed).
+- Human response: none
+- Resolution: option 1, pending review
