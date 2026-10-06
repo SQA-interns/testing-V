@@ -1,0 +1,86 @@
+# Defaults copied from 01_input/01_project/00_setup/environments.md (spec 3).
+# Every app.* value can be overridden by the APP_* environment variable of the same name.
+# Secrets have no default (ES-01): POSTGRES_PASSWORD, ORGANIZER_USERNAME, ORGANIZER_PASSWORD.
+
+app:
+  conference-tz: Europe/Ljubljana
+  early-bird-deadline: 2026-07-31
+  fee-early: 240.00
+  fee-regular: 300.00
+  vat-rate: 0.22
+  workshops: "W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains"
+  rate-limit-per-hour: 100
+  test-clock: disabled
+  mail-from: registration@confreg.local
+  organizer:
+    username: ${ORGANIZER_USERNAME}
+    password: ${ORGANIZER_PASSWORD}
+
+spring:
+  application:
+    name: registration-backend
+  main:
+    banner-mode: off
+  datasource:
+    # URL and user: SPRING_DATASOURCE_URL, SPRING_DATASOURCE_USERNAME (environment-specific)
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  mail:
+    # Host and port: SPRING_MAIL_HOST, SPRING_MAIL_PORT (environment-specific)
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: ${APP_MAIL_STARTTLS:false}
+            required: ${APP_MAIL_STARTTLS:false}
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  jackson:
+    default-property-inclusion: always
+
+server:
+  forward-headers-strategy: native
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+    include-binding-errors: never
+    include-path: never
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState,db
+  health:
+    mail:
+      enabled: false
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+    org.hibernate.orm.jdbc.bind: warn
