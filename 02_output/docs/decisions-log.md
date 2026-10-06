@@ -197,5 +197,5 @@
 - Options:
   1. (proposed default) Lower F-02 to Low (required design with the listed compensating controls) and accept it.
   2. Keep it High; the phase 6 gate stays failed until the input requirement changes (for example to mTLS or OIDC for the organizer).
-- Human response: none
-- Resolution: pending review
+- Human response: Option 1; lower F-02 to Low and accept it with the listed evidence (required by architecture.md and security-requirements.md, credentials only over HTTPS or localhost per SR-03, BCrypt-only storage, tested per-client rate limit on failed logins); keep the raw Semgrep report (2026-10-06T13:24:07Z)
+- Resolution: 1, F-02 lowered to Low and accepted; raw reports kept in `out/logs/06_semgrep.json` and `06_semgrep-after-fixes.json`
