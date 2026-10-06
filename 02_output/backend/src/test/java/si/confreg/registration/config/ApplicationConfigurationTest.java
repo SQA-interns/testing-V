@@ -112,8 +112,8 @@ class ApplicationConfigurationTest {
 
   @Test
   void organizerToStringHidesCredentials() {
-    assertThat(new AppProperties.Organizer("user", "secret-password").toString())
-        .doesNotContain("user")
+    assertThat(new AppProperties.Organizer("alice-organizer", "secret-password").toString())
+        .doesNotContain("alice-organizer")
         .doesNotContain("secret-password");
   }
 }

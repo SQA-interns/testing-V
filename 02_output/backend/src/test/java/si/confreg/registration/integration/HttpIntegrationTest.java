@@ -105,15 +105,15 @@ class HttpIntegrationTest {
 
   @Test
   void organizerEndpointChallengesWithoutAndWithWrongCredentials() throws Exception {
-    HttpResponse<String> none = send(at("/api/registrations/REG-000001").GET());
+    HttpResponse<String> none = send(at("/api/registrations/REG-999999999").GET());
     HttpResponse<String> wrong =
         send(
-            at("/api/registrations/REG-000001")
+            at("/api/registrations/REG-999999999")
                 .header("Authorization", basic(USER, "wrong-password-123"))
                 .GET());
     HttpResponse<String> right =
         send(
-            at("/api/registrations/REG-000001")
+            at("/api/registrations/REG-999999999")
                 .header("Authorization", basic(USER, PASSWORD))
                 .GET());
 
