@@ -66,7 +66,7 @@ describe("App", () => {
     let releasePost: (r: Response) => void = () => undefined;
     vi.stubGlobal(
       "fetch",
-      vi.fn((url: string, init?: RequestInit) => {
+      vi.fn((_url: string, init?: RequestInit) => {
         if (init?.method === "POST") {
           return new Promise<Response>((resolve) => {
             releasePost = resolve;
