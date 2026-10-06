@@ -66,6 +66,14 @@ class RegistrationValidatorTest {
         .containsExactly(new FieldError("email", "must not be longer than 254 characters"));
   }
 
+  @Test
+  void malformedEmailAtLengthLimitStillRejectedForSyntax() {
+    String malformed = "a".repeat(RegistrationValidator.EMAIL_MAX - "@nodot".length()) + "@nodot";
+
+    assertThat(validator.validate(privateInput(malformed)))
+        .containsExactly(new FieldError("email", "must be a valid e-mail address"));
+  }
+
   @ParameterizedTest
   @ValueSource(strings = {"Private", "PRIVATE", "person", "companies"})
   void rejectsUnknownPayerType(String payerType) {

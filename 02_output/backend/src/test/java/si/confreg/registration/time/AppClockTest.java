@@ -74,6 +74,8 @@ class AppClockTest {
 
     assertThat(response.getStatus()).isEqualTo(400);
     assertThat(response.getContentType()).startsWith("application/problem+json");
+    assertThat(response.getCharacterEncoding()).isEqualToIgnoringCase("UTF-8");
+    assertThat(response.getContentAsString()).contains("\"status\":400").contains("X-Test-Now");
     assertThat(called.get()).isFalse();
   }
 }

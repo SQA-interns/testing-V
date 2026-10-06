@@ -79,6 +79,16 @@ class AppPropertiesTest {
         .isInstanceOf(UnsupportedOperationException.class);
   }
 
+  @Test
+  void workshopIdOfTwentyCharactersAccepted() {
+    String id = "x".repeat(20);
+
+    assertThat(
+            properties("UTC", "2030-01-31", "1", "2", "0", id + "=A", 1, "", false, false)
+                .workshopCatalogue())
+        .containsKey(id);
+  }
+
   @ParameterizedTest
   @ValueSource(strings = {"enabled", "ENABLED", " Enabled "})
   void testClockEnabledValues(String value) {

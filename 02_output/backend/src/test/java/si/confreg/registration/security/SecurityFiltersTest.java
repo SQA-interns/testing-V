@@ -64,6 +64,11 @@ class SecurityFiltersTest {
     assertThat(limited.getStatus()).isEqualTo(429);
     assertThat(limited.getHeader("Retry-After")).isEqualTo("60");
     assertThat(limited.getContentType()).startsWith("application/problem+json");
+    assertThat(limited.getCharacterEncoding()).isEqualToIgnoringCase("UTF-8");
+    assertThat(limited.getContentAsString())
+        .isEqualTo(
+            "{\"title\":\"Too Many Requests\",\"status\":429,"
+                + "\"detail\":\"Too many requests. Please try again later.\"}");
     assertThat(call(filter, "10.0.0.2", "/api/registrations").getStatus()).isEqualTo(201);
 
     clock.now = clock.now.plus(Duration.ofMinutes(1));
