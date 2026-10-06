@@ -1,0 +1,139 @@
+{
+  "runId": "tanej-confreg-C0-r1",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "templateVersion": "1.2",
+  "transcript": "C:/Users/tanej/.claude/projects/c--Users-tanej-Documents-LAB-tanej-confreg-C0/4b7a65ee-5562-4d8f-a396-419e178c4f45.jsonl",
+  "startCommit": "dc8b146309f2597ec60bcbc235616a3865ec3a8a",
+  "finalCommit": null,
+  "start": "2026-10-06T14:00:16Z",
+  "end": null,
+  "phases": [
+    {
+      "phase": 0,
+      "name": "preflight-and-bootstrap",
+      "start": "2026-10-06T14:00:16Z",
+      "end": "2026-10-06T14:24:50Z"
+    },
+    {
+      "phase": 1,
+      "name": "requirements",
+      "start": "2026-10-06T14:24:50Z",
+      "end": null
+    },
+    {
+      "phase": 2,
+      "name": "design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 3,
+      "name": "test-design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 4,
+      "name": "build",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 5,
+      "name": "unit-tests",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 6,
+      "name": "verify",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 7,
+      "name": "release",
+      "start": null,
+      "end": null
+    }
+  ],
+  "firstTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "finalTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "fixLoops": [],
+  "decisions": [
+    {
+      "id": "D-01",
+      "type": "blocking",
+      "start": "2026-10-06T14:04:00Z",
+      "end": "2026-10-06T14:07:43Z"
+    },
+    {
+      "id": "D-02",
+      "type": "blocking",
+      "start": "2026-10-06T14:04:00Z",
+      "end": "2026-10-06T14:07:43Z"
+    },
+    {
+      "id": "D-03",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:04:00Z",
+      "end": "2026-10-06T14:04:00Z"
+    },
+    {
+      "id": "D-04",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:19:28Z",
+      "end": "2026-10-06T14:19:28Z"
+    },
+    {
+      "id": "D-05",
+      "type": "blocking",
+      "start": "2026-10-06T14:19:28Z",
+      "end": "2026-10-06T14:24:23Z"
+    }
+  ],
+  "humanInterventions": [
+    {
+      "start": "2026-10-06T14:04:00Z",
+      "end": "2026-10-06T14:07:43Z",
+      "reason": "Phase 0 preflight: pinned JDK (D-01) and Node.js/npm (D-02) not installed on host"
+    },
+    {
+      "start": "2026-10-06T14:19:28Z",
+      "end": "2026-10-06T14:24:23Z",
+      "reason": "Phase 0 preflight: Critical/High dependency-scan results in test/dev tooling (D-05)"
+    }
+  ],
+  "codeMetrics": {
+    "components": [],
+    "complexity": null,
+    "duplicationPct": null
+  },
+  "commits": [],
+  "usage": {
+    "inputTokens": null,
+    "outputTokens": null,
+    "cacheReadTokens": null,
+    "cacheWriteTokens": null,
+    "modelCalls": null,
+    "toolCalls": {
+      "total": null,
+      "byTool": {}
+    },
+    "costUsd": null,
+    "priceTableDate": null
+  }
+}
