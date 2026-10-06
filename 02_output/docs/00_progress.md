@@ -5,9 +5,9 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 3 (test design), started 2026-10-06T19:16:44Z
-- Last gate result: phase 2 gate passed 2026-10-06T19:16:44Z (traceability complete; 4 contracts valid, `out/logs/02_design/contract-validation.log`)
-- Next step: write acceptance tests (backend, through the HTTP API with Testcontainers PostgreSQL and Mailpit) and end-to-end tests (Playwright against the form) for AC-001-01 to AC-001-10 and ArchUnit rules for AR-02/AR-03; no production code; then the freeze commit
+- Current phase: 4 (build), started 2026-10-06T19:34:51Z
+- Last gate result: phase 3 gate passed 2026-10-06T19:34:51Z; freeze commit `05ef03e` (`docs/03_acceptance-manifest.sha256`, 12 files)
+- Next step: implement the backend per `docs/02_specification.md` (domain, application, persistence, mail, clock, security, config, api) and the frontend form; Dockerfiles and `docker-compose.yml`; commit per AC group of US-001; all frozen tests must pass
 - Waiting for the human on: nothing
 
 ## Done in phase 0
@@ -31,6 +31,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Phase 1: `docs/01_acceptance-criteria.md` (AC-001-01 to AC-001-10); decisions D-20 to D-25 pending review; gate passed 2026-10-06T19:10:53Z
 
 - Phase 2: `docs/02_specification.md`, contracts (OpenAPI, SQL, e-mail, form) and `out/tools/validate_contracts.py`; decisions D-26 to D-29 pending review; gate passed 2026-10-06T19:16:44Z
+
+- Phase 3: 52 backend acceptance tests and 4 e2e tests, all failing on the skeleton for behavioural reasons except 3 vacuous ArchUnit passes; D-30, D-31; frozen at `05ef03e`; gate passed 2026-10-06T19:34:51Z
 
 ## Interruptions
 
