@@ -1,0 +1,15 @@
+== JSON parse and OpenAPI $ref resolution (2026-10-06T14:31:28Z)
+parse ok registration-api.openapi.json
+parse ok confirmation-email.json
+parse ok registration-form.json
+refs 35 resolved; operations 5
+fixed stored fields missing: none
+fixed request fields missing: none
+RESULT ok
+== SQL applied to postgres:16.15-alpine
+CREATE SEQUENCE
+CREATE TABLE
+CREATE INDEX
+psql exit 0
+ Žiga       | Čebašek
+ERROR:  new row for relation "registration" violates check constraint "ck_registration_private_no_company"

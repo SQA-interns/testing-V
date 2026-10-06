@@ -171,3 +171,26 @@
   2. Fail the whole registration when the e-mail cannot be sent (user must retry; risk of lost registrations).
 - Human response: none
 - Resolution: pending review (option 1)
+
+## D-15: Formats of APP_WORKSHOPS and the registration number
+- Timestamp: 2026-10-06T14:31:28Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: `environments.md` gives the `APP_WORKSHOPS` default as prose ("`W1` Requirements engineering ...; `W2` ...") without a machine format; `architecture.md` fixes the field `registrationNumber` but not its format.
+- Options:
+  1. (proposed default) `APP_WORKSHOPS` = `id=title` pairs separated by `;` (default `W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains`); registration number `CR-` plus a 6-digit number from a database sequence (`CR-000001`).
+  2. JSON in `APP_WORKSHOPS`; random (non-sequential) registration numbers.
+- Human response: none
+- Resolution: pending review (option 1: readable in an environment variable; organizer-only access makes sequential numbers acceptable)
+
+## D-16: Public endpoints, rate-limit client and "localhost" for SR-03
+- Timestamp: 2026-10-06T14:31:28Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: `security-requirements.md`: every endpoint needs organizer authentication "unless a requirement explicitly makes an endpoint public"; public endpoints rate limited "per client"; SR-03 allows plain-HTTP credentials "on localhost". US-001 (anonymous participants, no accounts) requires public registration; AC-001-20/22 require workshops and the current price on the public page; ES-09/NFR-02 require health checks used by containers.
+- Options:
+  1. (proposed default) Public: `POST /api/registrations`, `GET /api/registration-options`, `/actuator/health` (+ liveness/readiness, no details). All else organizer-only. "Client" = remote IP address (the `X-Forwarded-For` address only in profile `prod`, behind the trusted proxy); separate hourly buckets for registration, options and failed organizer logins, each `APP_RATE_LIMIT_PER_HOUR`. "Localhost" = loopback, plus private addresses outside `prod` (Docker forwards 127.0.0.1-published ports from its bridge gateway); in `prod` only HTTPS via the proxy or loopback.
+  2. Hard-code workshops and prices in the frontend and keep only `POST` public (violates AR-04 and AR-01's single source).
+  3. One shared bucket per client for all public endpoints (price refreshes on the form could use up the registration allowance).
+- Human response: none
+- Resolution: pending review (option 1)

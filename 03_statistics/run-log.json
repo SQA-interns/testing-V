@@ -25,12 +25,12 @@
       "phase": 2,
       "name": "design",
       "start": "2026-10-06T14:27:44Z",
-      "end": null
+      "end": "2026-10-06T14:32:09Z"
     },
     {
       "phase": 3,
       "name": "test-design",
-      "start": null,
+      "start": "2026-10-06T14:32:09Z",
       "end": null
     },
     {
@@ -156,6 +156,18 @@
       "id": "D-14",
       "type": "non-blocking",
       "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-15",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:31:28Z",
+      "end": null
+    },
+    {
+      "id": "D-16",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:31:28Z",
       "end": null
     }
   ],
