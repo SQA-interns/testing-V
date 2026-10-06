@@ -1,0 +1,54 @@
+{
+  "$comment": "UI contract between participant and frontend (docs/02_specification.md section 10, AC-001-11). Element ids are fixed; end-to-end tests use them and the visible labels.",
+  "page": { "path": "/", "title": "Conference registration", "heading": "Conference registration" },
+  "form": {
+    "id": "registration-form",
+    "fields": [
+      { "id": "firstName", "label": "First name", "type": "text", "required": true, "requestField": "firstName" },
+      { "id": "lastName", "label": "Last name", "type": "text", "required": true, "requestField": "lastName" },
+      { "id": "email", "label": "E-mail", "type": "email", "required": true, "requestField": "email" },
+      {
+        "id": "payerType",
+        "label": "Payer",
+        "type": "radio",
+        "required": true,
+        "requestField": "payerType",
+        "options": [
+          { "id": "payerType-private", "value": "private", "label": "Private person" },
+          { "id": "payerType-company", "value": "company", "label": "Company" }
+        ],
+        "default": "private"
+      },
+      { "id": "companyName", "label": "Company name", "type": "text", "requestField": "companyName", "visibleWhen": "payerType=company", "requiredWhen": "payerType=company" },
+      { "id": "companyAddress", "label": "Company address", "type": "text", "requestField": "companyAddress", "visibleWhen": "payerType=company", "requiredWhen": "payerType=company" },
+      { "id": "companyVatId", "label": "Company VAT ID", "type": "text", "requestField": "companyVatId", "visibleWhen": "payerType=company", "requiredWhen": "payerType=company" },
+      {
+        "id": "workshop",
+        "label": "Workshop",
+        "type": "radio",
+        "requestField": "workshops",
+        "options": "'No workshop' (id 'workshop-none', value '') followed by one option per entry of GET /api/workshops (id 'workshop-{id}', label = title)",
+        "default": "",
+        "mapping": "'' -> [], id -> [id]"
+      }
+    ],
+    "submit": { "id": "submit", "label": "Register", "disabledWhilePending": true }
+  },
+  "fieldError": {
+    "id": "{fieldId}-error",
+    "source": "errors[requestField] of the 422 response; the workshop field shows errors['workshops']",
+    "linkedBy": "aria-describedby on the field"
+  },
+  "generalError": { "id": "general-error", "role": "alert", "shownFor": ["429", "400", "5xx", "network error"] },
+  "confirmation": {
+    "id": "confirmation",
+    "shownFor": "201",
+    "replacesForm": true,
+    "items": [
+      { "id": "confirmation-registration-number", "label": "Registration number", "source": "registrationNumber" },
+      { "id": "confirmation-net-fee", "label": "Net fee", "source": "netFee", "format": "0.00 EUR" },
+      { "id": "confirmation-vat", "label": "VAT", "source": "vat", "format": "0.00 EUR" },
+      { "id": "confirmation-gross-fee", "label": "Gross fee", "source": "grossFee", "format": "0.00 EUR" }
+    ]
+  }
+}
