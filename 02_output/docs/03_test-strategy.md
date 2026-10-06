@@ -58,7 +58,24 @@ Formatting and lint before the freeze: `./mvnw spotless:apply` (google-java-form
 
 ## First complete run (before any fix)
 
-Recorded in phase 5.
+Phase 5, 2026-10-06, all levels together, before any fix (`out/logs/05_unit-tests/first-run-*.log`):
+
+| Level | Run with | Tests | Passed | Failed |
+|---|---|---|---|---|
+| Backend acceptance (frozen) | `./mvnw -B verify` | 52 | 52 | 0 |
+| Backend unit and integration | `./mvnw -B verify` | 128 | 126 | 2 |
+| Frontend unit and component | `npx vitest run` | 18 | 18 | 0 |
+| End-to-end (frozen) | `npx playwright test`, local stack | 4 | 4 | 0 |
+| **Total** | | **202** | **200** | **2** |
+
+Classification of the failures:
+
+| Test | Failure | Class | Action |
+|---|---|---|---|
+| `ApplicationConfigurationTest.organizerToStringHidesCredentials` | the masked text `Organizer[username=***, …]` contains "user", the test's own username | defect in a non-frozen test (the username is a substring of the field label) | test uses a distinctive username |
+| `HttpIntegrationTest.organizerEndpointChallengesWithoutAndWithWrongCredentials` | expected 404 for `REG-000001`, got 200 | defect in a non-frozen test: another test in the class registers first, so `REG-000001` exists (order dependency) | test asks for a number that cannot exist (`REG-999999999`) |
+
+No implementation defect was found.
 
 ## Final run (phase 6)
 
