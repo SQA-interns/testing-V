@@ -1,6 +1,7 @@
 package si.confreg.registration.application;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +60,8 @@ public final class RegisterParticipant {
       return new Rejected(result.errors());
     }
     RegistrationValidator.ValidRegistration valid = result.valid();
-    Instant submittedAt = time.now();
+    // Microseconds: the precision PostgreSQL stores, so the response equals the stored row (F-07).
+    Instant submittedAt = time.now().truncatedTo(ChronoUnit.MICROS);
     Fee fee = feePolicy.feeAt(submittedAt);
     Registration registration =
         new Registration(
