@@ -48,8 +48,8 @@
     {
       "phase": 6,
       "name": "verify",
-      "start": null,
-      "end": null
+      "start": "2026-10-06T19:04:17Z",
+      "end": "2026-10-06T19:36:19Z"
     },
     {
       "phase": 7,
@@ -63,16 +63,30 @@
     "failed": 1
   },
   "finalTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 203,
+    "failed": 0
   },
   "findings": {
     "critical": 0,
     "high": 0,
-    "medium": 0,
-    "low": 0
+    "medium": 3,
+    "low": 6
   },
-  "fixLoops": [],
+  "fixLoops": [
+    {
+      "loop": 1,
+      "findings": [
+        "F-01",
+        "F-02",
+        "F-03",
+        "F-04",
+        "F-05"
+      ],
+      "change": "redact generated password in log; nginx: no add_header in /config.json location, no Host forwarding; unit tests for mutation gaps; strip author e-mails from gitleaks reports",
+      "start": "2026-10-06T19:25:00Z",
+      "end": "2026-10-06T19:34:58Z"
+    }
+  ],
   "decisions": [
     {
       "id": "D-01",
@@ -283,6 +297,12 @@
       "type": "blocking",
       "start": "2026-10-06T18:42:24Z",
       "end": "2026-10-06T18:42:24Z"
+    },
+    {
+      "id": "D-36",
+      "type": "non-blocking",
+      "start": "2026-10-06T19:34:58Z",
+      "end": "2026-10-06T19:34:58Z"
     }
   ],
   "humanInterventions": [
@@ -308,9 +328,41 @@
     }
   ],
   "codeMetrics": {
-    "components": [],
+    "components": [
+      {
+        "name": "backend",
+        "productionLoc": 1274,
+        "testLoc": 2141,
+        "languages": "Java 1245, SQL 29 (prod); Java 2141 (test)",
+        "lineCoverage": {
+          "unit": 81.3,
+          "acceptanceIntegration": 88.8,
+          "all": 97.2
+        },
+        "branchCoverage": {
+          "unit": 89.1,
+          "acceptanceIntegration": 66.3,
+          "all": 90.3
+        },
+        "mutationScore": 85
+      },
+      {
+        "name": "frontend",
+        "productionLoc": 441,
+        "testLoc": 462,
+        "languages": "TypeScript/TSX",
+        "lineCoverage": {
+          "unit": 93.7
+        },
+        "branchCoverage": {
+          "unit": 97.3
+        },
+        "mutationScore": 77.8
+      }
+    ],
     "complexity": null,
-    "duplicationPct": null
+    "complexityReason": "no tool with purpose complexity is listed in tech-stack.md; PMD design rules ran with no violations",
+    "duplicationPct": 0
   },
   "commits": [],
   "usage": {
