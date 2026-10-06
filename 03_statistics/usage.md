@@ -16,5 +16,5 @@ Source and date: Anthropic first-party API list prices, Claude Code `claude-api`
 |---|---|
 | API time | not shown by the panel |
 | Approval prompts | not shown by the panel |
-| Cost shown | none per run: plan is Pro (subscription), so the panel shows only limits (5-hour 58 %, weekly 76 %) and month-to-date extra usage €14.13 of €100.00, read 2026-10-06 ~20:03 UTC |
+| Cost shown | no dollar cost: `/cost` reports "using your subscription" (Pro) and shows only limits, read 2026-10-06 ~20:15 UTC: current session 60 % used, current week (all models) 77 % used; last 24 h 685 requests in 7 sessions, 93 % of usage at >150k context; model breakdown Opus 100 %, cache hit 99 %. Usage panel: month-to-date extra usage €14.13 of €100.00 (not per run) |
 | Difference to `usage.costUsd` | not computable: no per-run cost shown (`usage.costUsd` = $22.28) |
