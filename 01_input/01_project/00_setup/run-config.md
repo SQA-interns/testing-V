@@ -7,5 +7,5 @@ The only file a human fills before starting the agent; the agent checks everythi
 - Model: claude-opus-5-5
 - Effort: medium
 - Template version: 1.2
-- Run ID: 05_conference-registration_opus5.5_sdd_template-1.2
+- Run ID: tanej-confreg-C2-r1
 - Starting commit: git HEAD when the agent starts (recorded in phase 0; it must contain these filled inputs)
