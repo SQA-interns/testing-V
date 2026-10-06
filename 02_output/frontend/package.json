@@ -11,6 +11,7 @@
     "coverage": "vitest run --coverage",
     "check": "prettier --check . && eslint . && tsc --noEmit",
     "format": "prettier --write .",
+    "e2e": "playwright test",
     "mutation": "stryker run",
     "duplication": "jscpd src"
   },
