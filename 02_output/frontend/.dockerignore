@@ -1,0 +1,9 @@
+node_modules
+dist
+coverage
+reports
+test-results
+playwright-report
+.stryker-tmp
+e2e
+tests

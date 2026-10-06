@@ -1,0 +1,77 @@
+# Local stack (environments.md "local"): plain HTTP on 127.0.0.1 only.
+# Start from 02_output/:  docker compose --env-file ../.env up --build
+# Secrets come from ../.env by interpolation; APP_* settings pass through only when set.
+name: confreg
+
+services:
+  postgres:
+    image: postgres:16.15-alpine
+    environment:
+      POSTGRES_DB: confreg
+      POSTGRES_USER: confreg
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U confreg -d confreg"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.31.1
+    ports:
+      - "127.0.0.1:8025:8025"
+
+  backend:
+    build: ./backend
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/confreg
+      - SPRING_DATASOURCE_USERNAME=confreg
+      - SPRING_MAIL_HOST=mailpit
+      - SPRING_MAIL_PORT=1025
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      - ORGANIZER_USERNAME=${ORGANIZER_USERNAME:?set ORGANIZER_USERNAME in .env}
+      - ORGANIZER_PASSWORD=${ORGANIZER_PASSWORD:?set ORGANIZER_PASSWORD in .env}
+      - APP_CONFERENCE_TZ
+      - APP_EARLY_BIRD_DEADLINE
+      - APP_FEE_EARLY
+      - APP_FEE_REGULAR
+      - APP_VAT_RATE
+      - APP_WORKSHOPS
+      - APP_RATE_LIMIT_PER_HOUR
+      - APP_TEST_CLOCK
+      - APP_MAIL_FROM
+      - APP_MAIL_STARTTLS
+    ports:
+      - "127.0.0.1:8080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8081/actuator/health/readiness || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 20s
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+
+  frontend:
+    build: ./frontend
+    environment:
+      - BACKEND_URL=http://backend:8080
+    ports:
+      - "127.0.0.1:3000:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8080/ || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:
