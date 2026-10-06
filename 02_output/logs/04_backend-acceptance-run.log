@@ -1,0 +1,178 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to "-javaagent:C:\\Users\\sense\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=E:\\13 - Lab Projects\\03_Vasilka_Testing\\kyuhi\\confreg-C2\\02_output\\backend\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 37 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+01:17:50.835 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationAcceptanceTest]: ConfirmationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:17:51.035 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+01:17:51.163 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationAcceptanceTest]: ConfirmationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:17:51.164 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:17:51.166 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+01:17:51.245 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+01:17:51.248 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+01:17:51.709 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+01:17:52.074 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+01:17:52.528 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+01:17:52.530 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+01:17:52.553 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.1
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 40065 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+01:17:52.659 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+01:17:52.987 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: d3d4dc0bc898fd06a82f33919ae383446075a8b62aa3018b9b6fca1f4e08f667
+01:17:53.390 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.7307436S
+01:17:53.411 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+01:17:53.412 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+01:17:53.412 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+01:17:53.413 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+01:17:53.535 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: cb9672e7d6f0d3268d6742307b544b96f4edd0fe8fd9cc88c90c3cafc706864f
+01:17:55.595 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT2.1820288S
+01:17:55.596 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:62883/test?loggerLevel=OFF)
+01:17:55.597 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+01:17:55.718 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: 2c942cef6ef7e05d2d79d652c8ac6c427a0e7a6156bdf08adaa567c99c1f3b5c
+01:17:56.094 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT0.4966376S
+2026-10-07T01:17:56.599+02:00  INFO 10112 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : Starting ConfirmationAcceptanceTest using Java 21.0.10 with PID 10112 (started by sense in E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend)
+2026-10-07T01:17:56.601+02:00  INFO 10112 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : The following 1 profile is active: "test"
+2026-10-07T01:17:57.623+02:00  INFO 10112 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-07T01:17:57.711+02:00  INFO 10112 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2026-10-07T01:17:58.902+02:00  INFO 10112 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-07T01:17:58.924+02:00  INFO 10112 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-07T01:17:58.925+02:00  INFO 10112 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-07T01:17:59.029+02:00  INFO 10112 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2394 ms
+2026-10-07T01:17:59.703+02:00  INFO 10112 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-07T01:17:59.952+02:00  INFO 10112 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@38288d0
+2026-10-07T01:17:59.954+02:00  INFO 10112 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-07T01:17:59.989+02:00  INFO 10112 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:62883/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-07T01:18:00.068+02:00  INFO 10112 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-07T01:18:00.074+02:00  INFO 10112 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.025s)
+2026-10-07T01:18:00.094+02:00  INFO 10112 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-07T01:18:00.156+02:00  INFO 10112 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-07T01:18:00.171+02:00  INFO 10112 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create registration"
+2026-10-07T01:18:00.210+02:00  INFO 10112 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.017s)
+2026-10-07T01:18:00.356+02:00  INFO 10112 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-07T01:18:00.459+02:00  INFO 10112 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-07T01:18:01.141+02:00  INFO 10112 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-07T01:18:01.292+02:00  INFO 10112 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:62883/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-07T01:18:02.407+02:00  INFO 10112 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-07T01:18:02.459+02:00  INFO 10112 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-07T01:18:02.537+02:00  INFO 10112 --- [registration-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-07T01:18:03.071+02:00  INFO 10112 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name organizer
+2026-10-07T01:18:03.880+02:00  INFO 10112 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 54643 (http) with context path '/'
+2026-10-07T01:18:03.967+02:00  INFO 10112 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-07T01:18:03.969+02:00  INFO 10112 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-07T01:18:03.969+02:00  INFO 10112 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-07T01:18:04.029+02:00  INFO 10112 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 145 ms
+2026-10-07T01:18:04.048+02:00  INFO 10112 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-07T01:18:04.097+02:00  INFO 10112 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 54644 (http) with context path '/'
+2026-10-07T01:18:04.110+02:00  INFO 10112 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : Started ConfirmationAcceptanceTest in 7.978 seconds (process running for 15.017)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\sense\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-07T01:18:04.835+02:00  INFO 10112 --- [registration-backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-07T01:18:04.835+02:00  INFO 10112 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-07T01:18:04.836+02:00  INFO 10112 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 39.39 s -- in si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-07T01:18:29.920+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:29.922+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-07T01:18:29.923+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:29.923+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:29.924+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.14 s -- in si.confreg.registration.acceptance.FeeAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+2026-10-07T01:18:50.056+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest]: OrganizerAccessAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:50.057+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+2026-10-07T01:18:50.058+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest]: OrganizerAccessAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:50.058+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:18:50.059+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.06 s -- in si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.PayerDataAcceptanceTest
+2026-10-07T01:19:00.122+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.PayerDataAcceptanceTest]: PayerDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:00.123+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.PayerDataAcceptanceTest
+2026-10-07T01:19:00.124+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.PayerDataAcceptanceTest]: PayerDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:00.124+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:00.125+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.PayerDataAcceptanceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.98 s -- in si.confreg.registration.acceptance.PayerDataAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.RateLimitAcceptanceTest
+2026-10-07T01:19:12.099+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RateLimitAcceptanceTest]: RateLimitAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:12.100+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RateLimitAcceptanceTest
+2026-10-07T01:19:12.101+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RateLimitAcceptanceTest]: RateLimitAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:12.101+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:12.103+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RateLimitAcceptanceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.834 s -- in si.confreg.registration.acceptance.RateLimitAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+2026-10-07T01:19:18.934+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest]: RepeatedRegistrationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:18.935+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+2026-10-07T01:19:18.935+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest]: RepeatedRegistrationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:18.936+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:18.936+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.81 s -- in si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-07T01:19:29.744+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:29.745+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-07T01:19:29.746+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:29.746+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:29.746+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.63 s -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-07T01:19:52.377+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:52.378+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-07T01:19:52.379+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:52.379+02:00  INFO 10112 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-07T01:19:52.379+02:00  INFO 10112 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.22 s -- in si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:30 min
+[INFO] Finished at: 2026-10-07T01:20:13+02:00
+[INFO] ------------------------------------------------------------------------
