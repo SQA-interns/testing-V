@@ -8,7 +8,10 @@
 |---|---|---|---|---|---|
 | Acceptance (backend) | `backend/src/test/java/si/confreg/registration/acceptance/`, `backend/src/test/resources/acceptance/` | REST API over HTTP (random port), Mailpit HTTP API, storage contract (`SELECT count(*) FROM registration`) | `@SpringBootTest` with Testcontainers `postgres:16.15-alpine` and `axllent/mailpit:v1.31.1`; test clock enabled (`X-Test-Now`) | `cd backend && ./mvnw -B test` (needs Docker) | yes |
 | End-to-end (frontend) | `frontend/e2e/` | the registration form in Chromium; Mailpit HTTP API | frontend at `E2E_BASE_URL` (default: Vite dev server on 127.0.0.1:5173, started by Playwright, proxying `/api` to 127.0.0.1:8080); backend, PostgreSQL and Mailpit running, for example `docker compose up` in `02_output`; `MAILPIT_URL` default `http://127.0.0.1:8025` | `cd frontend && npm run test:e2e` | yes |
-| Unit / integration | other test paths | – | – | – | phase 5 |
+| Unit (backend) | `backend/src/test/java/si/confreg/registration/{domain,config,mail,time,security,service,api}/` | classes directly (Mockito, Spring mock servlet objects) | JUnit 6, no Spring context | `cd backend && ./mvnw -B test` | no |
+| Architecture (backend) | `backend/src/test/java/si/confreg/registration/architecture/` | compiled classes | ArchUnit rules ARCH-1 to ARCH-6 (spec section 5) | `cd backend && ./mvnw -B test` | no |
+| Integration (backend) | `backend/src/test/java/si/confreg/registration/integration/`, `backend/src/test/resources/integration/` | REST API over HTTP, Mailpit, captured log output | `@SpringBootTest` with Testcontainers PostgreSQL and Mailpit; non-default business values | `cd backend && ./mvnw -B test` | no |
+| Unit / component (frontend) | `frontend/src/*.test.ts(x)`, setup `frontend/tests/setup.ts` | modules and React components (Testing Library, jsdom) | Vitest | `cd frontend && npm test` | no |
 
 Harness files outside the frozen paths: `frontend/playwright.config.ts` (runner configuration only) and the `e2e` entry in `frontend/tsconfig.json`.
 
@@ -57,5 +60,24 @@ Run on 2026-10-06 against the bootstrap skeleton; logs `out/logs/p3-backend-acce
 No test fails because of a build, configuration or harness error: the application context starts, both containers start and are reachable, and the dev server serves the page. No test passes on bootstrap code.
 
 ## First complete run (before any fix)
+
+Phase 5, 2026-10-06, all levels together: backend `./mvnw -B test` (acceptance, unit, architecture, integration), frontend `npm test`, end-to-end against the compose stack on ports 18080/15173/18025 (D-35). Logs: `out/logs/p5-first-run-backend.log`, `p5-first-run-frontend.log`, `p5-first-run-e2e.log`.
+
+| Suite | Tests | Passed | Failed |
+|---|---|---|---|
+| Backend (64 acceptance, 106 unit, architecture and integration) | 170 | 169 | 1 |
+| Frontend unit and component | 27 | 27 | 0 |
+| End-to-end | 4 | 4 | 0 |
+| **Total** | **201** | **200** | **1** |
+
+| Failing test | Class | Action |
+|---|---|---|
+| `RegistrationValidatorTest.workshopRules` (input `"workshops": [null]`) | Implementation defect: `RegistrationValidator` called `contains(null)` on an immutable set, which throws `NullPointerException`; the API would have answered 500 instead of 400 | fixed in `RegistrationValidator` (null entry is "must be a configured workshop id"); no test changed |
+
+Non-frozen test defects: none. Frozen tests that appear wrong: none in this run (D-28 and D-29 were resolved in phase 4).
+
+### Phase 5 final run
+
+Backend 170/170 (`out/logs/p5-final-run-backend.log`), frontend 27/27, end-to-end 4/4 (first run, unchanged code paths). Coverage and mutation scores are measured in phase 6.
 
 ## Final run (phase 6)

@@ -42,8 +42,8 @@
     {
       "phase": 5,
       "name": "unit-tests",
-      "start": null,
-      "end": null
+      "start": "2026-10-06T18:47:04Z",
+      "end": "2026-10-06T18:58:57Z"
     },
     {
       "phase": 6,
@@ -59,8 +59,8 @@
     }
   ],
   "firstTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 200,
+    "failed": 1
   },
   "finalTestRun": {
     "passed": null,

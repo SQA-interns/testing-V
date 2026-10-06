@@ -1,0 +1,66 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to "-javaagent:C:\\Users\\sense\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=E:\\13 - Lab Projects\\03_Vasilka_Testing\\kyuhi\\confreg-C1\\02_output\\backend\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- spotless:2.44.3:check (default-cli) @ registration-backend ---
+[INFO] Spotless.Java is keeping 53 files clean - 0 needs changes to be clean, 0 were already clean, 53 were skipped because caching determined they were already clean
+[INFO] 
+[INFO] >>> pmd:3.26.0:check (default-cli) > :pmd @ registration-backend >>>
+[INFO] 
+[INFO] --- pmd:3.26.0:pmd (pmd) @ registration-backend ---
+[WARNING] Unable to locate Source XRef to link to -- DISABLED
+[WARNING] Unable to locate Source XRef to link to -- DISABLED
+[INFO] PMD version: 7.7.0
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Rendering content with org.apache.maven.skins:maven-fluido-skin:jar:2.0.0-M9 skin
+[INFO] 
+[INFO] <<< pmd:3.26.0:check (default-cli) < :pmd @ registration-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.26.0:check (default-cli) @ registration-backend ---
+[INFO] 
+[INFO] >>> pmd:3.26.0:cpd-check (default-cli) > :cpd @ registration-backend >>>
+[INFO] 
+[INFO] --- pmd:3.26.0:cpd (cpd) @ registration-backend ---
+[WARNING] Unable to locate Source XRef to link to -- DISABLED
+[WARNING] Unable to locate Source XRef to link to -- DISABLED
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Rendering content with org.apache.maven.skins:maven-fluido-skin:jar:2.0.0-M9 skin
+[INFO] 
+[INFO] <<< pmd:3.26.0:cpd-check (default-cli) < :cpd @ registration-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.26.0:cpd-check (default-cli) @ registration-backend ---
+[INFO] 
+[INFO] >>> spotbugs:4.10.4.1:check (default-cli) > :spotbugs @ registration-backend >>>
+[INFO] 
+[INFO] --- spotbugs:4.10.4.1:spotbugs (spotbugs) @ registration-backend ---
+[INFO] Done SpotBugs Analysis....
+[INFO] Skipping com.github.spotbugs:spotbugs-maven-plugin:4.10.4.1:spotbugs report goal
+[INFO] 
+[INFO] <<< spotbugs:4.10.4.1:check (default-cli) < :spotbugs @ registration-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spotbugs:4.10.4.1:check (default-cli) @ registration-backend ---
+[INFO] BugInstance size is 0
+[INFO] Error size is 0
+[INFO] No errors/warnings found
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.567 s
+[INFO] Finished at: 2026-10-06T20:58:12+02:00
+[INFO] ------------------------------------------------------------------------

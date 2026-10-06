@@ -1,0 +1,6 @@
+
+> registration-frontend@1.0.0 check
+> prettier --check . && eslint . && tsc --noEmit
+
+Checking formatting...
+All matched files use Prettier code style!
