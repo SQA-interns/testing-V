@@ -371,3 +371,12 @@
   3. Record the frontend mutation score as not measurable with the pinned tools.
 - Human response: none
 - Resolution: pending review
+
+## D-35: Human response to D-34 (frontend mutation score)
+- Timestamp: 2026-10-06T21:14:09Z
+- Phase: 6
+- Type: blocking
+- Trigger: follow-up to D-34.
+- Options: as in D-34.
+- Human response: 2026-10-06T21:14:09Z (received): "D-34: option 3. Record the frontend mutation score as not measurable with the pinned Stryker 10.0.0 and the approved Vitest 5.0.3, and list the 6.7 % result as invalid. You may mention the 78.4 % from the scratch copy with Vitest 4.1.11 as a side note, clearly marked as not measured in the project."
+- Resolution: D-34 option 3. Frontend mutation score: not measurable with the pinned tools; 6.7 % listed as invalid; 78.4 % (scratch copy, Vitest 4.1.11) only as a side note, not measured in the project.

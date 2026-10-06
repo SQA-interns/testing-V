@@ -295,7 +295,13 @@
       "id": "D-34",
       "type": "blocking",
       "start": "2026-10-06T21:06:26Z",
-      "end": null
+      "end": "2026-10-06T21:14:09Z"
+    },
+    {
+      "id": "D-35",
+      "type": "blocking",
+      "start": "2026-10-06T21:14:09Z",
+      "end": "2026-10-06T21:14:09Z"
     }
   ],
   "humanInterventions": [
@@ -326,7 +332,7 @@
     },
     {
       "start": "2026-10-06T21:11:40Z",
-      "end": null,
+      "end": "2026-10-06T21:14:09Z",
       "reason": "Phase 6: asked to decide blocking D-34 (frontend mutation tool incompatible with Vitest 5.0.3)"
     }
   ],

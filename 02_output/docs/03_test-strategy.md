@@ -95,6 +95,6 @@ No implementation defect was found.
 | Branch coverage, unit | 85.1 % (177/208) | 97.91 % |
 | Line / branch coverage, acceptance + integration | 90.1 % / 70.7 % | e2e not instrumented |
 | Line / branch coverage, all levels | 96.9 % / 90.4 % | – |
-| Mutation score | PIT, unit tests, all packages: 81 % (205/254), test strength 93 % | Stryker 10.0.0: not measurable with Vitest 5.0.3; 78.4 % (163/208) with Vitest 4.1.11 (D-34) |
+| Mutation score | PIT, unit tests, all packages: 81 % (205/254), test strength 93 % | not measurable with the pinned Stryker 10.0.0 and Vitest 5.0.3 (D-35); the 6.7 % result is invalid. Side note, not measured in the project: 78.4 % with Vitest 4.1.11 in a scratch copy |
 
 Defects in non-frozen tests fixed in phase 6: the content-type assertion added in F-02 first compared exactly and failed on `application/json;charset=UTF-8`; it now checks the prefix.
