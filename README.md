@@ -56,13 +56,15 @@ Run the conditions in this order (it balances any learning effect between people
 
 For each run:
 
-1. Start from the base commit in a fresh clone, on a new branch named `<name>/confreg-<condition>`:
+1. Start from the base commit in a fresh clone of `main` only, on a new branch named `<name>/confreg-<condition>`. `--single-branch` keeps the `package` branch (and the oracle) out of the run folder's git data, where the agent could otherwise read it:
 
    ```
-   git clone https://github.com/SQA-interns/testing-V.git <name>-confreg-<condition>
+   git clone --single-branch -b main https://github.com/SQA-interns/testing-V.git <name>-confreg-<condition>
    cd <name>-confreg-<condition>
    git switch -c <name>/confreg-<condition>
    ```
+
+   Never run `git fetch --all` or fetch `package` in a run folder.
 
 2. Keep `.env` out of git before you create it: `main` has no `.gitignore` (the agent writes one in phase 0).
 
