@@ -336,3 +336,17 @@
   2. Declare hand-written ambient types for `process` and `Buffer`.
 - Human response: none
 - Resolution: option 1
+
+## D-32: Frozen test MailFailureAcceptanceTest cannot make SMTP fail (harness defect)
+- Timestamp: 2026-10-06T19:51:03Z
+- Phase: 4
+- Type: blocking
+- Trigger: `backend/src/test/java/si/confreg/registration/acceptance/MailFailureAcceptanceTest.java` (frozen, `docs/03_acceptance-manifest.sha256`) overrides `spring.mail.port` with a closed port in its own `@DynamicPropertySource`, but Spring applies the superclass's `@DynamicPropertySource` (`AcceptanceTestBase.backendProperties`, which sets the Mailpit port) after the subclass's, so the base value wins. Evidence: a temporary probe subclass (deleted, never committed) printed `spring.mail.port` = the Mailpit port. Consequence: the e-mail is delivered and both AC-001-09 tests get 201 against any correct implementation (`out/logs/04_build/backend-acceptance-run2.log`: 50 of 52 pass, only these 2 fail). AC-001-09 itself is unchanged and implemented (`RegisterParticipant` stores and sends in one transaction; `ConfirmationFailedException` → 503 `registration_unavailable`).
+- Options:
+  1. (default) Human approves this one-line change to the frozen test and the matching manifest update. In `MailFailureAcceptanceTest.unreachableSmtp`, after the `mail.smtp.timeout` line, add:
+     `registry.add("spring.mail.properties.mail.smtp.starttls.required", () -> "true");`
+     The base class does not set this property, so it takes effect. Mailpit offers no STARTTLS, so the SMTP server refuses the message, which is the situation AC-001-09 describes. Verified with a temporary copy of the test (deleted): both AC-001-09 tests pass against the current implementation. Nothing else in the test changes; the closed-port lines stay (harmless). The agent applies the line and rewrites only that file's hash in `docs/03_acceptance-manifest.sha256`, in one commit naming D-32, after approval.
+  2. Human changes `AcceptanceTestBase` so subclasses can override the SMTP port (larger change to a frozen file).
+  3. Leave the frozen test as is. The phase 4 gate ("all frozen acceptance tests pass") and DoD-01 cannot pass.
+- Human response: none
+- Resolution: pending review
