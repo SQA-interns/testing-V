@@ -28,8 +28,8 @@ Run `kyuhi-confreg-C1-r1`, 2026-10-06. Raw output is in `out/logs/p6-*`. Ports f
 | DoD-05 | pass | no open Critical or High; findings table below |
 | DoD-06 | pass | runtime demonstration below (`p6-runtime-demo.log`) |
 | DoD-07 | pass | traceability table below |
-| DoD-08 | phase 7 | READMEs are phase 7 outputs; checked from a clean checkout in phase 7 |
-| DoD-09 | phase 7 | `docs/release-notes.md` is a phase 7 output; manual-test items collected below |
+| DoD-08 | pass (phase 7) | root, backend and frontend READMEs followed from a clean clone of 242b240: build, check, 172/172 backend and 27/27 frontend tests, compose quick start, registration 201, e2e 4/4 (`out/logs/p7-clean-checkout.log`) |
+| DoD-09 | pass (phase 7) | `docs/release-notes.md`, section "Must be tested manually by a human" |
 | DoD-10 | pass | 36 decision records, each with a resolution or "pending review"; input manifest matches |
 | DoD-11 | pass with deviations | see "Evidence checks" |
 | DoD-P01 | pass | registration through the fixed API on the running stack: 201 and stored (REG-000012, read back by the organizer), `p6-runtime-demo.log` |

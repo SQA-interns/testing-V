@@ -1,0 +1,27 @@
+# Clean checkout 2026-10-06T19:46:20Z of 242b240
+cloned
+## backend: ./mvnw -B package -DskipTests
+exit 0
+## backend: check
+exit 0
+## frontend: npm ci
+exit 0
+## frontend: npm run check
+exit 0
+## frontend: npm test
+      Tests  27 passed (27)
+## frontend: npm run build
+exit 0
+## contracts: npm ci && npm run validate
+6
+## quick start: docker compose up (ports 18080/15173/18025, D-35)
+exit 0
+form 200
+{"groups":["liveness","readiness"],"status":"UP"}
+mailpit 200
+POST registration 201
+## frontend: npm run test:e2e against the stack
+  4 passed (2.2s)
+stack down
+## backend: ./mvnw -B test
+[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0
