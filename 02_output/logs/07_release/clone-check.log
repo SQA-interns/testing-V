@@ -1,0 +1,24 @@
+== 2026-10-06T21:15:46Z clean checkout of d247efc into a scratch directory
+clone exit 0
+d247efc docs: complete README.md (ES-06)
+untracked/ignored present after clone: 0
+== backend (README: build, check, test)
+build exit 0; jar: target/registration-backend-0.1.0.jar
+check exit 0 ([INFO] BUILD SUCCESS)
+test exit 0 ([INFO] Tests run: 181, Failures: 0, Errors: 0, Skipped: 0)
+== frontend (README: npm ci, check, test, build)
+npm ci exit 0
+check exit 0
+test exit 0 ( Tests 18 passed (18))
+build exit 0
+== root README quick start (compose; --env-file points at the original .env instead of a copy)
+compose up exit 0
+backend: running healthy
+frontend: running healthy
+mailpit: running healthy
+postgres: running healthy
+form page: 200  mailpit: 200  workshops: 200
+== frontend README end-to-end
+e2e exit 0 ( 4 passed (11.9s))
+compose down -v exit 0
+== 2026-10-06T21:19:25Z done
