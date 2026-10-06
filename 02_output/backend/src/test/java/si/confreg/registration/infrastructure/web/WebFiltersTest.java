@@ -95,7 +95,74 @@ class WebFiltersTest {
     assertThat(register.getStatus()).isEqualTo(200);
   }
 
+  @Test
+  void allowedRequestsArePassedOn() throws Exception {
+    MockFilterChain rateChain = new MockFilterChain();
+    new RateLimitFilter(new RateLimiter(TestSettings.properties(), Instant::now))
+        .doFilter(
+            request("POST", "/api/registrations", "1.2.3.4"),
+            new MockHttpServletResponse(),
+            rateChain);
+    MockFilterChain credentialsChain = new MockFilterChain();
+    new SecureCredentialsFilter(true)
+        .doFilter(
+            request("GET", "/api/registrations/export", "127.0.0.1"),
+            new MockHttpServletResponse(),
+            credentialsChain);
+
+    assertThat(rateChain.getRequest()).isNotNull();
+    assertThat(credentialsChain.getRequest()).isNotNull();
+  }
+
+  @Test
+  void refusedRequestsAreNotPassedOn() throws Exception {
+    MockHttpServletRequest organizer = request("GET", "/api/registrations/export", "203.0.113.5");
+    organizer.addHeader("Authorization", "Basic eDp5");
+    MockFilterChain chain = new MockFilterChain();
+    MockHttpServletResponse response = new MockHttpServletResponse();
+
+    new SecureCredentialsFilter(false).doFilter(organizer, response, chain);
+
+    assertThat(chain.getRequest()).isNull();
+    assertThat(response.getCharacterEncoding()).isEqualToIgnoringCase("UTF-8");
+    assertThat(response.getContentAsString()).contains("HTTPS is required");
+  }
+
   // --- body size (SR-02) ---
+
+  @Test
+  void streamedBodyReadByteByByteIsAlsoLimited() throws Exception {
+    MockHttpServletRequest request =
+        new MockHttpServletRequest("POST", "/api/registrations") {
+          @Override
+          public long getContentLengthLong() {
+            return -1;
+          }
+        };
+    request.setContent(new byte[BodySizeLimitFilter.LIMIT_BYTES + 1]);
+    MockFilterChain chain = new MockFilterChain();
+    new BodySizeLimitFilter().doFilter(request, new MockHttpServletResponse(), chain);
+    ServletInputStream in = ((HttpServletRequest) chain.getRequest()).getInputStream();
+
+    for (int i = 0; i < BodySizeLimitFilter.LIMIT_BYTES; i++) {
+      assertThat(in.read()).isZero();
+    }
+    assertThatThrownBy(in::read).isInstanceOf(PayloadTooLargeException.class);
+  }
+
+  @Test
+  void bufferedReadsUpToTheLimitPassAndReportEndOfStream() throws Exception {
+    MockHttpServletRequest request = request("POST", "/api/registrations", "1.2.3.4");
+    request.setContent(new byte[BodySizeLimitFilter.LIMIT_BYTES]);
+    MockFilterChain chain = new MockFilterChain();
+    new BodySizeLimitFilter().doFilter(request, new MockHttpServletResponse(), chain);
+    ServletInputStream in = ((HttpServletRequest) chain.getRequest()).getInputStream();
+
+    byte[] buffer = new byte[BodySizeLimitFilter.LIMIT_BYTES];
+    assertThat(in.read(buffer, 0, buffer.length)).isEqualTo(BodySizeLimitFilter.LIMIT_BYTES);
+    assertThat(in.read(buffer, 0, buffer.length)).isEqualTo(-1);
+    assertThat(in.read()).isEqualTo(-1);
+  }
 
   @Test
   void declaredBodyOverLimitIs413() throws Exception {
