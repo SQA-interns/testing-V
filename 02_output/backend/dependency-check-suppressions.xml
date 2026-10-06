@@ -15,4 +15,11 @@
     <vulnerabilityName>CVE-2026-54399</vulnerabilityName>
     <vulnerabilityName>CVE-2026-54428</vulnerabilityName>
   </suppress>
+  <suppress>
+    <notes>D-15/D-18: false positive. CVE-2025-7962 affects Angus Mail before 2.0.4; this jar is the Angus
+      activation framework, matched under the mail CPE. The mail implementation in use (angus-mail 2.0.5) is
+      not affected. Classified Low.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.eclipse\.angus/angus-activation@.*$</packageUrl>
+    <cpe>cpe:/a:eclipse:angus_mail</cpe>
+  </suppress>
 </suppressions>
