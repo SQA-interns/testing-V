@@ -65,3 +65,109 @@
   3. Another set of versions named by the human.
 - Human response: option 2, upgrade dev tooling (2026-10-06T14:24:23Z)
 - Resolution: option 2. The human approval replaces the tech-stack entries `vitest` and `@vitest/coverage-v8` with 5.0.3 and `jscpd` with 5.4.0 (MIT; peers checked: vite 6.4.x allowed, `@stryker-mutator/vitest-runner` 10.0.0 needs vitest >= 2.0.0; Stryker probe run passed). Re-scan: `npm audit` 0 Critical/High (2 Moderate: `qs` via `@stryker-mutator/core`, dev only). Backend (a), (b) false positives and (c) accepted as Medium, recorded in `backend/dependency-check-suppressions.xml` (also covers the shaded `httpcore5-h2` 5.3.6 in the same jar, same CVE ids), plus the hibernate-validator CPE mismatch; Dependency-Check now fails the build at CVSS >= 7 and reports 0 open of 112 dependencies, 49 suppressed
+
+## D-06: How a student registers for free
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [3] "Students register for free"; `business-rules.md` "No fields beyond the fixed registration API", and the fixed API (`architecture.md`) has no field that identifies a student; `payerType` is fixed to `private`/`company`.
+- Options:
+  1. (proposed default) Add one optional boolean `student` (default `false`) to the request and the stored registration; students pay 0.00; `payerType` and its rules still apply; no proof is uploaded; the student flag appears in the confirmation e-mail and the invoicing export so the organizer can check status. Clients that omit the field (fixed API) get a paying registration.
+  2. Add a third `payerType` value `student` (changes a fixed API value).
+  3. Require proof of student status (upload or organizer approval) before the fee is waived (new workflow nobody stated).
+  4. Do not support free student registration (drops US-001 [3]).
+- Human response: none
+- Resolution: pending review (option 1: the only one that keeps the fixed API names and values and does not invent a workflow)
+
+## D-07: "An invoice is issued" vs. AR-08
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [5] "An invoice is issued" conflicts with AR-08 ("Invoices are produced by a separate process of the accounting system, which is not part of this repository"). `tech-stack.md` lists `poi-ooxml` for "Excel export". AR-08 is an explicit architecture constraint; no precedence rule orders the two project files.
+- Options:
+  1. (proposed default) The system does not create invoices. It stores every invoice field (payer, company name/address/VAT ID, amounts) and offers the organizer an authenticated Excel export from which the accounting system issues the invoice; the confirmation e-mail says the invoice follows separately (AC-001-05, AC-001-25).
+  2. Generate invoice documents in the backend (violates AR-08).
+  3. Push registrations to the accounting system through an API (no interface defined; not in `environments.md`).
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-08: How the fee is paid
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 "register for the conference and pay the fee"; no payment provider in `tech-stack.md`, `environments.md` or `secrets.env.example`; invoicing belongs to accounting (AR-08).
+- Options:
+  1. (proposed default) No online payment. The user pays against the invoice issued by accounting; the system calculates and communicates the amount (AC-001-01, AC-001-25). No payment status is tracked.
+  2. Integrate an online payment provider (new service and secret, not approved).
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-09: Fee amounts, VAT and rounding
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [2]; `environments.md` gives `APP_FEE_EARLY`, `APP_FEE_REGULAR` and `APP_VAT_RATE` separately; the stored registration has `netFee`, `vat`, `grossFee`. Not stated: whether the fees are net or gross, whether a company with a VAT ID pays VAT, how to round.
+- Options:
+  1. (proposed default) The configured fees are net amounts; `vat` = `netFee` × `APP_VAT_RATE` rounded half-up to 0.01; `grossFee` = `netFee` + `vat`; the same VAT applies to every payer, including companies with a VAT ID (admission to an event is taxed where the event takes place; no reverse charge); amounts are computed with decimals, never floating point.
+  2. The configured fees are gross amounts and VAT is extracted from them.
+  3. Reverse charge (0 VAT) for companies with a foreign EU VAT ID.
+- Human response: none
+- Resolution: pending review (option 1: matches the field names; option 3 would under-charge VAT if wrong)
+
+## D-10: Early-bird boundary
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [2] "early bird / regular"; `APP_EARLY_BIRD_DEADLINE` is a date; AR-05 says business dates are interpreted in `APP_CONFERENCE_TZ`. Not stated: inclusive or exclusive, and which instant counts.
+- Options:
+  1. (proposed default) The registration time (the instant the backend accepts the request, from the clock component) is converted to a date in `APP_CONFERENCE_TZ`; early bird applies when that date is on or before the deadline date (the whole deadline day included).
+  2. The deadline date is exclusive (early bird ends at the start of the deadline day).
+  3. The time the user opened the form counts.
+- Human response: none
+- Resolution: pending review (option 1: the usual reading of "until 31 July", and the one that does not charge users more than announced)
+
+## D-11: Workshops per registration
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: The fixed request field is `workshops` (array) but the stored registration has a single `workshop` (id or null); US-001 mentions "the workshops" but not how many, their price or capacity.
+- Options:
+  1. (proposed default) Zero or one workshop per registration: an empty or missing array stores `null`, one known id is stored, more than one id or an unknown id is rejected (never silently dropped); the workshop is included in the fee; no capacity limit.
+  2. Accept several workshops and store only the first (silently drops input).
+  3. Change the stored registration to a list (changes the fixed API).
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-12: Repeated registration with the same e-mail address
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 does not say whether one person (e-mail) may register more than once.
+- Options:
+  1. (proposed default) One registration per e-mail address, compared case-insensitively after trimming; a second one is answered 409 with a message, nothing is stored and no e-mail is sent. This prevents double invoices from double submissions.
+  2. Allow any number of registrations per address.
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-13: Required fields per payer type
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [1] "fills in the registration form"; `business-rules.md` lists no field rules.
+- Options:
+  1. (proposed default) Always required: `firstName`, `lastName`, `email` (valid address), `payerType`. For `company`: `companyName` and `companyAddress` required, `companyVatId` optional (not every company payer has one; requiring it would lock out legitimate payers). For `private`: company fields must be blank or absent; non-blank ones are rejected rather than silently dropped. Values are trimmed; maximum lengths are set in the specification.
+  2. Also require `companyVatId` for companies.
+  3. Ignore company fields for private payers.
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-14: Registration when the confirmation e-mail cannot be sent
+- Timestamp: 2026-10-06T14:26:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 [4] "receives a confirmation e-mail"; not stated what happens when SMTP fails.
+- Options:
+  1. (proposed default) The registration is stored and answered 201 regardless; the e-mail is sent after the registration is committed, and a failed send is retried by the backend until it succeeds, so the registration is never lost and the e-mail is not sent twice for one registration.
+  2. Fail the whole registration when the e-mail cannot be sent (user must retry; risk of lost registrations).
+- Human response: none
+- Resolution: pending review (option 1)

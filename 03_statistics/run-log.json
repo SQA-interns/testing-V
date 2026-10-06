@@ -19,12 +19,12 @@
       "phase": 1,
       "name": "requirements",
       "start": "2026-10-06T14:24:50Z",
-      "end": null
+      "end": "2026-10-06T14:27:44Z"
     },
     {
       "phase": 2,
       "name": "design",
-      "start": null,
+      "start": "2026-10-06T14:27:44Z",
       "end": null
     },
     {
@@ -103,6 +103,60 @@
       "type": "blocking",
       "start": "2026-10-06T14:19:28Z",
       "end": "2026-10-06T14:24:23Z"
+    },
+    {
+      "id": "D-06",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-07",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-08",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-09",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-10",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-11",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-12",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-13",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
+    },
+    {
+      "id": "D-14",
+      "type": "non-blocking",
+      "start": "2026-10-06T14:26:04Z",
+      "end": null
     }
   ],
   "humanInterventions": [
