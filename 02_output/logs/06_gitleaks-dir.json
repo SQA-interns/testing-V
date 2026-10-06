@@ -1,0 +1,22 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 107,
+  "EndLine": 107,
+  "StartColumn": 27,
+  "EndColumn": 73,
+  "Match": "password: REDACTED\r",
+  "Secret": "REDACTED",
+  "File": "/repo/02_output/logs/03_backend-acceptance-run.log",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 3.7663326,
+  "Author": "",
+  "Email": "",
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "Fingerprint": "/repo/02_output/logs/03_backend-acceptance-run.log:generic-api-key:107"
+ }
+]

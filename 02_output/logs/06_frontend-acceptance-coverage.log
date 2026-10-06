@@ -1,0 +1,18 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C0/02_output/frontend
+      Coverage enabled with v8
+
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  18:55:23
+   Duration  2.61s (environment 42%, tests 39%, setup 7%, import 6%, transform 5%, worker 2%)
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+
+=============================== Coverage summary ===============================
+Statements   : 90.69% ( 78/86 )
+Branches     : 82.45% ( 47/57 )
+Functions    : 92.3% ( 24/26 )
+Lines        : 90.47% ( 76/84 )
+================================================================================

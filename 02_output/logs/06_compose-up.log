@@ -1,0 +1,174 @@
+ Image confreg-backend Building 
+ Image confreg-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 683B 0.0s done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 932B 0.0s done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#4 DONE 0.0s
+
+#5 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#5 DONE 0.1s
+
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#6 ...
+
+#7 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#7 DONE 0.1s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 119B done
+#8 DONE 0.0s
+
+#9 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#9 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#10 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend internal] load build context
+#11 transferring context: 1.85kB done
+#11 DONE 0.0s
+
+#12 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
+#12 CACHED
+
+#13 [frontend build 6/7] COPY src src
+#13 CACHED
+
+#14 [frontend build 2/7] WORKDIR /build
+#14 CACHED
+
+#15 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
+#15 CACHED
+
+#16 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#16 CACHED
+
+#9 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#9 CACHED
+
+#17 [frontend build 7/7] RUN npx vite build
+#17 CACHED
+
+#18 [frontend stage-1 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#18 DONE 0.1s
+
+#19 [frontend stage-1 3/4] COPY --from=build /build/dist /usr/share/nginx/html
+#19 DONE 0.1s
+
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#6 ...
+
+#20 [frontend stage-1 4/4] RUN mkdir -p /tmp/nginx && chown -R nginx:nginx /tmp/nginx /var/cache/nginx
+#20 DONE 0.4s
+
+#21 [frontend] exporting to image
+#21 exporting layers
+#21 ...
+
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#6 DONE 0.9s
+
+#22 [backend internal] load .dockerignore
+#22 transferring context: 59B done
+#22 DONE 0.2s
+
+#21 [frontend] exporting to image
+#21 exporting layers 0.2s done
+#21 ...
+
+#23 [backend internal] load build context
+#23 DONE 0.0s
+
+#21 [frontend] exporting to image
+#21 exporting manifest sha256:ddcc33525b749c5d3394aa8c0672dfa5f1d6e3be51c0fa5d072563bdbc86597d 0.0s done
+#21 exporting config sha256:e7d818d60bd794e929dcc5f4af4aaadeb9bfb628a28d7d034ed09860ea44d691 0.0s done
+#21 exporting attestation manifest sha256:cb83a3398aaa314ef1488ad13633bcbcc66d360af73a40db931873cd63cb38f7
+#21 ...
+
+#24 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#24 resolve docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9 0.1s done
+#24 DONE 0.1s
+
+#25 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#25 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.1s done
+#25 DONE 0.1s
+
+#23 [backend internal] load build context
+#23 transferring context: 5.23kB 0.0s done
+#23 DONE 0.0s
+
+#26 [backend build 6/7] COPY src/main src/main
+#26 CACHED
+
+#27 [backend stage-1 2/4] RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app app
+#27 CACHED
+
+#28 [backend stage-1 3/4] WORKDIR /app
+#28 CACHED
+
+#29 [backend build 7/7] RUN ./mvnw -B -q package -DskipTests && cp target/registration-backend-*.jar /build/app.jar
+#29 CACHED
+
+#30 [backend build 2/7] WORKDIR /build
+#30 CACHED
+
+#31 [backend build 4/7] COPY .mvn .mvn
+#31 CACHED
+
+#32 [backend build 3/7] COPY mvnw pom.xml spotbugs-exclude.xml dependency-check-suppressions.xml ./
+#32 CACHED
+
+#33 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#33 CACHED
+
+#34 [backend stage-1 4/4] COPY --from=build --chown=app:app /build/app.jar app.jar
+#34 CACHED
+
+#21 [frontend] exporting to image
+#21 exporting attestation manifest sha256:cb83a3398aaa314ef1488ad13633bcbcc66d360af73a40db931873cd63cb38f7 0.0s done
+#21 exporting manifest list sha256:067b664e80246275a59c205c4e4a7f69d1c2705ac5718ff8b865846f5f6763a4 0.0s done
+#21 naming to docker.io/library/confreg-frontend:latest done
+#21 unpacking to docker.io/library/confreg-frontend:latest
+#21 unpacking to docker.io/library/confreg-frontend:latest 0.1s done
+#21 DONE 0.8s
+
+#35 [backend] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:28cc174855f1621ae7b03f834b97fb188de38f4f9786653a7b5c7514b424cf23 done
+#35 exporting config sha256:51d53d9ca5626c7e43db88513f9e55867da82442e4745d6d9593be3ec97a2605 done
+#35 exporting attestation manifest sha256:5a0db299970fa4b269096ec6c81ad28beeeb5ce2ff17abadf48857dc32c4394e 0.0s done
+#35 exporting manifest list sha256:1b0a3880882e0afadf922f82de6ad315413430236d6abafdf431a91f9c21095b 0.0s done
+#35 naming to docker.io/library/confreg-backend:latest done
+#35 unpacking to docker.io/library/confreg-backend:latest 0.0s done
+#35 DONE 0.2s
+
+#36 [backend] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#37 [frontend] resolving provenance for metadata file
+#37 DONE 0.0s
+ Image confreg-backend Built 
+ Image confreg-frontend Built 
+ Container confreg-postgres-1 Running 
+ Container confreg-mailpit-1 Running 
+ Container confreg-backend-1 Running 
+ Container confreg-frontend-1 Recreate 
+ Container confreg-frontend-1 Recreated 
+ Container confreg-postgres-1 Waiting 
+ Container confreg-postgres-1 Healthy 
+ Container confreg-backend-1 Waiting 
+ Container confreg-backend-1 Healthy 
+ Container confreg-frontend-1 Starting 
+ Container confreg-frontend-1 Started 

@@ -1,0 +1,23 @@
+## backend/src/main
+42,Java,315,107,1846
+2,YAML,4,3,57
+1,SQL,3,3,35
+45,SUM,322,113,1938
+## backend/src/test
+26,Java,454,67,2411
+26,SUM,454,67,2411
+## frontend/src
+5,TypeScript,33,4,432
+1,CSS,16,0,101
+6,SUM,49,4,533
+## frontend/tests
+## frontend/e2e
+2,TypeScript,11,4,61
+2,SUM,11,4,61
+## frontend src unit test files
+2,TypeScript,26,0,222
+2,SUM,26,0,222
+## frontend/tests (acceptance)
+1,TypeScript,42,2,281
+1,SUM,42,2,281
+## backend CPD: 0 duplications; frontend jscpd (src, tests, e2e): 1 clone, 9 lines (0.73%)

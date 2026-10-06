@@ -1,0 +1,23 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 107,
+  "EndLine": 107,
+  "StartColumn": 27,
+  "EndColumn": 72,
+  "Match": "password: REDACTED",
+  "Secret": "REDACTED",
+  "File": "02_output/logs/03_backend-acceptance-run.log",
+  "SymlinkFile": "",
+  "Commit": "2a0db7557f03d56fd03ee6759f11f13d4bd7fe46",
+  "Link": "https://github.com/SQA-interns/testing-V/blob/2a0db7557f03d56fd03ee6759f11f13d4bd7fe46/02_output/logs/03_backend-acceptance-run.log#L107",
+  "Entropy": 3.7663326,
+  "Author": "Tanejb",
+  "Email": "tanej.buhin@student.um.si",
+  "Date": "2026-10-06T14:41:55Z",
+  "Message": "docs: add test strategy with phase 3 red run (US-001)\n\nCo-Authored-By: Claude Opus 5.5 \u003cnoreply@anthropic.com\u003e",
+  "Tags": [],
+  "Fingerprint": "2a0db7557f03d56fd03ee6759f11f13d4bd7fe46:02_output/logs/03_backend-acceptance-run.log:generic-api-key:107"
+ }
+]

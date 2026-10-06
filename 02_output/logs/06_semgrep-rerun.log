@@ -1,0 +1,36 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 137 files tracked by git with 601 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      51     137          Community     601                                                                
+  java             60      42                                                                                           
+  json              3      13                                                                                           
+  ts               74      11                                                                                           
+  yaml             25       3                                                                                           
+  dockerfile        7       2                                                                                           
+  js               68       1                                                                                           
+  bash              1       1                                                                                           
+  html              1       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 1 (1 blocking)
+ • Rules run: 221
+ • Targets scanned: 137
+ • Parsed lines: ~99.9%
+ • Scan skipped: 
+   ◦ Files matching .semgrepignore patterns: 27
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 221 rules on 137 files: 1 finding.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
