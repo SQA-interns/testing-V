@@ -136,3 +136,22 @@
 - Options: 1. keep the manifest unchanged: the logs are evidence that never changes, freezing them is harmless; later runs write to new log files (proposed); 2. the human removes the three lines.
 - Human response: none
 - Resolution: pending review (option 1)
+
+## D-16: Frontend mutation testing does not work with vitest 5.0.3
+- Timestamp: 2026-10-06T23:56:27Z
+- Phase: 6
+- Type: blocking
+- Trigger: `@stryker-mutator/core` and `@stryker-mutator/vitest-runner` 10.0.0 (`tech-stack.md`, the latest published version) run with vitest 5.0.3 (approved in D-05), but mutants are never activated: score 2.16 % with `coverageAnalysis` perTest and with off, while mutants such as `if (!response.ok)` → `if (false)` are certainly killed by `src/api.test.ts` (`out/logs/06_frontend-stryker.log`, `06_frontend-stryker-coverage-off.log`). DoD-03 needs a recorded mutation score; the project threshold is "record only".
+- Options: 1. record the frontend mutation score as not measurable with the pinned tools; backend mutation score (PIT, 82 %) and frontend line/branch coverage are recorded; list it as an open item for the next tool update (proposed); 2. measure once in a throw-away copy outside the repository with vitest 3.2.7 (the version D-05 replaced for its Critical advisories), report the score, change nothing in the repository; 3. another mutation tool or version named by the human.
+- Human response: none
+- Resolution: pending
+
+## D-17: Semgrep "use-of-basic-authentication" (ERROR = High) lowered to Low
+- Timestamp: 2026-10-06T23:56:27Z
+- Phase: 6
+- Type: blocking
+- Trigger: semgrep 1.177.0 rule `use-of-basic-authentication` (severity ERROR, mapped to High by `severity-scale.md`) on `docs/02_contracts/registration-api.openapi.yaml:117` (`organizerBasic`, `scheme: basic`). Lowering a High needs written evidence and a blocking decision.
+- Evidence: HTTP Basic is required by `project/02_design/architecture.md` (fixed API: "Organizer only: HTTP Basic") and `security-requirements.md`; credentials are accepted only over HTTPS or from loopback outside the local/test profiles (SR-03, `InsecureCredentialsFilter`, `WebFiltersTest`); the password exists only as a BCrypt hash in memory (SB-03, `SecurityConfig`); failed logins are rate limited per client (SB-06, `RateLimitFilter` auth-failure bucket, `WebFiltersTest.failedLoginsBlockFurtherCredentialsFromThatClient`); sessions are stateless and the only Basic-protected operation is a read.
+- Options: 1. lower to Low and accept (proposed); 2. keep High (release blocked) and change the authentication scheme (contradicts architecture.md).
+- Human response: option 1. Given in this session during phase 0, before the finding existed (time not recorded by the harness; before 2026-10-06T22:31Z): "Lower it to Low and accept it: HTTP Basic is required by architecture.md and security-requirements.md, credentials only over HTTPS or localhost, password only as a BCrypt hash, failed logins rate limited."
+- Resolution: option 1; F-01 lowered to Low and accepted. Each condition in the human response is implemented and tested (see Evidence).

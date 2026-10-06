@@ -63,16 +63,48 @@
     "failed": 0
   },
   "finalTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 190,
+    "failed": 0
   },
   "findings": {
     "critical": 0,
-    "high": 0,
-    "medium": 0,
-    "low": 0
+    "high": 1,
+    "medium": 4,
+    "low": 5
   },
-  "fixLoops": [],
+  "fixLoops": [
+    {
+      "loop": 1,
+      "findings": [
+        "F-07"
+      ],
+      "change": "truncate submission time to microseconds (d160c6d) + test (4789e31)",
+      "start": null,
+      "startReason": "start of the fix not recorded separately; finding observed in the runtime demonstration shortly before",
+      "end": "2026-10-06T23:48:47Z"
+    },
+    {
+      "loop": 2,
+      "findings": [
+        "F-08"
+      ],
+      "change": "tests for surviving mutants in credential, body-limit and rate-limit code (26e5af7)",
+      "start": null,
+      "startReason": "start not recorded separately",
+      "end": "2026-10-06T23:50:53Z"
+    },
+    {
+      "loop": 3,
+      "findings": [
+        "F-04"
+      ],
+      "change": "npm audit fix attempted; no fix within pinned Stryker range; accepted",
+      "start": null,
+      "startReason": "not recorded",
+      "end": null,
+      "endReason": "no commit; accepted in the verification report"
+    }
+  ],
   "decisions": [
     {
       "id": "D-01",
@@ -163,6 +195,18 @@
       "type": "non-blocking",
       "start": "2026-10-06T23:07:27Z",
       "end": null
+    },
+    {
+      "id": "D-16",
+      "type": "blocking",
+      "start": "2026-10-06T23:56:27Z",
+      "end": null
+    },
+    {
+      "id": "D-17",
+      "type": "blocking",
+      "start": "2026-10-06T23:56:27Z",
+      "end": "2026-10-06T23:56:27Z"
     }
   ],
   "humanInterventions": [
@@ -184,9 +228,25 @@
     }
   ],
   "codeMetrics": {
-    "components": [],
+    "components": [
+      {
+        "name": "backend",
+        "productionLoc": 1546,
+        "testLoc": 2487,
+        "language": "Java",
+        "tool": "aldanial/cloc:2.10 (reports 1.98)"
+      },
+      {
+        "name": "frontend",
+        "productionLoc": 440,
+        "testLoc": 589,
+        "language": "TypeScript/CSS/HTML",
+        "tool": "aldanial/cloc:2.10 (reports 1.98)"
+      }
+    ],
     "complexity": null,
-    "duplicationPct": null
+    "complexityReason": "no complexity tool listed in tech-stack.md",
+    "duplicationPct": 0
   },
   "commits": [],
   "usage": {
