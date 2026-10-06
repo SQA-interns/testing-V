@@ -325,3 +325,14 @@
   2. Write acceptance tests only for behaviour that no pending decision affects. This would leave AC-001-04 and AC-001-06 to AC-001-10 without frozen tests and fail the phase 3 gate.
 - Human response: 2026-10-06T19:23:29Z: no further information; agent to choose.
 - Resolution: option 1
+
+## D-31: Add @types/node 24.10.0 as a frontend dev dependency
+- Timestamp: 2026-10-06T19:32:11Z
+- Phase: 3
+- Type: non-blocking
+- Trigger: the Playwright configuration and e2e support code use `process.env` and `Buffer`; `tsc --noEmit` (the frontend type check) fails without Node type definitions. `@types/node` is not listed in `tech-stack.md`.
+- Options:
+  1. (default) Add `@types/node` 24.10.0 (MIT, dev only, matches the approved host Node 24.10.0, D-10) with an exact version, under the `tech-stack.md` rule for unlisted dependencies; scanned in phase 6. `npm audit` after adding: no new finding.
+  2. Declare hand-written ambient types for `process` and `Buffer`.
+- Human response: none
+- Resolution: option 1

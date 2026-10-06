@@ -253,6 +253,12 @@
       "type": "non-blocking",
       "start": "2026-10-06T19:23:29Z",
       "end": "2026-10-06T19:23:29Z"
+    },
+    {
+      "id": "D-31",
+      "type": "non-blocking",
+      "start": "2026-10-06T19:32:11Z",
+      "end": "2026-10-06T19:32:11Z"
     }
   ],
   "humanInterventions": [
