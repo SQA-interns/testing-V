@@ -151,6 +151,70 @@ class WebFiltersTest {
     assertThat(RequestBodyLimitFilter.exceeded(new MockHttpServletRequest())).isFalse();
   }
 
+  private static MockHttpServletRequest chunked(int bytes) {
+    MockHttpServletRequest request =
+        new MockHttpServletRequest("POST", "/api/registrations") {
+          @Override
+          public long getContentLengthLong() {
+            return -1;
+          }
+        };
+    request.setContent(new byte[bytes]);
+    return request;
+  }
+
+  @Test
+  void chunkedBodyExactlyAtTheLimitIsReadInFull() throws Exception {
+    AtomicReference<Integer> read = new AtomicReference<>();
+    AtomicReference<Boolean> exceeded = new AtomicReference<>();
+    MockHttpServletResponse response = new MockHttpServletResponse();
+
+    new RequestBodyLimitFilter()
+        .doFilter(
+            chunked(RequestBodyLimitFilter.MAX_BODY_BYTES),
+            response,
+            (req, res) -> {
+              InputStream in = ((HttpServletRequest) req).getInputStream();
+              byte[] buffer = new byte[1000];
+              int total = 0;
+              for (int n = in.read(buffer, 0, buffer.length);
+                  n > 0;
+                  n = in.read(buffer, 0, buffer.length)) {
+                total += n;
+              }
+              read.set(total);
+              exceeded.set(RequestBodyLimitFilter.exceeded((HttpServletRequest) req));
+            });
+
+    assertThat(response.getStatus()).isEqualTo(200);
+    assertThat(read.get()).isEqualTo(RequestBodyLimitFilter.MAX_BODY_BYTES);
+    assertThat(exceeded.get()).isFalse();
+  }
+
+  @Test
+  void chunkedBodyReadByteByByteStopsAfterTheLimit() throws Exception {
+    AtomicReference<Integer> read = new AtomicReference<>(0);
+    MockHttpServletResponse response = new MockHttpServletResponse();
+
+    new RequestBodyLimitFilter()
+        .doFilter(
+            chunked(RequestBodyLimitFilter.MAX_BODY_BYTES + 1),
+            response,
+            (req, res) -> {
+              InputStream in = ((HttpServletRequest) req).getInputStream();
+              try {
+                while (in.read() >= 0) {
+                  read.set(read.get() + 1);
+                }
+              } catch (IOException e) {
+                throw new IllegalStateException(e);
+              }
+            });
+
+    assertThat(response.getStatus()).isEqualTo(413);
+    assertThat(read.get()).isEqualTo(RequestBodyLimitFilter.MAX_BODY_BYTES);
+  }
+
   // ------------------------------------------------------------------ SR-03
 
   @ParameterizedTest
@@ -183,21 +247,30 @@ class WebFiltersTest {
     request.setSecure(secure);
     request.addHeader("Authorization", "Basic eDp5");
     MockHttpServletResponse response = new MockHttpServletResponse();
-    new InsecureCredentialsFilter(plainHttpAllowed)
-        .doFilter(request, response, new MockFilterChain());
+    MockFilterChain chain = new MockFilterChain();
+    new InsecureCredentialsFilter(plainHttpAllowed).doFilter(request, response, chain);
+    response.setHeader("X-Chain-Called", Boolean.toString(chain.getRequest() != null));
     return response;
   }
 
   @Test
   void credentialsOverPlainHttpFromRemoteClientAreRejected() throws Exception {
-    assertThat(credentialsRequest(false, "10.1.2.3", false).getStatus()).isEqualTo(403);
+    MockHttpServletResponse response = credentialsRequest(false, "10.1.2.3", false);
+    assertThat(response.getStatus()).isEqualTo(403);
+    assertThat(response.getHeader("X-Chain-Called")).isEqualTo("false");
   }
 
   @Test
   void credentialsOverHttpsOrFromLoopbackOrInLocalProfileAreAccepted() throws Exception {
-    assertThat(credentialsRequest(false, "10.1.2.3", true).getStatus()).isEqualTo(200);
-    assertThat(credentialsRequest(false, "127.0.0.1", false).getStatus()).isEqualTo(200);
-    assertThat(credentialsRequest(true, "10.1.2.3", false).getStatus()).isEqualTo(200);
+    for (MockHttpServletResponse response :
+        new MockHttpServletResponse[] {
+          credentialsRequest(false, "10.1.2.3", true),
+          credentialsRequest(false, "127.0.0.1", false),
+          credentialsRequest(true, "10.1.2.3", false)
+        }) {
+      assertThat(response.getStatus()).isEqualTo(200);
+      assertThat(response.getHeader("X-Chain-Called")).as("request passed on").isEqualTo("true");
+    }
   }
 
   @Test

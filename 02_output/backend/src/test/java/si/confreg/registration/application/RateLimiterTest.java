@@ -113,6 +113,35 @@ class RateLimiterTest {
   }
 
   @Test
+  void limitOfOneIsAllowed() {
+    RateLimiter single = new RateLimiter(1, now::get);
+
+    assertThat(single.tryAcquire("k").allowed()).isTrue();
+    assertThat(single.tryAcquire("k").allowed()).isFalse();
+  }
+
+  @Test
+  void checkAndRetryAfterIgnoreFutureHits() {
+    now.set(now.get().plus(Duration.ofMinutes(10)));
+    for (int i = 0; i < 3; i++) {
+      limiter.record("f");
+    }
+    now.set(now.get().minus(Duration.ofMinutes(10)));
+    assertThat(limiter.check("f").allowed()).as("future hits do not count now").isTrue();
+
+    limiter.tryAcquire("g");
+    limiter.tryAcquire("g");
+    limiter.tryAcquire("g");
+    now.set(now.get().plus(Duration.ofMinutes(20)));
+    limiter.record("g");
+    now.set(now.get().minus(Duration.ofMinutes(10)));
+
+    assertThat(limiter.check("g").retryAfterSeconds())
+        .as("retry after counts from the oldest hit, ignoring the later one")
+        .isEqualTo(Duration.ofMinutes(50).toSeconds());
+  }
+
+  @Test
   void limitMustBePositive() {
     assertThatThrownBy(() -> new RateLimiter(0, now::get))
         .isInstanceOf(IllegalArgumentException.class);
