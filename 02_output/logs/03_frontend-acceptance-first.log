@@ -1,0 +1,276 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C2/02_output/frontend
+
+ ❯ tests/acceptance/registrationForm.test.tsx (6 tests | 6 failed) 245ms
+   ❯ US-001 registration form (6)
+     × AC-001-14 offers the configured workshops plus No workshop, selected by default 156ms
+     × AC-001-14 asks for company data only for a company payer 16ms
+     × AC-001-14 private payer without workshop: submits and shows number and fees 25ms
+     × AC-001-14 company payer with a workshop: sends company data and the workshop id 16ms
+     × AC-001-15 shows each rejected field's error next to it and keeps the values 14ms
+     × AC-001-15 a single rejected participant field is marked and no number is shown 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-14 offers the configured workshops plus No workshop, selected by default
+TestingLibraryElementError: Unable to find an accessible element with the role "radiogroup" and name "Workshop"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/acceptance/registrationForm.test.tsx:106:26
+    104|     render(<App />);
+    105|
+    106|     const group = screen.getByRole("radiogroup", { name: "Workshop" });
+       |                          ^
+    107|     for (const workshop of testWorkshops) {
+    108|       expect(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-14 asks for company data only for a company payer
+TestingLibraryElementError: Unable to find an accessible element with the role "radiogroup" and name "Payer"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/acceptance/registrationForm.test.tsx:123:26
+    121|     render(<App />);
+    122|
+    123|     const payer = screen.getByRole("radiogroup", { name: "Payer" });
+       |                          ^
+    124|     expect(
+    125|       within(payer).getByRole("radio", { name: "Private person" }),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-14 private payer without workshop: submits and shows number and fees
+TestingLibraryElementError: Unable to find an accessible element with the role "textbox" and name "First name"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillParticipant tests/acceptance/registrationForm.test.tsx:63:27
+     61|
+     62| function fillParticipant(email = "ana.novak@example.org") {
+     63|   fireEvent.change(screen.getByRole("textbox", { name: "First name" })…
+       |                           ^
+     64|     target: { value: "Ana" },
+     65|   });
+ ❯ tests/acceptance/registrationForm.test.tsx:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-14 company payer with a workshop: sends company data and the workshop id
+TestingLibraryElementError: Unable to find an accessible element with the role "textbox" and name "First name"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillParticipant tests/acceptance/registrationForm.test.tsx:63:27
+     61|
+     62| function fillParticipant(email = "ana.novak@example.org") {
+     63|   fireEvent.change(screen.getByRole("textbox", { name: "First name" })…
+       |                           ^
+     64|     target: { value: "Ana" },
+     65|   });
+ ❯ tests/acceptance/registrationForm.test.tsx:190:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-15 shows each rejected field's error next to it and keeps the values
+TestingLibraryElementError: Unable to find an accessible element with the role "textbox" and name "First name"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillParticipant tests/acceptance/registrationForm.test.tsx:63:27
+     61|
+     62| function fillParticipant(email = "ana.novak@example.org") {
+     63|   fireEvent.change(screen.getByRole("textbox", { name: "First name" })…
+       |                           ^
+     64|     target: { value: "Ana" },
+     65|   });
+ ❯ tests/acceptance/registrationForm.test.tsx:228:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  tests/acceptance/registrationForm.test.tsx > US-001 registration form > AC-001-15 a single rejected participant field is marked and no number is shown
+TestingLibraryElementError: Unable to find an accessible element with the role "textbox" and name "First name"
+
+Here are the accessible roles:
+
+  main:
+
+  Name "":
+  [36m<main />[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "Conference registration":
+  [36m<h1 />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ fillParticipant tests/acceptance/registrationForm.test.tsx:63:27
+     61|
+     62| function fillParticipant(email = "ana.novak@example.org") {
+     63|   fireEvent.change(screen.getByRole("textbox", { name: "First name" })…
+       |                           ^
+     64|     target: { value: "Ana" },
+     65|   });
+ ❯ tests/acceptance/registrationForm.test.tsx:263:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed (6)
+   Start at  13:36:30
+   Duration  30.96s (environment 74%, setup 15%, import 9%, tests 1%, transform 1%, worker 1%)
+
