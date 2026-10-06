@@ -1,0 +1,312 @@
+openapi: 3.1.0
+info:
+  title: Conference registration API
+  version: 1.0.0
+  description: |
+    Registration API between the frontend (or the organizer) and the backend.
+    The names in this contract are fixed by `project/02_design/architecture.md` ("Fixed registration API").
+    Behaviour: `docs/01_acceptance-criteria.md` (AC-001-nn), `docs/02_specification.md`.
+    Amounts are JSON numbers with two decimals (EUR).
+  license:
+    name: Proprietary
+    identifier: LicenseRef-Proprietary
+servers:
+  - url: http://127.0.0.1:8080
+    description: local (docker compose)
+tags:
+  - name: registrations
+    description: Conference registrations (US-001)
+security: []
+paths:
+  /api/registrations:
+    post:
+      tags: [registrations]
+      operationId: createRegistration
+      summary: Submit a registration (public, rate limited)
+      description: |
+        Public (REQ-REG-01 "Constraints"). Rate limited per client to `APP_RATE_LIMIT_PER_HOUR`
+        requests in a sliding hour (D-11). Body at most 16 KiB (SR-02).
+        When `APP_TEST_CLOCK=enabled`, the header `X-Test-Now` sets the submission time (AR-05).
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/TestNow'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequest'
+            examples:
+              private:
+                value:
+                  firstName: Ana
+                  lastName: Novak
+                  email: ana.novak@example.org
+                  payerType: private
+                  workshops: [W1]
+              company:
+                value:
+                  firstName: Ana
+                  lastName: Novak
+                  email: ana.novak@example.org
+                  payerType: company
+                  companyName: Primer d.o.o.
+                  companyAddress: Koroška cesta 1, 2000 Maribor
+                  companyVatId: SI00000001
+                  workshops: []
+      responses:
+        '201':
+          description: Registration stored; one confirmation e-mail queued for sending (AC-001-04, D-12).
+          headers:
+            Location:
+              description: Organizer URL of the stored registration.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '422':
+          $ref: '#/components/responses/ValidationFailed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /api/registrations/{registrationNumber}:
+    get:
+      tags: [registrations]
+      operationId: getRegistration
+      summary: Read a stored registration (organizer only)
+      description: |
+        HTTP Basic with `ORGANIZER_USERNAME` / `ORGANIZER_PASSWORD` (AC-001-10, AC-001-11).
+        Credentials are accepted only over HTTPS or on localhost (SR-03).
+        Failed authentication attempts are rate limited per client (SB-06).
+      security:
+        - organizerBasic: []
+      parameters:
+        - name: registrationNumber
+          in: path
+          required: true
+          schema:
+            type: string
+            maxLength: 32
+      responses:
+        '200':
+          description: The stored registration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+components:
+  securitySchemes:
+    organizerBasic:
+      type: http
+      scheme: basic
+  parameters:
+    TestNow:
+      name: X-Test-Now
+      in: header
+      required: false
+      description: ISO-8601 UTC instant used as the current time for this request. Ignored unless `APP_TEST_CLOCK=enabled`.
+      schema:
+        type: string
+        format: date-time
+      example: '2026-07-31T21:59:59Z'
+  schemas:
+    PayerType:
+      type: string
+      enum: [private, company]
+    RegistrationRequest:
+      type: object
+      description: |
+        Validation rules (AC-001-07, D-10): text fields are required unless marked otherwise and must not be
+        blank after trimming or contain control characters. Company fields are required for `company`
+        and ignored for `private`. At most one workshop, from `APP_WORKSHOPS`. Unknown properties are ignored.
+        The schema types are deliberately loose: every violation is reported as 422 with one error per field,
+        not as 400.
+      properties:
+        firstName:
+          type: [string, 'null']
+          maxLength: 100
+        lastName:
+          type: [string, 'null']
+          maxLength: 100
+        email:
+          type: [string, 'null']
+          format: email
+          maxLength: 254
+        payerType:
+          type: [string, 'null']
+          description: '`private` or `company`'
+        companyName:
+          type: [string, 'null']
+          maxLength: 200
+        companyAddress:
+          type: [string, 'null']
+          maxLength: 500
+        companyVatId:
+          type: [string, 'null']
+          maxLength: 30
+        workshops:
+          type: [array, 'null']
+          description: Zero or one workshop id; absent, null or empty means no workshop.
+          maxItems: 1
+          items:
+            type: string
+    Registration:
+      type: object
+      required:
+        - registrationNumber
+        - firstName
+        - lastName
+        - email
+        - payerType
+        - companyName
+        - companyAddress
+        - companyVatId
+        - workshop
+        - netFee
+        - vat
+        - grossFee
+      properties:
+        registrationNumber:
+          type: string
+          description: Unique, generated by the backend (format not prescribed).
+          example: CR-7K2M9QX4TB
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        payerType:
+          $ref: '#/components/schemas/PayerType'
+        companyName:
+          type: [string, 'null']
+        companyAddress:
+          type: [string, 'null']
+        companyVatId:
+          type: [string, 'null']
+        workshop:
+          type: [string, 'null']
+          description: Workshop id or null.
+        netFee:
+          type: number
+          multipleOf: 0.01
+          example: 240.00
+        vat:
+          type: number
+          multipleOf: 0.01
+          example: 52.80
+        grossFee:
+          type: number
+          multipleOf: 0.01
+          example: 292.80
+    Problem:
+      type: object
+      description: RFC 9457 problem details; never contains internal details or personal data (SB-07).
+      required: [status, title]
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+    FieldError:
+      type: object
+      required: [field, message]
+      properties:
+        field:
+          type: string
+          description: Name of the request property.
+          example: email
+        message:
+          type: string
+          example: must be a valid e-mail address
+    ValidationProblem:
+      allOf:
+        - $ref: '#/components/schemas/Problem'
+        - type: object
+          required: [errors]
+          properties:
+            errors:
+              type: array
+              description: Exactly one entry per rejected field.
+              items:
+                $ref: '#/components/schemas/FieldError'
+  responses:
+    BadRequest:
+      description: Body is not a JSON object.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Missing or wrong credentials, or credentials over plain HTTP to a non-local host. No registration data.
+      headers:
+        WWW-Authenticate:
+          schema:
+            type: string
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: No registration has this number.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    PayloadTooLarge:
+      description: Body larger than 16 KiB (SR-02).
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    UnsupportedMediaType:
+      description: Content type is not application/json.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    ValidationFailed:
+      description: One or more fields are missing or invalid; nothing stored, no e-mail (AC-001-07).
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ValidationProblem'
+    TooManyRequests:
+      description: Rate limit exceeded; nothing stored, no e-mail (AC-001-13).
+      headers:
+        Retry-After:
+          description: Seconds until the client may retry.
+          schema:
+            type: integer
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    InternalError:
+      description: Unexpected error; generic message only.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
