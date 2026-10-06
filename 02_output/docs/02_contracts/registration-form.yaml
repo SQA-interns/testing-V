@@ -1,0 +1,87 @@
+# Registration form contract (docs/02_specification.md, section 6; AR-01).
+# The single page of the frontend. Element ids (data-testid) are the interface for end-to-end tests.
+contract: registration-form
+version: 1
+page:
+  path: /
+  title: Conference registration
+  heading: Conference registration
+api:
+  workshops: GET /api/workshops
+  submit: POST /api/registrations
+fields:
+  - name: firstName
+    testid: first-name
+    label: First name
+    input: text
+    required: true
+    maxLength: 100
+  - name: lastName
+    testid: last-name
+    label: Last name
+    input: text
+    required: true
+    maxLength: 100
+  - name: email
+    testid: email
+    label: E-mail
+    input: email
+    required: true
+    maxLength: 254
+  - name: payerType
+    testid: payer-type
+    label: Payer
+    input: radio
+    required: true
+    options:
+      - { value: private, label: Private person, testid: payer-type-private }
+      - { value: company, label: Company, testid: payer-type-company }
+    default: private
+  - name: companyName
+    testid: company-name
+    label: Company name
+    input: text
+    required: true
+    maxLength: 200
+    shownWhen: { payerType: company }
+  - name: companyAddress
+    testid: company-address
+    label: Company address
+    input: textarea
+    required: true
+    maxLength: 500
+    shownWhen: { payerType: company }
+  - name: companyVatId
+    testid: company-vat-id
+    label: Company VAT ID
+    input: text
+    required: true
+    maxLength: 20
+    shownWhen: { payerType: company }
+  - name: workshops
+    testid: workshop
+    label: Workshop
+    input: select
+    required: false
+    options:
+      - { value: "", label: No workshop }
+      - { source: GET /api/workshops, value: id, label: title }
+    submitAs: empty array for "No workshop", otherwise a one-element array
+submit:
+  testid: submit
+  label: Register
+  disabledWhileSending: true
+outcomes:
+  "201":
+    testid: confirmation
+    shows: [registrationNumber, netFee, vat, grossFee]
+    text: "Registration {registrationNumber} is confirmed. Fee: {netFee} EUR + VAT {vat} EUR = {grossFee} EUR. A confirmation e-mail has been sent."
+    form: hidden
+  "400":
+    testid: field-error-{name}
+    text: "Please check this field."
+    form: kept with entered values
+  other:
+    testid: error-message
+    text: "Registration is not possible right now. Please try again later."
+    form: kept with entered values

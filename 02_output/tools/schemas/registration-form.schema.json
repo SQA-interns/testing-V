@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Registration form contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "page", "api", "fields", "submit", "outcomes"],
+  "properties": {
+    "contract": { "const": "registration-form" },
+    "version": { "type": "integer", "minimum": 1 },
+    "page": {
+      "type": "object",
+      "required": ["path", "title", "heading"],
+      "properties": { "path": { "const": "/" } }
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workshops", "submit"],
+      "properties": {
+        "workshops": { "type": "string", "pattern": "^GET /api/" },
+        "submit": { "type": "string", "pattern": "^POST /api/" }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "testid", "label", "input", "required"],
+        "properties": {
+          "name": {
+            "enum": ["firstName", "lastName", "email", "payerType", "companyName", "companyAddress", "companyVatId", "workshops"]
+          },
+          "testid": { "type": "string", "pattern": "^[a-z][a-z-]*$" },
+          "label": { "type": "string", "minLength": 1 },
+          "input": { "enum": ["text", "email", "radio", "textarea", "select"] },
+          "required": { "type": "boolean" },
+          "maxLength": { "type": "integer", "minimum": 1 },
+          "options": { "type": "array", "minItems": 1 },
+          "default": { "type": "string" },
+          "shownWhen": { "type": "object" },
+          "submitAs": { "type": "string" }
+        }
+      }
+    },
+    "submit": {
+      "type": "object",
+      "required": ["testid", "label"],
+      "properties": { "testid": { "type": "string" }, "label": { "type": "string" } }
+    },
+    "outcomes": {
+      "type": "object",
+      "required": ["201", "400", "other"],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["testid", "text", "form"],
+        "properties": { "testid": { "type": "string" }, "text": { "type": "string" }, "form": { "type": "string" } }
+      }
+    }
+  }
+}
