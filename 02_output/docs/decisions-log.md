@@ -46,3 +46,39 @@
 - Options: 1. accept for this run: dev-only tools that run locally on the project's own files and never ship in the nginx image; re-scan in phase 6 and report runtime results separately (proposed); 2. approve `vitest`/`@vitest/coverage-v8` 5.0.3 and `jscpd` 5.4.0 (compatibility with `@stryker-mutator/vitest-runner` 10.0.0 to be verified); 3. other versions named by the human.
 - Human response: option 2, 2026-10-06T22:43Z: move `jscpd` to 5.4.0; move `vitest` and `@vitest/coverage-v8` to 5.0.3. Replaces those three `tech-stack.md` entries.
 - Resolution: option 2; peer dependencies checked (vitest 5.0.3 accepts vite 6.4.3; `@stryker-mutator/vitest-runner` 10.0.0 accepts vitest ≥ 2); `npm run check`, `build`, `test` pass; `npm audit`: 0 Critical, 0 High, 2 Moderate (`qs` via `@stryker-mutator/core`, dev-only).
+
+## D-06: Conflict on how to handle implementation gaps
+- Timestamp: 2026-10-06T22:46:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: `REQ-REG-01.md` ("Open questions", last paragraph) says any decision not derivable from the inputs is a blocking decision and is not implemented until answered. `general/working-rules.md` ("Decide and record") says that when a requirement allows two behaviours a user would notice, the agent chooses the more conservative one, records it as pending review and continues. The project file has no `Overrides:` line, so by the precedence in `AGENTS.md` the general rule applies.
+- Options: 1. apply `working-rules.md`: conservative choice, pending review, continue (proposed); 2. treat every gap as blocking.
+- Human response: none
+- Resolution: pending review (option 1). D-07, D-08, D-09 follow this rule; any of them can be reversed before phase 3 freezes the tests.
+
+## D-07: Behaviour of the registration form page (AC-001-11)
+- Timestamp: 2026-10-06T22:46:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: AR-01 requires a single registration form page; REQ-REG-01 does not describe what the page shows.
+- Options: 1. one page; company fields shown only for payer type "company" and not sent for "private"; workshop chosen from the configured list (none or one); on 201 show registration number, net fee, VAT, gross fee; on 422 show each field's error next to it and keep the input (proposed); 2. show only a generic success or error message.
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-08: What counts as an invalid field (AC-001-07)
+- Timestamp: 2026-10-06T22:46:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: REQ-REG-01 AC7 lists the required fields but not what makes a value invalid; AC5 says a private payer is stored without company data but not what happens to company fields sent with `payerType: private`.
+- Options: 1. trimmed non-blank values; length limits name 100, e-mail 254, company name 200, address 300, VAT ID 32; e-mail `local@domain` with a dot in the domain; no control characters (SR-05); no country-specific VAT ID check (would reject legitimate EU payers); workshop id must be in `APP_WORKSHOPS`, at most one element; company fields sent with a private payer are ignored and not stored (SB-12) (proposed); 2. reject company fields sent with a private payer with 422; 3. validate VAT IDs per country format.
+- Human response: none
+- Resolution: pending review (option 1)
+
+## D-09: Confirmation e-mail cannot be sent (AC-001-04)
+- Timestamp: 2026-10-06T22:46:04Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: REQ-REG-01 AC4 requires exactly one confirmation e-mail but does not say what happens when the SMTP server fails.
+- Options: 1. the registration stays stored and the API still returns 201 (the participant must not lose a valid registration or be pushed to register twice); the failure is logged with the registration number only, no personal data (SR-01); no automatic resend (proposed); 2. roll back the registration and return an error; 3. store and queue the e-mail for retry.
+- Human response: none
+- Resolution: pending review (option 1); the release notes will list it for manual review.
