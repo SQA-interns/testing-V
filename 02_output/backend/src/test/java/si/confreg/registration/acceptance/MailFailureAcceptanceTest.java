@@ -21,6 +21,7 @@ class MailFailureAcceptanceTest extends AcceptanceTestBase {
     registry.add("SPRING_MAIL_PORT", () -> CLOSED_PORT);
     registry.add("spring.mail.properties.mail.smtp.connectiontimeout", () -> "2000");
     registry.add("spring.mail.properties.mail.smtp.timeout", () -> "2000");
+    registry.add("spring.mail.properties.mail.smtp.starttls.required", () -> "true");
   }
 
   @Test
