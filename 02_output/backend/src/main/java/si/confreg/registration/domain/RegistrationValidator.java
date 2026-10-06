@@ -97,7 +97,8 @@ public final class RegistrationValidator {
   private void workshops(List<FieldError> errors, List<String> workshops) {
     if (workshops.size() > 1) {
       errors.add(new FieldError("workshops", "must contain at most one workshop"));
-    } else if (workshops.size() == 1 && !workshopIds.contains(workshops.get(0))) {
+    } else if (workshops.size() == 1
+        && (workshops.get(0) == null || !workshopIds.contains(workshops.get(0)))) {
       errors.add(new FieldError("workshops", "must be a configured workshop id"));
     }
   }
