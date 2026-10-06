@@ -14,7 +14,7 @@ Source and date: Anthropic first-party API prices (as used in the agentic_lab ta
 
 | Item | Value |
 |---|---|
-| API time | |
-| Approval prompts | |
-| Cost shown | |
-| Difference to `usage.costUsd` | |
+| API time | not shown: subscription plan; the usage panel shows only plan-limit percentages (transcript estimate: 26 to 51 minutes of model time) |
+| Approval prompts | not counted (ask-first permission mode). Decision answers by the human: 4 (D-01, D-02, D-05, D-18), all through the agent's question form |
+| Cost shown | not shown: subscription plan, no per-session cost in the usage panel |
+| Difference to `usage.costUsd` | n/a (no panel cost; `usage.costUsd` is the API-price equivalent from the transcript) |

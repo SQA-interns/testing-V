@@ -250,17 +250,24 @@
   },
   "commits": [],
   "usage": {
-    "inputTokens": null,
-    "outputTokens": null,
-    "cacheReadTokens": null,
-    "cacheWriteTokens": null,
-    "modelCalls": null,
+    "inputTokens": 368,
+    "outputTokens": 327736,
+    "cacheReadTokens": 50557806,
+    "cacheWriteTokens": 463166,
+    "modelCalls": 183,
     "toolCalls": {
-      "total": null,
-      "byTool": {}
+      "total": 245,
+      "byTool": {
+        "Bash": 153,
+        "Write": 82,
+        "Edit": 5,
+        "AskUserQuestion": 3,
+        "Read": 1,
+        "ToolSearch": 1
+      }
     },
-    "costUsd": null,
-    "priceTableDate": null
+    "costUsd": 20.3731,
+    "priceTableDate": "2026-09-25"
   },
   "finalCommitNote": "HEAD before the final statistics commit"
 }
