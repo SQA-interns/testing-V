@@ -269,3 +269,48 @@
   2. Store the registration and answer 2xx even when the e-mail fails; log the failure (without personal data) for the organizers to resend.
 - Human response: none
 - Resolution: pending review (option 1 applied)
+
+## D-26: Health and readiness on an internal management port
+- Timestamp: 2026-10-06T19:12:29Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: NFR-02 and ES-09 require health and readiness information used by container health checks. `security-requirements.md` requires organizer authentication on every endpoint that no requirement makes public, and public endpoints are rate limited (`APP_RATE_LIMIT_PER_HOUR` 100), which frequent health probes would exhaust.
+- Options:
+  1. (default) Serve Actuator on a separate management port (8081) inside the container, not published by `docker-compose.yml` and not routed by the reverse proxy. It exposes only `health` (with `liveness` and `readiness` groups) without details. It is reachable only from inside the container or its network, so it is not a public endpoint.
+  2. Expose health on the public port without authentication, exempt from rate limiting.
+  3. Require organizer credentials for health checks (puts the organizer secret into health-check commands).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-27: SR-03 "except on localhost" with the local Docker stack
+- Timestamp: 2026-10-06T19:12:29Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: SR-03 forbids accepting organizer credentials over plain HTTP except on localhost. In the local stack (`docker compose`, ports published on 127.0.0.1 only) requests reach the backend from the Docker gateway or the frontend container, not from a loopback address. In production, TLS ends at the external nginx.
+- Options:
+  1. (default) Organizer credentials are accepted only when the request is secure (directly, or `X-Forwarded-Proto: https` from a trusted proxy, Tomcat `RemoteIpValve` defaults), or the client address is loopback, or, outside the `prod` profile only, a private (site-local) address. Otherwise the backend answers 403 before checking the credentials. The `prod` profile accepts only secure or loopback requests.
+  2. Accept only secure or loopback requests in every profile (organizer access does not work in the local Docker stack, and the DoD-06 runtime demonstration of the organizer flow is not possible there).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-28: Public endpoint listing the configured workshops
+- Timestamp: 2026-10-06T19:12:29Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: the registration form must offer the workshops (`APP_WORKSHOPS`, AR-04: read from configuration where used). The frontend may talk to the backend only through `/api` (AR-01), and the fixed API has no workshop list.
+- Options:
+  1. (default) Add `GET /api/workshops` (public, rate limited like every public endpoint) returning `[{id, title}]` from configuration; the fixed endpoints are unchanged.
+  2. Duplicate the workshop list in the frontend configuration (two sources of one business value).
+- Human response: none
+- Resolution: pending review (option 1 applied)
+
+## D-29: POST /api/registrations is public
+- Timestamp: 2026-10-06T19:12:29Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: `security-requirements.md`: all endpoints require organizer authentication unless a requirement explicitly makes one public; there are no participant accounts. US-001 has a conference participant (not an organizer) register; the fixed API says only the `GET` is organizer-only.
+- Options:
+  1. (default) `POST /api/registrations` is public, as US-001 requires, and rate limited per client (SB-06); `GET /api/registrations/{registrationNumber}` and every other endpoint not made public by a decision require organizer authentication.
+  2. Require organizer authentication for registration as well (makes US-001 impossible for participants).
+- Human response: none
+- Resolution: pending review (option 1 applied)
