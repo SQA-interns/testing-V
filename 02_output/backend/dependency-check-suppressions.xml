@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+  <suppress>
+    <notes>D-07/D-12: false positive. The Testcontainers Java module's own version 2.0.5 is matched as
+      PostgreSQL server 2.0.5; the jar contains no PostgreSQL server code. Classified Low.</notes>
+    <packageUrl regex="true">^pkg:maven/org\.testcontainers/testcontainers-postgresql@.*$</packageUrl>
+    <cpe>cpe:/a:postgresql:postgresql</cpe>
+  </suppress>
+  <suppress until="2027-01-31Z">
+    <notes>D-08/D-13: httpclient5/httpcore5 shaded in docker-java-transport-zerodep 3.7.1 (test scope
+      only, talks to the local Docker daemon, not shipped). No fixed release exists. Classified Medium;
+      re-check for a fixed docker-java release in phase 6.</notes>
+    <filePath regex="true">.*docker-java-transport-zerodep-3\.7\.1\.jar.*</filePath>
+    <vulnerabilityName>CVE-2026-71290</vulnerabilityName>
+    <vulnerabilityName>CVE-2026-54399</vulnerabilityName>
+    <vulnerabilityName>CVE-2026-54428</vulnerabilityName>
+  </suppress>
+</suppressions>
