@@ -24,16 +24,16 @@ Layered, by technical responsibility, with one root package `si.confreg.registra
 | Layer (package) | Contains | May depend on |
 |---|---|---|
 | `api` | REST controllers, request/response DTOs, error mapping | `application`, `domain` |
-| `application` | use cases (`RegistrationService`, `RegistrationQueryService`, `ExportService`, `ConfirmationMailService`), pricing (`PricingService`), ports (`TimeSource`, `MailGateway`) | `domain` |
+| `application` | use cases (`RegistrationService`, `RegistrationQueryService`, `ExportService`, `ConfirmationMailService`), pricing (`PricingService`), settings (`AppProperties`, `@ConfigurationProperties`), ports (`TimeSource`, `MailGateway`) | `domain` |
 | `domain` | `Registration` entity, `PayerType`, `Price`, `RegistrationRepository` (Spring Data) | nothing in the app |
 | `infrastructure` | `RequestTimeSource` (clock, AR-05), `SmtpMailGateway` (AR-07), request filters (rate limit, body size, HTTPS-only credentials, test clock) | `application`, `domain` |
-| `config` | `AppProperties` (`@ConfigurationProperties("app")`), security and startup checks, scheduling | all |
+| `config` | Spring wiring: security, startup checks, scheduling, web filters registration | all; nothing depends on `config` |
 
 Why: the application is small and has one story; a classic layered split keeps the pricing rule and the registration use case free of HTTP, SMTP and clock details, so they are unit-testable, while Spring Data repositories stay as interfaces next to the entity. A hexagonal split would add mapping layers without a second adapter to justify them.
 
 ArchUnit rules (in `src/test/.../architecture`, phase 3 acceptance level, checked in phase 6):
 
-- ARCH-1 layered architecture exactly as the table above (`config` excluded from being accessed by others except Spring).
+- ARCH-1 layered architecture exactly as the table above: `api` and `infrastructure` are accessed only by `config`; `application` only by `api`, `infrastructure`, `config`; `domain` by every other layer; `config` by none.
 - ARCH-2 no cycles between the slices `si.confreg.registration.(*)..` (AR-03).
 - ARCH-3 only `infrastructure.mail` uses `org.springframework.mail` / `jakarta.mail` (AR-07).
 - ARCH-4 no class except `infrastructure.clock` calls `Instant.now()`, `LocalDate.now()`, `LocalDateTime.now()`, `ZonedDateTime.now()`, `OffsetDateTime.now()` or `Clock.system*()` (AR-05).
@@ -41,7 +41,7 @@ ArchUnit rules (in `src/test/.../architecture`, phase 3 acceptance level, checke
 
 ## 3. Configuration (ES-01, AR-04)
 
-All read through `AppProperties`; the services read the values when they price or validate, never from constants. Each can be overridden by the environment variable of the same name.
+All read through `application.AppProperties`, bound with `${SETTING:default}` placeholders in `application.yml` so that an environment variable or a property of the same name overrides the default; the services read the values when they price or validate, never from constants. Each can be overridden by the environment variable of the same name.
 
 | Setting | Default (`application.yml`) | Meaning |
 |---|---|---|
