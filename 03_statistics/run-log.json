@@ -31,12 +31,12 @@
       "phase": 3,
       "name": "test-design",
       "start": "2026-10-06T11:27:46Z",
-      "end": null
+      "end": "2026-10-06T11:41:43Z"
     },
     {
       "phase": 4,
       "name": "build",
-      "start": null,
+      "start": "2026-10-06T11:41:43Z",
       "end": null
     },
     {
