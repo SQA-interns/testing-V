@@ -1,0 +1,356 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C0/02_output/frontend
+
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx (9 tests | 9 failed) 9142ms
+   ❯ US-001 registration form (9)
+     × AC-001-20 shows the form fields, an unchecked student box and the configured workshops 1028ms
+     × AC-001-21 shows company fields only for a company payer 1019ms
+     × AC-001-21 does not send company fields for a private payer 1014ms
+     × AC-001-22 shows the current price and updates it when the student box changes 1018ms
+     × AC-001-01 submits the registration and shows the registration number and amounts 1014ms
+     × AC-001-01 sends an empty workshop list and the student flag 1017ms
+     × AC-001-23 shows each server error next to its field and keeps the values 1005ms
+     × AC-001-24 explains a duplicate e-mail address and keeps the values 1011ms
+     × AC-001-24 shows a generic message without internal details when the backend fails or is unreachable 1014ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:109:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-21 shows company fields only for a company payer
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:130:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-21 does not send company fields for a private payer
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:145:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-22 shows the current price and updates it when the student box changes
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:164:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-01 submits the registration and shows the registration number and amounts
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:182:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-01 sends an empty workshop list and the student flag
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:223:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-23 shows each server error next to its field and keeps the values
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:257:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-24 explains a duplicate e-mail address and keeps the values
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:286:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  tests/acceptance/registration-form.acceptance.test.tsx > US-001 registration form > AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+TestingLibraryElementError: Unable to find role="radio" and name `/Alpha workshop/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<main>[39m
+      [36m<h1>[39m
+        [0mConference registration[0m
+      [36m</h1>[39m
+    [36m</main>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ openPage tests/acceptance/registration-form.acceptance.test.tsx:86:16
+     84| async function openPage() {
+     85|   render(<App />);
+     86|   await screen.findByRole("radio", { name: /Alpha workshop/ });
+       |                ^
+     87| }
+     88|
+ ❯ tests/acceptance/registration-form.acceptance.test.tsx:302:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed (9)
+   Start at  16:40:12
+   Duration  19.86s (tests 47%, environment 39%, setup 7%, import 6%, transform 1%)
+

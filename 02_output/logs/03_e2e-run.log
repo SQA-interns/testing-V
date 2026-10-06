@@ -1,0 +1,43 @@
+
+Running 2 tests using 1 worker
+
+  x  1 [chromium] › e2e\registration.e2e.spec.ts:16:1 › AC-001-01 AC-001-04 a participant registers through the form and receives the confirmation (198ms)
+  x  2 [chromium] › e2e\registration.e2e.spec.ts:53:1 › AC-001-20 the page lists the configured workshops and an unchecked student box (148ms)
+
+
+  1) [chromium] › e2e\registration.e2e.spec.ts:16:1 › AC-001-01 AC-001-04 a participant registers through the form and receives the confirmation 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      22 |     "/api/registration-options?student=false",
+      23 |   );
+    > 24 |   expect(optionsResponse.ok()).toBe(true);
+         |                                ^
+      25 |   const options = (await optionsResponse.json()) as {
+      26 |     workshops: { id: string; title: string }[];
+      27 |     price: { grossFee: number };
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\frontend\e2e\registration.e2e.spec.ts:24:32
+
+    Error Context: test-results\registration.e2e-AC-001-01-833e3-d-receives-the-confirmation-chromium\error-context.md
+
+  2) [chromium] › e2e\registration.e2e.spec.ts:53:1 › AC-001-20 the page lists the configured workshops and an unchecked student box 
+
+    SyntaxError: Unexpected end of JSON input
+
+      55 |   request,
+      56 | }) => {
+    > 57 |   const options = (await (
+         |                    ^
+      58 |     await request.get("/api/registration-options")
+      59 |   ).json()) as {
+      60 |     workshops: { id: string; title: string }[];
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\frontend\e2e\registration.e2e.spec.ts:57:20
+
+    Error Context: test-results\registration.e2e-AC-001-20-018aa-nd-an-unchecked-student-box-chromium\error-context.md
+
+  2 failed
+    [chromium] › e2e\registration.e2e.spec.ts:16:1 › AC-001-01 AC-001-04 a participant registers through the form and receives the confirmation 
+    [chromium] › e2e\registration.e2e.spec.ts:53:1 › AC-001-20 the page lists the configured workshops and an unchecked student box 

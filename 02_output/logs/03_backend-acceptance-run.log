@@ -1,0 +1,477 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to -javaagent:C:\\Users\\tanej\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\tanej\\Documents\\LAB\\tanej-confreg-C0\\02_output\\backend\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+16:37:57.789 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+16:37:57.796 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+16:37:57.868 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+16:37:58.582 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+16:38:07.670 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+16:38:07.674 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+16:38:07.750 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.0
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 7612 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+16:38:08.520 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+16:38:08.756 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+16:38:09.081 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: ce57644e4295695dfb43a025890414db997b4bd2c50afaea1ec3ede316cc534a
+16:38:09.739 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT1.2188722S
+16:38:09.754 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+16:38:09.754 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+16:38:09.755 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+16:38:09.757 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+16:38:09.910 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: 2365dd3209f785e6ee0752a8c006729e98a0c0e7379ac1e65901c90da9ed05dc
+16:38:12.953 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT3.1963266S
+16:38:12.954 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:64554/registration?loggerLevel=OFF)
+16:38:12.955 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+16:38:13.095 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: d7548d47944a2b782449bcd7d941707d4361430282680d7732b25e539413bd0c
+16:38:13.509 [main] INFO org.testcontainers.containers.wait.strategy.HttpWaitStrategy -- /brave_zhukovsky: Waiting for 60 seconds for URL: http://localhost:64556/api/v1/info (where port 64556 maps to container port 8025)
+16:38:14.724 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT1.7695281S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T16:38:15.425+02:00  INFO 26072 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Starting ConfirmationEmailAcceptanceTest using Java 21.0.11 with PID 26072 (started by tanej in C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend)
+2026-10-06T16:38:15.428+02:00  INFO 26072 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T16:38:16.932+02:00  INFO 26072 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T16:38:16.982+02:00  INFO 26072 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 0 JPA repository interfaces.
+2026-10-06T16:38:18.376+02:00  INFO 26072 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T16:38:18.409+02:00  INFO 26072 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T16:38:18.410+02:00  INFO 26072 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T16:38:18.504+02:00  INFO 26072 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3038 ms
+2026-10-06T16:38:19.131+02:00  INFO 26072 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T16:38:19.411+02:00  INFO 26072 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fca46aa
+2026-10-06T16:38:19.413+02:00  INFO 26072 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T16:38:19.454+02:00  INFO 26072 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:64554/registration?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T16:38:19.544+02:00  INFO 26072 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T16:38:19.549+02:00  INFO 26072 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.021s)
+2026-10-06T16:38:19.550+02:00  WARN 26072 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2026-10-06T16:38:19.581+02:00  INFO 26072 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T16:38:19.680+02:00  INFO 26072 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T16:38:19.691+02:00  INFO 26072 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T16:38:19.888+02:00  INFO 26072 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T16:38:20.038+02:00  INFO 26072 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-06T16:38:20.915+02:00  INFO 26072 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T16:38:21.101+02:00  INFO 26072 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:64554/registration?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: registration/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T16:38:21.840+02:00  INFO 26072 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T16:38:21.855+02:00  INFO 26072 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T16:38:21.923+02:00  WARN 26072 --- [registration-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-06T16:38:22.605+02:00  WARN 26072 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 860d9b93-69a4-46e5-aa42-e88d303cefca
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-06T16:38:22.638+02:00  INFO 26072 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-06T16:38:22.890+02:00  INFO 26072 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T16:38:23.052+02:00  INFO 26072 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 64572 (http) with context path '/'
+2026-10-06T16:38:23.059+02:00  INFO 26072 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Started ConfirmationEmailAcceptanceTest in 8.271 seconds (process running for 28.48)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\tanej\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-06T16:38:24.003+02:00  INFO 26072 --- [registration-backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T16:38:24.003+02:00  INFO 26072 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T16:38:24.004+02:00  INFO 26072 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[ERROR] Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 27.35 s <<< FAILURE! -- in si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_26_studentIsToldParticipationIsFreeAndStatusMayBeChecked -- Time elapsed: 1.001 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_26_studentIsToldParticipationIsFreeAndStatusMayBeChecked(ConfirmationEmailAcceptanceTest.java:100)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_sr05_confirmationIsPlainTextUtf8 -- Time elapsed: 0.019 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_sr05_confirmationIsPlainTextUtf8(ConfirmationEmailAcceptanceTest.java:46)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_noWorkshopIsStatedAsNone -- Time elapsed: 0.017 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_noWorkshopIsStatedAsNone(ConfirmationEmailAcceptanceTest.java:74)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_oneConfirmationWithNumberNameWorkshopAndAmounts -- Time elapsed: 0.019 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_oneConfirmationWithNumberNameWorkshopAndAmounts(ConfirmationEmailAcceptanceTest.java:24)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_25_payingParticipantIsToldAmountAndThatInvoiceFollowsSeparately -- Time elapsed: 0.017 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_25_payingParticipantIsToldAmountAndThatInvoiceFollowsSeparately(ConfirmationEmailAcceptanceTest.java:85)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_nfr01_slovenianCharactersSurviveInEmail -- Time elapsed: 0.017 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest.ac001_04_nfr01_slovenianCharactersSurviveInEmail(ConfirmationEmailAcceptanceTest.java:63)
+
+[INFO] Running si.confreg.registration.acceptance.MailOutageAcceptanceTest
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! -- in si.confreg.registration.acceptance.MailOutageAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.MailOutageAcceptanceTest.ac001_27_registrationIsStoredDuringSmtpOutageAndConfirmedWhenSmtpReturns -- Time elapsed: 0.019 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.MailOutageAcceptanceTest.ac001_27_registrationIsStoredDuringSmtpOutageAndConfirmedWhenSmtpReturns(MailOutageAcceptanceTest.java:31)
+
+[INFO] Running si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[ERROR] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.382 s <<< FAILURE! -- in si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_29_noCredentialsOrWrongCredentialsGive401WithoutData -- Time elapsed: 0.025 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_29_noCredentialsOrWrongCredentialsGive401WithoutData(OrganizerAccessAcceptanceTest.java:116)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_05_exportHasOneRowWithEveryInvoiceFieldPerRegistration -- Time elapsed: 0.020 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_05_exportHasOneRowWithEveryInvoiceFieldPerRegistration(OrganizerAccessAcceptanceTest.java:38)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_05_exportMarksStudents -- Time elapsed: 0.017 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_05_exportMarksStudents(OrganizerAccessAcceptanceTest.java:72)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_30_unknownRegistrationNumberGives404 -- Time elapsed: 0.288 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 404
+ but was: 401
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_30_unknownRegistrationNumberGives404(OrganizerAccessAcceptanceTest.java:138)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_28_organizerReadsStoredRegistration -- Time elapsed: 0.014 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac001_28_organizerReadsStoredRegistration(OrganizerAccessAcceptanceTest.java:86)
+
+[INFO] Running si.confreg.registration.acceptance.PricingAcceptanceTest
+[ERROR] Tests run: 9, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.146 s <<< FAILURE! -- in si.confreg.registration.acceptance.PricingAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_08_vatIsRoundedHalfUpAndAmountsHaveTwoDecimals -- Time elapsed: 0.019 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_08_vatIsRoundedHalfUpAndAmountsHaveTwoDecimals(PricingAcceptanceTest.java:85)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_09_companyWithVatIdPaysSameFeeAndVatAsPrivatePayer -- Time elapsed: 0.013 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_09_companyWithVatIdPaysSameFeeAndVatAsPrivatePayer(PricingAcceptanceTest.java:112)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_03_studentRegistersForFreeBeforeAndAfterDeadline -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_03_studentRegistersForFreeBeforeAndAfterDeadline(PricingAcceptanceTest.java:50)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_02_regularFeeAfterDeadline -- Time elapsed: 0.015 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_02_regularFeeAfterDeadline(PricingAcceptanceTest.java:40)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_10_workshopDoesNotChangeTheFee -- Time elapsed: 0.016 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_10_workshopDoesNotChangeTheFee(PricingAcceptanceTest.java:126)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_08_studentAmountsHaveTwoDecimals -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_08_studentAmountsHaveTwoDecimals(PricingAcceptanceTest.java:100)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_07_midnightAfterDeadlineInConferenceTimeZoneIsRegularThoughStillDeadlineDateInUtc -- Time elapsed: 0.016 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_07_midnightAfterDeadlineInConferenceTimeZoneIsRegularThoughStillDeadlineDateInUtc(PricingAcceptanceTest.java:72)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_06_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird -- Time elapsed: 0.011 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_06_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird(PricingAcceptanceTest.java:62)
+
+[ERROR] si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_02_earlyBirdFeeBeforeDeadline -- Time elapsed: 0.014 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.PricingAcceptanceTest.ac001_02_earlyBirdFeeBeforeDeadline(PricingAcceptanceTest.java:32)
+
+[INFO] Running si.confreg.registration.acceptance.RegistrationAcceptanceTest
+[ERROR] Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.105 s <<< FAILURE! -- in si.confreg.registration.acceptance.RegistrationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_16_noWorkshopIsStoredAsNull -- Time elapsed: 0.024 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_16_noWorkshopIsStoredAsNull(RegistrationAcceptanceTest.java:84)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_16_oneConfiguredWorkshopIsStored -- Time elapsed: 0.013 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_16_oneConfiguredWorkshopIsStored(RegistrationAcceptanceTest.java:94)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_18_secondRegistrationWithSameEmailIsRefusedWith409 -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_18_secondRegistrationWithSameEmailIsRefusedWith409(RegistrationAcceptanceTest.java:106)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_nfr01_slovenianCharactersSurviveStorage -- Time elapsed: 0.013 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_nfr01_slovenianCharactersSurviveStorage(RegistrationAcceptanceTest.java:53)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_validRegistrationIsStoredAndReturnedWithNumberAndAmounts -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_validRegistrationIsStoredAndReturnedWithNumberAndAmounts(RegistrationAcceptanceTest.java:21)
+
+[ERROR] si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_registrationNumbersAreUnique -- Time elapsed: 0.014 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.RegistrationAcceptanceTest.ac001_01_registrationNumbersAreUnique(RegistrationAcceptanceTest.java:67)
+
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] Tests run: 12, Failures: 12, Errors: 0, Skipped: 0, Time elapsed: 0.783 s <<< FAILURE! -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_12_invalidEmailAddressIsRejected -- Time elapsed: 0.084 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_12_invalidEmailAddressIsRejected(ValidationAcceptanceTest.java:58)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_11_blankRequiredFieldsAreAllReportedTogether -- Time elapsed: 0.082 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_11_blankRequiredFieldsAreAllReportedTogether(ValidationAcceptanceTest.java:52)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_17_unknownWorkshopIsRejected -- Time elapsed: 0.082 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_17_unknownWorkshopIsRejected(ValidationAcceptanceTest.java:134)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_14_companyWithoutNameOrAddressIsRejected -- Time elapsed: 0.080 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_14_companyWithoutNameOrAddressIsRejected(ValidationAcceptanceTest.java:78)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_13_unknownPayerTypeIsRejected -- Time elapsed: 0.083 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_13_unknownPayerTypeIsRejected(ValidationAcceptanceTest.java:67)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_11_eachRequiredFieldMissingIsReported -- Time elapsed: 0.082 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_11_eachRequiredFieldMissingIsReported(ValidationAcceptanceTest.java:38)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_17_moreThanOneWorkshopIsRejected -- Time elapsed: 0.077 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_17_moreThanOneWorkshopIsRejected(ValidationAcceptanceTest.java:126)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_14_companyVatIdIsOptional -- Time elapsed: 0.011 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_14_companyVatIdIsOptional(ValidationAcceptanceTest.java:84)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_19_valuesAtTheirLimitAreAccepted -- Time elapsed: 0.011 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_19_valuesAtTheirLimitAreAccepted(ValidationAcceptanceTest.java:178)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_15_privatePayerWithCompanyDataIsRejected -- Time elapsed: 0.077 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.lambda$ac001_15_privatePayerWithCompanyDataIsRejected$0(ValidationAcceptanceTest.java:98)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_15_privatePayerWithCompanyDataIsRejected(ValidationAcceptanceTest.java:95)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_19_valuesLongerThanTheirLimitAreRejected -- Time elapsed: 0.078 s <<< FAILURE!
+java.lang.AssertionError: export answered 401
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.exportRows(AcceptanceTestBase.java:99)
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.storedCount(AcceptanceTestBase.java:127)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:23)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.lambda$ac001_19_valuesLongerThanTheirLimitAreRejected$1(ValidationAcceptanceTest.java:145)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_19_valuesLongerThanTheirLimitAreRejected(ValidationAcceptanceTest.java:142)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_15_privatePayerWithBlankCompanyFieldsIsAccepted -- Time elapsed: 0.010 s <<< FAILURE!
+java.lang.AssertionError: expected 201 but was 401: 
+	at si.confreg.registration.acceptance.support.AcceptanceTestBase.registerOk(AcceptanceTestBase.java:90)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac001_15_privatePayerWithBlankCompanyFieldsIsAccepted(ValidationAcceptanceTest.java:110)
+
+[INFO] Running si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest
+2026-10-06T16:38:25.755+02:00  INFO 26072 --- [registration-backend] [           main] com.tngtech.archunit.core.PluginLoader   : Detected Java version 21.0.11
+[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.490 s <<< FAILURE! -- in si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest.arch1_ar02_layersAsDeclared -- Time elapsed: 1.423 s <<< FAILURE!
+java.lang.AssertionError: 
+Architecture Violation [Priority: MEDIUM] - Rule 'Layered architecture considering only dependencies in layers, consisting of
+layer 'api' ('si.confreg.registration.api..')
+layer 'application' ('si.confreg.registration.application..')
+layer 'domain' ('si.confreg.registration.domain..')
+layer 'infrastructure' ('si.confreg.registration.infrastructure..')
+layer 'config' ('si.confreg.registration.config..')
+where layer 'api' may only be accessed by layers ['config']
+where layer 'infrastructure' may only be accessed by layers ['config']
+where layer 'application' may only be accessed by layers ['api', 'infrastructure', 'config']
+where layer 'domain' may only be accessed by layers ['api', 'application', 'infrastructure', 'config']
+where layer 'config' may not be accessed by any layer' was violated (5 times):
+Layer 'api' is empty
+Layer 'application' is empty
+Layer 'config' is empty
+Layer 'domain' is empty
+Layer 'infrastructure' is empty
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.library.Architectures$LayeredArchitecture.check(Architectures.java:347)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:167)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:150)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest.arch2_ar03_noPackageCycles -- Time elapsed: 0.023 s <<< FAILURE!
+java.lang.AssertionError: Rule 'slices matching 'si.confreg.registration.(*)..' should be free of cycles' failed to check any classes. This means either that no classes have been passed to the rule at all, or that no classes passed to the rule matched the `that()` clause. To allow rules being evaluated without checking any classes you can either use `ArchRule.allowEmptyShould(true)` on a single rule or set the configuration property `archRule.failOnEmptyShould = false` to change the behavior globally.
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.verifyNoEmptyShouldIfEnabled(ArchRule.java:201)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.evaluate(ArchRule.java:181)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:84)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.tngtech.archunit.library.dependencies.SliceRule.check(SliceRule.java:81)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:167)
+	at com.tngtech.archunit.junit.internal.ArchUnitTestDescriptor$ArchUnitRuleDescriptor.execute(ArchUnitTestDescriptor.java:150)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_04_nfr01_slovenianCharactersSurviveInEmail:63->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_04_noWorkshopIsStatedAsNone:74->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_04_oneConfirmationWithNumberNameWorkshopAndAmounts:24->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_04_sr05_confirmationIsPlainTextUtf8:46->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_25_payingParticipantIsToldAmountAndThatInvoiceFollowsSeparately:85->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ConfirmationEmailAcceptanceTest.ac001_26_studentIsToldParticipationIsFreeAndStatusMayBeChecked:100->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   MailOutageAcceptanceTest.ac001_27_registrationIsStoredDuringSmtpOutageAndConfirmedWhenSmtpReturns:31->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   OrganizerAccessAcceptanceTest.ac001_05_exportHasOneRowWithEveryInvoiceFieldPerRegistration:38->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   OrganizerAccessAcceptanceTest.ac001_05_exportMarksStudents:72->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   OrganizerAccessAcceptanceTest.ac001_28_organizerReadsStoredRegistration:86->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   OrganizerAccessAcceptanceTest.ac001_29_noCredentialsOrWrongCredentialsGive401WithoutData:116->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   OrganizerAccessAcceptanceTest.ac001_30_unknownRegistrationNumberGives404:138 
+expected: 404
+ but was: 401
+[ERROR]   PricingAcceptanceTest.ac001_02_earlyBirdFeeBeforeDeadline:32->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_02_regularFeeAfterDeadline:40->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_03_studentRegistersForFreeBeforeAndAfterDeadline:50->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_06_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird:62->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_07_midnightAfterDeadlineInConferenceTimeZoneIsRegularThoughStillDeadlineDateInUtc:72->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_08_studentAmountsHaveTwoDecimals:100->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_08_vatIsRoundedHalfUpAndAmountsHaveTwoDecimals:85->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_09_companyWithVatIdPaysSameFeeAndVatAsPrivatePayer:112->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   PricingAcceptanceTest.ac001_10_workshopDoesNotChangeTheFee:126->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_01_nfr01_slovenianCharactersSurviveStorage:53->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_01_registrationNumbersAreUnique:67->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_01_validRegistrationIsStoredAndReturnedWithNumberAndAmounts:21->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_16_noWorkshopIsStoredAsNull:84->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_16_oneConfiguredWorkshopIsStored:94->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   RegistrationAcceptanceTest.ac001_18_secondRegistrationWithSameEmailIsRefusedWith409:106->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ValidationAcceptanceTest.ac001_11_blankRequiredFieldsAreAllReportedTogether:52->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_11_eachRequiredFieldMissingIsReported:38->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_12_invalidEmailAddressIsRejected:58->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_13_unknownPayerTypeIsRejected:67->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_14_companyVatIdIsOptional:84->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ValidationAcceptanceTest.ac001_14_companyWithoutNameOrAddressIsRejected:78->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_15_privatePayerWithBlankCompanyFieldsIsAccepted:110->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ValidationAcceptanceTest.ac001_15_privatePayerWithCompanyDataIsRejected:95->lambda$ac001_15_privatePayerWithCompanyDataIsRejected$0:98->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_17_moreThanOneWorkshopIsRejected:126->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_17_unknownWorkshopIsRejected:134->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ValidationAcceptanceTest.ac001_19_valuesAtTheirLimitAreAccepted:178->AcceptanceTestBase.registerOk:90 expected 201 but was 401: 
+[ERROR]   ValidationAcceptanceTest.ac001_19_valuesLongerThanTheirLimitAreRejected:142->lambda$ac001_19_valuesLongerThanTheirLimitAreRejected$1:145->assertRejected:23->AcceptanceTestBase.storedCount:127->AcceptanceTestBase.exportRows:99 export answered 401
+[ERROR]   ArchitectureAcceptanceTest.arch1_ar02_layersAsDeclared Architecture Violation [Priority: MEDIUM] - Rule 'Layered architecture considering only dependencies in layers, consisting of
+layer 'api' ('si.confreg.registration.api..')
+layer 'application' ('si.confreg.registration.application..')
+layer 'domain' ('si.confreg.registration.domain..')
+layer 'infrastructure' ('si.confreg.registration.infrastructure..')
+layer 'config' ('si.confreg.registration.config..')
+where layer 'api' may only be accessed by layers ['config']
+where layer 'infrastructure' may only be accessed by layers ['config']
+where layer 'application' may only be accessed by layers ['api', 'infrastructure', 'config']
+where layer 'domain' may only be accessed by layers ['api', 'application', 'infrastructure', 'config']
+where layer 'config' may not be accessed by any layer' was violated (5 times):
+Layer 'api' is empty
+Layer 'application' is empty
+Layer 'config' is empty
+Layer 'domain' is empty
+Layer 'infrastructure' is empty
+[ERROR]   ArchitectureAcceptanceTest.arch2_ar03_noPackageCycles Rule 'slices matching 'si.confreg.registration.(*)..' should be free of cycles' failed to check any classes. This means either that no classes have been passed to the rule at all, or that no classes passed to the rule matched the `that()` clause. To allow rules being evaluated without checking any classes you can either use `ArchRule.allowEmptyShould(true)` on a single rule or set the configuration property `archRule.failOnEmptyShould = false` to change the behavior globally.
+[INFO] 
+[ERROR] Tests run: 44, Failures: 41, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.568 s
+[INFO] Finished at: 2026-10-06T16:38:28+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project registration-backend: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
