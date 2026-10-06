@@ -1,0 +1,66 @@
+# Local stack (environments.md "local"): backend, frontend, PostgreSQL, Mailpit.
+# Start from 02_output/:  docker compose --env-file ../.env up --build
+# Every port is bound to 127.0.0.1 only. APP_* settings are passed through when set in the
+# shell; otherwise the backend defaults apply.
+
+name: confreg
+
+services:
+  postgres:
+    image: postgres:16.15-alpine
+    environment:
+      POSTGRES_DB: registration
+      POSTGRES_USER: registration
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_INITDB_ARGS: --encoding=UTF8
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U registration -d registration"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.31.1
+    ports:
+      - "127.0.0.1:8025:8025"
+
+  backend:
+    build: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    environment:
+      APP_DB_URL: jdbc:postgresql://postgres:5432/registration
+      APP_DB_USER: registration
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      APP_SMTP_HOST: mailpit
+      APP_SMTP_PORT: "1025"
+      APP_SMTP_TLS: "false"
+      ORGANIZER_USERNAME: ${ORGANIZER_USERNAME:?set ORGANIZER_USERNAME in .env}
+      ORGANIZER_PASSWORD: ${ORGANIZER_PASSWORD:?set ORGANIZER_PASSWORD in .env}
+      APP_CONFERENCE_TZ:
+      APP_EARLY_BIRD_DEADLINE:
+      APP_FEE_EARLY:
+      APP_FEE_REGULAR:
+      APP_VAT_RATE:
+      APP_WORKSHOPS:
+      APP_RATE_LIMIT_PER_HOUR:
+      APP_TEST_CLOCK:
+      APP_MAIL_FROM:
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:3000:8080"
+
+volumes:
+  postgres-data:
