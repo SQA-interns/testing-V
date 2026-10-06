@@ -1,0 +1,324 @@
+openapi: 3.1.0
+info:
+  title: Conference registration API
+  version: 1.0.0
+  description: >-
+    Registration API between the frontend or the organizer and the backend
+    (docs/02_specification.md section 5). Paths and field names of
+    POST /api/registrations and GET /api/registrations/{registrationNumber}
+    are fixed by project/02_design/architecture.md.
+  license:
+    name: Proprietary
+    identifier: LicenseRef-Proprietary
+servers:
+  - url: http://127.0.0.1:8080
+    description: local stack
+security: []
+tags:
+  - name: registrations
+    description: Submit (public) and read (organizer) registrations.
+  - name: workshops
+    description: Configured workshops for the registration form.
+paths:
+  /api/registrations:
+    post:
+      operationId: createRegistration
+      summary: Submit a registration (public, rate limited)
+      tags: [registrations]
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/TestNow'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequest'
+            example:
+              firstName: Ana
+              lastName: Novak
+              email: ana.novak@example.org
+              payerType: company
+              companyName: Primer d.o.o.
+              companyAddress: Koroška cesta 1, 2000 Maribor
+              companyVatId: SI00000001
+              workshops: [W1]
+      responses:
+        '201':
+          description: Registration stored; one confirmation e-mail sent (AC-001-04).
+          headers:
+            Location:
+              description: /api/registrations/{registrationNumber}
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '422':
+          $ref: '#/components/responses/ValidationFailed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /api/registrations/{registrationNumber}:
+    get:
+      operationId: getRegistration
+      summary: Read a stored registration (organizer only)
+      tags: [registrations]
+      security:
+        - organizerBasic: []
+      parameters:
+        - name: registrationNumber
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^REG-[0-9A-HJKMNP-TV-Z]{10}$'
+      responses:
+        '200':
+          description: The stored registration (AC-001-10).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /api/workshops:
+    get:
+      operationId: listWorkshops
+      summary: Configured workshops (public, rate limited; pending D-10)
+      tags: [workshops]
+      security: []
+      responses:
+        '200':
+          description: Workshops from APP_WORKSHOPS, in configured order.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Workshop'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  securitySchemes:
+    organizerBasic:
+      type: http
+      scheme: basic
+      description: ORGANIZER_USERNAME / ORGANIZER_PASSWORD; HTTPS required except on localhost (SR-03).
+  parameters:
+    TestNow:
+      name: X-Test-Now
+      in: header
+      required: false
+      description: >-
+        Only honoured when APP_TEST_CLOCK=enabled (never in production, SR-04):
+        the instant used as the current time for this request.
+      schema:
+        type: string
+        format: date-time
+        example: '2026-07-31T21:59:59Z'
+  schemas:
+    PayerType:
+      type: string
+      enum: [private, company]
+    RegistrationRequest:
+      type: object
+      description: >-
+        Validation rules: docs/01_acceptance-criteria.md "Field rules". The schema
+        is descriptive; the server answers 422 (not 400) for any field that
+        violates it. Unknown properties are ignored.
+      required: [firstName, lastName, email, payerType]
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        payerType:
+          $ref: '#/components/schemas/PayerType'
+        companyName:
+          type: [string, 'null']
+          maxLength: 200
+          description: Required for company; ignored for private.
+        companyAddress:
+          type: [string, 'null']
+          maxLength: 300
+          description: Required for company; ignored for private.
+        companyVatId:
+          type: [string, 'null']
+          maxLength: 32
+          description: Required for company; ignored for private.
+        workshops:
+          type: [array, 'null']
+          maxItems: 1
+          items:
+            type: string
+          description: Empty, null or absent = no workshop; one id from APP_WORKSHOPS.
+    Registration:
+      type: object
+      required:
+        - registrationNumber
+        - status
+        - firstName
+        - lastName
+        - email
+        - payerType
+        - companyName
+        - companyAddress
+        - companyVatId
+        - workshop
+        - netFee
+        - vat
+        - grossFee
+        - submittedAt
+      properties:
+        registrationNumber:
+          type: string
+          pattern: '^REG-[0-9A-HJKMNP-TV-Z]{10}$'
+        status:
+          type: string
+          enum: [registered]
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        payerType:
+          $ref: '#/components/schemas/PayerType'
+        companyName:
+          type: [string, 'null']
+        companyAddress:
+          type: [string, 'null']
+        companyVatId:
+          type: [string, 'null']
+        workshop:
+          type: [string, 'null']
+        netFee:
+          type: number
+          description: EUR, two decimals.
+          examples: [240.00]
+        vat:
+          type: number
+          description: EUR, two decimals.
+          examples: [52.80]
+        grossFee:
+          type: number
+          description: EUR, two decimals.
+          examples: [292.80]
+        submittedAt:
+          type: string
+          format: date-time
+          description: Submission time, UTC.
+    Workshop:
+      type: object
+      required: [id, title]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+    Problem:
+      type: object
+      required: [type, title, status]
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+    ValidationProblem:
+      allOf:
+        - $ref: '#/components/schemas/Problem'
+        - type: object
+          required: [errors]
+          properties:
+            errors:
+              type: object
+              description: One message per invalid field, keyed by field name.
+              additionalProperties:
+                type: string
+  responses:
+    BadRequest:
+      description: Body is not a JSON object, or X-Test-Now is not ISO-8601.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Missing or wrong organizer credentials.
+      headers:
+        WWW-Authenticate:
+          schema:
+            type: string
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Credentials sent over plain HTTP from a non-loopback client (SR-03).
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: No registration with this number.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    PayloadTooLarge:
+      description: Body larger than 16 KiB (SR-02).
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    UnsupportedMediaType:
+      description: Content type is not application/json.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    ValidationFailed:
+      description: One or more invalid fields (AC-001-07); nothing stored, no e-mail.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ValidationProblem'
+          example:
+            type: about:blank
+            title: Validation failed
+            status: 422
+            errors:
+              email: must be a valid e-mail address
+              companyVatId: is required for a company payer
+    TooManyRequests:
+      description: Rate limit APP_RATE_LIMIT_PER_HOUR exceeded for this client (AC-001-12).
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
