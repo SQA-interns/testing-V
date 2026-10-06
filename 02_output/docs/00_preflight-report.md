@@ -28,11 +28,32 @@ The scan covers the `dependencies` set of `tech-stack.md`. npm: `npm audit` with
 | org.testcontainers:testcontainers-postgresql | 2.0.5 | yes | **Critical** as reported (CVE-2015-0244 and others); false-positive CPE `postgresql:postgresql:2.0.5` (D-07) |
 | org.testcontainers:testcontainers-junit-jupiter | 2.0.5 | yes | **Critical** through docker-java-transport-zerodep 3.7.1 (shaded httpclient5 5.5.1, CVE-2026-71290 9.1); High CVE-2026-54399, CVE-2026-54428 (shaded httpcore5 5.3.6) (D-08) |
 | org.springframework.boot:spring-boot-starter-validation | 4.1.1 | yes | Medium: hibernate-validator 9.1.3.Final CVE-2025-15104 (6.9) |
-| org.springframework.boot:spring-boot-starter-mail | 4.1.1 | yes | Medium: angus-activation 2.0.3 CVE-2025-7962 (6.0) |
+| org.springframework.boot:spring-boot-starter-mail | 4.1.1 | yes | **High** as reported: angus-activation 2.0.3 CVE-2025-7962 (CVSS v3 7.5; v4 6.0); wrong-artifact CPE match (D-15). Corrected: first listed as Medium 6.0 from the v4 score only |
 | all other dependencies and tooling (51) | as listed | yes | none |
 
 ## Asked the human
 
 | When | What was missing | Answer | Re-check |
 |---|---|---|---|
-| 2026-10-06T18:58Z | D-01 Temurin JDK 21.0.10+7; D-02 Node.js 24.13.0 / npm 11.6.2; D-04 vitest/jscpd vulnerabilities; D-07, D-08 Testcontainers scan findings | pending | |
+| 2026-10-06T18:49Z | D-01 Temurin JDK 21.0.10+7; D-02 Node.js 24.13.0 / npm 11.6.2; D-04 vitest/jscpd vulnerabilities; D-07, D-08 Testcontainers scan findings | 18:54Z: D-01 approve Oracle 21.0.11 (D-09); D-02 approve Node 24.10.0 / npm 10.9.4 (D-10); D-04 vitest + coverage-v8 5.0.3, jscpd 5.4.0 (D-11); D-07 Low + suppression (D-12); D-08 Medium + suppression (D-13) | see re-check below |
+| 2026-10-06T19:01Z | D-15 angus-activation CVE-2025-7962 (High by CVSS v3); D-17 Playwright Chromium download | pending | |
+
+## Re-check after the human's answers (2026-10-06T18:54Z)
+
+Only the failed checks were re-run.
+
+| Check | Method | Result |
+|---|---|---|
+| `java` platform (amended by D-09: Oracle JDK 21.0.11) | `java -version`; second check: `JAVA_HOME` `release` file | Pass: Oracle 21.0.11+9-LTS-211 |
+| `node` platform and `npm audit` tool (amended by D-10: Node 24.10.0, npm 10.9.4) | `node --version`, `npm --version`; second check: `node -p process.versions.node` | Pass: v24.10.0, npm 10.9.4 |
+| npm dependencies, no Critical/High (amended set, D-11) | `npm audit` (host npm 10.9.4) on the scratch set, then on the real `02_output/frontend/package-lock.json` | Pass: 0 Critical, 0 High, 2 Moderate (`qs` via `typed-rest-client` via `@stryker-mutator/core`) |
+| Maven dependencies, no Critical/High | `dependency-check-maven` 12.1.0 on `02_output/backend/pom.xml` with host JDK, suppressions per D-12, D-13, D-16 | **Fail**: CVE-2025-7962 on `angus-activation` 2.0.3 (CVSS v3 7.5) → D-15. Remaining Medium: CVE-2026-64607 (shaded httpclient5, D-08 scope), CVE-2025-15104 (hibernate-validator 9.1.3.Final, v4 6.9 / v3 5.3) |
+
+## Bootstrap results
+
+| Component | Build | Check | Manifest and lock vs `tech-stack.md` |
+|---|---|---|---|
+| backend | Pass: `./mvnw -B package` (Maven 3.9.9 via wrapper 3.3.2) | Pass: spotless, PMD, CPD, SpotBugs (0 bugs) | Pass: `dependency:list` shows every pinned version, incl. Boot-managed Spring Framework 7.0.9, Spring Security 7.1.1, JUnit 6.0.3, Mockito 5.23.0 and the tomcat/log4j/commons-lang3/flyway overrides |
+| frontend | Pass: `npm run build` | Pass: `npm run check` (prettier, eslint, tsc); `npm test` runs (no tests yet) | Pass: 0 mismatches between `package.json` and `package-lock.json`, all exact; vitest, coverage-v8 and jscpd as amended (D-11) |
+
+Tools run at their pinned or approved versions: vite 6.4.3, tsc 5.9.3, eslint 9.39.5, prettier 3.9.9, vitest 5.0.3, playwright 1.63.0 (browser not yet installed, D-17), stryker 10.0.0, jscpd 5.4.0. Logs: `out/logs/00_bootstrap/`.

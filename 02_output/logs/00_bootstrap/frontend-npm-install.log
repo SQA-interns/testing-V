@@ -1,0 +1,189 @@
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/core@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/generator@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/parser@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-proposal-decorators@8.0.2',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-explicit-resource-management@8.0.5',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/preset-react@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/preset-typescript@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/traverse@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/code-frame@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-compilation-targets@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helpers@8.0.5',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/template@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/types@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-validator-identifier@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/compat-data@8.0.5',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-validator-option@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-create-class-features-plugin@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-plugin-utils@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-syntax-decorators@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-annotate-as-pure@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-member-expression-to-functions@8.0.5',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-optimise-call-expression@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-replace-supers@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-skip-transparent-expression-wrappers@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-destructuring@8.0.5',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-react-display-name@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-react-jsx@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-react-jsx-development@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-react-pure-annotations@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-module-imports@8.0.0',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-syntax-jsx@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-modules-commonjs@8.0.1',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-transform-typescript@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-module-transforms@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/plugin-syntax-typescript@8.0.3',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-globals@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@babel/helper-string-parser@8.0.6',
+npm warn EBADENGINE   required: { node: '^22.18.0 || >=24.11.0' },
+npm warn EBADENGINE   current: { node: 'v24.10.0', npm: '10.9.4' }
+npm warn EBADENGINE }
+npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 427 packages in 19s

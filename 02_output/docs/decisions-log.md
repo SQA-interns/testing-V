@@ -95,3 +95,92 @@
   3. Keep the findings as reported, which blocks the phase 0 gate with no version to move to.
 - Human response: none
 - Resolution: pending review
+
+## D-09: Human response to D-01 (JDK)
+- Timestamp: 2026-10-06T18:54:28Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-01 (host JDK Oracle 21.0.11+9 vs pinned Temurin 21.0.10+7).
+- Options: as in D-01.
+- Human response: 2026-10-06T18:54Z (received): "approve Oracle JDK 21.0.11 for this run." If the version causes a real failure later, raise a new blocking decision.
+- Resolution: D-01 option 2. For this run, Oracle JDK 21.0.11+9 replaces the `java` platform entry on the host. The backend runtime image stays `eclipse-temurin:21.0.10_7-jre-alpine` as pinned.
+
+## D-10: Human response to D-02 (Node.js)
+- Timestamp: 2026-10-06T18:54:28Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-02 (host Node 24.10.0 / npm 10.9.4 vs pinned 24.13.0 / 11.6.2).
+- Options: as in D-02.
+- Human response: 2026-10-06T18:54Z (received): "approve Node 24.10.0 with npm 10.9.4 for this run. If either version causes a real failure later, raise it as a new blocking decision."
+- Resolution: D-02 option 2. Node.js 24.10.0 with npm 10.9.4 replaces the `node` platform entry and the `npm audit` tooling version on the host for this run. The frontend build image stays `node:24.13.0-alpine` as pinned.
+
+## D-11: Human response to D-04 (npm vulnerabilities)
+- Timestamp: 2026-10-06T18:54:28Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-04.
+- Options: as in D-04.
+- Human response: 2026-10-06T18:54Z (received): "amend vitest and @vitest/coverage-v8 to 5.0.3 (not 4.1.11), and jscpd to 5.4.0."
+- Resolution: D-04 option 2. `vitest` 5.0.3, `@vitest/coverage-v8` 5.0.3 and `jscpd` 5.4.0 replace the `tech-stack.md` tooling entries for this run.
+
+## D-12: Human response to D-07 (testcontainers-postgresql false positive)
+- Timestamp: 2026-10-06T18:54:28Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-07.
+- Options: as in D-07.
+- Human response: 2026-10-06T18:54Z (received): "default, classify as Low with a suppression scoped to this jar."
+- Resolution: D-07 option 1. Low (false positive); Dependency-Check suppression scoped to `testcontainers-postgresql` and CPE `cpe:/a:postgresql:postgresql`.
+
+## D-13: Human response to D-08 (docker-java-transport-zerodep)
+- Timestamp: 2026-10-06T18:54:28Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-08.
+- Options: as in D-08.
+- Human response: 2026-10-06T18:54Z (received): "default, classify as Medium (test scope only), scoped suppression, re-check in phase 6."
+- Resolution: D-08 option 1. Medium; suppression scoped to `docker-java-transport-zerodep` for CVE-2026-71290, CVE-2026-54399 and CVE-2026-54428 only (CVE-2026-64607 stays reported as Medium); re-check for a fixed release in phase 6.
+
+## D-14: Correction of timestamps in D-07, D-08 and the preflight report
+- Timestamp: 2026-10-06T18:55:00Z
+- Phase: 0
+- Type: non-blocking
+- Trigger: D-07 and D-08 carry `2026-10-06T18:55:00Z`, and the preflight report says the human was asked at `18:58Z`. These were estimated, not read from the clock, and are later than the actual events. Commit `f520d1f` (18:48:44Z) bounds them.
+- Options:
+  1. (default) Treat D-07 and D-08 as raised at about 18:47Z and the question as asked at about 18:49Z; correct the agent-written report and run log, which are not append-only; leave D-07 and D-08 unchanged here (append-only log).
+- Human response: none
+- Resolution: option 1
+
+## D-15: CVE-2025-7962 reported High (CVSS v3 7.5) on angus-activation 2.0.3
+- Timestamp: 2026-10-06T18:58:32Z
+- Phase: 0
+- Type: blocking
+- Trigger: re-run of `dependency-check-maven` 12.1.0 on `02_output/backend/pom.xml` fails at CVSS >= 7 on `org.eclipse.angus:angus-activation` 2.0.3 (runtime, via `spring-boot-starter-mail` 4.1.1): CVE-2025-7962, CVSS v3 7.5 HIGH and CVSS v4 6.0 MEDIUM. Under `severity-scale.md` (CVSS 7.0–8.9) the conservative reading is High. The preflight report listed it as Medium 6.0 because only the v4 score was read; that row is corrected. Evidence (`out/logs/00_bootstrap/backend-dependency-check-report.json`): the CVE is an SMTP injection in Jakarta Mail < 2.0.2 and Angus Mail < 2.0.4 (CPE `eclipse:angus_mail`). The jar flagged is the Angus *activation* framework, not the mail implementation; the tool derived `cpe:2.3:a:eclipse:angus_mail:2.0.3` from it. The mail implementation on the classpath is `angus-mail` 2.0.5, which is outside the vulnerable range and is not flagged. No newer stable `angus-activation` exists (2.0.3 latest; 2.1.0-M1 is a milestone). SR-05 (no header or markup injection in e-mail) is still implemented and tested in our own code.
+- Options:
+  1. (default) Classify as Low (false positive, wrong artifact matched) and add a suppression scoped to `angus-activation` and CPE `cpe:/a:eclipse:angus_mail`.
+  2. Override `angus-activation` to the milestone 2.1.0-M1 (adds an unlisted pin; milestone quality).
+  3. Keep it as reported, which blocks the phase 0 gate.
+- Human response: none
+- Resolution: pending review
+
+## D-16: D-13 suppression scoped by jar path to cover shaded httpcore5-h2
+- Timestamp: 2026-10-06T18:58:32Z
+- Phase: 0
+- Type: non-blocking
+- Trigger: applying D-13, the same CVE-2026-54399 and CVE-2026-54428 also match `httpcore5-h2` 5.3.6, shaded in the same `docker-java-transport-zerodep` 3.7.1 jar (CVE-2026-54428 is the HTTP/2 HPACK issue). A suppression by package name did not cover it.
+- Options:
+  1. (default) Scope the suppression by file path to `docker-java-transport-zerodep-3.7.1.jar` and to the three CVEs approved in D-13. This is the same jar and the same CVEs as the human approved; CVE-2026-64607 stays reported.
+- Human response: none
+- Resolution: option 1
+
+## D-17: Playwright's bundled Chromium is not installed on the host
+- Timestamp: 2026-10-06T19:01:12Z
+- Phase: 0
+- Type: blocking
+- Trigger: tooling `@playwright/test` 1.63.0 ("end-to-end, with its bundled Chromium") is installed and runs (`playwright --version` = 1.63.0), but its browser has not been downloaded. End-to-end tests start in phase 3. Downloading it puts software on the host, which needs approval (`AGENTS.md`).
+- Options:
+  1. (default) Agent runs `npx playwright install chromium` in `02_output/frontend/`, which fetches the Chromium build pinned by Playwright 1.63.0 into the user's Playwright cache (no system-wide install).
+  2. Human installs it.
+  3. Run the end-to-end tests in a Playwright container image (an unlisted image, so it would need its own approval).
+- Human response: none
+- Resolution: pending review

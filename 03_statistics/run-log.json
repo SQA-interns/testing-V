@@ -78,13 +78,13 @@
       "id": "D-01",
       "type": "blocking",
       "start": "2026-10-06T18:06:00Z",
-      "end": null
+      "end": "2026-10-06T18:54:28Z"
     },
     {
       "id": "D-02",
       "type": "blocking",
       "start": "2026-10-06T18:06:00Z",
-      "end": null
+      "end": "2026-10-06T18:54:28Z"
     },
     {
       "id": "D-03",
@@ -96,7 +96,7 @@
       "id": "D-04",
       "type": "blocking",
       "start": "2026-10-06T18:06:00Z",
-      "end": null
+      "end": "2026-10-06T18:54:28Z"
     },
     {
       "id": "D-05",
@@ -113,13 +113,67 @@
     {
       "id": "D-07",
       "type": "blocking",
-      "start": "2026-10-06T18:55:00Z",
-      "end": null
+      "start": "2026-10-06T18:47:00Z",
+      "end": "2026-10-06T18:54:28Z"
     },
     {
       "id": "D-08",
       "type": "blocking",
+      "start": "2026-10-06T18:47:00Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-09",
+      "type": "blocking",
+      "start": "2026-10-06T18:54:28Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-10",
+      "type": "blocking",
+      "start": "2026-10-06T18:54:28Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-11",
+      "type": "blocking",
+      "start": "2026-10-06T18:54:28Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-12",
+      "type": "blocking",
+      "start": "2026-10-06T18:54:28Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-13",
+      "type": "blocking",
+      "start": "2026-10-06T18:54:28Z",
+      "end": "2026-10-06T18:54:28Z"
+    },
+    {
+      "id": "D-14",
+      "type": "non-blocking",
       "start": "2026-10-06T18:55:00Z",
+      "end": "2026-10-06T18:55:00Z"
+    },
+    {
+      "id": "D-15",
+      "type": "blocking",
+      "start": "2026-10-06T18:58:32Z",
+      "end": null
+    },
+    {
+      "id": "D-16",
+      "type": "non-blocking",
+      "start": "2026-10-06T18:58:32Z",
+      "end": "2026-10-06T18:58:32Z"
+    },
+    {
+      "id": "D-17",
+      "type": "blocking",
+      "start": "2026-10-06T19:01:12Z",
       "end": null
     }
   ],
@@ -130,9 +184,14 @@
       "reason": "Interruption: human's internet connection dropped at about 20:20 local (18:20Z); the agent's request in flight failed. Human asked to resume; nothing else changed. Time is the human's estimate."
     },
     {
-      "start": "2026-10-06T18:58:00Z",
-      "end": null,
+      "start": "2026-10-06T18:49:00Z",
+      "end": "2026-10-06T18:54:28Z",
       "reason": "Phase 0 preflight: asked to resolve blocking decisions D-01, D-02, D-04, D-07, D-08"
+    },
+    {
+      "start": "2026-10-06T19:01:12Z",
+      "end": null,
+      "reason": "Phase 0: asked to resolve blocking decisions D-15 (angus-activation CVE) and D-17 (Playwright Chromium download)"
     }
   ],
   "codeMetrics": {

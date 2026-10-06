@@ -6,9 +6,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
 - Current phase: 0 (preflight and bootstrap), started 2026-10-06T17:50:55Z
-- Last gate result: phase 0 gate not passed: platform versions (D-01, D-02) and dependency vulnerabilities (D-04, D-07, D-08)
-- Next step: after the human answers, re-run only the failed checks (versions; npm audit and Dependency-Check with the approved set), then bootstrap: build the backend skeleton, write the frontend skeleton with lock file, add Dependency-Check settings (D-06, D-07/D-08 suppressions) to the backend pom, fill ES-05 commands
-- Waiting for the human on: D-01, D-02, D-04, D-07, D-08 (asked 2026-10-06T18:58Z)
+- Last gate result: phase 0 gate not passed: Maven dependency scan reports CVE-2025-7962 (D-15); Playwright browser not installed (D-17). All other checks pass.
+- Next step: apply the answers to D-15 and D-17, re-run Dependency-Check on the backend, re-check the gate, then start phase 1 (raise AC4 (invoice) vs AR-08 (invoicing outside this repo) as a decision)
+- Waiting for the human on: D-15, D-17 (asked 2026-10-06T19:01Z)
 
 ## Done in phase 0
 
@@ -21,7 +21,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - `docs/00_preflight-report.md` written; raw outputs in `out/logs/00_preflight/`
 - `docs/00_input-manifest.sha256` written (25 files)
 - ES-03 repository files committed (`7868425`)
-- Backend skeleton written, not yet built (needs the pinned JDK, D-01)
+- Human answered D-01, D-02, D-04, D-07, D-08 at 18:54Z (recorded as D-09 to D-13); timestamp correction D-14
+- Backend skeleton builds and checks clean (`e54e530`); frontend skeleton builds, checks clean, lock matches (`d572bb6`)
+- Re-run of failed checks: platforms pass (as amended), npm audit passes, Dependency-Check finds CVE-2025-7962 (D-15); D-16 suppression scope
 
 ## Interruptions
 
