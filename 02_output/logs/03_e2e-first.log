@@ -1,0 +1,50 @@
+
+Running 2 tests using 1 worker
+
+[1/2] [chromium] › tests\e2e\registration.spec.ts:30:1 › AC-001-14 AC-001-04 participant registers through the form and gets one confirmation
+  1) [chromium] › tests\e2e\registration.spec.ts:30:1 › AC-001-14 AC-001-04 participant registers through the form and gets one confirmation 
+
+    Test timeout of 15000ms exceeded.
+
+    Error: locator.fill: Test timeout of 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'First name' })
+
+
+      35 |   await page.goto("/");
+      36 |
+    > 37 |   await page.getByRole("textbox", { name: "First name" }).fill("Ana");
+         |                                                           ^
+      38 |   await page.getByRole("textbox", { name: "Last name" }).fill("Novak");
+      39 |   await page.getByRole("textbox", { name: "E-mail" }).fill(email);
+      40 |   await page
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\frontend\tests\e2e\registration.spec.ts:37:59
+
+    Error Context: test-results\registration-AC-001-14-AC--5592b-m-and-gets-one-confirmation-chromium\error-context.md
+
+
+[2/2] [chromium] › tests\e2e\registration.spec.ts:83:1 › AC-001-15 rejected e-mail is shown next to the field and nothing is registered
+  2) [chromium] › tests\e2e\registration.spec.ts:83:1 › AC-001-15 rejected e-mail is shown next to the field and nothing is registered 
+
+    Test timeout of 15000ms exceeded.
+
+    Error: locator.fill: Test timeout of 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'First name' })
+
+
+      88 |   await page.goto("/");
+      89 |
+    > 90 |   await page.getByRole("textbox", { name: "First name" }).fill("Ana");
+         |                                                           ^
+      91 |   await page.getByRole("textbox", { name: "Last name" }).fill("Novak");
+      92 |   await page.getByRole("textbox", { name: "E-mail" }).fill(email);
+      93 |   await page.getByRole("button", { name: "Register" }).click();
+        at C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\frontend\tests\e2e\registration.spec.ts:90:59
+
+    Error Context: test-results\registration-AC-001-15-rej-8e24a-d-and-nothing-is-registered-chromium\error-context.md
+
+
+  2 failed
+    [chromium] › tests\e2e\registration.spec.ts:30:1 › AC-001-14 AC-001-04 participant registers through the form and gets one confirmation 
+    [chromium] › tests\e2e\registration.spec.ts:83:1 › AC-001-15 rejected e-mail is shown next to the field and nothing is registered 
