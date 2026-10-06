@@ -177,3 +177,14 @@
   2. Slovenian.
 - Human response: none
 - Resolution: 1, pending review
+
+## D-17: Stryker vitest runner does not report kills with vitest 5.0.3
+- Timestamp: 2026-10-06T12:54:22Z
+- Phase: 5
+- Type: non-blocking
+- Trigger: `@stryker-mutator/vitest-runner` 10.0.0 with `vitest` 5.0.3 (D-03): mutants that the tests demonstrably fail (for example `formatAmount("0.5")` returning `"0.5"`) are reported as survived or timed out, never killed (`out/logs/05_stryker-frontend.log`, `05_stryker-frontend-2.log`, with and without per-test coverage analysis). The runner's peer range (`vitest >=2.0.0`) accepts 5.0.3, but the result is not usable.
+- Options:
+  1. (proposed default) Run Stryker with its built-in command runner (`@stryker-mutator/core` 10.0.0, `testRunner: command`, `npm test` per mutant, no new dependency); `frontend/stryker.config.json` changed accordingly. The vitest-runner package stays installed as listed. Mutation score is "record only", so no gate depends on it.
+  2. Pin vitest back to 3.2.7 for mutation runs only (reintroduces the Critical findings of D-03).
+- Human response: none
+- Resolution: 1, pending review

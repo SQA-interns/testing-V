@@ -1,0 +1,6 @@
+
+Running 2 tests using 1 worker
+
+[1/2] [chromium] › tests\e2e\registration.spec.ts:30:1 › AC-001-14 AC-001-04 participant registers through the form and gets one confirmation
+[2/2] [chromium] › tests\e2e\registration.spec.ts:83:1 › AC-001-15 rejected e-mail is shown next to the field and nothing is registered
+  2 passed (11.3s)

@@ -1,0 +1,25 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C2/02_output/frontend
+      Coverage enabled with v8
+
+
+ Test Files  3 passed (3)
+      Tests  26 passed (26)
+   Start at  14:14:02
+   Duration  8.40s (environment 60%, tests 16%, setup 13%, import 5%, transform 4%, worker 2%)
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   95.91 |    96.96 |   96.15 |   95.87 |                   
+ ...rationForm.tsx |   98.46 |      100 |   94.73 |   98.43 | 266               
+ main.tsx          |       0 |        0 |     100 |       0 | 5-7               
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 95.91% ( 94/98 )
+Branches     : 96.96% ( 64/66 )
+Functions    : 96.15% ( 25/26 )
+Lines        : 95.87% ( 93/97 )
+================================================================================

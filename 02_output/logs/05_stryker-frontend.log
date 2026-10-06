@@ -1,0 +1,2285 @@
+[32m14:31:42 (444) INFO ProjectReader[39m Found 6 of 47 file(s) to be mutated.
+[32m14:31:42 (444) INFO Instrumenter[39m Instrumented 6 source file(s) with 249 mutant(s)
+[32m14:31:44 (444) INFO ConcurrencyTokenProvider[39m Creating 15 test runner process(es).
+[32m14:31:47 (444) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m14:31:50 (444) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[32m14:32:07 (444) INFO DryRunExecutor[39m Initial test run succeeded. Ran 26 tests in 16 seconds (net 3054.0221999999976 ms, overhead 13540.977800000002 ms).
+Mutation testing 0% (elapsed: <1m, remaining: ~599h 42m) 1/249 tested (1 survived, 0 timed out)
+Mutation testing 0% (elapsed: <1m, remaining: ~3h 54m) 3/249 tested (3 survived, 0 timed out)
+Mutation testing 0% (elapsed: <1m, remaining: ~5h 51m) 3/249 tested (3 survived, 0 timed out)
+Mutation testing 2% (elapsed: <1m, remaining: ~30m) 17/249 tested (3 survived, 14 timed out)
+Mutation testing 2% (elapsed: <1m, remaining: ~36m) 21/249 tested (6 survived, 15 timed out)
+Mutation testing 2% (elapsed: ~1m, remaining: ~33m) 25/249 tested (9 survived, 16 timed out)
+Mutation testing 6% (elapsed: ~1m, remaining: ~16m) 36/249 tested (10 survived, 26 timed out)
+Mutation testing 7% (elapsed: ~1m, remaining: ~15m) 40/249 tested (13 survived, 27 timed out)
+Mutation testing 7% (elapsed: ~1m, remaining: ~17m) 43/249 tested (16 survived, 27 timed out)
+Mutation testing 10% (elapsed: ~1m, remaining: ~13m) 57/249 tested (18 survived, 39 timed out)
+Mutation testing 10% (elapsed: ~1m, remaining: ~15m) 60/249 tested (21 survived, 39 timed out)
+Mutation testing 10% (elapsed: ~2m, remaining: ~16m) 60/249 tested (21 survived, 39 timed out)
+Mutation testing 18% (elapsed: ~2m, remaining: ~9m) 72/249 tested (24 survived, 48 timed out)
+Mutation testing 20% (elapsed: ~2m, remaining: ~8m) 82/249 tested (31 survived, 51 timed out)
+Mutation testing 22% (elapsed: ~2m, remaining: ~8m) 87/249 tested (36 survived, 51 timed out)
+Mutation testing 29% (elapsed: ~2m, remaining: ~6m) 100/249 tested (45 survived, 55 timed out)
+Mutation testing 33% (elapsed: ~2m, remaining: ~5m) 106/249 tested (51 survived, 55 timed out)
+Mutation testing 38% (elapsed: ~3m, remaining: ~4m) 116/249 tested (61 survived, 55 timed out)
+Mutation testing 45% (elapsed: ~3m, remaining: ~3m) 130/249 tested (75 survived, 55 timed out)
+Mutation testing 47% (elapsed: ~3m, remaining: ~3m) 138/249 tested (83 survived, 55 timed out)
+Mutation testing 52% (elapsed: ~3m, remaining: ~3m) 148/249 tested (93 survived, 55 timed out)
+Mutation testing 55% (elapsed: ~3m, remaining: ~2m) 162/249 tested (107 survived, 55 timed out)
+Mutation testing 55% (elapsed: ~3m, remaining: ~3m) 175/249 tested (120 survived, 55 timed out)
+Mutation testing 64% (elapsed: ~4m, remaining: ~2m) 190/249 tested (135 survived, 55 timed out)
+Mutation testing 70% (elapsed: ~4m, remaining: ~1m) 201/249 tested (146 survived, 55 timed out)
+Mutation testing 76% (elapsed: ~4m, remaining: ~1m) 211/249 tested (153 survived, 55 timed out)
+Mutation testing 84% (elapsed: ~4m, remaining: <1m) 224/249 tested (161 survived, 55 timed out)
+Mutation testing 90% (elapsed: ~4m, remaining: <1m) 234/249 tested (162 survived, 55 timed out)
+Mutation testing 99% (elapsed: ~4m, remaining: <1m) 248/249 tested (167 survived, 56 timed out)
+
+All tests
+  src
+    modules.test.ts
+      ~ formatAmount formats numbers and decimal strings with two decimals (covered 5)
+      ~ formatAmount returns non-numeric input unchanged (covered 5)
+      ~ configuredWorkshops returns the configured workshops (covered 21)
+      ~ configuredWorkshops returns no workshops without configuration (covered 3)
+      ~ configuredWorkshops drops malformed entries (covered 23)
+      ~ configuredWorkshops ignores a non-list value (covered 3)
+      ~ submitRegistration returns the created registration on 201 (covered 18)
+      ~ submitRegistration returns well-formed field errors on 422 (covered 42)
+      ~ submitRegistration treats a 422 without errors as invalid with no field errors (covered 22)
+      ~ submitRegistration returns rateLimited on 429 (covered 14)
+      ~ submitRegistration returns failed on other statuses, bad JSON and network errors (covered 29)
+      ~ submitRegistration posts JSON to /api/registrations (covered 18)
+    RegistrationForm.test.tsx
+      ✓ RegistrationForm does not submit while required fields are blank and marks them (killed 11)
+      ✓ RegistrationForm requires company fields only for a company payer (killed 8)
+      ✓ RegistrationForm does not send company fields after switching back to a private payer (killed 1)
+      ~ RegistrationForm shows the rate-limit message on 429 (covered 126)
+      ~ RegistrationForm shows a generic message on other failures (covered 132)
+      ✓ RegistrationForm shows errors for fields without an input and for groups (killed 3)
+      ~ RegistrationForm disables the button while the request is pending (covered 128)
+      ~ RegistrationForm sends the selected workshop id (covered 128)
+  tests/acceptance/registrationForm.test.tsx
+    ~ US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default (covered 78)
+    ✓ US-001 registration form AC-001-14 asks for company data only for a company payer (killed 1)
+    ~ US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees (covered 140)
+    ~ US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id (covered 145)
+    ✓ US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values (killed 2)
+    ~ US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown (covered 163)
+
+[Survived] BooleanLiteral
+src/api.ts:38:12
+-       return false;
++       return true;
+Tests ran:
+    submitRegistration returns well-formed field errors on 422
+
+
+[Survived] BlockStatement
+src/api.ts:37:52
+-     if (typeof value !== "object" || value === null) {
+-       return false;
+-     }
++     if (typeof value !== "object" || value === null) {}
+Tests ran:
+    submitRegistration returns well-formed field errors on 422
+
+
+[Survived] ConditionalExpression
+src/api.ts:42:5
+-       typeof candidate.field === "string" && typeof candidate.message === "string"
++       true
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/api.ts:59:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] ObjectLiteral
+src/api.ts:60:12
+-       return { kind: "failed" };
++       return {};
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] StringLiteral
+src/api.ts:60:20
+-       return { kind: "failed" };
++       return { kind: "" };
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] BlockStatement
+src/api.ts:62:32
+-     if (response.status === 429) {
+-       return { kind: "rateLimited" };
+-     }
++     if (response.status === 429) {}
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+    submitRegistration returns rateLimited on 429
+
+
+[Survived] ObjectLiteral
+src/api.ts:63:12
+-       return { kind: "rateLimited" };
++       return {};
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+    submitRegistration returns rateLimited on 429
+
+
+[Survived] ConditionalExpression
+src/api.ts:62:7
+-     if (response.status === 429) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 13 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:63:20
+-       return { kind: "rateLimited" };
++       return { kind: "" };
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+    submitRegistration returns rateLimited on 429
+
+
+[Survived] ArrayDeclaration
+src/api.ts:76:11
+-           : [];
++           : ["Stryker was here"];
+Tests ran:
+    submitRegistration treats a 422 without errors as invalid with no field errors
+
+
+[Survived] ConditionalExpression
+src/api.ts:66:9
+-       if (response.status === 201) {
++       if (true) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:65:7
+-     try {
+-       if (response.status === 201) {
+-         return {
+-           kind: "created",
+-           registration: (await response.json()) as Registration,
+-         };
+-       }
+-       if (response.status === 422) {
+-         const body = (await response.json()) as { errors?: unknown };
+-         const errors = Array.isArray(body.errors)
+-           ? body.errors.filter(isFieldError)
+-           : [];
+-         return { kind: "invalid", errors };
+-       }
+-     } catch {
++     try {} catch {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:79:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] StringLiteral
+src/api.ts:80:20
+-       return { kind: "failed" };
++       return { kind: "" };
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] ObjectLiteral
+src/api.ts:80:12
+-       return { kind: "failed" };
++       return {};
+Tests ran:
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] ObjectLiteral
+src/api.ts:82:10
+-     return { kind: "failed" };
++     return {};
+Tests ran:
+    RegistrationForm shows a generic message on other failures
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] StringLiteral
+src/api.ts:82:18
+-     return { kind: "failed" };
++     return { kind: "" };
+Tests ran:
+    RegistrationForm shows a generic message on other failures
+    submitRegistration returns failed on other statuses, bad JSON and network errors
+
+
+[Survived] BlockStatement
+src/App.tsx:7:23
+-   export function App() {
+-     const [registration, setRegistration] = useState<Registration | null>(null);
+-     return (
+-       <main>
+-         <h1>Conference registration</h1>
+-         {registration ? (
+-           <Confirmation registration={registration} />
+-         ) : (
+-           <RegistrationForm onRegistered={setRegistration} />
+-         )}
+-       </main>
+-     );
+-   }
++   export function App() {}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 3 more tests!
+
+
+[Survived] BooleanLiteral
+src/config.ts:15:12
+-       return false;
++       return true;
+Tests ran:
+    configuredWorkshops drops malformed entries
+
+
+[Survived] BlockStatement
+src/config.ts:14:52
+-     if (typeof value !== "object" || value === null) {
+-       return false;
+-     }
++     if (typeof value !== "object" || value === null) {}
+Tests ran:
+    configuredWorkshops drops malformed entries
+
+
+[Survived] ConditionalExpression
+src/config.ts:19:5
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       true && typeof candidate.title === "string"
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 13 more tests!
+
+
+[Survived] EqualityOperator
+src/config.ts:19:5
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       typeof candidate.id !== "string" && typeof candidate.title === "string"
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 13 more tests!
+
+
+[Survived] StringLiteral
+src/config.ts:19:29
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       typeof candidate.id === "" && typeof candidate.title === "string"
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 13 more tests!
+
+
+[Survived] ArrayDeclaration
+src/config.ts:26:68
+-     return Array.isArray(workshops) ? workshops.filter(isWorkshop) : [];
++     return Array.isArray(workshops) ? workshops.filter(isWorkshop) : ["Stryker was here"];
+Tests ran:
+    configuredWorkshops returns no workshops without configuration
+    configuredWorkshops ignores a non-list value
+
+
+[Survived] ConditionalExpression
+src/config.ts:19:41
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       typeof candidate.id === "string" && true
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 13 more tests!
+
+
+[Survived] BlockStatement
+src/config.ts:23:51
+-   export function configuredWorkshops(): Workshop[] {
+-     const config = (window as Window & { APP_CONFIG?: RuntimeConfig }).APP_CONFIG;
+-     const workshops = config?.workshops;
+-     return Array.isArray(workshops) ? workshops.filter(isWorkshop) : [];
+-   }
++   export function configuredWorkshops(): Workshop[] {}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 15 more tests!
+
+
+[Survived] StringLiteral
+src/Confirmation.tsx:13:28
+-           <dt>Gross fee</dt>{" "}
++           <dt>Gross fee</dt>{""}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] StringLiteral
+src/Confirmation.tsx:12:68
+-           <dt>VAT</dt> <dd>{formatAmount(registration.vat)} EUR</dd>{" "}
++           <dt>VAT</dt> <dd>{formatAmount(registration.vat)} EUR</dd>{""}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] StringLiteral
+src/Confirmation.tsx:10:81
+-           <dt>Registration number</dt> <dd>{registration.registrationNumber}</dd>{" "}
++           <dt>Registration number</dt> <dd>{registration.registrationNumber}</dd>{""}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] BlockStatement
+src/Confirmation.tsx:5:80
+-   export function Confirmation({ registration }: { registration: Registration }) {
+-     return (
+-       <section role="status" aria-labelledby="confirmation-heading">
+-         <h2 id="confirmation-heading">Registration confirmed</h2>
+-         <dl>
+-           <dt>Registration number</dt> <dd>{registration.registrationNumber}</dd>{" "}
+-           <dt>Net fee</dt> <dd>{formatAmount(registration.netFee)} EUR</dd>{" "}
+-           <dt>VAT</dt> <dd>{formatAmount(registration.vat)} EUR</dd>{" "}
+-           <dt>Gross fee</dt>{" "}
+-           <dd>{formatAmount(registration.grossFee)} EUR</dd>{" "}
+-         </dl>
+-         <p>A confirmation e-mail has been sent to {registration.email}.</p>
+-       </section>
+-     );
+-   }
++   export function Confirmation({ registration }: { registration: Registration }) {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] StringLiteral
+src/Confirmation.tsx:11:75
+-           <dt>Net fee</dt> <dd>{formatAmount(registration.netFee)} EUR</dd>{" "}
++           <dt>Net fee</dt> <dd>{formatAmount(registration.netFee)} EUR</dd>{""}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] StringLiteral
+src/Confirmation.tsx:14:60
+-           <dd>{formatAmount(registration.grossFee)} EUR</dd>{" "}
++           <dd>{formatAmount(registration.grossFee)} EUR</dd>{""}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+
+
+[Survived] ConditionalExpression
+src/format.ts:3:18
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = false ? value : Number(value);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    formatAmount formats numbers and decimal strings with two decimals
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/format.ts:3:18
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = true ? value : Number(value);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    formatAmount formats numbers and decimal strings with two decimals
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/format.ts:2:62
+-   export function formatAmount(value: number | string): string {
+-     const amount = typeof value === "number" ? value : Number(value);
+-     return Number.isFinite(amount) ? amount.toFixed(2) : String(value);
+-   }
++   export function formatAmount(value: number | string): string {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    formatAmount formats numbers and decimal strings with two decimals
+  and 1 more test!
+
+
+[Survived] EqualityOperator
+src/format.ts:3:18
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = typeof value !== "number" ? value : Number(value);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    formatAmount formats numbers and decimal strings with two decimals
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/format.ts:3:35
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = typeof value === "" ? value : Number(value);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    formatAmount formats numbers and decimal strings with two decimals
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:80:8
+-         {props.error && (
+-           <p id={errorId} className="error">
+-             {props.error}
+-           </p>
+-         )}
++         {true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:77:37
+-           aria-invalid={props.error ? "true" : undefined}
++           aria-invalid={props.error ? "" : undefined}
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm does not submit while required fields are blank and marks them
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:65:4
+-   }) {
+-     const errorId = `${props.name}-error`;
+-     return (
+-       <div className="field">
+-         <label htmlFor={props.name}>{props.label}</label>
+-         <input
+-           id={props.name}
+-           name={props.name}
+-           type={props.type}
+-           maxLength={props.max}
+-           value={props.value}
+-           onChange={(event) => props.onChange(event.target.value)}
+-           aria-invalid={props.error ? "true" : undefined}
+-           aria-describedby={props.error ? errorId : undefined}
+-         />
+-         {props.error && (
+-           <p id={errorId} className="error">
+-             {props.error}
+-           </p>
+-         )}
+-       </div>
+-     );
+-   }
++   }) {}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:66:19
+-     const errorId = `${props.name}-error`;
++     const errorId = ``;
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:76:19
+-           onChange={(event) => props.onChange(event.target.value)}
++           onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:80:8
+-         {props.error && (
+-           <p id={errorId} className="error">
+-             {props.error}
+-           </p>
+-         )}
++         {false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] LogicalOperator
+src/RegistrationForm.tsx:80:8
+-         {props.error && (
+-           <p id={errorId} className="error">
+-             {props.error}
+-           </p>
+-         )}
++         {props.error || <p id={errorId} className="error">
++             {props.error}
++           </p>}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:92:16
+-       firstName: "",
++       firstName: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:89:59
+-   export function RegistrationForm({ onRegistered }: Props) {
+-     const workshops = configuredWorkshops();
+-     const [values, setValues] = useState<Record<TextFieldName, string>>({
+-       firstName: "",
+-       lastName: "",
+-       email: "",
+-       companyName: "",
+-       companyAddress: "",
+-       companyVatId: "",
+-     });
+-     const [payerType, setPayerType] = useState<PayerType>("private");
+-     const [workshop, setWorkshop] = useState(NO_WORKSHOP);
+-     const [errors, setErrors] = useState<Errors>({});
+-     const [alert, setAlert] = useState<string | null>(null);
+-     const [pending, setPending] = useState(false);
+-     const textFields =
+-       payerType === "company"
+-         ? [...PARTICIPANT_FIELDS, ...COMPANY_FIELDS]
+-         : PARTICIPANT_FIELDS;
+-     function setValue(name: TextFieldName, value: string) {
+-       setValues((current) => ({ ...current, [name]: value }));
+-     }
+-     function requiredErrors(): Errors {
+-       const missing: Errors = {};
+-       for (const field of textFields) {
+-         if (values[field.name].trim() === "") {
+-           missing[field.name] = REQUIRED;
+-         }
+-       }
+-       return missing;
+-     }
+-     function buildRequest(): RegistrationRequest {
+-       const request: RegistrationRequest = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType,
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
+-       };
+-       if (payerType === "company") {
+-         request.companyName = values.companyName;
+-         request.companyAddress = values.companyAddress;
+-         request.companyVatId = values.companyVatId;
+-       }
+-       return request;
+-     }
+-     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       setAlert(null);
+-       const missing = requiredErrors();
+-       setErrors(missing);
+-       if (Object.keys(missing).length > 0) {
+-         return;
+-       }
+-       setPending(true);
+-       const result = await submitRegistration(buildRequest());
+-       setPending(false);
+-       switch (result.kind) {
+-         case "created":
+-           onRegistered(result.registration);
+-           return;
+-         case "invalid": {
+-           const byField: Errors = {};
+-           const unknown: string[] = [];
+-           for (const error of result.errors) {
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
+-           }
+-           setErrors(byField);
+-           setAlert(
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
+-           );
+-           return;
+-         }
+-         case "rateLimited":
+-           setAlert(
+-             "Too many registrations from your network. Please try again later.",
+-           );
+-           return;
+-         default:
+-           setAlert("Registration failed. Please try again later.");
+-       }
+-     }
+-     return (
+-       <form aria-label="Registration" noValidate onSubmit={handleSubmit}>
+-         {alert && (
+-           <p role="alert" className="alert">
+-             {alert}
+-           </p>
+-         )}
+-         {PARTICIPANT_FIELDS.map((field) => (
+-           <TextField
+-             key={field.name}
+-             {...field}
+-             value={values[field.name]}
+-             error={errors[field.name]}
+-             onChange={(value) => setValue(field.name, value)}
+-           />
+-         ))}
+-         <fieldset
+-           role="radiogroup"
+-           aria-labelledby="payer-legend"
+-           aria-describedby={errors.payerType ? "payerType-error" : undefined}
+-         >
+-           <legend id="payer-legend">Payer</legend>
+-           <label>
+-             <input
+-               type="radio"
+-               name="payerType"
+-               value="private"
+-               checked={payerType === "private"}
+-               onChange={() => setPayerType("private")}
+-             />
+-             Private person
+-           </label>
+-           <label>
+-             <input
+-               type="radio"
+-               name="payerType"
+-               value="company"
+-               checked={payerType === "company"}
+-               onChange={() => setPayerType("company")}
+-             />
+-             Company
+-           </label>
+-           {errors.payerType && (
+-             <p id="payerType-error" className="error">
+-               {errors.payerType}
+-             </p>
+-           )}
+-         </fieldset>
+-         {payerType === "company" &&
+-           COMPANY_FIELDS.map((field) => (
+-             <TextField
+-               key={field.name}
+-               {...field}
+-               value={values[field.name]}
+-               error={errors[field.name]}
+-               onChange={(value) => setValue(field.name, value)}
+-             />
+-           ))}
+-         <fieldset
+-           role="radiogroup"
+-           aria-labelledby="workshop-legend"
+-           aria-describedby={errors.workshops ? "workshops-error" : undefined}
+-         >
+-           <legend id="workshop-legend">Workshop</legend>
+-           {workshops.map((option) => (
+-             <label key={option.id}>
+-               <input
+-                 type="radio"
+-                 name="workshop"
+-                 value={option.id}
+-                 checked={workshop === option.id}
+-                 onChange={() => setWorkshop(option.id)}
+-               />
+-               {option.title}
+-             </label>
+-           ))}
+-           <label>
+-             <input
+-               type="radio"
+-               name="workshop"
+-               value={NO_WORKSHOP}
+-               checked={workshop === NO_WORKSHOP}
+-               onChange={() => setWorkshop(NO_WORKSHOP)}
+-             />
+-             No workshop
+-           </label>
+-           {errors.workshops && (
+-             <p id="workshops-error" className="error">
+-               {errors.workshops}
+-             </p>
+-           )}
+-         </fieldset>
+-         <button type="submit" disabled={pending}>
+-           Register
+-         </button>
+-       </form>
+-     );
+-   }
++   export function RegistrationForm({ onRegistered }: Props) {}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/RegistrationForm.tsx:91:71
+-     const [values, setValues] = useState<Record<TextFieldName, string>>({
+-       firstName: "",
+-       lastName: "",
+-       email: "",
+-       companyName: "",
+-       companyAddress: "",
+-       companyVatId: "",
+-     });
++     const [values, setValues] = useState<Record<TextFieldName, string>>({});
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:93:15
+-       lastName: "",
++       lastName: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:94:12
+-       email: "",
++       email: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:95:18
+-       companyName: "",
++       companyName: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:96:21
+-       companyAddress: "",
++       companyAddress: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:97:19
+-       companyVatId: "",
++       companyVatId: "Stryker was here!",
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:106:5
+-       payerType === "company"
++       false
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:99:57
+-     const [payerType, setPayerType] = useState<PayerType>("private");
++     const [payerType, setPayerType] = useState<PayerType>("");
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:103:42
+-     const [pending, setPending] = useState(false);
++     const [pending, setPending] = useState(true);
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:106:5
+-       payerType === "company"
++       true
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrayDeclaration
+src/RegistrationForm.tsx:107:9
+-         ? [...PARTICIPANT_FIELDS, ...COMPANY_FIELDS]
++         ? []
+Tests ran:
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 2 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:106:19
+-       payerType === "company"
++       payerType === ""
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:106:5
+-       payerType === "company"
++       payerType !== "company"
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:117:45
+-         if (values[field.name].trim() === "") {
+-           missing[field.name] = REQUIRED;
+-         }
++         if (values[field.name].trim() === "") {}
+Tests ran:
+    RegistrationForm does not submit while required fields are blank and marks them
+    RegistrationForm requires company fields only for a company payer
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:116:37
+-       for (const field of textFields) {
+-         if (values[field.name].trim() === "") {
+-           missing[field.name] = REQUIRED;
+-         }
+-       }
++       for (const field of textFields) {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:114:37
+-     function requiredErrors(): Errors {
+-       const missing: Errors = {};
+-       for (const field of textFields) {
+-         if (values[field.name].trim() === "") {
+-           missing[field.name] = REQUIRED;
+-         }
+-       }
+-       return missing;
+-     }
++     function requiredErrors(): Errors {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:110:57
+-     function setValue(name: TextFieldName, value: string) {
+-       setValues((current) => ({ ...current, [name]: value }));
+-     }
++     function setValue(name: TextFieldName, value: string) {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:111:15
+-       setValues((current) => ({ ...current, [name]: value }));
++       setValues(() => undefined);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:117:11
+-         if (values[field.name].trim() === "") {
++         if (false) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:117:11
+-         if (values[field.name].trim() === "") {
++         if (values[field.name].trim() !== "") {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ObjectLiteral
+src/RegistrationForm.tsx:111:29
+-       setValues((current) => ({ ...current, [name]: value }));
++       setValues((current) => ({}));
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:117:11
+-         if (values[field.name].trim() === "") {
++         if (true) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] MethodExpression
+src/RegistrationForm.tsx:117:11
+-         if (values[field.name].trim() === "") {
++         if (values[field.name] === "") {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:117:41
+-         if (values[field.name].trim() === "") {
++         if (values[field.name].trim() === "Stryker was here!") {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:130:18
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
++         workshops: true ? [] : [workshop],
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ObjectLiteral
+src/RegistrationForm.tsx:125:42
+-       const request: RegistrationRequest = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType,
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
+-       };
++       const request: RegistrationRequest = {};
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:124:48
+-     function buildRequest(): RegistrationRequest {
+-       const request: RegistrationRequest = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType,
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
+-       };
+-       if (payerType === "company") {
+-         request.companyName = values.companyName;
+-         request.companyAddress = values.companyAddress;
+-         request.companyVatId = values.companyVatId;
+-       }
+-       return request;
+-     }
++     function buildRequest(): RegistrationRequest {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:130:18
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
++         workshops: false ? [] : [workshop],
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:132:34
+-       if (payerType === "company") {
+-         request.companyName = values.companyName;
+-         request.companyAddress = values.companyAddress;
+-         request.companyVatId = values.companyVatId;
+-       }
++       if (payerType === "company") {}
+Tests ran:
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:130:18
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
++         workshops: workshop !== NO_WORKSHOP ? [] : [workshop],
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ArrayDeclaration
+src/RegistrationForm.tsx:130:45
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
++         workshops: workshop === NO_WORKSHOP ? ["Stryker was here"] : [workshop],
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+  and 5 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:132:9
+-       if (payerType === "company") {
++       if (payerType !== "company") {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:132:23
+-       if (payerType === "company") {
++       if (payerType === "") {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ArrayDeclaration
+src/RegistrationForm.tsx:130:50
+-         workshops: workshop === NO_WORKSHOP ? [] : [workshop],
++         workshops: workshop === NO_WORKSHOP ? [] : [],
+Tests ran:
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    RegistrationForm sends the selected workshop id
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:132:9
+-       if (payerType === "company") {
++       if (true) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:132:9
+-       if (payerType === "company") {
++       if (false) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:141:5
+-       event.preventDefault();
++       ;
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:140:66
+-     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       setAlert(null);
+-       const missing = requiredErrors();
+-       setErrors(missing);
+-       if (Object.keys(missing).length > 0) {
+-         return;
+-       }
+-       setPending(true);
+-       const result = await submitRegistration(buildRequest());
+-       setPending(false);
+-       switch (result.kind) {
+-         case "created":
+-           onRegistered(result.registration);
+-           return;
+-         case "invalid": {
+-           const byField: Errors = {};
+-           const unknown: string[] = [];
+-           for (const error of result.errors) {
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
+-           }
+-           setErrors(byField);
+-           setAlert(
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
+-           );
+-           return;
+-         }
+-         case "rateLimited":
+-           setAlert(
+-             "Too many registrations from your network. Please try again later.",
+-           );
+-           return;
+-         default:
+-           setAlert("Registration failed. Please try again later.");
+-       }
+-     }
++     async function handleSubmit(event: FormEvent<HTMLFormElement>) {}
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:144:5
+-       setErrors(missing);
++       ;
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:145:9
+-       if (Object.keys(missing).length > 0) {
++       if (Object.keys(missing).length >= 0) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:142:5
+-       setAlert(null);
++       ;
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:145:42
+-       if (Object.keys(missing).length > 0) {
+-         return;
+-       }
++       if (Object.keys(missing).length > 0) {}
+Tests ran:
+    RegistrationForm does not submit while required fields are blank and marks them
+    RegistrationForm requires company fields only for a company payer
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:145:9
+-       if (Object.keys(missing).length > 0) {
++       if (true) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:145:9
+-       if (Object.keys(missing).length > 0) {
++       if (false) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:145:9
+-       if (Object.keys(missing).length > 0) {
++       if (Object.keys(missing).length <= 0) {
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 9 more tests!
+
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:148:16
+-       setPending(true);
++       setPending(false);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:152:12
+-         case "created":
++         case "":
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:150:16
+-       setPending(false);
++       setPending(true);
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 7 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:152:7
+-         case "created":
+-           onRegistered(result.registration);
+-           return;
++         case "created":
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    RegistrationForm does not send company fields after switching back to a private payer
+  and 2 more tests!
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:161:18
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
++             } else {}
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:153:9
+-           onRegistered(result.registration);
++           ;
+Tests ran:
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    RegistrationForm does not send company fields after switching back to a private payer
+  and 2 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:155:12
+-         case "invalid": {
++         case "": {
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows the rate-limit message on 429
+  and 2 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:155:7
+-         case "invalid": {
+-           const byField: Errors = {};
+-           const unknown: string[] = [];
+-           for (const error of result.errors) {
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
+-           }
+-           setErrors(byField);
+-           setAlert(
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
+-           );
+-           return;
+-         }
++         case "invalid":
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] ArrayDeclaration
+src/RegistrationForm.tsx:157:35
+-           const unknown: string[] = [];
++           const unknown: string[] = ["Stryker was here"];
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:155:23
+-         case "invalid": {
+-           const byField: Errors = {};
+-           const unknown: string[] = [];
+-           for (const error of result.errors) {
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
+-           }
+-           setErrors(byField);
+-           setAlert(
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
+-           );
+-           return;
+-         }
++         case "invalid": {}
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:158:44
+-           for (const error of result.errors) {
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
+-               unknown.push(`${error.field} ${error.message}`);
+-             }
+-           }
++           for (const error of result.errors) {}
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:162:26
+-               unknown.push(`${error.field} ${error.message}`);
++               unknown.push(``);
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:159:15
+-             if (FORM_FIELDS.has(error.field)) {
++             if (true) {
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:159:15
+-             if (FORM_FIELDS.has(error.field)) {
++             if (false) {
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] BlockStatement
+src/RegistrationForm.tsx:159:45
+-             if (FORM_FIELDS.has(error.field)) {
+-               byField[error.field] = error.message;
+-             } else {
++             if (FORM_FIELDS.has(error.field)) {} else {
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:167:62
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length > 0 ? `Please check: ${unknown.join("")}` : null,
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:167:32
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length > 0 ? `` : null,
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:171:12
+-         case "rateLimited":
++         case "":
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+    RegistrationForm shows a generic message on other failures
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:171:7
+-         case "rateLimited":
+-           setAlert(
+-             "Too many registrations from your network. Please try again later.",
+-           );
+-           return;
++         case "rateLimited":
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:176:7
+-         default:
+-           setAlert("Registration failed. Please try again later.");
++         default:
+Tests ran:
+    RegistrationForm shows a generic message on other failures
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:173:11
+-             "Too many registrations from your network. Please try again later.",
++             "",
+Tests ran:
+    RegistrationForm shows the rate-limit message on 429
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:177:18
+-           setAlert("Registration failed. Please try again later.");
++           setAlert("");
+Tests ran:
+    RegistrationForm shows a generic message on other failures
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             true ? `Please check: ${unknown.join("; ")}` : null,
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:165:9
+-           setErrors(byField);
++           ;
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             false ? `Please check: ${unknown.join("; ")}` : null,
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length >= 0 ? `Please check: ${unknown.join("; ")}` : null,
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length <= 0 ? `Please check: ${unknown.join("; ")}` : null,
+Tests ran:
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+    US-001 registration form AC-001-15 a single rejected participant field is marked and no number is shown
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:201:46
+-           aria-describedby={errors.payerType ? "payerType-error" : undefined}
++           aria-describedby={errors.payerType ? "" : undefined}
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] LogicalOperator
+src/RegistrationForm.tsx:183:8
+-         {alert && (
+-           <p role="alert" className="alert">
+-             {alert}
+-           </p>
+-         )}
++         {alert || <p role="alert" className="alert">
++             {alert}
++           </p>}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:210:42
+-               onChange={() => setPayerType("private")}
++               onChange={() => setPayerType("")}
+Tests ran:
+    RegistrationForm does not send company fields after switching back to a private payer
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:183:8
+-         {alert && (
+-           <p role="alert" className="alert">
+-             {alert}
+-           </p>
+-         )}
++         {true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:183:8
+-         {alert && (
+-           <p role="alert" className="alert">
+-             {alert}
+-           </p>
+-         )}
++         {false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:188:31
+-         {PARTICIPANT_FIELDS.map((field) => (
+-           <TextField
+-             key={field.name}
+-             {...field}
+-             value={values[field.name]}
+-             error={errors[field.name]}
+-             onChange={(value) => setValue(field.name, value)}
+-           />
+-         ))}
++         {PARTICIPANT_FIELDS.map(() => undefined)}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:194:21
+-             onChange={(value) => setValue(field.name, value)}
++             onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:209:22
+-               checked={payerType === "private"}
++               checked={true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:209:22
+-               checked={payerType === "private"}
++               checked={false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:210:23
+-               onChange={() => setPayerType("private")}
++               onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:209:22
+-               checked={payerType === "private"}
++               checked={payerType !== "private"}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:209:36
+-               checked={payerType === "private"}
++               checked={payerType === ""}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:219:22
+-               checked={payerType === "company"}
++               checked={true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:219:22
+-               checked={payerType === "company"}
++               checked={false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:219:22
+-               checked={payerType === "company"}
++               checked={payerType !== "company"}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:219:36
+-               checked={payerType === "company"}
++               checked={payerType === ""}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:220:42
+-               onChange={() => setPayerType("company")}
++               onChange={() => setPayerType("")}
+Tests ran:
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 2 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:220:23
+-               onChange={() => setPayerType("company")}
++               onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:224:10
+-           {errors.payerType && (
+-             <p id="payerType-error" className="error">
+-               {errors.payerType}
+-             </p>
+-           )}
++           {true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:224:10
+-           {errors.payerType && (
+-             <p id="payerType-error" className="error">
+-               {errors.payerType}
+-             </p>
+-           )}
++           {false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:245:46
+-           aria-describedby={errors.workshops ? "workshops-error" : undefined}
++           aria-describedby={errors.workshops ? "" : undefined}
+Tests ran:
+    RegistrationForm shows errors for fields without an input and for groups
+
+
+[Survived] LogicalOperator
+src/RegistrationForm.tsx:224:10
+-           {errors.payerType && (
+-             <p id="payerType-error" className="error">
+-               {errors.payerType}
+-             </p>
+-           )}
++           {errors.payerType || <p id="payerType-error" className="error">
++               {errors.payerType}
++             </p>}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] LogicalOperator
+src/RegistrationForm.tsx:231:8
+-         {payerType === "company" &&
+-           COMPANY_FIELDS.map((field) => (
+-             <TextField
+-               key={field.name}
+-               {...field}
+-               value={values[field.name]}
+-               error={errors[field.name]}
+-               onChange={(value) => setValue(field.name, value)}
+-             />
+-           ))}
++         {payerType === "company" || COMPANY_FIELDS.map(field => <TextField key={field.name} {...field} value={values[field.name]} error={errors[field.name]} onChange={value => setValue(field.name, value)} />)}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:231:8
+-         {payerType === "company" &&
++         {true &&
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:231:8
+-         {payerType === "company" &&
+-           COMPANY_FIELDS.map((field) => (
+-             <TextField
+-               key={field.name}
+-               {...field}
+-               value={values[field.name]}
+-               error={errors[field.name]}
+-               onChange={(value) => setValue(field.name, value)}
+-             />
+-           ))}
++         {true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:231:8
+-         {payerType === "company" &&
+-           COMPANY_FIELDS.map((field) => (
+-             <TextField
+-               key={field.name}
+-               {...field}
+-               value={values[field.name]}
+-               error={errors[field.name]}
+-               onChange={(value) => setValue(field.name, value)}
+-             />
+-           ))}
++         {false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:231:8
+-         {payerType === "company" &&
++         {payerType !== "company" &&
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:232:28
+-           COMPANY_FIELDS.map((field) => (
+-             <TextField
+-               key={field.name}
+-               {...field}
+-               value={values[field.name]}
+-               error={errors[field.name]}
+-               onChange={(value) => setValue(field.name, value)}
+-             />
+-           ))}
++           COMPANY_FIELDS.map(() => undefined)}
+Tests ran:
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 2 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:231:22
+-         {payerType === "company" &&
++         {payerType === "" &&
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:238:23
+-               onChange={(value) => setValue(field.name, value)}
++               onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 company payer with a workshop: sends company data and the workshop id
+    US-001 registration form AC-001-15 shows each rejected field's error next to it and keeps the values
+  and 2 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:248:24
+-           {workshops.map((option) => (
+-             <label key={option.id}>
+-               <input
+-                 type="radio"
+-                 name="workshop"
+-                 value={option.id}
+-                 checked={workshop === option.id}
+-                 onChange={() => setWorkshop(option.id)}
+-               />
+-               {option.title}
+-             </label>
+-           ))}
++           {workshops.map(() => undefined)}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:254:24
+-                 checked={workshop === option.id}
++                 checked={true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:254:24
+-                 checked={workshop === option.id}
++                 checked={false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:266:23
+-               onChange={() => setWorkshop(NO_WORKSHOP)}
++               onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:265:22
+-               checked={workshop === NO_WORKSHOP}
++               checked={workshop !== NO_WORKSHOP}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:254:24
+-                 checked={workshop === option.id}
++                 checked={workshop !== option.id}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:255:25
+-                 onChange={() => setWorkshop(option.id)}
++                 onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:265:22
+-               checked={workshop === NO_WORKSHOP}
++               checked={true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:265:22
+-               checked={workshop === NO_WORKSHOP}
++               checked={false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:270:10
+-           {errors.workshops && (
+-             <p id="workshops-error" className="error">
+-               {errors.workshops}
+-             </p>
+-           )}
++           {true}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:270:10
+-           {errors.workshops && (
+-             <p id="workshops-error" className="error">
+-               {errors.workshops}
+-             </p>
+-           )}
++           {false}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] LogicalOperator
+src/RegistrationForm.tsx:270:10
+-           {errors.workshops && (
+-             <p id="workshops-error" className="error">
+-               {errors.workshops}
+-             </p>
+-           )}
++           {errors.workshops || <p id="workshops-error" className="error">
++               {errors.workshops}
++             </p>}
+Tests ran:
+    US-001 registration form AC-001-14 offers the configured workshops plus No workshop, selected by default
+    US-001 registration form AC-001-14 asks for company data only for a company payer
+    US-001 registration form AC-001-14 private payer without workshop: submits and shows number and fees
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:29:49
+-     { name: "lastName", label: "Last name", type: "text", max: 100 },
++     { name: "lastName", label: "Last name", type: "", max: 100 },
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:28:51
+-     { name: "firstName", label: "First name", type: "text", max: 100 },
++     { name: "firstName", label: "First name", type: "", max: 100 },
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:39:55
+-     { name: "companyName", label: "Company name", type: "text", max: 200 },
++     { name: "companyName", label: "Company name", type: "", max: 200 },
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:40:61
+-     { name: "companyAddress", label: "Company address", type: "text", max: 500 },
++     { name: "companyAddress", label: "Company address", type: "", max: 500 },
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:41:50
+-     { name: "companyVatId", label: "VAT ID", type: "text", max: 30 },
++     { name: "companyVatId", label: "VAT ID", type: "", max: 30 },
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:44:21
+-   const NO_WORKSHOP = "";
++   const NO_WORKSHOP = "Stryker was here!";
+Ran all tests for this mutant.
+
+Ran 0.64 tests per mutant on average.
+----------------------|------------------|----------|-----------|------------|----------|----------|
+                      | % Mutation score |          |           |            |          |          |
+File                  |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+All files             |  32.93 |   32.93 |       26 |        56 |        167 |        0 |        0 |
+ api.ts               |  68.42 |   68.42 |        0 |        39 |         18 |        0 |        0 |
+ App.tsx              |   0.00 |    0.00 |        0 |         0 |          1 |        0 |        0 |
+ config.ts            |  66.67 |   66.67 |        0 |        16 |          8 |        0 |        0 |
+ Confirmation.tsx     |   0.00 |    0.00 |        0 |         0 |          6 |        0 |        0 |
+ format.ts            |   0.00 |    0.00 |        0 |         0 |          5 |        0 |        0 |
+ RegistrationForm.tsx |  17.31 |   17.31 |       26 |         1 |        129 |        0 |        0 |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m14:36:58 (444) INFO HtmlReporter[39m Your report can be found at: file:///C:/Users/tanej/Documents/LAB/tanej-confreg-C2/02_output/frontend/reports/mutation/mutation.html
+[32m14:36:58 (444) INFO MutationTestExecutor[39m Done in 5 minutes and 17 seconds.

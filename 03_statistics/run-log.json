@@ -43,12 +43,12 @@
       "phase": 5,
       "name": "unit-tests",
       "start": "2026-10-06T12:03:52Z",
-      "end": null
+      "end": "2026-10-06T12:56:32Z"
     },
     {
       "phase": 6,
       "name": "verify",
-      "start": null,
+      "start": "2026-10-06T12:56:32Z",
       "end": null
     },
     {
@@ -59,8 +59,8 @@
     }
   ],
   "firstTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 158,
+    "failed": 0
   },
   "finalTestRun": {
     "passed": null,
@@ -168,6 +168,12 @@
       "id": "D-16",
       "type": "non-blocking",
       "start": "2026-10-06T11:27:46Z",
+      "end": null
+    },
+    {
+      "id": "D-17",
+      "type": "non-blocking",
+      "start": "2026-10-06T12:54:22Z",
       "end": null
     }
   ],

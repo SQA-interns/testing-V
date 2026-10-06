@@ -1,0 +1,318 @@
+[32m14:43:02 (12540) INFO ProjectReader[39m Found 6 of 47 file(s) to be mutated.
+[32m14:43:02 (12540) INFO Instrumenter[39m Instrumented 6 source file(s) with 249 mutant(s)
+[32m14:43:03 (12540) INFO ConcurrencyTokenProvider[39m Creating 4 test runner process(es).
+[32m14:43:06 (12540) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m14:43:06 (12540) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m14:43:13 (12540) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 7 seconds (net 7151 ms, overhead 2 ms).
+Mutation testing 0% (elapsed: <1m, remaining: n/a) 0/249 tested (0 survived, 0 timed out)
+Mutation testing 1% (elapsed: <1m, remaining: ~20m) 4/249 tested (2 survived, 0 timed out)
+Mutation testing 3% (elapsed: <1m, remaining: ~15m) 8/249 tested (4 survived, 0 timed out)
+Mutation testing 4% (elapsed: <1m, remaining: ~13m) 12/249 tested (5 survived, 0 timed out)
+Mutation testing 5% (elapsed: <1m, remaining: ~15m) 13/249 tested (6 survived, 0 timed out)
+Mutation testing 6% (elapsed: ~1m, remaining: ~13m) 17/249 tested (8 survived, 0 timed out)
+Mutation testing 8% (elapsed: ~1m, remaining: ~13m) 20/249 tested (8 survived, 0 timed out)
+Mutation testing 9% (elapsed: ~1m, remaining: ~12m) 24/249 tested (8 survived, 0 timed out)
+Mutation testing 11% (elapsed: ~1m, remaining: ~11m) 28/249 tested (9 survived, 0 timed out)
+Mutation testing 12% (elapsed: ~1m, remaining: ~11m) 31/249 tested (9 survived, 0 timed out)
+Mutation testing 13% (elapsed: ~1m, remaining: ~12m) 33/249 tested (9 survived, 1 timed out)
+Mutation testing 14% (elapsed: ~2m, remaining: ~11m) 37/249 tested (9 survived, 2 timed out)
+Mutation testing 15% (elapsed: ~2m, remaining: ~11m) 39/249 tested (9 survived, 3 timed out)
+Mutation testing 16% (elapsed: ~2m, remaining: ~11m) 41/249 tested (9 survived, 4 timed out)
+Mutation testing 18% (elapsed: ~2m, remaining: ~11m) 45/249 tested (9 survived, 4 timed out)
+Mutation testing 19% (elapsed: ~2m, remaining: ~10m) 49/249 tested (9 survived, 4 timed out)
+Mutation testing 20% (elapsed: ~2m, remaining: ~10m) 52/249 tested (10 survived, 4 timed out)
+Mutation testing 22% (elapsed: ~3m, remaining: ~10m) 55/249 tested (10 survived, 4 timed out)
+Mutation testing 23% (elapsed: ~3m, remaining: ~10m) 59/249 tested (10 survived, 4 timed out)
+Mutation testing 25% (elapsed: ~3m, remaining: ~9m) 63/249 tested (11 survived, 4 timed out)
+Mutation testing 26% (elapsed: ~3m, remaining: ~9m) 67/249 tested (11 survived, 4 timed out)
+Mutation testing 28% (elapsed: ~3m, remaining: ~9m) 71/249 tested (11 survived, 4 timed out)
+Mutation testing 29% (elapsed: ~3m, remaining: ~9m) 74/249 tested (13 survived, 4 timed out)
+Mutation testing 30% (elapsed: ~4m, remaining: ~8m) 77/249 tested (14 survived, 4 timed out)
+Mutation testing 32% (elapsed: ~4m, remaining: ~8m) 80/249 tested (14 survived, 4 timed out)
+Mutation testing 32% (elapsed: ~4m, remaining: ~8m) 82/249 tested (14 survived, 5 timed out)
+Mutation testing 34% (elapsed: ~4m, remaining: ~8m) 85/249 tested (16 survived, 6 timed out)
+Mutation testing 35% (elapsed: ~4m, remaining: ~8m) 89/249 tested (19 survived, 6 timed out)
+Mutation testing 36% (elapsed: ~4m, remaining: ~8m) 91/249 tested (20 survived, 6 timed out)
+Mutation testing 37% (elapsed: ~5m, remaining: ~8m) 94/249 tested (21 survived, 6 timed out)
+Mutation testing 38% (elapsed: ~5m, remaining: ~8m) 97/249 tested (21 survived, 6 timed out)
+Mutation testing 40% (elapsed: ~5m, remaining: ~7m) 101/249 tested (22 survived, 6 timed out)
+Mutation testing 41% (elapsed: ~5m, remaining: ~7m) 104/249 tested (23 survived, 6 timed out)
+Mutation testing 42% (elapsed: ~5m, remaining: ~7m) 106/249 tested (24 survived, 6 timed out)
+Mutation testing 43% (elapsed: ~5m, remaining: ~7m) 109/249 tested (24 survived, 6 timed out)
+Mutation testing 44% (elapsed: ~6m, remaining: ~7m) 111/249 tested (25 survived, 6 timed out)
+Mutation testing 46% (elapsed: ~6m, remaining: ~7m) 115/249 tested (26 survived, 9 timed out)
+Mutation testing 47% (elapsed: ~6m, remaining: ~6m) 119/249 tested (27 survived, 9 timed out)
+Mutation testing 48% (elapsed: ~6m, remaining: ~6m) 121/249 tested (28 survived, 9 timed out)
+Mutation testing 50% (elapsed: ~6m, remaining: ~6m) 125/249 tested (28 survived, 9 timed out)
+Mutation testing 51% (elapsed: ~6m, remaining: ~6m) 127/249 tested (28 survived, 9 timed out)
+Mutation testing 52% (elapsed: ~7m, remaining: ~6m) 131/249 tested (28 survived, 11 timed out)
+Mutation testing 54% (elapsed: ~7m, remaining: ~6m) 135/249 tested (28 survived, 11 timed out)
+Mutation testing 55% (elapsed: ~7m, remaining: ~5m) 137/249 tested (29 survived, 11 timed out)
+Mutation testing 56% (elapsed: ~7m, remaining: ~5m) 141/249 tested (31 survived, 11 timed out)
+Mutation testing 57% (elapsed: ~7m, remaining: ~5m) 144/249 tested (31 survived, 11 timed out)
+Mutation testing 59% (elapsed: ~7m, remaining: ~5m) 148/249 tested (31 survived, 11 timed out)
+Mutation testing 60% (elapsed: ~8m, remaining: ~5m) 150/249 tested (31 survived, 12 timed out)
+Mutation testing 61% (elapsed: ~8m, remaining: ~5m) 153/249 tested (31 survived, 13 timed out)
+Mutation testing 62% (elapsed: ~8m, remaining: ~5m) 155/249 tested (31 survived, 13 timed out)
+Mutation testing 63% (elapsed: ~8m, remaining: ~4m) 159/249 tested (31 survived, 14 timed out)
+Mutation testing 65% (elapsed: ~8m, remaining: ~4m) 163/249 tested (31 survived, 14 timed out)
+Mutation testing 66% (elapsed: ~8m, remaining: ~4m) 166/249 tested (31 survived, 14 timed out)
+Mutation testing 68% (elapsed: ~9m, remaining: ~4m) 170/249 tested (31 survived, 14 timed out)
+Mutation testing 70% (elapsed: ~9m, remaining: ~3m) 175/249 tested (33 survived, 14 timed out)
+Mutation testing 70% (elapsed: ~9m, remaining: ~3m) 176/249 tested (33 survived, 14 timed out)
+Mutation testing 72% (elapsed: ~9m, remaining: ~3m) 180/249 tested (33 survived, 14 timed out)
+Mutation testing 73% (elapsed: ~9m, remaining: ~3m) 184/249 tested (34 survived, 14 timed out)
+Mutation testing 75% (elapsed: ~9m, remaining: ~3m) 188/249 tested (34 survived, 14 timed out)
+Mutation testing 76% (elapsed: ~10m, remaining: ~3m) 191/249 tested (35 survived, 14 timed out)
+Mutation testing 78% (elapsed: ~10m, remaining: ~2m) 195/249 tested (35 survived, 14 timed out)
+Mutation testing 79% (elapsed: ~10m, remaining: ~2m) 198/249 tested (36 survived, 14 timed out)
+Mutation testing 80% (elapsed: ~10m, remaining: ~2m) 201/249 tested (37 survived, 14 timed out)
+Mutation testing 82% (elapsed: ~10m, remaining: ~2m) 205/249 tested (38 survived, 14 timed out)
+Mutation testing 83% (elapsed: ~10m, remaining: ~2m) 208/249 tested (38 survived, 14 timed out)
+Mutation testing 84% (elapsed: ~11m, remaining: ~1m) 211/249 tested (38 survived, 14 timed out)
+Mutation testing 86% (elapsed: ~11m, remaining: ~1m) 215/249 tested (38 survived, 14 timed out)
+Mutation testing 87% (elapsed: ~11m, remaining: ~1m) 219/249 tested (38 survived, 14 timed out)
+Mutation testing 89% (elapsed: ~11m, remaining: ~1m) 223/249 tested (40 survived, 14 timed out)
+Mutation testing 91% (elapsed: ~11m, remaining: ~1m) 227/249 tested (40 survived, 14 timed out)
+Mutation testing 92% (elapsed: ~11m, remaining: <1m) 231/249 tested (40 survived, 14 timed out)
+Mutation testing 94% (elapsed: ~12m, remaining: <1m) 235/249 tested (40 survived, 14 timed out)
+Mutation testing 96% (elapsed: ~12m, remaining: <1m) 240/249 tested (41 survived, 14 timed out)
+Mutation testing 97% (elapsed: ~12m, remaining: <1m) 244/249 tested (42 survived, 14 timed out)
+
+All tests
+  ✓ All tests (killed 192)
+
+[Survived] LogicalOperator
+src/api.ts:37:7
+-     if (typeof value !== "object" || value === null) {
++     if (typeof value !== "object" && value === null) {
+
+[Survived] ConditionalExpression
+src/api.ts:37:7
+-     if (typeof value !== "object" || value === null) {
++     if (false) {
+
+[Survived] ConditionalExpression
+src/api.ts:37:7
+-     if (typeof value !== "object" || value === null) {
++     if (false || value === null) {
+
+[Survived] ConditionalExpression
+src/api.ts:37:36
+-     if (typeof value !== "object" || value === null) {
++     if (typeof value !== "object" || false) {
+
+[Survived] BlockStatement
+src/api.ts:37:52
+-     if (typeof value !== "object" || value === null) {
+-       return false;
+-     }
++     if (typeof value !== "object" || value === null) {}
+
+[Survived] LogicalOperator
+src/api.ts:42:5
+-       typeof candidate.field === "string" && typeof candidate.message === "string"
++       typeof candidate.field === "string" || typeof candidate.message === "string"
+
+[Survived] ConditionalExpression
+src/api.ts:42:5
+-       typeof candidate.field === "string" && typeof candidate.message === "string"
++       true && typeof candidate.message === "string"
+
+[Survived] ConditionalExpression
+src/api.ts:42:44
+-       typeof candidate.field === "string" && typeof candidate.message === "string"
++       typeof candidate.field === "string" && true
+
+[Survived] StringLiteral
+src/api.ts:55:17
+-           Accept: "application/json, application/problem+json",
++           Accept: "",
+
+[Survived] BlockStatement
+src/api.ts:79:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+
+[Survived] ConditionalExpression
+src/config.ts:14:7
+-     if (typeof value !== "object" || value === null) {
++     if (false || value === null) {
+
+[Survived] LogicalOperator
+src/config.ts:19:5
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       typeof candidate.id === "string" || typeof candidate.title === "string"
+
+[Survived] ConditionalExpression
+src/config.ts:19:5
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       true && typeof candidate.title === "string"
+
+[Survived] ConditionalExpression
+src/config.ts:19:41
+-       typeof candidate.id === "string" && typeof candidate.title === "string"
++       typeof candidate.id === "string" && true
+
+[Survived] StringLiteral
+src/Confirmation.tsx:10:81
+-           <dt>Registration number</dt> <dd>{registration.registrationNumber}</dd>{" "}
++           <dt>Registration number</dt> <dd>{registration.registrationNumber}</dd>{""}
+
+[Survived] StringLiteral
+src/Confirmation.tsx:11:75
+-           <dt>Net fee</dt> <dd>{formatAmount(registration.netFee)} EUR</dd>{" "}
++           <dt>Net fee</dt> <dd>{formatAmount(registration.netFee)} EUR</dd>{""}
+
+[Survived] StringLiteral
+src/Confirmation.tsx:12:68
+-           <dt>VAT</dt> <dd>{formatAmount(registration.vat)} EUR</dd>{" "}
++           <dt>VAT</dt> <dd>{formatAmount(registration.vat)} EUR</dd>{""}
+
+[Survived] StringLiteral
+src/Confirmation.tsx:13:28
+-           <dt>Gross fee</dt>{" "}
++           <dt>Gross fee</dt>{""}
+
+[Survived] StringLiteral
+src/Confirmation.tsx:14:60
+-           <dd>{formatAmount(registration.grossFee)} EUR</dd>{" "}
++           <dd>{formatAmount(registration.grossFee)} EUR</dd>{""}
+
+[Survived] ConditionalExpression
+src/format.ts:3:18
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = false ? value : Number(value);
+
+[Survived] StringLiteral
+src/format.ts:3:35
+-     const amount = typeof value === "number" ? value : Number(value);
++     const amount = typeof value === "" ? value : Number(value);
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:28:51
+-     { name: "firstName", label: "First name", type: "text", max: 100 },
++     { name: "firstName", label: "First name", type: "", max: 100 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:29:49
+-     { name: "lastName", label: "Last name", type: "text", max: 100 },
++     { name: "lastName", label: "Last name", type: "", max: 100 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:30:43
+-     { name: "email", label: "E-mail", type: "email", max: 254 },
++     { name: "email", label: "E-mail", type: "", max: 254 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:39:55
+-     { name: "companyName", label: "Company name", type: "text", max: 200 },
++     { name: "companyName", label: "Company name", type: "", max: 200 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:40:61
+-     { name: "companyAddress", label: "Company address", type: "text", max: 500 },
++     { name: "companyAddress", label: "Company address", type: "", max: 500 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:41:50
+-     { name: "companyVatId", label: "VAT ID", type: "text", max: 30 },
++     { name: "companyVatId", label: "VAT ID", type: "", max: 30 },
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:44:21
+-   const NO_WORKSHOP = "";
++   const NO_WORKSHOP = "Stryker was here!";
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:92:16
+-       firstName: "",
++       firstName: "Stryker was here!",
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:95:18
+-       companyName: "",
++       companyName: "Stryker was here!",
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:96:21
+-       companyAddress: "",
++       companyAddress: "Stryker was here!",
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:141:5
+-       event.preventDefault();
++       ;
+
+[Survived] CallExpression
+src/RegistrationForm.tsx:142:5
+-       setAlert(null);
++       ;
+
+[Survived] BooleanLiteral
+src/RegistrationForm.tsx:150:16
+-       setPending(false);
++       setPending(true);
+
+[Survived] ArrayDeclaration
+src/RegistrationForm.tsx:157:35
+-           const unknown: string[] = [];
++           const unknown: string[] = ["Stryker was here"];
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             true ? `Please check: ${unknown.join("; ")}` : null,
+
+[Survived] EqualityOperator
+src/RegistrationForm.tsx:167:11
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length >= 0 ? `Please check: ${unknown.join("; ")}` : null,
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:167:62
+-             unknown.length > 0 ? `Please check: ${unknown.join("; ")}` : null,
++             unknown.length > 0 ? `Please check: ${unknown.join("")}` : null,
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:219:22
+-               checked={payerType === "company"}
++               checked={false}
+
+[Survived] StringLiteral
+src/RegistrationForm.tsx:219:36
+-               checked={payerType === "company"}
++               checked={payerType === ""}
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:254:24
+-                 checked={workshop === option.id}
++                 checked={false}
+
+[Survived] ConditionalExpression
+src/RegistrationForm.tsx:265:22
+-               checked={workshop === NO_WORKSHOP}
++               checked={true}
+
+[Survived] ArrowFunction
+src/RegistrationForm.tsx:266:23
+-               onChange={() => setWorkshop(NO_WORKSHOP)}
++               onChange={() => undefined}
+
+Ran 0.94 tests per mutant on average.
+----------------------|------------------|----------|-----------|------------|----------|----------|
+                      | % Mutation score |          |           |            |          |          |
+File                  |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+All files             |  82.73 |   82.73 |      192 |        14 |         43 |        0 |        0 |
+ api.ts               |  82.46 |   82.46 |       43 |         4 |         10 |        0 |        0 |
+ App.tsx              | 100.00 |  100.00 |        1 |         0 |          0 |        0 |        0 |
+ config.ts            |  83.33 |   83.33 |       19 |         1 |          4 |        0 |        0 |
+ Confirmation.tsx     |  16.67 |   16.67 |        0 |         1 |          5 |        0 |        0 |
+ format.ts            |  60.00 |   60.00 |        3 |         0 |          2 |        0 |        0 |
+ RegistrationForm.tsx |  85.90 |   85.90 |      126 |         8 |         22 |        0 |        0 |
+----------------------|--------|---------|----------|-----------|------------|----------|----------|
+[32m14:55:42 (12540) INFO HtmlReporter[39m Your report can be found at: file:///C:/Users/tanej/Documents/LAB/tanej-confreg-C2/02_output/frontend/reports/mutation/mutation.html
+[32m14:55:42 (12540) INFO MutationTestExecutor[39m Done in 12 minutes and 40 seconds.
