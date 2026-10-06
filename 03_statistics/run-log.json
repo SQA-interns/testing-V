@@ -78,7 +78,7 @@
       "id": "D-01",
       "type": "blocking",
       "start": "2026-10-06T17:39:03Z",
-      "end": null
+      "end": "2026-10-06T17:46:32Z"
     },
     {
       "id": "D-02",
@@ -96,32 +96,85 @@
       "id": "D-04",
       "type": "blocking",
       "start": "2026-10-06T17:39:03Z",
-      "end": null
+      "end": "2026-10-06T17:46:32Z"
     },
     {
       "id": "D-05",
       "type": "blocking",
       "start": "2026-10-06T17:39:03Z",
-      "end": null
+      "end": "2026-10-06T17:46:32Z"
     },
     {
       "id": "D-06",
       "type": "blocking",
       "start": "2026-10-06T17:39:03Z",
-      "end": null
+      "end": "2026-10-06T17:46:32Z"
     },
     {
       "id": "D-07",
       "type": "blocking",
       "start": "2026-10-06T17:39:03Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-08",
+      "type": "blocking",
+      "start": "2026-10-06T17:46:32Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-09",
+      "type": "blocking",
+      "start": "2026-10-06T17:46:32Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-10",
+      "type": "blocking",
+      "start": "2026-10-06T17:46:32Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-11",
+      "type": "blocking",
+      "start": "2026-10-06T17:46:32Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-12",
+      "type": "blocking",
+      "start": "2026-10-06T17:46:32Z",
+      "end": "2026-10-06T17:46:32Z"
+    },
+    {
+      "id": "D-13",
+      "type": "blocking",
+      "start": "2026-10-06T17:48:42Z",
       "end": null
+    },
+    {
+      "id": "D-14",
+      "type": "blocking",
+      "start": "2026-10-06T17:48:42Z",
+      "end": null
+    },
+    {
+      "id": "D-15",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:48:42Z",
+      "end": "2026-10-06T17:48:42Z"
     }
   ],
   "humanInterventions": [
     {
       "start": "2026-10-06T17:39:03Z",
-      "end": null,
+      "end": "2026-10-06T17:46:32Z",
       "reason": "Phase 0 preflight: D-01 Docker version, D-04 invalid NVD API key, D-05 vulnerable dev tooling, D-06 Playwright Chromium install, D-07 username values equal repository path segments"
+    },
+    {
+      "start": "2026-10-06T17:48:42Z",
+      "end": null,
+      "reason": "Phase 0 re-check: D-13 organizer username still in repository paths, D-14 approve false-positive classification of CVE-2025-7962"
     }
   ],
   "codeMetrics": {

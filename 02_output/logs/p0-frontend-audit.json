@@ -1,172 +1,6 @@
 {
   "auditReportVersion": 2,
   "vulnerabilities": {
-    "@jscpd/finder": {
-      "name": "@jscpd/finder",
-      "severity": "high",
-      "isDirect": false,
-      "via": [
-        "fast-glob"
-      ],
-      "effects": [
-        "jscpd"
-      ],
-      "range": "*",
-      "nodes": [
-        "node_modules/@jscpd/finder"
-      ],
-      "fixAvailable": {
-        "name": "jscpd",
-        "version": "5.4.0",
-        "isSemVerMajor": true
-      }
-    },
-    "@vitest/coverage-v8": {
-      "name": "@vitest/coverage-v8",
-      "severity": "moderate",
-      "isDirect": true,
-      "via": [
-        "vitest"
-      ],
-      "effects": [],
-      "range": "2.1.0-beta.1 - 4.1.10",
-      "nodes": [
-        "node_modules/@vitest/coverage-v8"
-      ],
-      "fixAvailable": {
-        "name": "@vitest/coverage-v8",
-        "version": "5.0.3",
-        "isSemVerMajor": true
-      }
-    },
-    "@vitest/mocker": {
-      "name": "@vitest/mocker",
-      "severity": "moderate",
-      "isDirect": false,
-      "via": [
-        {
-          "source": 1193684,
-          "name": "@vitest/mocker",
-          "dependency": "@vitest/mocker",
-          "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
-          "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
-          "severity": "moderate",
-          "cwe": [
-            "CWE-22"
-          ],
-          "cvss": {
-            "score": 5.9,
-            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
-          },
-          "range": ">=2.1.0 <4.1.11"
-        }
-      ],
-      "effects": [
-        "vitest"
-      ],
-      "range": "2.1.0 - 4.1.10",
-      "nodes": [
-        "node_modules/@vitest/mocker"
-      ],
-      "fixAvailable": {
-        "name": "vitest",
-        "version": "5.0.3",
-        "isSemVerMajor": true
-      }
-    },
-    "braces": {
-      "name": "braces",
-      "severity": "high",
-      "isDirect": false,
-      "via": [
-        {
-          "source": 1240992,
-          "name": "braces",
-          "dependency": "braces",
-          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
-          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
-          "severity": "high",
-          "cwe": [
-            "CWE-674"
-          ],
-          "cvss": {
-            "score": 7.5,
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-          },
-          "range": "<=3.0.3"
-        }
-      ],
-      "effects": [
-        "micromatch"
-      ],
-      "range": "*",
-      "nodes": [
-        "node_modules/braces"
-      ],
-      "fixAvailable": {
-        "name": "jscpd",
-        "version": "5.4.0",
-        "isSemVerMajor": true
-      }
-    },
-    "fast-glob": {
-      "name": "fast-glob",
-      "severity": "high",
-      "isDirect": false,
-      "via": [
-        "micromatch"
-      ],
-      "effects": [
-        "@jscpd/finder"
-      ],
-      "range": "*",
-      "nodes": [
-        "node_modules/fast-glob"
-      ],
-      "fixAvailable": {
-        "name": "jscpd",
-        "version": "5.4.0",
-        "isSemVerMajor": true
-      }
-    },
-    "jscpd": {
-      "name": "jscpd",
-      "severity": "high",
-      "isDirect": true,
-      "via": [
-        "@jscpd/finder"
-      ],
-      "effects": [],
-      "range": "3.3.0-alpha.2 - 4.3.0",
-      "nodes": [
-        "node_modules/jscpd"
-      ],
-      "fixAvailable": {
-        "name": "jscpd",
-        "version": "5.4.0",
-        "isSemVerMajor": true
-      }
-    },
-    "micromatch": {
-      "name": "micromatch",
-      "severity": "high",
-      "isDirect": false,
-      "via": [
-        "braces"
-      ],
-      "effects": [
-        "fast-glob"
-      ],
-      "range": ">=0.2.0",
-      "nodes": [
-        "node_modules/micromatch"
-      ],
-      "fixAvailable": {
-        "name": "jscpd",
-        "version": "5.4.0",
-        "isSemVerMajor": true
-      }
-    },
     "qs": {
       "name": "qs",
       "severity": "moderate",
@@ -231,58 +65,6 @@
       ],
       "fixAvailable": true
     },
-    "tinypool": {
-      "name": "tinypool",
-      "severity": "critical",
-      "isDirect": false,
-      "via": [
-        {
-          "source": 1241260,
-          "name": "tinypool",
-          "dependency": "tinypool",
-          "title": "Tinypool: Prototype Pollution gadget in worker options leads to Remote Code Execution",
-          "url": "https://github.com/advisories/GHSA-5gmw-xhrv-c9v3",
-          "severity": "critical",
-          "cwe": [
-            "CWE-1321"
-          ],
-          "cvss": {
-            "score": 0,
-            "vectorString": null
-          },
-          "range": "<=2.1.0"
-        },
-        {
-          "source": 1241261,
-          "name": "tinypool",
-          "dependency": "tinypool",
-          "title": "Tinypool: Prototype Pollution Gadget to RCE in run() options",
-          "url": "https://github.com/advisories/GHSA-85c8-ppgw-ccpr",
-          "severity": "critical",
-          "cwe": [
-            "CWE-94",
-            "CWE-1321"
-          ],
-          "cvss": {
-            "score": 0,
-            "vectorString": null
-          },
-          "range": "<2.1.2"
-        }
-      ],
-      "effects": [
-        "vitest"
-      ],
-      "range": "<=2.1.1",
-      "nodes": [
-        "node_modules/tinypool"
-      ],
-      "fixAvailable": {
-        "name": "vitest",
-        "version": "5.0.3",
-        "isSemVerMajor": true
-      }
-    },
     "typed-rest-client": {
       "name": "typed-rest-client",
       "severity": "moderate",
@@ -296,61 +78,24 @@
         "node_modules/typed-rest-client"
       ],
       "fixAvailable": true
-    },
-    "vitest": {
-      "name": "vitest",
-      "severity": "critical",
-      "isDirect": true,
-      "via": [
-        "@vitest/mocker",
-        {
-          "source": 1193683,
-          "name": "vitest",
-          "dependency": "vitest",
-          "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
-          "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
-          "severity": "moderate",
-          "cwe": [
-            "CWE-22"
-          ],
-          "cvss": {
-            "score": 5.9,
-            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
-          },
-          "range": ">=2.1.0 <4.1.11"
-        },
-        "tinypool"
-      ],
-      "effects": [
-        "@vitest/coverage-v8"
-      ],
-      "range": "0.0.95 - 4.1.10",
-      "nodes": [
-        "node_modules/vitest"
-      ],
-      "fixAvailable": {
-        "name": "vitest",
-        "version": "5.0.3",
-        "isSemVerMajor": true
-      }
     }
   },
   "metadata": {
     "vulnerabilities": {
       "info": 0,
       "low": 0,
-      "moderate": 4,
-      "high": 5,
-      "critical": 2,
-      "total": 11
+      "moderate": 2,
+      "high": 0,
+      "critical": 0,
+      "total": 2
     },
     "dependencies": {
       "prod": 2,
-      "dev": 631,
-      "optional": 55,
-      "peer": 19,
+      "dev": 484,
+      "optional": 61,
+      "peer": 20,
       "peerOptional": 0,
-      "total": 634
+      "total": 487
     }
   }
 }
