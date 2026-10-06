@@ -78,25 +78,25 @@
       "id": "D-01",
       "type": "blocking",
       "start": "2026-10-06T11:01:08Z",
-      "end": null
+      "end": "2026-10-06T11:06:50Z"
     },
     {
       "id": "D-02",
       "type": "blocking",
       "start": "2026-10-06T11:01:08Z",
-      "end": null
+      "end": "2026-10-06T11:06:50Z"
     },
     {
       "id": "D-03",
       "type": "blocking",
       "start": "2026-10-06T11:01:08Z",
-      "end": null
+      "end": "2026-10-06T11:06:50Z"
     },
     {
       "id": "D-04",
       "type": "blocking",
       "start": "2026-10-06T11:01:08Z",
-      "end": null
+      "end": "2026-10-06T11:06:50Z"
     },
     {
       "id": "D-05",
@@ -108,14 +108,31 @@
       "id": "D-06",
       "type": "blocking",
       "start": "2026-10-06T11:01:08Z",
+      "end": "2026-10-06T11:06:50Z"
+    },
+    {
+      "id": "D-07",
+      "type": "non-blocking",
+      "start": "2026-10-06T11:13:58Z",
+      "end": "2026-10-06T11:13:58Z"
+    },
+    {
+      "id": "D-08",
+      "type": "blocking",
+      "start": "2026-10-06T11:13:58Z",
       "end": null
     }
   ],
   "humanInterventions": [
     {
       "start": "2026-10-06T11:01:08Z",
-      "end": null,
+      "end": "2026-10-06T11:06:50Z",
       "reason": "phase 0 preflight failures: D-01 JDK, D-02 Node/npm, D-03 vitest, D-04 jscpd, D-06 secret check"
+    },
+    {
+      "start": "2026-10-06T11:13:58Z",
+      "end": null,
+      "reason": "phase 0: D-08 downgrade of High CVE-2025-7962 (false positive) needs approval"
     }
   ],
   "codeMetrics": {

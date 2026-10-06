@@ -11,8 +11,8 @@
   1. (proposed default) Human installs Eclipse Temurin JDK 21.0.10+7 from https://adoptium.net and points `JAVA_HOME` (and `PATH`) to it; agent re-runs the check.
   2. Approve Oracle JDK 21.0.11+9 as the build JDK, replacing the `java` platform entry (licence of the Oracle JDK must be checked by the human; the runtime image stays `eclipse-temurin:21.0.10_7-jre-alpine`).
   3. Run all Maven commands inside a container `eclipse-temurin:21.0.10_7-jdk-alpine` (a new image entry, needs approval); nothing installed on the host.
-- Human response: none
-- Resolution: pending review
+- Human response: Option 2, approve Oracle JDK 21.0.11; raise a new blocking decision if it causes a real failure (2026-10-06T11:06:50Z)
+- Resolution: 2, Oracle JDK 21.0.11+9 replaces the `java` platform entry for this run
 
 ## D-02: Pinned Node.js 24.13.0 / npm 11.6.2 not installed on host
 - Timestamp: 2026-10-06T11:01:08Z
@@ -23,8 +23,8 @@
   1. (proposed default) Human installs Node.js 24.13.0 (bundles npm 11.6.2) from https://nodejs.org; agent re-runs the check.
   2. Approve Node.js 24.10.0 / npm 10.9.4 as replacement for the `node` platform entry.
   3. Run npm commands inside the listed `node:24.13.0-alpine` image (verified: reports v24.13.0 / 11.6.2). Limitation: Playwright's bundled Chromium does not support Alpine (musl), so end-to-end tests would still need a host Node or another, non-listed image (needs approval).
-- Human response: none
-- Resolution: pending review
+- Human response: Option 2, approve Node 24.10.0 with npm 10.9.4; raise a new blocking decision if it causes a real failure (2026-10-06T11:06:50Z)
+- Resolution: 2, Node.js 24.10.0 / npm 10.9.4 replace the `node` platform entry for this run
 
 ## D-03: vitest 3.2.7 has Critical vulnerabilities
 - Timestamp: 2026-10-06T11:01:08Z
@@ -34,8 +34,8 @@
 - Options:
   1. (proposed default) Replace `vitest` and `@vitest/coverage-v8` 3.2.7 with 5.0.3. Checked: vitest 5.0.3 peer range accepts vite 6.4.3 and jsdom; `@stryker-mutator/vitest-runner` 10.0.0 accepts vitest >=2.0.0; engines accept Node 24. Re-audit of the set with this change and option 1 of D-04: 0 Critical, 0 High, 2 Moderate (`qs` via `typed-rest-client`).
   2. Keep 3.2.7 and accept the risk as test-only tooling that never ships (lowering Critical needs this written evidence and your approval).
-- Human response: none
-- Resolution: pending review
+- Human response: Option 1, move vitest and @vitest/coverage-v8 to 5.0.3 (2026-10-06T11:06:50Z)
+- Resolution: 1, `vitest` and `@vitest/coverage-v8` 5.0.3 replace 3.2.7
 
 ## D-04: jscpd 4.3.0 has High vulnerabilities
 - Timestamp: 2026-10-06T11:01:08Z
@@ -46,8 +46,8 @@
   1. (proposed default) Replace `jscpd` 4.3.0 with 5.4.0 (engines `node >=18`). Re-audit result: see D-03 option 1.
   2. Keep 4.3.0 and accept the risk as a dev-only tool run on the project's own source (lowering High needs your approval).
   3. Drop `jscpd` and measure frontend duplication with PMD CPD (`maven-pmd-plugin`, already listed) in TypeScript mode.
-- Human response: none
-- Resolution: pending review
+- Human response: Option 1, move jscpd to 5.4.0 (2026-10-06T11:06:50Z)
+- Resolution: 1, `jscpd` 5.4.0 replaces 4.3.0
 
 ## D-05: cloc image tag 2.10 reports version 1.98
 - Timestamp: 2026-10-06T11:01:08Z
@@ -67,5 +67,26 @@
 - Options:
   1. (proposed default) Human allows the presence-check command (Bash permission rule) and the agent re-runs it.
   2. Human runs the check and confirms in the conversation that the four keys are non-empty and the organizer password has at least 16 characters (never paste values).
+- Human response: Option 1, permission mode switched; human approves the check command, run it exactly as written, then the backend dependency scan (2026-10-06T11:06:50Z)
+- Resolution: 1, agent re-runs the presence check
+
+## D-07: OSS Index analyser disabled in OWASP Dependency-Check
+- Timestamp: 2026-10-06T11:13:58Z
+- Phase: 0
+- Type: non-blocking
+- Trigger: preflight step 6, backend scan. `dependency-check-maven` 12.1.0 failed with HTTP 401 Unauthorized from `https://ossindex.sonatype.org/api/v3/component-report` for every jar (`out/logs/00_backend-depcheck.log`, first run). OSS Index needs credentials that `secrets.env.example` does not list.
+- Options:
+  1. (proposed default) Disable the OSS Index analyser (`ossindexAnalyzerEnabled=false` in `backend/pom.xml`) and scan with the NVD analyser (and the other local analysers).
+- Human response: none
+- Resolution: 1, disabled; re-run completed with the NVD CVE analyser (66 dependencies scanned)
+
+## D-08: CVE-2025-7962 (CVSS v3 7.5, High) matched to angus-activation 2.0.3
+- Timestamp: 2026-10-06T11:13:58Z
+- Phase: 0
+- Type: blocking
+- Trigger: preflight step 6, OWASP Dependency-Check (NVD) on the backend set reports CVE-2025-7962 on `org.eclipse.angus:angus-activation` 2.0.3 (transitive via `spring-boot-starter-mail`): CVSS v3.1 7.5 HIGH, CVSS v4 6.0 MEDIUM, tool's overall severity MEDIUM. The CVSS v3 score maps to High (`severity-scale.md`). Evidence that it does not apply: the CVE describes SMTP injection in Jakarta Mail versions before 2.0.2; `angus-activation` is the Jakarta Activation implementation, not Jakarta Mail; the mail implementation in use is `org.eclipse.angus:angus-mail` 2.0.5 with `jakarta.mail:jakarta.mail-api` 2.1.5, both outside the affected range and not reported by the scanner. The match comes from the CPE analyser.
+- Options:
+  1. (proposed default) Classify as a false positive (Low), add a dependency-check suppression for CVE-2025-7962 on `angus-activation` with this evidence, and continue. The design still neutralises CR/LF in any user value written to a mail header (SMTP injection is relevant to US e-mail flows).
+  2. Keep it as High; the backend set fails the phase 0 gate until a non-affected version or a human-approved override exists (none needed in practice, since the affected library is not present).
 - Human response: none
 - Resolution: pending review

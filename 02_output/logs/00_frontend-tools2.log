@@ -1,0 +1,24 @@
+== build
+computing gzip size...
+[2mdist/[22m[32mindex.html                [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+[2mdist/[22m[36massets/index-DMxAdNoG.js  [39m[1m[2m224.00 kB[22m[1m[22m[2m │ gzip: 69.56 kB[22m
+[32m✓ built in 1.47s[39m
+== check
+
+Checking formatting...
+All matched files use Prettier code style!
+== mutation
+[32m13:13:07 (31772) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[33m13:13:07 (40948) WARN VitestTestRunner[39m Vitest failed to find test files related to mutated files. Either disable `vitest.related` or import your source files directly from your test files. See https://stryker-mutator.io/docs/stryker-js/troubleshooting/#vitest-failed-to-find-test-files-related-to-mutated-files
+[32m13:13:07 (31772) INFO DryRunExecutor[39m No tests were found
+[32m13:13:07 (31772) INFO MutationTestExecutor[39m Done in 3 seconds.
+== audit
+2 moderate severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+== chromium
+chromium-1243
+chromium_headless_shell-1243
+ffmpeg-1011
+winldd-1007
