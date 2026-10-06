@@ -49,12 +49,12 @@
       "phase": 6,
       "name": "verify",
       "start": "2026-10-06T16:25:52Z",
-      "end": null
+      "end": "2026-10-06T17:06:01Z"
     },
     {
       "phase": 7,
       "name": "release",
-      "start": null,
+      "start": "2026-10-06T17:06:01Z",
       "end": null
     }
   ],
@@ -63,16 +63,44 @@
     "failed": 5
   },
   "finalTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 178,
+    "failed": 0
   },
   "findings": {
     "critical": 0,
     "high": 0,
-    "medium": 0,
-    "low": 0
+    "medium": 6,
+    "low": 5
   },
-  "fixLoops": [],
+  "fixLoops": [
+    {
+      "loop": 1,
+      "findings": [
+        "F-01"
+      ],
+      "change": "56ea728",
+      "start": "2026-10-06T16:39:00Z",
+      "end": "2026-10-06T16:41:30Z"
+    },
+    {
+      "loop": 2,
+      "findings": [
+        "F-02"
+      ],
+      "change": "516768b",
+      "start": "2026-10-06T16:39:30Z",
+      "end": "2026-10-06T16:41:30Z"
+    },
+    {
+      "loop": 3,
+      "findings": [
+        "F-06"
+      ],
+      "change": "c81e36e",
+      "start": "2026-10-06T16:47:00Z",
+      "end": "2026-10-06T16:53:00Z"
+    }
+  ],
   "decisions": [
     {
       "id": "D-01",
@@ -201,9 +229,24 @@
     }
   ],
   "codeMetrics": {
-    "components": [],
+    "components": [
+      {
+        "name": "backend",
+        "productionLoc": 1938,
+        "testLoc": 2411
+      },
+      {
+        "name": "frontend",
+        "productionLoc": 533,
+        "testLoc": 564
+      }
+    ],
     "complexity": null,
-    "duplicationPct": null
+    "complexityReason": "no complexity tool listed in tech-stack.md",
+    "duplicationPct": {
+      "backend": 0,
+      "frontend": 0.73
+    }
   },
   "commits": [],
   "usage": {

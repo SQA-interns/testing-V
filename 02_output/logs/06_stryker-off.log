@@ -1,0 +1,2838 @@
+[32m18:58:45 (24148) INFO ProjectReader[39m Found 3 of 25 file(s) to be mutated.
+[32m18:58:45 (24148) INFO Instrumenter[39m Instrumented 3 source file(s) with 208 mutant(s)
+[32m18:58:46 (24148) INFO ConcurrencyTokenProvider[39m Creating 4 test runner process(es).
+[32m18:58:52 (24148) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "off" coverage analysis). This may take a while.
+[32m18:59:05 (24148) INFO DryRunExecutor[39m Initial test run succeeded. Ran 22 tests in 13 seconds (net 2487.9775000000054 ms, overhead 11026.022499999995 ms).
+
+All tests
+  src
+    api.test.ts
+      ~ submitRegistration returns the stored registration on 201 (covered 14)
+      ~ submitRegistration returns the field errors on 400 (covered 28)
+      ~ submitRegistration treats a 400 without field errors or with a broken body as a failure (covered 24)
+      ~ submitRegistration returns duplicate on 409 and failed on other statuses (covered 22)
+      ~ submitRegistration returns failed when the network fails (covered 11)
+      ~ submitRegistration posts JSON to the registration endpoint (covered 14)
+      ~ fetchOptions requests the options for the student flag (covered 8)
+      ~ fetchOptions throws when the backend does not answer 2xx (covered 10)
+      ~ formatAmount shows two decimals for numbers and decimal strings (covered 1)
+    App.test.tsx
+      ✓ App shows a generic message when the options cannot be loaded (killed 1)
+      ~ App ignores a stale price answer that arrives after a newer one (covered 97)
+      ~ App disables the button while sending and shows a workshop error next to the workshops (covered 139)
+      ~ App states 'none' in the confirmation when no workshop was chosen (covered 129)
+  tests/acceptance/registration-form.acceptance.test.tsx
+    ✓ US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops (killed 4)
+    ~ US-001 registration form AC-001-21 shows company fields only for a company payer (covered 102)
+    ~ US-001 registration form AC-001-21 does not send company fields for a private payer (covered 140)
+    ~ US-001 registration form AC-001-22 shows the current price and updates it when the student box changes (covered 96)
+    ~ US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts (covered 143)
+    ~ US-001 registration form AC-001-01 sends an empty workshop list and the student flag (covered 133)
+    ~ US-001 registration form AC-001-23 shows each server error next to its field and keeps the values (covered 143)
+    ✓ US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values (killed 1)
+    ~ US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable (covered 135)
+
+[Survived] ObjectLiteral
+src/api.ts:60:14
+-       headers: { Accept: "application/json" },
++       headers: {},
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:59:32
+-     const response = await fetch(`/api/registration-options?student=${student}`, {
++     const response = await fetch(``, {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:59:80
+-     const response = await fetch(`/api/registration-options?student=${student}`, {
+-       headers: { Accept: "application/json" },
+-     });
++     const response = await fetch(`/api/registration-options?student=${student}`, {});
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:58:33
+-   ): Promise<RegistrationOptions> {
+-     const response = await fetch(`/api/registration-options?student=${student}`, {
+-       headers: { Accept: "application/json" },
+-     });
+-     if (!response.ok) {
+-       throw new Error("options unavailable");
+-     }
+-     return (await response.json()) as RegistrationOptions;
+-   }
++   ): Promise<RegistrationOptions> {}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:60:24
+-       headers: { Accept: "application/json" },
++       headers: { Accept: "" },
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] BooleanLiteral
+src/api.ts:62:7
+-     if (!response.ok) {
++     if (response.ok) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:62:7
+-     if (!response.ok) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:62:7
+-     if (!response.ok) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 12 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:62:21
+-     if (!response.ok) {
+-       throw new Error("options unavailable");
+-     }
++     if (!response.ok) {}
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+    fetchOptions throws when the backend does not answer 2xx
+
+
+[Survived] StringLiteral
+src/api.ts:63:21
+-       throw new Error("options unavailable");
++       throw new Error("");
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+    fetchOptions throws when the backend does not answer 2xx
+
+
+[Survived] BlockStatement
+src/api.ts:72:7
+-     try {
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(request),
+-       });
+-     } catch {
++     try {} catch {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:70:26
+-   ): Promise<SubmitResult> {
+-     let response: Response;
+-     try {
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(request),
+-       });
+-     } catch {
+-       return { kind: "failed" };
+-     }
+-     if (response.status === 201) {
+-       return {
+-         kind: "created",
+-         registration: (await response.json()) as Registration,
+-       };
+-     }
+-     if (response.status === 409) {
+-       return { kind: "duplicate" };
+-     }
+-     if (response.status === 400) {
+-       try {
+-         const problem = (await response.json()) as { errors?: FieldError[] };
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
+-           return { kind: "invalid", errors: problem.errors };
+-         }
+-       } catch {
+-         // fall through to the generic message
+-       }
+-     }
+-     return { kind: "failed" };
+-   }
++   ): Promise<SubmitResult> {}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:73:28
+-       response = await fetch("/api/registrations", {
++       response = await fetch("", {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:73:50
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(request),
+-       });
++       response = await fetch("/api/registrations", {});
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:74:15
+-         method: "POST",
++         method: "",
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:75:16
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
++         headers: {},
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:76:25
+-           "Content-Type": "application/json",
++           "Content-Type": "",
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:82:12
+-       return { kind: "failed" };
++       return {};
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    submitRegistration returns failed when the network fails
+
+
+[Survived] BlockStatement
+src/api.ts:81:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    submitRegistration returns failed when the network fails
+
+
+[Survived] StringLiteral
+src/api.ts:77:17
+-           Accept: "application/json",
++           Accept: "",
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:82:20
+-       return { kind: "failed" };
++       return { kind: "" };
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    submitRegistration returns failed when the network fails
+
+
+[Survived] ConditionalExpression
+src/api.ts:84:7
+-     if (response.status === 201) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:84:7
+-     if (response.status === 201) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:84:7
+-     if (response.status === 201) {
++     if (response.status !== 201) {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:84:32
+-     if (response.status === 201) {
+-       return {
+-         kind: "created",
+-         registration: (await response.json()) as Registration,
+-       };
+-     }
++     if (response.status === 201) {}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 3 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:85:12
+-       return {
+-         kind: "created",
+-         registration: (await response.json()) as Registration,
+-       };
++       return {};
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 3 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:86:13
+-         kind: "created",
++         kind: "",
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 3 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:90:7
+-     if (response.status === 409) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+  and 4 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:90:7
+-     if (response.status === 409) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+  and 4 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:90:32
+-     if (response.status === 409) {
+-       return { kind: "duplicate" };
+-     }
++     if (response.status === 409) {}
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    submitRegistration returns duplicate on 409 and failed on other statuses
+
+
+[Survived] ObjectLiteral
+src/api.ts:91:12
+-       return { kind: "duplicate" };
++       return {};
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    submitRegistration returns duplicate on 409 and failed on other statuses
+
+
+[Survived] EqualityOperator
+src/api.ts:90:7
+-     if (response.status === 409) {
++     if (response.status !== 409) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+  and 4 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:91:20
+-       return { kind: "duplicate" };
++       return { kind: "" };
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    submitRegistration returns duplicate on 409 and failed on other statuses
+
+
+[Survived] ConditionalExpression
+src/api.ts:93:7
+-     if (response.status === 400) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    App disables the button while sending and shows a workshop error next to the workshops
+  and 3 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:93:7
+-     if (response.status === 400) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    App disables the button while sending and shows a workshop error next to the workshops
+  and 3 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:93:7
+-     if (response.status === 400) {
++     if (response.status !== 400) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    App disables the button while sending and shows a workshop error next to the workshops
+  and 3 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:93:32
+-     if (response.status === 400) {
+-       try {
+-         const problem = (await response.json()) as { errors?: FieldError[] };
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
+-           return { kind: "invalid", errors: problem.errors };
+-         }
+-       } catch {
+-         // fall through to the generic message
+-       }
+-     }
++     if (response.status === 400) {}
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/api.ts:96:11
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (true) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/api.ts:94:9
+-       try {
+-         const problem = (await response.json()) as { errors?: FieldError[] };
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
+-           return { kind: "invalid", errors: problem.errors };
+-         }
+-       } catch {
++       try {} catch {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/api.ts:96:11
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (false) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+  and 1 more test!
+
+
+[Survived] LogicalOperator
+src/api.ts:96:11
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (Array.isArray(problem.errors) || problem.errors.length > 0) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/api.ts:96:44
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (Array.isArray(problem.errors) && true) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] EqualityOperator
+src/api.ts:96:44
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (Array.isArray(problem.errors) && problem.errors.length >= 0) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] EqualityOperator
+src/api.ts:96:44
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
++         if (Array.isArray(problem.errors) && problem.errors.length <= 0) {
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] BlockStatement
+src/api.ts:96:71
+-         if (Array.isArray(problem.errors) && problem.errors.length > 0) {
+-           return { kind: "invalid", errors: problem.errors };
+-         }
++         if (Array.isArray(problem.errors) && problem.errors.length > 0) {}
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] ObjectLiteral
+src/api.ts:103:10
+-     return { kind: "failed" };
++     return {};
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    submitRegistration treats a 400 without field errors or with a broken body as a failure
+    submitRegistration returns duplicate on 409 and failed on other statuses
+
+
+[Survived] ObjectLiteral
+src/api.ts:97:16
+-           return { kind: "invalid", errors: problem.errors };
++           return {};
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] StringLiteral
+src/api.ts:97:24
+-           return { kind: "invalid", errors: problem.errors };
++           return { kind: "", errors: problem.errors };
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+    submitRegistration returns the field errors on 400
+
+
+[Survived] StringLiteral
+src/api.ts:103:18
+-     return { kind: "failed" };
++     return { kind: "" };
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+    submitRegistration treats a 400 without field errors or with a broken body as a failure
+    submitRegistration returns duplicate on 409 and failed on other statuses
+
+
+[Survived] BlockStatement
+src/api.ts:106:53
+-   export function formatAmount(value: Amount): string {
+-     return Number(value).toFixed(2);
+-   }
++   export function formatAmount(value: Amount): string {}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[NoCoverage] BooleanLiteral
+src/App.tsx:242:57
+-                   aria-invalid={fieldErrors.companyName ? true : undefined}
++                   aria-invalid={fieldErrors.companyName ? false : undefined}
+
+[NoCoverage] BooleanLiteral
+src/App.tsx:260:60
+-                   aria-invalid={fieldErrors.companyAddress ? true : undefined}
++                   aria-invalid={fieldErrors.companyAddress ? false : undefined}
+
+[NoCoverage] BooleanLiteral
+src/App.tsx:276:58
+-                   aria-invalid={fieldErrors.companyVatId ? true : undefined}
++                   aria-invalid={fieldErrors.companyVatId ? false : undefined}
+
+[NoCoverage] StringLiteral
+src/App.tsx:312:38
+-                 onChange={() => update("workshop", "")}
++                 onChange={() => update("", "")}
+
+[NoCoverage] StringLiteral
+src/App.tsx:312:50
+-                 onChange={() => update("workshop", "")}
++                 onChange={() => update("workshop", "Stryker was here!")}
+
+[Survived] ArrayDeclaration
+src/App.tsx:52:34
+-       workshops: values.workshop ? [values.workshop] : [],
++       workshops: values.workshop ? [] : [],
+Tests ran:
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] BlockStatement
+src/App.tsx:46:61
+-   function toRequest(values: FormValues): RegistrationRequest {
+-     const request: RegistrationRequest = {
+-       firstName: values.firstName,
+-       lastName: values.lastName,
+-       email: values.email,
+-       payerType: values.payerType,
+-       workshops: values.workshop ? [values.workshop] : [],
+-       student: values.student,
+-     };
+-     if (values.payerType === "company") {
+-       request.companyName = values.companyName;
+-       request.companyAddress = values.companyAddress;
+-       request.companyVatId = values.companyVatId;
+-     }
+-     return request;
+-   }
++   function toRequest(values: FormValues): RegistrationRequest {}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] ObjectLiteral
+src/App.tsx:47:40
+-     const request: RegistrationRequest = {
+-       firstName: values.firstName,
+-       lastName: values.lastName,
+-       email: values.email,
+-       payerType: values.payerType,
+-       workshops: values.workshop ? [values.workshop] : [],
+-       student: values.student,
+-     };
++     const request: RegistrationRequest = {};
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:52:54
+-       workshops: values.workshop ? [values.workshop] : [],
++       workshops: values.workshop ? [values.workshop] : ["Stryker was here"],
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+  and 4 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:55:7
+-     if (values.payerType === "company") {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:55:7
+-     if (values.payerType === "company") {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:55:7
+-     if (values.payerType === "company") {
++     if (values.payerType !== "company") {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:55:39
+-     if (values.payerType === "company") {
+-       request.companyName = values.companyName;
+-       request.companyAddress = values.companyAddress;
+-       request.companyVatId = values.companyVatId;
+-     }
++     if (values.payerType === "company") {}
+Tests ran:
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:55:28
+-     if (values.payerType === "company") {
++     if (values.payerType === "") {
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:63:74
+-   function FieldMessage({ id, message }: { id: string; message?: string }) {
+-     if (!message) {
+-       return null;
+-     }
+-     return (
+-       <p id={id} className="field-error" role="alert">
+-         {message}
+-       </p>
+-     );
+-   }
++   function FieldMessage({ id, message }: { id: string; message?: string }) {}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:64:7
+-     if (!message) {
++     if (message) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:64:7
+-     if (!message) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:64:7
+-     if (!message) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:64:17
+-     if (!message) {
+-       return null;
+-     }
++     if (!message) {}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:74:23
+-   export function App() {
+-     const [values, setValues] = useState<FormValues>(EMPTY);
+-     const [workshops, setWorkshops] = useState<Workshop[]>([]);
+-     const [price, setPrice] = useState<Price | null>(null);
+-     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+-     const [formError, setFormError] = useState<string | null>(null);
+-     const [sending, setSending] = useState(false);
+-     const [registration, setRegistration] = useState<Registration | null>(null);
+-     const latestPriceRequest = useRef(0);
+-     useEffect(() => {
+-       const requestId = ++latestPriceRequest.current;
+-       fetchOptions(values.student)
+-         .then((options) => {
+-           if (requestId !== latestPriceRequest.current) {
+-             return;
+-           }
+-           setWorkshops(options.workshops);
+-           setPrice(options.price);
+-         })
+-         .catch(() => {
+-           if (requestId === latestPriceRequest.current) {
+-             setFormError(GENERIC_MESSAGE);
+-           }
+-         });
+-     }, [values.student]);
+-     function update<K extends keyof FormValues>(field: K, value: FormValues[K]) {
+-       setValues((current) => ({ ...current, [field]: value }));
+-     }
+-     async function onSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       setSending(true);
+-       setFormError(null);
+-       setFieldErrors({});
+-       const result = await submitRegistration(toRequest(values));
+-       setSending(false);
+-       switch (result.kind) {
+-         case "created":
+-           setRegistration(result.registration);
+-           break;
+-         case "invalid":
+-           setFieldErrors(
+-             Object.fromEntries(result.errors.map((e) => [e.field, e.message])),
+-           );
+-           break;
+-         case "duplicate":
+-           setFormError(DUPLICATE_MESSAGE);
+-           break;
+-         default:
+-           setFormError(GENERIC_MESSAGE);
+-       }
+-     }
+-     const describedBy = (field: string) =>
+-       fieldErrors[field] ? `${field}-error` : undefined;
+-     const textField = (
+-       field: "firstName" | "lastName" | "email",
+-       label: string,
+-       type = "text",
+-     ) => (
+-       <div className="field">
+-         <label htmlFor={field}>{label}</label>
+-         <input
+-           id={field}
+-           name={field}
+-           type={type}
+-           autoComplete={
+-             field === "email"
+-               ? "email"
+-               : field === "firstName"
+-                 ? "given-name"
+-                 : "family-name"
+-           }
+-           value={values[field]}
+-           maxLength={field === "email" ? 254 : 100}
+-           required
+-           aria-invalid={fieldErrors[field] ? true : undefined}
+-           aria-describedby={describedBy(field)}
+-           onChange={(e) => update(field, e.target.value)}
+-         />
+-         <FieldMessage id={`${field}-error`} message={fieldErrors[field]} />
+-       </div>
+-     );
+-     if (registration) {
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
+-       return (
+-         <main>
+-           <h1>Conference registration</h1>
+-           <section
+-             data-testid="confirmation"
+-             role="status"
+-             className="confirmation"
+-           >
+-             <h2>Thank you for registering</h2>
+-             <p>
+-               Registration number:{" "}
+-               <strong>{registration.registrationNumber}</strong>
+-             </p>
+-             <p>Workshop: {workshop ? workshop.title : "none"}</p>
+-             <p>Net fee: {formatAmount(registration.netFee)} EUR</p>
+-             <p>VAT: {formatAmount(registration.vat)} EUR</p>
+-             <p>
+-               Total: <strong>{formatAmount(registration.grossFee)} EUR</strong>
+-             </p>
+-             <p>A confirmation has been sent to your e-mail address.</p>
+-           </section>
+-         </main>
+-       );
+-     }
+-     return (
+-       <main>
+-         <h1>Conference registration</h1>
+-         {formError && (
+-           <p data-testid="form-error" role="alert" className="form-error">
+-             {formError}
+-           </p>
+-         )}
+-         <form onSubmit={onSubmit} noValidate>
+-           {textField("firstName", "First name")}
+-           {textField("lastName", "Last name")}
+-           {textField("email", "E-mail", "email")}
+-           <div className="field checkbox">
+-             <input
+-               id="student"
+-               name="student"
+-               type="checkbox"
+-               checked={values.student}
+-               onChange={(e) => update("student", e.target.checked)}
+-             />
+-             <label htmlFor="student">I am a student</label>
+-           </div>
+-           <fieldset aria-describedby={describedBy("payerType")}>
+-             <legend>Payer</legend>
+-             {(["private", "company"] as const).map((payer) => (
+-               <div className="choice" key={payer}>
+-                 <input
+-                   id={`payer-${payer}`}
+-                   name="payerType"
+-                   type="radio"
+-                   value={payer}
+-                   checked={values.payerType === payer}
+-                   onChange={() => update("payerType", payer)}
+-                 />
+-                 <label htmlFor={`payer-${payer}`}>
+-                   {payer === "private" ? "Private person" : "Company"}
+-                 </label>
+-               </div>
+-             ))}
+-             <FieldMessage id="payerType-error" message={fieldErrors.payerType} />
+-           </fieldset>
+-           {values.payerType === "company" && (
+-             <div className="company">
+-               <div className="field">
+-                 <label htmlFor="companyName">Company name</label>
+-                 <input
+-                   id="companyName"
+-                   name="companyName"
+-                   value={values.companyName}
+-                   maxLength={200}
+-                   required
+-                   aria-invalid={fieldErrors.companyName ? true : undefined}
+-                   aria-describedby={describedBy("companyName")}
+-                   onChange={(e) => update("companyName", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyName-error"
+-                   message={fieldErrors.companyName}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyAddress">Company address</label>
+-                 <textarea
+-                   id="companyAddress"
+-                   name="companyAddress"
+-                   value={values.companyAddress}
+-                   maxLength={500}
+-                   rows={3}
+-                   required
+-                   aria-invalid={fieldErrors.companyAddress ? true : undefined}
+-                   aria-describedby={describedBy("companyAddress")}
+-                   onChange={(e) => update("companyAddress", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyAddress-error"
+-                   message={fieldErrors.companyAddress}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyVatId">Company VAT ID</label>
+-                 <input
+-                   id="companyVatId"
+-                   name="companyVatId"
+-                   value={values.companyVatId}
+-                   maxLength={30}
+-                   aria-invalid={fieldErrors.companyVatId ? true : undefined}
+-                   aria-describedby={describedBy("companyVatId")}
+-                   onChange={(e) => update("companyVatId", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyVatId-error"
+-                   message={fieldErrors.companyVatId}
+-                 />
+-               </div>
+-             </div>
+-           )}
+-           <fieldset aria-describedby={describedBy("workshops")}>
+-             <legend>Workshop</legend>
+-             {workshops.map((workshop) => (
+-               <div className="choice" key={workshop.id}>
+-                 <input
+-                   id={`workshop-${workshop.id}`}
+-                   name="workshop"
+-                   type="radio"
+-                   value={workshop.id}
+-                   checked={values.workshop === workshop.id}
+-                   onChange={() => update("workshop", workshop.id)}
+-                 />
+-                 <label htmlFor={`workshop-${workshop.id}`}>
+-                   {workshop.title}
+-                 </label>
+-               </div>
+-             ))}
+-             <div className="choice">
+-               <input
+-                 id="workshop-none"
+-                 name="workshop"
+-                 type="radio"
+-                 value=""
+-                 checked={values.workshop === ""}
+-                 onChange={() => update("workshop", "")}
+-               />
+-               <label htmlFor="workshop-none">No workshop</label>
+-             </div>
+-             <FieldMessage id="workshops-error" message={fieldErrors.workshops} />
+-           </fieldset>
+-           <section
+-             data-testid="price-summary"
+-             className="price"
+-             aria-live="polite"
+-           >
+-             <h2>Your fee</h2>
+-             {price ? (
+-               <dl>
+-                 <dt>Net fee</dt>
+-                 <dd>{formatAmount(price.netFee)} EUR</dd>
+-                 <dt>VAT</dt>
+-                 <dd>{formatAmount(price.vat)} EUR</dd>
+-                 <dt>Total</dt>
+-                 <dd>
+-                   <strong>{formatAmount(price.grossFee)} EUR</strong>
+-                 </dd>
+-               </dl>
+-             ) : (
+-               <p>Loading…</p>
+-             )}
+-           </section>
+-           <button type="submit" disabled={sending}>
+-             Register
+-           </button>
+-         </form>
+-       </main>
+-     );
+-   }
++   export function App() {}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:76:58
+-     const [workshops, setWorkshops] = useState<Workshop[]>([]);
++     const [workshops, setWorkshops] = useState<Workshop[]>(["Stryker was here"]);
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:80:42
+-     const [sending, setSending] = useState(false);
++     const [sending, setSending] = useState(true);
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:84:19
+-     useEffect(() => {
+-       const requestId = ++latestPriceRequest.current;
+-       fetchOptions(values.student)
+-         .then((options) => {
+-           if (requestId !== latestPriceRequest.current) {
+-             return;
+-           }
+-           setWorkshops(options.workshops);
+-           setPrice(options.price);
+-         })
+-         .catch(() => {
+-           if (requestId === latestPriceRequest.current) {
+-             setFormError(GENERIC_MESSAGE);
+-           }
+-         });
+-     }, [values.student]);
++     useEffect(() => {}, [values.student]);
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] UpdateOperator
+src/App.tsx:85:23
+-       const requestId = ++latestPriceRequest.current;
++       const requestId = --latestPriceRequest.current;
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:87:26
+-         .then((options) => {
+-           if (requestId !== latestPriceRequest.current) {
+-             return;
+-           }
+-           setWorkshops(options.workshops);
+-           setPrice(options.price);
+-         })
++         .then((options) => {})
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:88:13
+-           if (requestId !== latestPriceRequest.current) {
++           if (true) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:88:55
+-           if (requestId !== latestPriceRequest.current) {
+-             return;
+-           }
++           if (requestId !== latestPriceRequest.current) {}
+Tests ran:
+    App ignores a stale price answer that arrives after a newer one
+
+
+[Survived] ConditionalExpression
+src/App.tsx:88:13
+-           if (requestId !== latestPriceRequest.current) {
++           if (false) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:88:13
+-           if (requestId !== latestPriceRequest.current) {
++           if (requestId === latestPriceRequest.current) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:94:20
+-         .catch(() => {
+-           if (requestId === latestPriceRequest.current) {
+-             setFormError(GENERIC_MESSAGE);
+-           }
+-         });
++         .catch(() => {});
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] CallExpression
+src/App.tsx:91:9
+-           setWorkshops(options.workshops);
++           ;
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:95:13
+-           if (requestId === latestPriceRequest.current) {
++           if (true) {
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] CallExpression
+src/App.tsx:92:9
+-           setPrice(options.price);
++           ;
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:95:13
+-           if (requestId === latestPriceRequest.current) {
++           if (false) {
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] EqualityOperator
+src/App.tsx:95:13
+-           if (requestId === latestPriceRequest.current) {
++           if (requestId !== latestPriceRequest.current) {
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] BlockStatement
+src/App.tsx:95:55
+-           if (requestId === latestPriceRequest.current) {
+-             setFormError(GENERIC_MESSAGE);
+-           }
++           if (requestId === latestPriceRequest.current) {}
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] CallExpression
+src/App.tsx:96:11
+-             setFormError(GENERIC_MESSAGE);
++             ;
+Tests ran:
+    App shows a generic message when the options cannot be loaded
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:99:6
+-     }, [values.student]);
++     }, []);
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:101:79
+-     function update<K extends keyof FormValues>(field: K, value: FormValues[K]) {
+-       setValues((current) => ({ ...current, [field]: value }));
+-     }
++     function update<K extends keyof FormValues>(field: K, value: FormValues[K]) {}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-22 shows the current price and updates it when the student box changes
+  and 6 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:102:15
+-       setValues((current) => ({ ...current, [field]: value }));
++       setValues(() => undefined);
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-22 shows the current price and updates it when the student box changes
+  and 6 more tests!
+
+
+[Survived] ObjectLiteral
+src/App.tsx:102:29
+-       setValues((current) => ({ ...current, [field]: value }));
++       setValues((current) => ({}));
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-22 shows the current price and updates it when the student box changes
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:105:62
+-     async function onSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       setSending(true);
+-       setFormError(null);
+-       setFieldErrors({});
+-       const result = await submitRegistration(toRequest(values));
+-       setSending(false);
+-       switch (result.kind) {
+-         case "created":
+-           setRegistration(result.registration);
+-           break;
+-         case "invalid":
+-           setFieldErrors(
+-             Object.fromEntries(result.errors.map((e) => [e.field, e.message])),
+-           );
+-           break;
+-         case "duplicate":
+-           setFormError(DUPLICATE_MESSAGE);
+-           break;
+-         default:
+-           setFormError(GENERIC_MESSAGE);
+-       }
+-     }
++     async function onSubmit(event: FormEvent<HTMLFormElement>) {}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:106:5
+-       event.preventDefault();
++       ;
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:107:16
+-       setSending(true);
++       setSending(false);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:108:5
+-       setFormError(null);
++       ;
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:109:5
+-       setFieldErrors({});
++       ;
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:111:16
+-       setSending(false);
++       setSending(true);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:113:7
+-         case "created":
+-           setRegistration(result.registration);
+-           break;
++         case "created":
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/App.tsx:113:12
+-         case "created":
++         case "":
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 5 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:114:9
+-           setRegistration(result.registration);
++           ;
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:116:7
+-         case "invalid":
+-           setFieldErrors(
+-             Object.fromEntries(result.errors.map((e) => [e.field, e.message])),
+-           );
+-           break;
++         case "invalid":
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+
+
+[Survived] StringLiteral
+src/App.tsx:116:12
+-         case "invalid":
++         case "":
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+  and 1 more test!
+
+
+[Survived] ArrowFunction
+src/App.tsx:118:48
+-             Object.fromEntries(result.errors.map((e) => [e.field, e.message])),
++             Object.fromEntries(result.errors.map(() => undefined)),
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+
+
+[Survived] ConditionalExpression
+src/App.tsx:121:7
+-         case "duplicate":
+-           setFormError(DUPLICATE_MESSAGE);
+-           break;
++         case "duplicate":
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+
+
+[Survived] StringLiteral
+src/App.tsx:121:12
+-         case "duplicate":
++         case "":
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+
+
+[Survived] CallExpression
+src/App.tsx:122:9
+-           setFormError(DUPLICATE_MESSAGE);
++           ;
+Tests ran:
+    US-001 registration form AC-001-24 explains a duplicate e-mail address and keeps the values
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:118:55
+-             Object.fromEntries(result.errors.map((e) => [e.field, e.message])),
++             Object.fromEntries(result.errors.map((e) => [])),
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+
+
+[Survived] ConditionalExpression
+src/App.tsx:124:7
+-         default:
+-           setFormError(GENERIC_MESSAGE);
++         default:
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+
+
+[Survived] CallExpression
+src/App.tsx:125:9
+-           setFormError(GENERIC_MESSAGE);
++           ;
+Tests ran:
+    US-001 registration form AC-001-24 shows a generic message without internal details when the backend fails or is unreachable
+
+
+[Survived] ArrowFunction
+src/App.tsx:129:23
+-     const describedBy = (field: string) =>
+-       fieldErrors[field] ? `${field}-error` : undefined;
++     const describedBy = () => undefined;
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:130:26
+-       fieldErrors[field] ? `${field}-error` : undefined;
++       fieldErrors[field] ? `` : undefined;
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+    App disables the button while sending and shows a workshop error next to the workshops
+
+
+[Survived] ArrowFunction
+src/App.tsx:132:21
+-     const textField = (
+-       field: "firstName" | "lastName" | "email",
+-       label: string,
+-       type = "text",
+-     ) => (
+-       <div className="field">
+-         <label htmlFor={field}>{label}</label>
+-         <input
+-           id={field}
+-           name={field}
+-           type={type}
+-           autoComplete={
+-             field === "email"
+-               ? "email"
+-               : field === "firstName"
+-                 ? "given-name"
+-                 : "family-name"
+-           }
+-           value={values[field]}
+-           maxLength={field === "email" ? 254 : 100}
+-           required
+-           aria-invalid={fieldErrors[field] ? true : undefined}
+-           aria-describedby={describedBy(field)}
+-           onChange={(e) => update(field, e.target.value)}
+-         />
+-         <FieldMessage id={`${field}-error`} message={fieldErrors[field]} />
+-       </div>
+-     );
++     const textField = () => undefined;
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:135:12
+-       type = "text",
++       type = "",
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:144:11
+-             field === "email"
++             true
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:144:11
+-             field === "email"
++             false
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:144:11
+-             field === "email"
++             field !== "email"
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:144:21
+-             field === "email"
++             field === ""
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:145:15
+-               ? "email"
++               ? ""
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:146:15
+-               : field === "firstName"
++               : true
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:146:15
+-               : field === "firstName"
++               : false
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:146:15
+-               : field === "firstName"
++               : field !== "firstName"
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:146:25
+-               : field === "firstName"
++               : field === ""
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:147:17
+-                 ? "given-name"
++                 ? ""
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:148:17
+-                 : "family-name"
++                 : ""
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:151:20
+-           maxLength={field === "email" ? 254 : 100}
++           maxLength={true ? 254 : 100}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:153:44
+-           aria-invalid={fieldErrors[field] ? true : undefined}
++           aria-invalid={fieldErrors[field] ? false : undefined}
+Tests ran:
+    US-001 registration form AC-001-23 shows each server error next to its field and keeps the values
+
+
+[Survived] ConditionalExpression
+src/App.tsx:151:20
+-           maxLength={field === "email" ? 254 : 100}
++           maxLength={false ? 254 : 100}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:151:20
+-           maxLength={field === "email" ? 254 : 100}
++           maxLength={field !== "email" ? 254 : 100}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:151:30
+-           maxLength={field === "email" ? 254 : 100}
++           maxLength={field === "" ? 254 : 100}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:155:19
+-           onChange={(e) => update(field, e.target.value)}
++           onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:157:25
+-         <FieldMessage id={`${field}-error`} message={fieldErrors[field]} />
++         <FieldMessage id={``} message={fieldErrors[field]} />
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:161:7
+-     if (registration) {
++     if (true) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:161:7
+-     if (registration) {
++     if (false) {
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:161:21
+-     if (registration) {
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
+-       return (
+-         <main>
+-           <h1>Conference registration</h1>
+-           <section
+-             data-testid="confirmation"
+-             role="status"
+-             className="confirmation"
+-           >
+-             <h2>Thank you for registering</h2>
+-             <p>
+-               Registration number:{" "}
+-               <strong>{registration.registrationNumber}</strong>
+-             </p>
+-             <p>Workshop: {workshop ? workshop.title : "none"}</p>
+-             <p>Net fee: {formatAmount(registration.netFee)} EUR</p>
+-             <p>VAT: {formatAmount(registration.vat)} EUR</p>
+-             <p>
+-               Total: <strong>{formatAmount(registration.grossFee)} EUR</strong>
+-             </p>
+-             <p>A confirmation has been sent to your e-mail address.</p>
+-           </section>
+-         </main>
+-       );
+-     }
++     if (registration) {}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] ArrowFunction
+src/App.tsx:162:37
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
++       const workshop = workshops.find(() => undefined);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:162:44
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
++       const workshop = workshops.find((w) => true);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:162:44
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
++       const workshop = workshops.find((w) => false);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] EqualityOperator
+src/App.tsx:162:44
+-       const workshop = workshops.find((w) => w.id === registration.workshop);
++       const workshop = workshops.find((w) => w.id !== registration.workshop);
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/App.tsx:173:34
+-               Registration number:{" "}
++               Registration number:{""}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/App.tsx:176:53
+-             <p>Workshop: {workshop ? workshop.title : "none"}</p>
++             <p>Workshop: {workshop ? workshop.title : ""}</p>
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+    App states 'none' in the confirmation when no workshop was chosen
+
+
+[Survived] ConditionalExpression
+src/App.tsx:191:8
+-         {formError && (
+-           <p data-testid="form-error" role="alert" className="form-error">
+-             {formError}
+-           </p>
+-         )}
++         {true}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:191:8
+-         {formError && (
+-           <p data-testid="form-error" role="alert" className="form-error">
+-             {formError}
+-           </p>
+-         )}
++         {false}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:191:8
+-         {formError && (
+-           <p data-testid="form-error" role="alert" className="form-error">
+-             {formError}
+-           </p>
+-         )}
++         {formError || <p data-testid="form-error" role="alert" className="form-error">
++             {formError}
++           </p>}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:197:20
+-           {textField("firstName", "First name")}
++           {textField("", "First name")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:197:33
+-           {textField("firstName", "First name")}
++           {textField("firstName", "")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:198:20
+-           {textField("lastName", "Last name")}
++           {textField("", "Last name")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:198:32
+-           {textField("lastName", "Last name")}
++           {textField("lastName", "")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:199:20
+-           {textField("email", "E-mail", "email")}
++           {textField("", "E-mail", "email")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:199:29
+-           {textField("email", "E-mail", "email")}
++           {textField("email", "", "email")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:199:39
+-           {textField("email", "E-mail", "email")}
++           {textField("email", "E-mail", "")}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:207:23
+-               onChange={(e) => update("student", e.target.checked)}
++               onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:207:37
+-               onChange={(e) => update("student", e.target.checked)}
++               onChange={(e) => update("", e.target.checked)}
+Tests ran:
+    US-001 registration form AC-001-22 shows the current price and updates it when the student box changes
+    US-001 registration form AC-001-01 sends an empty workshop list and the student flag
+    App ignores a stale price answer that arrives after a newer one
+
+
+[Survived] StringLiteral
+src/App.tsx:212:49
+-           <fieldset aria-describedby={describedBy("payerType")}>
++           <fieldset aria-describedby={describedBy("")}>
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:214:50
+-             {(["private", "company"] as const).map((payer) => (
+-               <div className="choice" key={payer}>
+-                 <input
+-                   id={`payer-${payer}`}
+-                   name="payerType"
+-                   type="radio"
+-                   value={payer}
+-                   checked={values.payerType === payer}
+-                   onChange={() => update("payerType", payer)}
+-                 />
+-                 <label htmlFor={`payer-${payer}`}>
+-                   {payer === "private" ? "Private person" : "Company"}
+-                 </label>
+-               </div>
+-             ))}
++             {(["private", "company"] as const).map(() => undefined)}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:217:21
+-                   id={`payer-${payer}`}
++                   id={``}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:221:26
+-                   checked={values.payerType === payer}
++                   checked={true}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:221:26
+-                   checked={values.payerType === payer}
++                   checked={false}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:222:40
+-                   onChange={() => update("payerType", payer)}
++                   onChange={() => update("", payer)}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] EqualityOperator
+src/App.tsx:221:26
+-                   checked={values.payerType === payer}
++                   checked={values.payerType !== payer}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:222:27
+-                   onChange={() => update("payerType", payer)}
++                   onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:224:31
+-                 <label htmlFor={`payer-${payer}`}>
++                 <label htmlFor={``}>
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:225:18
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {true ? "Private person" : "Company"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:225:18
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {false ? "Private person" : "Company"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:225:18
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {payer !== "private" ? "Private person" : "Company"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:225:28
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {payer === "" ? "Private person" : "Company"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:225:40
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {payer === "private" ? "" : "Company"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:225:59
+-                   {payer === "private" ? "Private person" : "Company"}
++                   {payer === "private" ? "Private person" : ""}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:232:10
+-           {values.payerType === "company" && (
+-             <div className="company">
+-               <div className="field">
+-                 <label htmlFor="companyName">Company name</label>
+-                 <input
+-                   id="companyName"
+-                   name="companyName"
+-                   value={values.companyName}
+-                   maxLength={200}
+-                   required
+-                   aria-invalid={fieldErrors.companyName ? true : undefined}
+-                   aria-describedby={describedBy("companyName")}
+-                   onChange={(e) => update("companyName", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyName-error"
+-                   message={fieldErrors.companyName}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyAddress">Company address</label>
+-                 <textarea
+-                   id="companyAddress"
+-                   name="companyAddress"
+-                   value={values.companyAddress}
+-                   maxLength={500}
+-                   rows={3}
+-                   required
+-                   aria-invalid={fieldErrors.companyAddress ? true : undefined}
+-                   aria-describedby={describedBy("companyAddress")}
+-                   onChange={(e) => update("companyAddress", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyAddress-error"
+-                   message={fieldErrors.companyAddress}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyVatId">Company VAT ID</label>
+-                 <input
+-                   id="companyVatId"
+-                   name="companyVatId"
+-                   value={values.companyVatId}
+-                   maxLength={30}
+-                   aria-invalid={fieldErrors.companyVatId ? true : undefined}
+-                   aria-describedby={describedBy("companyVatId")}
+-                   onChange={(e) => update("companyVatId", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyVatId-error"
+-                   message={fieldErrors.companyVatId}
+-                 />
+-               </div>
+-             </div>
+-           )}
++           {true}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:232:10
+-           {values.payerType === "company" && (
+-             <div className="company">
+-               <div className="field">
+-                 <label htmlFor="companyName">Company name</label>
+-                 <input
+-                   id="companyName"
+-                   name="companyName"
+-                   value={values.companyName}
+-                   maxLength={200}
+-                   required
+-                   aria-invalid={fieldErrors.companyName ? true : undefined}
+-                   aria-describedby={describedBy("companyName")}
+-                   onChange={(e) => update("companyName", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyName-error"
+-                   message={fieldErrors.companyName}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyAddress">Company address</label>
+-                 <textarea
+-                   id="companyAddress"
+-                   name="companyAddress"
+-                   value={values.companyAddress}
+-                   maxLength={500}
+-                   rows={3}
+-                   required
+-                   aria-invalid={fieldErrors.companyAddress ? true : undefined}
+-                   aria-describedby={describedBy("companyAddress")}
+-                   onChange={(e) => update("companyAddress", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyAddress-error"
+-                   message={fieldErrors.companyAddress}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyVatId">Company VAT ID</label>
+-                 <input
+-                   id="companyVatId"
+-                   name="companyVatId"
+-                   value={values.companyVatId}
+-                   maxLength={30}
+-                   aria-invalid={fieldErrors.companyVatId ? true : undefined}
+-                   aria-describedby={describedBy("companyVatId")}
+-                   onChange={(e) => update("companyVatId", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyVatId-error"
+-                   message={fieldErrors.companyVatId}
+-                 />
+-               </div>
+-             </div>
+-           )}
++           {false}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:232:10
+-           {values.payerType === "company" && (
+-             <div className="company">
+-               <div className="field">
+-                 <label htmlFor="companyName">Company name</label>
+-                 <input
+-                   id="companyName"
+-                   name="companyName"
+-                   value={values.companyName}
+-                   maxLength={200}
+-                   required
+-                   aria-invalid={fieldErrors.companyName ? true : undefined}
+-                   aria-describedby={describedBy("companyName")}
+-                   onChange={(e) => update("companyName", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyName-error"
+-                   message={fieldErrors.companyName}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyAddress">Company address</label>
+-                 <textarea
+-                   id="companyAddress"
+-                   name="companyAddress"
+-                   value={values.companyAddress}
+-                   maxLength={500}
+-                   rows={3}
+-                   required
+-                   aria-invalid={fieldErrors.companyAddress ? true : undefined}
+-                   aria-describedby={describedBy("companyAddress")}
+-                   onChange={(e) => update("companyAddress", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyAddress-error"
+-                   message={fieldErrors.companyAddress}
+-                 />
+-               </div>
+-               <div className="field">
+-                 <label htmlFor="companyVatId">Company VAT ID</label>
+-                 <input
+-                   id="companyVatId"
+-                   name="companyVatId"
+-                   value={values.companyVatId}
+-                   maxLength={30}
+-                   aria-invalid={fieldErrors.companyVatId ? true : undefined}
+-                   aria-describedby={describedBy("companyVatId")}
+-                   onChange={(e) => update("companyVatId", e.target.value)}
+-                 />
+-                 <FieldMessage
+-                   id="companyVatId-error"
+-                   message={fieldErrors.companyVatId}
+-                 />
+-               </div>
+-             </div>
+-           )}
++           {values.payerType === "company" || <div className="company">
++               <div className="field">
++                 <label htmlFor="companyName">Company name</label>
++                 <input id="companyName" name="companyName" value={values.companyName} maxLength={200} required aria-invalid={fieldErrors.companyName ? true : undefined} aria-describedby={describedBy("companyName")} onChange={e => update("companyName", e.target.value)} />
++                 <FieldMessage id="companyName-error" message={fieldErrors.companyName} />
++               </div>
++               <div className="field">
++                 <label htmlFor="companyAddress">Company address</label>
++                 <textarea id="companyAddress" name="companyAddress" value={values.companyAddress} maxLength={500} rows={3} required aria-invalid={fieldErrors.companyAddress ? true : undefined} aria-describedby={describedBy("companyAddress")} onChange={e => update("companyAddress", e.target.value)} />
++                 <FieldMessage id="companyAddress-error" message={fieldErrors.companyAddress} />
++               </div>
++               <div className="field">
++                 <label htmlFor="companyVatId">Company VAT ID</label>
++                 <input id="companyVatId" name="companyVatId" value={values.companyVatId} maxLength={30} aria-invalid={fieldErrors.companyVatId ? true : undefined} aria-describedby={describedBy("companyVatId")} onChange={e => update("companyVatId", e.target.value)} />
++                 <FieldMessage id="companyVatId-error" message={fieldErrors.companyVatId} />
++               </div>
++             </div>}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:232:10
+-           {values.payerType === "company" && (
++           {true && (
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:243:47
+-                   aria-describedby={describedBy("companyName")}
++                   aria-describedby={describedBy("")}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] EqualityOperator
+src/App.tsx:232:10
+-           {values.payerType === "company" && (
++           {values.payerType !== "company" && (
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:232:31
+-           {values.payerType === "company" && (
++           {values.payerType === "" && (
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:244:27
+-                   onChange={(e) => update("companyName", e.target.value)}
++                   onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:244:41
+-                   onChange={(e) => update("companyName", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+Tests ran:
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:261:47
+-                   aria-describedby={describedBy("companyAddress")}
++                   aria-describedby={describedBy("")}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] ArrowFunction
+src/App.tsx:262:27
+-                   onChange={(e) => update("companyAddress", e.target.value)}
++                   onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:277:47
+-                   aria-describedby={describedBy("companyVatId")}
++                   aria-describedby={describedBy("")}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:262:41
+-                   onChange={(e) => update("companyAddress", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+Tests ran:
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] ArrowFunction
+src/App.tsx:278:27
+-                   onChange={(e) => update("companyVatId", e.target.value)}
++                   onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] StringLiteral
+src/App.tsx:278:41
+-                   onChange={(e) => update("companyVatId", e.target.value)}
++                   onChange={(e) => update("", e.target.value)}
+Tests ran:
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] ArrowFunction
+src/App.tsx:290:26
+-             {workshops.map((workshop) => (
+-               <div className="choice" key={workshop.id}>
+-                 <input
+-                   id={`workshop-${workshop.id}`}
+-                   name="workshop"
+-                   type="radio"
+-                   value={workshop.id}
+-                   checked={values.workshop === workshop.id}
+-                   onChange={() => update("workshop", workshop.id)}
+-                 />
+-                 <label htmlFor={`workshop-${workshop.id}`}>
+-                   {workshop.title}
+-                 </label>
+-               </div>
+-             ))}
++             {workshops.map(() => undefined)}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:288:49
+-           <fieldset aria-describedby={describedBy("workshops")}>
++           <fieldset aria-describedby={describedBy("")}>
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:293:21
+-                   id={`workshop-${workshop.id}`}
++                   id={``}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:297:26
+-                   checked={values.workshop === workshop.id}
++                   checked={true}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:298:40
+-                   onChange={() => update("workshop", workshop.id)}
++                   onChange={() => update("", workshop.id)}
+Tests ran:
+    US-001 registration form AC-001-01 submits the registration and shows the registration number and amounts
+
+
+[Survived] EqualityOperator
+src/App.tsx:297:26
+-                   checked={values.workshop === workshop.id}
++                   checked={values.workshop !== workshop.id}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:298:27
+-                   onChange={() => update("workshop", workshop.id)}
++                   onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:297:26
+-                   checked={values.workshop === workshop.id}
++                   checked={false}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:300:31
+-                 <label htmlFor={`workshop-${workshop.id}`}>
++                 <label htmlFor={``}>
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:311:24
+-                 checked={values.workshop === ""}
++                 checked={false}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:311:24
+-                 checked={values.workshop === ""}
++                 checked={true}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:311:24
+-                 checked={values.workshop === ""}
++                 checked={values.workshop !== ""}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:311:44
+-                 checked={values.workshop === ""}
++                 checked={values.workshop === "Stryker was here!"}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:312:25
+-                 onChange={() => update("workshop", "")}
++                 onChange={() => undefined}
+Tests ran:
+    US-001 registration form AC-001-20 shows the form fields, an unchecked student box and the configured workshops
+    US-001 registration form AC-001-21 shows company fields only for a company payer
+    US-001 registration form AC-001-21 does not send company fields for a private payer
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:35:14
+-     firstName: "",
++     firstName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:36:13
+-     lastName: "",
++     lastName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:37:10
+-     email: "",
++     email: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:40:16
+-     companyName: "",
++     companyName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:41:19
+-     companyAddress: "",
++     companyAddress: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:42:17
+-     companyVatId: "",
++     companyVatId: "Stryker was here!",
+Ran all tests for this mutant.
+
+Ran 0.48 tests per mutant on average.
+----------|------------------|----------|-----------|------------|----------|----------|
+          | % Mutation score |          |           |            |          |          |
+File      |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+----------|--------|---------|----------|-----------|------------|----------|----------|
+All files |   2.88 |    2.96 |        6 |         0 |        197 |        5 |        0 |
+ api.ts   |   0.00 |    0.00 |        0 |         0 |         50 |        0 |        0 |
+ App.tsx  |   3.80 |    3.92 |        6 |         0 |        147 |        5 |        0 |
+----------|--------|---------|----------|-----------|------------|----------|----------|
+[32m19:04:36 (24148) INFO JsonReporter[39m Your report can be found at: file:///C:/Users/tanej/Documents/LAB/tanej-confreg-C0/02_output/frontend/reports/mutation/mutation.json
+[32m19:04:36 (24148) INFO MutationTestExecutor[39m Done in 5 minutes and 51 seconds.
