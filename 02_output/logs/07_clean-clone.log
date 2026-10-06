@@ -1,0 +1,18 @@
+# Clean-clone check 2026-10-06T17:07:13Z
+cloned 20b4dc5
+## stop running stack, then root quick start with the existing .env (path given, values not shown)
+compose up exit 0
+{"groups":["liveness","readiness"],"status":"UP"} HTTP 200
+page HTTP 200
+mailpit HTTP 200
+organizer export HTTP 200
+## backend README: build, check
+build exit 0
+check exit 0
+## frontend README: npm ci, build, check, test, e2e
+npm ci exit 0
+build exit 0
+check exit 1
+test exit 0 (Tests  22 passed (22))
+e2e exit 0 (2 passed)
+## fix: frontend README formatted (commit 1d09bff); clone re-check: npm run check exit 0
