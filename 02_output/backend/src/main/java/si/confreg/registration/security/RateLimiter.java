@@ -76,6 +76,11 @@ public class RateLimiter {
     }
   }
 
+  /** Number of tracked bucket and client pairs (memory bound, for tests). */
+  int tracked() {
+    return hits.size();
+  }
+
   private Deque<Instant> window(String bucket, String client) {
     if (hits.size() >= MAX_TRACKED) {
       evictIdle();
