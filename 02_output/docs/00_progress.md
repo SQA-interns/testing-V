@@ -6,9 +6,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
 - Current phase: 6 (verify), started 2026-10-06T20:22:50Z
-- Last gate result: phase 5 gate passed 2026-10-06T20:22:50Z (first run 200/202 recorded and classified; full suite 202/202)
-- Next step: phase 6 per `general/skills/verify-release`: hashes, full suite with coverage and mutation, runtime demonstration, SB/SR evidence, scanners (Dependency-Check, npm audit, semgrep, gitleaks), secret-leak check, traceability, DoD, `docs/06_verification-report.md`
-- Waiting for the human on: nothing
+- Last gate result: phase 6 gate not yet passed: DoD-03 frontend mutation score depends on D-34; all other phase 6 checks pass (no open Critical/High, hashes match, no secret found, final run 203/203)
+- Next step: apply the answer to D-34 (update DoD-03 and F-03 in `docs/06_verification-report.md`), close phase 6, then phase 7 (root and component READMEs, clean-checkout check, release notes, `03_statistics/run-summary.md`)
+- Waiting for the human on: D-34 (asked 2026-10-06T21:11Z)
 
 ## Done in phase 0
 
@@ -39,6 +39,8 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - D-32 answered (D-33, 20:03Z): one line added to the frozen AC-001-09 test, manifest hash updated in the same commit; phase 4 gate passed 2026-10-06T20:07:52Z
 
 - Phase 5: 128 backend unit/integration and 18 frontend tests; first run 200 passed / 2 failed (both non-frozen test defects, fixed); full suite 202/202; gate passed 2026-10-06T20:22:50Z
+
+- Phase 6: verification report with 10 findings (0 Critical, 0 High, 4 Medium, 6 Low); fix loops F-01, F-02; runtime demonstration passed; D-34 raised
 
 ## Interruptions
 
