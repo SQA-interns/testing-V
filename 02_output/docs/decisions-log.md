@@ -314,3 +314,14 @@
   2. Require organizer authentication for registration as well (makes US-001 impossible for participants).
 - Human response: none
 - Resolution: pending review (option 1 applied)
+
+## D-30: Proceed to phase 3 with the applied options of D-20 to D-29
+- Timestamp: 2026-10-06T19:23:29Z
+- Phase: 3
+- Type: non-blocking
+- Trigger: after the phase 2 gate the agent asked the human to review D-20 to D-29 before the acceptance tests freeze them. Human response at 2026-10-06T19:23:29Z: "No further information is available. Choose an option and record it as a decision."
+- Options:
+  1. (default) Keep the applied option of each of D-20 to D-29, leave each marked "pending review" (no human approval was given), and write and freeze the acceptance tests on that basis. A later change to any of them makes the affected frozen tests wrong and is handled as a blocking decision with a manifest update by the human.
+  2. Write acceptance tests only for behaviour that no pending decision affects. This would leave AC-001-04 and AC-001-06 to AC-001-10 without frozen tests and fail the phase 3 gate.
+- Human response: 2026-10-06T19:23:29Z: no further information; agent to choose.
+- Resolution: option 1

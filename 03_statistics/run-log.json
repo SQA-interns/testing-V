@@ -247,6 +247,12 @@
       "type": "non-blocking",
       "start": "2026-10-06T19:12:29Z",
       "end": null
+    },
+    {
+      "id": "D-30",
+      "type": "non-blocking",
+      "start": "2026-10-06T19:23:29Z",
+      "end": "2026-10-06T19:23:29Z"
     }
   ],
   "humanInterventions": [
@@ -264,6 +270,11 @@
       "start": "2026-10-06T19:01:12Z",
       "end": "2026-10-06T19:07:39Z",
       "reason": "Phase 0: asked to resolve blocking decisions D-15 (angus-activation CVE) and D-17 (Playwright Chromium download)"
+    },
+    {
+      "start": "2026-10-06T19:17:00Z",
+      "end": "2026-10-06T19:23:29Z",
+      "reason": "Phase 2\u21923 checkpoint: asked to review pending decisions D-20 to D-29; human gave no further information (D-30)"
     }
   ],
   "codeMetrics": {
