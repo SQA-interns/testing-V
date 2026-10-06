@@ -1,0 +1,37 @@
+{
+  "contract": "registration-form",
+  "version": "1.0.0",
+  "interface": "participant -> frontend (UI); docs/02_specification.md section 9",
+  "acceptanceCriteria": ["AC-001-01", "AC-001-20", "AC-001-21", "AC-001-22", "AC-001-23", "AC-001-24"],
+  "page": { "path": "/", "title": "Conference registration", "heading": "Conference registration" },
+  "onLoad": { "request": "GET /api/registration-options?student=false" },
+  "fields": [
+    { "name": "firstName", "label": "First name", "control": "text", "required": true, "maxLength": 100 },
+    { "name": "lastName", "label": "Last name", "control": "text", "required": true, "maxLength": 100 },
+    { "name": "email", "label": "E-mail", "control": "email", "required": true, "maxLength": 254 },
+    { "name": "student", "label": "I am a student", "control": "checkbox", "default": false, "onChange": "GET /api/registration-options?student={checked}" },
+    { "name": "payerType", "label": "Payer", "control": "radio", "options": [{ "value": "private", "label": "Private person" }, { "value": "company", "label": "Company" }], "default": "private" },
+    { "name": "companyName", "label": "Company name", "control": "text", "visibleWhen": "payerType == company", "required": true, "maxLength": 200 },
+    { "name": "companyAddress", "label": "Company address", "control": "textarea", "visibleWhen": "payerType == company", "required": true, "maxLength": 500 },
+    { "name": "companyVatId", "label": "Company VAT ID", "control": "text", "visibleWhen": "payerType == company", "required": false, "maxLength": 30 },
+    { "name": "workshops", "label": "Workshop", "control": "radio", "options": "options.workshops + { value: '', label: 'No workshop' }", "default": "", "sentAs": "[] or [id]" }
+  ],
+  "priceSummary": {
+    "testId": "price-summary",
+    "shows": ["price.netFee", "price.vat", "price.grossFee"],
+    "format": "two decimals + ' EUR'"
+  },
+  "submit": {
+    "label": "Register",
+    "request": "POST /api/registrations",
+    "omitWhenPrivate": ["companyName", "companyAddress", "companyVatId"],
+    "disabledWhileSending": true
+  },
+  "outcomes": {
+    "201": { "show": "confirmation panel (role=status) with registrationNumber, workshop, netFee, vat, grossFee", "testId": "confirmation" },
+    "400": { "show": "message next to each field in errors[] (role=alert, aria-describedby)", "keepValues": true },
+    "409": { "show": "A registration with this e-mail address already exists.", "keepValues": true, "testId": "form-error" },
+    "413|415|429|5xx|network": { "show": "Registration is not possible right now. Please try again later.", "keepValues": true, "testId": "form-error" }
+  },
+  "storage": "nothing is stored in the browser"
+}
