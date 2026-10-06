@@ -366,16 +366,22 @@
   },
   "commits": [],
   "usage": {
-    "inputTokens": null,
-    "outputTokens": null,
-    "cacheReadTokens": null,
-    "cacheWriteTokens": null,
-    "modelCalls": null,
+    "inputTokens": 412,
+    "outputTokens": 331978,
+    "cacheReadTokens": 58633433,
+    "cacheWriteTokens": 488865,
+    "modelCalls": 206,
     "toolCalls": {
-      "total": null,
-      "byTool": {}
+      "total": 306,
+      "byTool": {
+        "Bash": 167,
+        "Write": 103,
+        "Read": 24,
+        "Edit": 11,
+        "Glob": 1
+      }
     },
-    "costUsd": null,
-    "priceTableDate": null
+    "costUsd": 22.28,
+    "priceTableDate": "2026-09-25"
   }
 }
