@@ -210,6 +210,10 @@
           <nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
           <!-- D-07: OSS Index needs credentials not listed in secrets.env.example -->
           <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
+          <!-- D-08: one human-approved false positive, one artifact -->
+          <suppressionFiles>
+            <suppressionFile>dependency-check-suppressions.xml</suppressionFile>
+          </suppressionFiles>
           <formats>
             <format>HTML</format>
             <format>JSON</format>
