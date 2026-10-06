@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Each exclusion states why the pattern cannot be avoided. -->
+<FindBugsFilter>
+  <!-- HttpSecurity.build() itself declares "throws Exception". -->
+  <Match>
+    <Class name="si.confreg.registration.config.SecurityConfig"/>
+    <Bug pattern="THROWS_METHOD_THROWS_CLAUSE_BASIC_EXCEPTION"/>
+  </Match>
+  <!-- A request wrapper must return the same input stream on every call (Servlet API). -->
+  <Match>
+    <Class name="si.confreg.registration.infrastructure.web.BodySizeLimitFilter$LimitedRequest"/>
+    <Bug pattern="EI_EXPOSE_REP"/>
+  </Match>
+</FindBugsFilter>
