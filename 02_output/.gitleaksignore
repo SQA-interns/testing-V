@@ -1,0 +1,7 @@
+# F-01: Spring Boot's per-run generated password of the bootstrap skeleton, printed during the
+# phase 3 test runs and committed in 391f6a6 (history is never rewritten). Redacted in the files since.
+# Not a project secret; never protected anything that still exists.
+391f6a6e84095d6c051faeb99fe78e7d8bbd667d:02_output/logs/03_test-design/backend-acceptance-run1.log:generic-api-key:161
+391f6a6e84095d6c051faeb99fe78e7d8bbd667d:02_output/logs/03_test-design/backend-acceptance-run1.log:generic-api-key:258
+391f6a6e84095d6c051faeb99fe78e7d8bbd667d:02_output/logs/03_test-design/backend-acceptance-run2.log:generic-api-key:161
+391f6a6e84095d6c051faeb99fe78e7d8bbd667d:02_output/logs/03_test-design/backend-acceptance-run2.log:generic-api-key:258

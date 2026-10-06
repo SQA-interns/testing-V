@@ -158,7 +158,7 @@ java.lang.AssertionError: Rule 'no classes that reside in a package 'si.confreg.
 2026-10-06T21:28:14.287+02:00  WARN 36000 --- [registration-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-10-06T21:28:15.671+02:00  WARN 36000 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 6c7bfaa9-c140-414a-9b39-b8b27da6a80e
+Using generated security password: [REDACTED, F-01]
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
@@ -255,7 +255,7 @@ expected: 201
 2026-10-06T21:28:20.935+02:00  WARN 36000 --- [registration-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-10-06T21:28:21.189+02:00  WARN 36000 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 58d29c35-25e4-4930-9f0b-e108eaad8330
+Using generated security password: [REDACTED, F-01]
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
