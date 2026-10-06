@@ -89,8 +89,8 @@
 - Type: blocking
 - Trigger: the form (AR-01, AC-001-11) must offer the workshops configured in `APP_WORKSHOPS` (AR-04: read where used). `security-requirements.md` says every endpoint requires organizer authentication unless a requirement explicitly makes it public; REQ-REG-01 makes only `POST /api/registrations` public. Making another endpoint public changes a project security requirement.
 - Options: 1. add `GET /api/workshops`, public, read-only, returns only workshop ids and titles (no personal data), rate limited per client like registrations (proposed; in `docs/02_specification.md` 5.3 and the OpenAPI contract); 2. no new endpoint: the frontend container reads `APP_WORKSHOPS` at start-up and writes it into a static `config.js` served by nginx (the same variable is then parsed in two components); 3. another approach named by the human.
-- Human response: none
-- Resolution: pending
+- Human response: option 1, 2026-10-06T22:56:01Z: go with the proposed solution.
+- Resolution: option 1; `GET /api/workshops` public, read-only, ids and titles only, rate limited (`docs/02_specification.md` 5.3).
 
 ## D-11: Health endpoints on an unpublished management port
 - Timestamp: 2026-10-06T22:51:13Z

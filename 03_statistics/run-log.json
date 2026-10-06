@@ -25,12 +25,12 @@
       "phase": 2,
       "name": "design",
       "start": "2026-10-06T22:46:12Z",
-      "end": null
+      "end": "2026-10-06T22:56:01Z"
     },
     {
       "phase": 3,
       "name": "test-design",
-      "start": null,
+      "start": "2026-10-06T22:56:01Z",
       "end": null
     },
     {
@@ -132,7 +132,7 @@
       "id": "D-10",
       "type": "blocking",
       "start": "2026-10-06T22:51:13Z",
-      "end": null
+      "end": "2026-10-06T22:56:01Z"
     },
     {
       "id": "D-11",
@@ -173,7 +173,7 @@
     },
     {
       "start": "2026-10-06T22:51:13Z",
-      "end": null,
+      "end": "2026-10-06T22:56:01Z",
       "reason": "phase 2 blocking decision D-10 (public workshop endpoint)"
     }
   ],
