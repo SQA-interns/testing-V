@@ -215,5 +215,5 @@
   1. (proposed default) Change only the test input `"@example.org"` to `"@missing-local-part.invalid"` (still an address without local part, and no other test sends to that domain), then re-hash `backend/.../ValidationAcceptanceTest.java` in the manifest. The human updates the manifest (or authorizes the agent to do so as a recorded human action).
   2. In `ValidationAcceptanceTest.assertRejected`, skip the mail check for addresses without a local part.
   3. Leave the test unchanged and accept it as a known failing frozen test (the phase 4 gate "All frozen acceptance tests pass" then fails).
-- Human response: none
-- Resolution: pending
+- Human response: option 1, change the input and re-hash; the agent is authorized to make both edits (2026-10-06T16:09:09Z)
+- Resolution: option 1, applied by the agent on the human's authorization: input `"@example.org"` → `"@missing-local-part.invalid"` in `ac001_12_invalidEmailAddressIsRejected` only (google-java-format wrapped the line), hash of `ValidationAcceptanceTest.java` updated in `docs/03_acceptance-manifest.sha256`; all other hashes unchanged and verified. Re-run: 44/44 backend acceptance tests pass (`logs/04_backend-test-run2.log`)

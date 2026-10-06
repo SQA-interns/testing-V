@@ -1,0 +1,188 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to -javaagent:C:\\Users\\tanej\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\tanej\\Documents\\LAB\\tanej-confreg-C0\\02_output\\backend\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 13 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+18:06:21.572 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+18:06:21.590 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+18:06:21.746 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+18:06:23.026 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+18:06:24.438 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+18:06:24.442 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+18:06:24.489 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.0
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 7612 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+18:06:25.551 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+18:06:25.845 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+18:06:26.508 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: b4cea3c43e7a832851c77fad6faac618bc7fcec715c5912d84bf1018dfc98fd9
+18:06:27.985 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT2.4346277S
+18:06:28.004 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+18:06:28.005 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+18:06:28.007 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+18:06:28.008 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+18:06:28.323 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: 1aae95392bf2672a3803e1e0a664410718b78c8a4af139788ac46ecfd50e3c31
+18:06:34.602 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT6.5944404S
+18:06:34.604 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:51213/registration?loggerLevel=OFF)
+18:06:34.606 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+18:06:34.870 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: 634aa706b407eb8df5ee690028aba33a8f9489d5425f39f8ebba8a88b463b757
+18:06:35.556 [main] INFO org.testcontainers.containers.wait.strategy.HttpWaitStrategy -- /trusting_kare: Waiting for 60 seconds for URL: http://localhost:53967/api/v1/info (where port 53967 maps to container port 8025)
+18:06:36.334 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT1.7280492S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T18:06:37.639+02:00  INFO 33328 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Starting ConfirmationEmailAcceptanceTest using Java 21.0.11 with PID 33328 (started by tanej in C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend)
+2026-10-06T18:06:37.648+02:00  INFO 33328 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T18:06:40.002+02:00  INFO 33328 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T18:06:40.213+02:00  INFO 33328 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180 ms. Found 1 JPA repository interface.
+2026-10-06T18:06:42.490+02:00  INFO 33328 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T18:06:42.545+02:00  INFO 33328 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T18:06:42.546+02:00  INFO 33328 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T18:06:42.743+02:00  INFO 33328 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 5019 ms
+2026-10-06T18:06:43.871+02:00  INFO 33328 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T18:06:44.372+02:00  INFO 33328 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5ac26c55
+2026-10-06T18:06:44.377+02:00  INFO 33328 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T18:06:44.443+02:00  INFO 33328 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:51213/registration?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T18:06:44.629+02:00  INFO 33328 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T18:06:44.640+02:00  INFO 33328 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.060s)
+2026-10-06T18:06:44.696+02:00  INFO 33328 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T18:06:44.835+02:00  INFO 33328 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T18:06:44.870+02:00  INFO 33328 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create registration"
+2026-10-06T18:06:44.998+02:00  INFO 33328 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.068s)
+2026-10-06T18:06:45.326+02:00  INFO 33328 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T18:06:45.570+02:00  INFO 33328 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-06T18:06:47.118+02:00  INFO 33328 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T18:06:47.447+02:00  INFO 33328 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:51213/registration?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: registration/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T18:06:50.423+02:00  INFO 33328 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T18:06:50.652+02:00  INFO 33328 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T18:06:50.982+02:00  INFO 33328 --- [registration-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-06T18:06:52.324+02:00  INFO 33328 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name organizer
+2026-10-06T18:06:53.800+02:00  INFO 33328 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T18:06:53.981+02:00  INFO 33328 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 57317 (http) with context path '/'
+2026-10-06T18:06:53.999+02:00  INFO 33328 --- [registration-backend] [           main] s.c.r.a.ConfirmationEmailAcceptanceTest  : Started ConfirmationEmailAcceptanceTest in 17.531 seconds (process running for 37.227)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\tanej\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-06T18:06:55.520+02:00  INFO 33328 --- [registration-backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T18:06:55.521+02:00  INFO 33328 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T18:06:55.523+02:00  INFO 33328 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-10-06T18:06:57.647+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000001 sent
+2026-10-06T18:06:58.277+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000002 sent
+2026-10-06T18:06:58.867+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000003 sent
+2026-10-06T18:06:59.456+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000004 sent
+2026-10-06T18:07:03.138+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000005 sent
+2026-10-06T18:07:03.682+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000006 sent
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.11 s -- in si.confreg.registration.acceptance.ConfirmationEmailAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.MailOutageAcceptanceTest
+2026-10-06T18:07:04.266+02:00  WARN 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000007 not sent yet (org.springframework.mail.MailSendException); will retry
+2026-10-06T18:07:24.326+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000007 sent
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.55 s -- in si.confreg.registration.acceptance.MailOutageAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+2026-10-06T18:07:27.905+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000008 sent
+2026-10-06T18:07:28.472+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000009 sent
+2026-10-06T18:07:32.080+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000010 sent
+2026-10-06T18:07:32.667+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000011 sent
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.060 s -- in si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.PricingAcceptanceTest
+2026-10-06T18:07:32.927+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000012 sent
+2026-10-06T18:07:33.135+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000013 sent
+2026-10-06T18:07:33.190+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000014 sent
+2026-10-06T18:07:33.266+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000015 sent
+2026-10-06T18:07:33.441+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000016 sent
+2026-10-06T18:07:33.653+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000017 sent
+2026-10-06T18:07:33.707+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000018 sent
+2026-10-06T18:07:33.759+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000019 sent
+2026-10-06T18:07:33.810+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000020 sent
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.022 s -- in si.confreg.registration.acceptance.PricingAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.RegistrationAcceptanceTest
+2026-10-06T18:07:33.863+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000021 sent
+2026-10-06T18:07:33.922+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000022 sent
+2026-10-06T18:07:33.973+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000023 sent
+2026-10-06T18:07:34.019+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000024 sent
+2026-10-06T18:07:34.067+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000025 sent
+2026-10-06T18:07:34.239+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000026 sent
+2026-10-06T18:07:38.704+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000027 sent
+2026-10-06T18:07:38.864+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000028 sent
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.220 s -- in si.confreg.registration.acceptance.RegistrationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T18:07:39.065+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000029 sent
+2026-10-06T18:07:39.117+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000030 sent
+2026-10-06T18:08:20.083+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000031 sent
+2026-10-06T18:08:20.128+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000032 sent
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 72.27 s -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[INFO] Running si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest
+2026-10-06T18:08:51.364+02:00  INFO 33328 --- [registration-backend] [           main] com.tngtech.archunit.core.PluginLoader   : Detected Java version 21.0.11
+2026-10-06T18:08:51.400+02:00  INFO 33328 --- [registration-backend] [         mail-1] s.c.r.a.ConfirmationMailService          : Confirmation for CR-000033 sent
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.874 s -- in si.confreg.registration.acceptance.architecture.ArchitectureAcceptanceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ registration-backend ---
+[INFO] Building jar: C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\target\registration-backend-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ registration-backend ---
+[INFO] Replacing main artifact C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\target\registration-backend-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\target\registration-backend-0.1.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- jacoco:0.8.12:report (report) @ registration-backend ---
+[INFO] Loading execution data file C:\Users\tanej\Documents\LAB\tanej-confreg-C0\02_output\backend\target\jacoco.exec
+[INFO] Analyzed bundle 'registration-backend' with 50 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:52 min
+[INFO] Finished at: 2026-10-06T18:08:57+02:00
+[INFO] ------------------------------------------------------------------------

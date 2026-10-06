@@ -37,12 +37,12 @@
       "phase": 4,
       "name": "build",
       "start": "2026-10-06T14:42:19Z",
-      "end": null
+      "end": "2026-10-06T16:09:51Z"
     },
     {
       "phase": 5,
       "name": "unit-tests",
-      "start": null,
+      "start": "2026-10-06T16:09:51Z",
       "end": null
     },
     {
@@ -180,7 +180,7 @@
       "id": "D-18",
       "type": "blocking",
       "start": "2026-10-06T15:08:00Z",
-      "end": null
+      "end": "2026-10-06T16:09:09Z"
     }
   ],
   "humanInterventions": [
@@ -196,7 +196,7 @@
     },
     {
       "start": "2026-10-06T15:08:00Z",
-      "end": null,
+      "end": "2026-10-06T16:09:09Z",
       "reason": "Phase 4: frozen acceptance test AC-001-12 appears wrong (D-18)"
     }
   ],
