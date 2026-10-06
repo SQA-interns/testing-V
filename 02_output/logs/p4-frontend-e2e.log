@@ -1,9 +1,9 @@
 
 Running 4 tests using 1 worker
 
-  ok 1 [chromium] › e2e\registration.spec.ts:25:1 › AC-001-06 AC-001-03 private registration through the form is confirmed by e-mail (683ms)
-  ok 2 [chromium] › e2e\registration.spec.ts:41:1 › AC-001-11 company payer must give company data and is registered with it (410ms)
-  ok 3 [chromium] › e2e\registration.spec.ts:67:1 › AC-001-12 company fields are hidden for a private payer (207ms)
-  ok 4 [chromium] › e2e\registration.spec.ts:78:1 › AC-001-14 workshop chosen in the form is registered (353ms)
+  ok 1 [chromium] › e2e\registration.spec.ts:25:1 › AC-001-06 AC-001-03 private registration through the form is confirmed by e-mail (697ms)
+  ok 2 [chromium] › e2e\registration.spec.ts:41:1 › AC-001-11 company payer must give company data and is registered with it (409ms)
+  ok 3 [chromium] › e2e\registration.spec.ts:67:1 › AC-001-12 company fields are hidden for a private payer (200ms)
+  ok 4 [chromium] › e2e\registration.spec.ts:78:1 › AC-001-14 workshop chosen in the form is registered (350ms)
 
   4 passed (2.4s)

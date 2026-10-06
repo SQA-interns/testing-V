@@ -12,27 +12,27 @@
 #3 transferring dockerfile: 958B done
 #3 DONE 0.0s
 
-#4 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#4 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
 #4 DONE 0.1s
 
-#5 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#5 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
 #5 DONE 0.1s
 
-#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
 #6 DONE 0.1s
 
-#7 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#7 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
 #7 DONE 0.1s
 
 #8 [backend internal] load .dockerignore
 #8 transferring context: 61B done
 #8 DONE 0.0s
 
-#9 [frontend internal] load .dockerignore
-#9 transferring context: 126B done
+#9 [backend internal] load build context
 #9 DONE 0.0s
 
-#10 [backend internal] load build context
+#10 [frontend internal] load .dockerignore
+#10 transferring context: 126B done
 #10 DONE 0.0s
 
 #11 [frontend internal] load build context
@@ -42,41 +42,42 @@
 #12 resolve docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9 0.1s done
 #12 DONE 0.1s
 
-#13 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
-#13 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.1s done
+#13 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#13 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#13 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.1s done
 #13 DONE 0.1s
 
-#14 [frontend stage-1 1/5] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
-#14 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.1s done
+#14 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#14 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.1s done
 #14 DONE 0.1s
 
-#15 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
-#15 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.1s done
+#15 [frontend stage-1 1/5] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#15 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.1s done
 #15 DONE 0.1s
 
-#10 [backend internal] load build context
-#10 transferring context: 3.94kB done
-#10 DONE 0.0s
+#9 [backend internal] load build context
+#9 transferring context: 3.94kB done
+#9 DONE 0.0s
 
-#16 [backend build 7/7] RUN ./mvnw -B -q -o package -DskipTests
+#16 [backend build 5/7] RUN sed -i 's/\r$//' mvnw && chmod +x mvnw && ./mvnw -B -q dependency:go-offline
 #16 CACHED
 
-#17 [backend build 2/7] WORKDIR /build
+#17 [backend build 4/7] COPY mvnw pom.xml ./
 #17 CACHED
 
-#18 [backend build 6/7] COPY src/main/ src/main/
+#18 [backend build 3/7] COPY .mvn/ .mvn/
 #18 CACHED
 
-#19 [backend build 4/7] COPY mvnw pom.xml ./
+#19 [backend stage-1 2/4] RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app app
 #19 CACHED
 
-#20 [backend build 3/7] COPY .mvn/ .mvn/
+#20 [backend build 6/7] COPY src/main/ src/main/
 #20 CACHED
 
-#21 [backend build 5/7] RUN sed -i 's/\r$//' mvnw && chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#21 [backend build 7/7] RUN ./mvnw -B -q -o package -DskipTests
 #21 CACHED
 
-#22 [backend stage-1 2/4] RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app app
+#22 [backend build 2/7] WORKDIR /build
 #22 CACHED
 
 #23 [backend stage-1 3/4] WORKDIR /app
@@ -86,89 +87,99 @@
 #24 CACHED
 
 #11 [frontend internal] load build context
-#11 transferring context: 1.31kB done
+#11 transferring context: 521B done
 #11 DONE 0.0s
 
-#25 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
+#25 [frontend build 7/7] RUN npm run build
 #25 CACHED
 
-#26 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
+#26 [frontend stage-1 2/5] COPY nginx.conf /etc/nginx/nginx.conf
 #26 CACHED
 
-#27 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#27 [frontend build 6/7] COPY src/ src/
 #27 CACHED
 
-#28 [frontend build 2/7] WORKDIR /build
+#28 [frontend stage-1 3/5] COPY write-config.sh /usr/local/bin/write-config.sh
 #28 CACHED
 
-#29 [frontend build 6/7] COPY src/ src/
+#29 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
 #29 CACHED
 
-#30 [frontend stage-1 2/5] COPY nginx.conf /etc/nginx/nginx.conf
+#30 [frontend build 2/7] WORKDIR /build
 #30 CACHED
 
-#31 [frontend build 7/7] RUN npm run build
+#31 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
 #31 CACHED
 
-#32 [frontend stage-1 3/5] COPY write-config.sh /usr/local/bin/write-config.sh
-#32 DONE 0.1s
+#32 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#32 CACHED
 
-#33 [backend] exporting to image
-#33 exporting layers done
-#33 exporting manifest sha256:86a5d7230d08dd90def0030ee67c94ddf8cce20d2cc3d505f2be7c869bac67e1 done
-#33 exporting config sha256:670caad6abc80689480dd049adcb8bde3891b1c246b94ca84cb2f2beca59d986 done
-#33 exporting attestation manifest sha256:bb0118898129485b7b8aa0fc8ea3d24a160a16c42471fa7ed1a9f0962c2b1566 0.1s done
-#33 exporting manifest list sha256:583e09e6798afa18a4dd9633ea637599fc81bbeffb96e13811c7fa79c8106f56
-#33 exporting manifest list sha256:583e09e6798afa18a4dd9633ea637599fc81bbeffb96e13811c7fa79c8106f56 0.0s done
-#33 naming to docker.io/library/confreg-backend:latest done
-#33 unpacking to docker.io/library/confreg-backend:latest 0.0s done
-#33 DONE 0.2s
+#33 [frontend stage-1 4/5] COPY --from=build /build/dist/ /usr/share/nginx/html/
+#33 CACHED
 
-#34 [frontend stage-1 4/5] COPY --from=build /build/dist/ /usr/share/nginx/html/
-#34 DONE 0.1s
+#34 [frontend stage-1 5/5] RUN sed -i 's/\r$//' /usr/local/bin/write-config.sh && chmod 0755 /usr/local/bin/write-config.sh   && mkdir -p /tmp/confreg && chown nginx:nginx /tmp/confreg
+#34 CACHED
 
-#35 [frontend stage-1 5/5] RUN sed -i 's/\r$//' /usr/local/bin/write-config.sh && chmod 0755 /usr/local/bin/write-config.sh   && mkdir -p /tmp/confreg && chown nginx:nginx /tmp/confreg
-#35 ...
+#35 [backend] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:86a5d7230d08dd90def0030ee67c94ddf8cce20d2cc3d505f2be7c869bac67e1 done
+#35 exporting config sha256:670caad6abc80689480dd049adcb8bde3891b1c246b94ca84cb2f2beca59d986 done
+#35 exporting attestation manifest sha256:35a19a487260065937c37156f95ef9e768ca9969d4afeaf5875a71c3a5f0b1d1
+#35 exporting attestation manifest sha256:35a19a487260065937c37156f95ef9e768ca9969d4afeaf5875a71c3a5f0b1d1 0.1s done
+#35 exporting manifest list sha256:1cab433fbb63605e9f038d9c18079fb669b666011ee812017755f1322e26e44f 0.0s done
+#35 naming to docker.io/library/confreg-backend:latest
+#35 naming to docker.io/library/confreg-backend:latest 0.0s done
+#35 unpacking to docker.io/library/confreg-backend:latest 0.0s done
+#35 DONE 0.2s
 
-#36 [backend] resolving provenance for metadata file
-#36 DONE 0.0s
+#36 [frontend] exporting to image
+#36 exporting layers done
+#36 exporting manifest sha256:564f3cd7c199ebf9c6ce4c67d1a0841f01cf0901dfcfaf112190f1efc8310c29 0.0s done
+#36 exporting config sha256:e13431370c577bca5dfea85959d0afc620312d65db1c801840449b9ae823ea3a done
+#36 exporting attestation manifest sha256:8b139e04938f2b27f44a3dfd316ec3da96de5f4c8853b49c7134b322d48a73e0 0.1s done
+#36 exporting manifest list sha256:e38ad38ab875bdb1bdd235092628d0700f3299911ea3d9937530a6ad77811dff 0.0s done
+#36 naming to docker.io/library/confreg-frontend:latest done
+#36 unpacking to docker.io/library/confreg-frontend:latest 0.0s done
+#36 DONE 0.3s
 
-#35 [frontend stage-1 5/5] RUN sed -i 's/\r$//' /usr/local/bin/write-config.sh && chmod 0755 /usr/local/bin/write-config.sh   && mkdir -p /tmp/confreg && chown nginx:nginx /tmp/confreg
-#35 DONE 0.4s
-
-#37 [frontend] exporting to image
-#37 exporting layers 0.4s done
-#37 exporting manifest sha256:564f3cd7c199ebf9c6ce4c67d1a0841f01cf0901dfcfaf112190f1efc8310c29 0.0s done
-#37 exporting config sha256:e13431370c577bca5dfea85959d0afc620312d65db1c801840449b9ae823ea3a 0.0s done
-#37 exporting attestation manifest sha256:2e64991f50d4a035d68082079be1c4b6eb2fa84668747f12df7921ad0794463f 0.0s done
-#37 exporting manifest list sha256:cfa76aba22287dc96526a0d716adb0db831fbf78df70cc83a15cbc69bf16c4f9
-#37 exporting manifest list sha256:cfa76aba22287dc96526a0d716adb0db831fbf78df70cc83a15cbc69bf16c4f9 0.0s done
-#37 naming to docker.io/library/confreg-frontend:latest done
-#37 unpacking to docker.io/library/confreg-frontend:latest 0.1s done
-#37 DONE 0.7s
+#37 [backend] resolving provenance for metadata file
+#37 DONE 0.0s
 
 #38 [frontend] resolving provenance for metadata file
 #38 DONE 0.0s
  Image confreg-backend Built 
  Image confreg-frontend Built 
- Container confreg-mailpit-1 Running 
- Container confreg-backend-1 Running 
- Container confreg-db-1 Running 
- Container confreg-frontend-1 Recreate 
- Container confreg-frontend-1 Recreated 
- Container confreg-db-1 Waiting 
+ Network confreg_default Creating 
+ Network confreg_default Creating 
+ Network confreg_default Created 
+ Network confreg_default Created 
+ Container confreg-db-1 Creating 
+ Container confreg-mailpit-1 Creating 
+ Container confreg-mailpit-1 Created 
+ Container confreg-db-1 Created 
+ Container confreg-backend-1 Creating 
+ Container confreg-backend-1 Created 
+ Container confreg-frontend-1 Creating 
+ Container confreg-frontend-1 Created 
+ Container confreg-mailpit-1 Starting 
+ Container confreg-db-1 Starting 
+ Container confreg-mailpit-1 Started 
+ Container confreg-db-1 Started 
  Container confreg-mailpit-1 Waiting 
- Container confreg-db-1 Healthy 
+ Container confreg-db-1 Waiting 
  Container confreg-mailpit-1 Healthy 
+ Container confreg-db-1 Healthy 
+ Container confreg-backend-1 Starting 
+ Container confreg-backend-1 Started 
  Container confreg-backend-1 Waiting 
  Container confreg-backend-1 Healthy 
  Container confreg-frontend-1 Starting 
  Container confreg-frontend-1 Started 
+ Container confreg-mailpit-1 Waiting 
  Container confreg-backend-1 Waiting 
  Container confreg-frontend-1 Waiting 
  Container confreg-db-1 Waiting 
- Container confreg-mailpit-1 Waiting 
+ Container confreg-db-1 Healthy 
  Container confreg-backend-1 Healthy 
  Container confreg-mailpit-1 Healthy 
- Container confreg-db-1 Healthy 
  Container confreg-frontend-1 Healthy 

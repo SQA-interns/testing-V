@@ -13,10 +13,7 @@
 [INFO] Copying 1 resource from src\main\resources to target\classes
 [INFO] 
 [INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
-[INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 31 source files with javac [debug parameters release 21] to target\classes
-[INFO] /E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/backend/src/main/java/si/confreg/registration/security/BodySizeLimitFilter.java: E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\src\main\java\si\confreg\registration\security\BodySizeLimitFilter.java uses or overrides a deprecated API.
-[INFO] /E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C1/02_output/backend/src/main/java/si/confreg/registration/security/BodySizeLimitFilter.java: Recompile with -Xlint:deprecation for details.
+[INFO] Nothing to compile - all classes are up to date.
 [INFO] 
 [INFO] --- spotless:2.44.3:check (default-cli) @ registration-backend ---
 [INFO] Spotless.Java is keeping 40 files clean - 0 needs changes to be clean, 0 were already clean, 40 were skipped because caching determined they were already clean
@@ -64,6 +61,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.472 s
-[INFO] Finished at: 2026-10-06T20:24:56+02:00
+[INFO] Total time:  16.831 s
+[INFO] Finished at: 2026-10-06T20:45:48+02:00
 [INFO] ------------------------------------------------------------------------

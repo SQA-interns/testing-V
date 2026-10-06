@@ -289,3 +289,30 @@
 - Options: 1. (chosen) Keep them, record the deviation here for the phase 6 evidence, and keep later subjects within 72 characters (ranges such as AC-001-08..16). 2. Rewrite history (not allowed).
 - Human response: none
 - Resolution: option 1, pending review
+
+## D-33: Human response to D-28 (AC-001-09 e-mail check)
+- Timestamp: 2026-10-06T18:42:24Z
+- Phase: 4
+- Type: blocking
+- Trigger: follow-up to D-28; the human answered.
+- Options: as in D-28.
+- Human response: "Go ahead with your solution of filtering search results" (2026-10-06T18:42:24Z)
+- Resolution: D-28 option 1. `AcceptanceTestBase.messagesTo` keeps only messages whose `To` address equals the searched address (case-insensitive). The frozen file is changed under this approval and `docs/03_acceptance-manifest.sha256` is re-written in its own commit.
+
+## D-34: Human response to D-29 (AC-001-18 mail outage)
+- Timestamp: 2026-10-06T18:42:24Z
+- Phase: 4
+- Type: blocking
+- Trigger: follow-up to D-29; the human answered.
+- Options: as in D-29.
+- Human response: "You can simulate by pausing the container" (2026-10-06T18:42:24Z)
+- Resolution: D-29 option 1. `MailFailureAcceptanceTest` drops its own `@DynamicPropertySource`, pauses the shared Mailpit container around the request and unpauses it in `finally`; assertions unchanged. Re-frozen with D-33 in the same manifest commit.
+
+## D-35: Human response to D-31 (host ports)
+- Timestamp: 2026-10-06T18:42:24Z
+- Phase: 4
+- Type: blocking
+- Trigger: follow-up to D-31; the human answered.
+- Options: as in D-31.
+- Human response: "Use the assigned ports 18080, 15173 and 18025" (2026-10-06T18:42:24Z)
+- Resolution: D-31 option 1. The compose defaults stay 8080, 5173 and 8025 (`environments.md`). For this run's checks and the phase 6 runtime demonstration the agent sets `BACKEND_HOST_PORT=18080`, `FRONTEND_HOST_PORT=15173` and `MAILPIT_HOST_PORT=18025` and records them in the evidence.

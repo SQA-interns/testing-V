@@ -37,7 +37,7 @@
       "phase": 4,
       "name": "build",
       "start": "2026-10-06T18:15:46Z",
-      "end": null
+      "end": "2026-10-06T18:46:00Z"
     },
     {
       "phase": 5,
@@ -240,13 +240,13 @@
       "id": "D-28",
       "type": "blocking",
       "start": "2026-10-06T18:33:39Z",
-      "end": null
+      "end": "2026-10-06T18:42:24Z"
     },
     {
       "id": "D-29",
       "type": "blocking",
       "start": "2026-10-06T18:33:39Z",
-      "end": null
+      "end": "2026-10-06T18:42:24Z"
     },
     {
       "id": "D-30",
@@ -258,13 +258,31 @@
       "id": "D-31",
       "type": "blocking",
       "start": "2026-10-06T18:33:39Z",
-      "end": null
+      "end": "2026-10-06T18:42:24Z"
     },
     {
       "id": "D-32",
       "type": "non-blocking",
       "start": "2026-10-06T18:33:39Z",
       "end": "2026-10-06T18:33:39Z"
+    },
+    {
+      "id": "D-33",
+      "type": "blocking",
+      "start": "2026-10-06T18:42:24Z",
+      "end": "2026-10-06T18:42:24Z"
+    },
+    {
+      "id": "D-34",
+      "type": "blocking",
+      "start": "2026-10-06T18:42:24Z",
+      "end": "2026-10-06T18:42:24Z"
+    },
+    {
+      "id": "D-35",
+      "type": "blocking",
+      "start": "2026-10-06T18:42:24Z",
+      "end": "2026-10-06T18:42:24Z"
     }
   ],
   "humanInterventions": [
@@ -285,7 +303,7 @@
     },
     {
       "start": "2026-10-06T18:33:39Z",
-      "end": null,
+      "end": "2026-10-06T18:42:24Z",
       "reason": "Phase 4: D-28 and D-29 frozen acceptance tests appear wrong; D-31 host ports 8080/5173 in use"
     }
   ],
