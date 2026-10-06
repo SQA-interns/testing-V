@@ -97,7 +97,7 @@ paths:
   /api/workshops:
     get:
       operationId: listWorkshops
-      summary: Configured workshops (public, rate limited; pending D-10)
+      summary: Configured workshops (public, rate limited; D-10)
       tags: [workshops]
       security: []
       responses:
