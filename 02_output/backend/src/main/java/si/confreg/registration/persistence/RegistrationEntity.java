@@ -107,6 +107,10 @@ public class RegistrationEntity {
     return confirmationAttempts;
   }
 
+  public String confirmationStatus() {
+    return confirmationStatus;
+  }
+
   public Registration toRegistration() {
     return new Registration(
         registrationNumber,
