@@ -1,0 +1,5 @@
+docker.io/semgrep/semgrep:1.177.0
+docker.io/zricethezav/gitleaks:v8.30.1
+docker.io/aldanial/cloc:2.10
+docker.io/axllent/mailpit:v1.31.1
+docker.io/library/postgres:16.15-alpine
