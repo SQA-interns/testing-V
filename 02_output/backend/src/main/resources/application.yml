@@ -1,0 +1,78 @@
+# Defaults from project/00_setup/environments.md. Every value can be overridden
+# by an environment variable of the same name (APP_FEE_EARLY -> app.fee-early).
+# Secrets have no defaults (ES-01).
+app:
+  conference-tz: Europe/Ljubljana
+  early-bird-deadline: "2026-07-31"
+  fee-early: 240.00
+  fee-regular: 300.00
+  vat-rate: 0.22
+  workshops: "W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains"
+  rate-limit-per-hour: 100
+  test-clock: disabled
+  mail-from: registration@confreg.local
+  mail-tls: false
+  insecure-auth-allowed: false
+
+spring:
+  application:
+    name: registration-backend
+  datasource:
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  mail:
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: ${app.mail-tls}
+            required: ${app.mail-tls}
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState,db
+  health:
+    mail:
+      enabled: false
+
+logging:
+  level:
+    org.hibernate.SQL: off
+    org.hibernate.orm.jdbc.bind: off

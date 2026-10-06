@@ -1,0 +1,14 @@
+# Production profile (SPRING_PROFILES_ACTIVE=prod), behind the external nginx
+# reverse proxy that terminates TLS. Startup fails when the test clock, plain
+# SMTP or insecure organizer authentication is enabled (ConfigurationSetup).
+server:
+  forward-headers-strategy: native
+
+spring:
+  mail:
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
