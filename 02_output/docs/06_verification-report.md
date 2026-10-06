@@ -6,7 +6,7 @@ This is a self-check by the development agent, not an independent review.
 
 Run `tanej-confreg-C2-r1`, verified 2026-10-06 (13:00–13:25 UTC) on the commit that adds this report. Requirements re-read first: `REQ-REG-01.md`, `docs/01_acceptance-criteria.md`, `docs/02_specification.md`, `docs/02_contracts/`.
 
-**Status: gate not passed yet.** One finding is High as mapped by the scale (F-02); lowering it needs the human decision D-18. Every other check passes.
+**Status: gate passed** (2026-10-06T13:24:07Z). F-02 was High as mapped by the scale; the human lowered it to Low with the recorded evidence (D-18, 2026-10-06T13:24:07Z). No open Critical or High finding.
 
 ## Hashes
 
@@ -38,7 +38,7 @@ Coverage and mutation (details and survivor classification: `docs/03_test-strate
 | DoD-02 | pass | backend Spotless, PMD, CPD, SpotBugs clean (justified exclusions `backend/spotbugs-exclude.xml`); frontend Prettier, ESLint, `tsc --noEmit` clean; Semgrep: see F-02, F-03 |
 | DoD-03 | pass | coverage per component, unit and integration separately, and mutation scores recorded in `docs/03_test-strategy.md`; thresholds "record only" |
 | DoD-04 | pass | `ArchitectureTest` ARCH-1..6 (layers, no cycles, mail only in `mail`, time only via `ConferenceClock`, framework-free domain, no DDL from code): 7/7 pass |
-| DoD-05 | **open** | F-02 (High as mapped) awaits D-18; no other Critical/High from scanners or review |
+| DoD-05 | pass | no open Critical/High: F-02 lowered to Low by the human with evidence (D-18); raw Semgrep reports kept |
 | DoD-06 | pass | runtime demonstration below; stack started with `docker compose up --build`, all four containers healthy |
 | DoD-07 | pass | traceability table below: every AC has tests and commits |
 | DoD-08 | phase 7 | READMEs are written and followed from a clean checkout in phase 7 |
@@ -132,7 +132,7 @@ Not scanned: the container images themselves (no image scanner in `tooling`); li
 | F | Severity | Source | Finding | Resolution |
 |---|---|---|---|---|
 | F-01 | Low | gitleaks (generic-api-key) | 4 hits in committed phase 3 logs: Spring Boot's auto-generated development password printed by the bootstrap app before the organizer security existed; random per test JVM, already gone, not a project secret or `.env` value | fixed: exact fingerprints ignored with the reason in `02_output/.gitleaksignore` (history is not rewritten); re-scan clean (d078f2d) |
-| F-02 | High (Semgrep ERROR) | Semgrep `use-of-basic-authentication` | organizer endpoint uses HTTP Basic (`registration-api.openapi.yaml:117`) | **open**: Basic is required by the fixed API and `security-requirements.md`; compensating controls listed in D-18; proposed lowering to Low awaits the human (blocking) |
+| F-02 | High (Semgrep ERROR) → Low (D-18) | Semgrep `use-of-basic-authentication` | organizer endpoint uses HTTP Basic (`registration-api.openapi.yaml:117`) | accepted by the human (2026-10-06T13:24:07Z): Basic is required by the fixed API and `security-requirements.md`; credentials only over HTTPS or localhost (SR-03), BCrypt-only storage, tested per-client rate limit on failed logins; raw reports `06_semgrep.json`, `06_semgrep-after-fixes.json` |
 | F-03 | Medium | Semgrep `npm-missing-minimum-release-age` | `.npmrc` has no `min-release-age` | accepted: the option needs npm ≥ 11.10; the approved npm is 10.9.4 (D-02) and the listed 11.6.2 also lacks it; mitigated by exact pins, committed lock file and `npm ci` in the image build (ES-04) |
 | F-04 | Medium | Semgrep `ifs-tampering` (4) | `40-runtime-config.sh` changed `IFS` to split `APP_WORKSHOPS` | fixed: here-document with `tr` instead of `IFS` (7d6a3ad); re-verified by script test with quotes and `<script>`, runtime `/config.js`, e2e, Semgrep |
 | F-05 | Medium | Semgrep `header-redefinition` (5) | `add_header` in `location = /config.js` replaced the server-level headers (they were repeated by hand) | fixed: `expires -1` instead of `add_header`, server headers inherited (42c4194); re-verified headers on `/` and `/config.js`, e2e, Semgrep |
@@ -142,7 +142,7 @@ Not scanned: the container images themselves (no image scanner in `tooling`); li
 | F-09 | Low | DoD-11 commit size | 4 commits exceed ~400 changed lines without a stated reason: 75812bf (673, mostly the vendored wrapper scripts), 1d0fd49 (467, form page), 8ec415d (432) and 23aa290 (434, unit tests); ec07275 states its reason | accepted: each is one logical unit; history is not rewritten |
 | F-10 | Low | frontend mutation tool | Stryker vitest runner reports no kills with vitest 5.0.3 | resolved by D-17 (command runner) |
 
-Counts as found: Critical 0, High 1, Medium 5, Low 4.
+Counts as found: Critical 0, High 1, Medium 5, Low 4. After triage: no open Critical or High.
 
 ## Fix loops
 
@@ -153,4 +153,4 @@ Counts as found: Critical 0, High 1, Medium 5, Low 4.
 
 ## Decisions
 
-All 18 records have a resolution or "pending review": resolved D-01..D-09, D-13; pending review (non-blocking) D-10, D-11, D-12, D-14, D-15, D-16, D-17; **blocking, awaiting the human: D-18**.
+All 18 records have a resolution or "pending review": resolved D-01..D-09, D-13, D-18; pending review (non-blocking) D-10, D-11, D-12, D-14, D-15, D-16, D-17.
