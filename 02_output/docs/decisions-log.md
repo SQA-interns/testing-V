@@ -134,3 +134,46 @@
   2. Roll back and answer 503 so the participant retries; registrations are impossible while SMTP is down.
 - Human response: none
 - Resolution: 1, pending review
+
+## D-13: Add redocly/cli 2.58.2 (container) to validate the OpenAPI contract
+- Timestamp: 2026-10-06T11:27:46Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: the phase 2 gate requires contracts to validate with a parser; `tech-stack.md` lists no OpenAPI validator.
+- Options:
+  1. (proposed default) Dev-only tool `redocly/cli:2.58.2` (Docker Hub, MIT), run as a container; nothing installed on the host. Scanned in phase 6 like any other tool.
+- Human response: none
+- Resolution: 1, added under the `tech-stack.md` rule for unlisted dev-only tooling
+
+## D-14: Workshop list reaches the form through frontend runtime configuration
+- Timestamp: 2026-10-06T11:27:46Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: the form must offer the configured workshops (AC-001-14, AR-04), but `security-requirements.md` requires organizer authentication on every endpoint not made public by a requirement, and REQ-REG-01 makes only `POST /api/registrations` public.
+- Options:
+  1. (proposed default, conservative: no new public endpoint) The frontend container generates `/config.js` from `APP_WORKSHOPS` at start; compose passes the same variable to both containers; the compose default repeats the backend default.
+  2. A public read-only `GET /api/workshops`; needs a human-approved exception to the security requirement.
+- Human response: none
+- Resolution: 1, pending review
+
+## D-15: Health and readiness on an unpublished management port without authentication
+- Timestamp: 2026-10-06T11:27:46Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: ES-09 and NFR-02 require health and readiness used by container health checks; `security-requirements.md` requires organizer authentication on every endpoint not made public.
+- Options:
+  1. (proposed default, conservative: not reachable from outside the container) Actuator health (status only, no details) on management port 8081 bound to the container loopback, not published; the API port exposes no actuator endpoint.
+  2. Health on the API port behind organizer authentication; health checks would need the organizer password inside the container.
+- Human response: none
+- Resolution: 1, pending review
+
+## D-16: Language of the form and the confirmation e-mail
+- Timestamp: 2026-10-06T11:27:46Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: no input states the language of the form or the e-mail; users notice it.
+- Options:
+  1. (proposed default) English for the form and the e-mail (all requirement texts are English); Slovenian characters in user data are kept unchanged (NFR-01).
+  2. Slovenian.
+- Human response: none
+- Resolution: 1, pending review
