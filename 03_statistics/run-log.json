@@ -19,12 +19,12 @@
       "phase": 1,
       "name": "requirements",
       "start": "2026-10-06T17:57:50Z",
-      "end": null
+      "end": "2026-10-06T18:02:22Z"
     },
     {
       "phase": 2,
       "name": "design",
-      "start": null,
+      "start": "2026-10-06T18:02:22Z",
       "end": null
     },
     {
@@ -180,7 +180,7 @@
       "id": "D-18",
       "type": "blocking",
       "start": "2026-10-06T17:59:35Z",
-      "end": null
+      "end": "2026-10-06T18:02:22Z"
     },
     {
       "id": "D-19",
@@ -211,6 +211,12 @@
       "type": "non-blocking",
       "start": "2026-10-06T17:59:35Z",
       "end": "2026-10-06T17:59:35Z"
+    },
+    {
+      "id": "D-24",
+      "type": "blocking",
+      "start": "2026-10-06T18:02:22Z",
+      "end": "2026-10-06T18:02:22Z"
     }
   ],
   "humanInterventions": [
@@ -226,7 +232,7 @@
     },
     {
       "start": "2026-10-06T17:59:35Z",
-      "end": null,
+      "end": "2026-10-06T18:02:22Z",
       "reason": "Phase 1: D-18 US-001 AC4 invoice conflicts with AR-08; confirm D-19 fee includes VAT"
     }
   ],

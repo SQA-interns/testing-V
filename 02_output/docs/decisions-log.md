@@ -208,3 +208,12 @@
 - Options: 1. (chosen: no restriction that the inputs do not state; a duplicate check could lock out legitimate users, for example an assistant registering colleagues with one address) Duplicates are allowed and each gets its own registration number; no capacity; no closing date. 2. Reject a second registration with the same e-mail address. 3. Close registration at a configured date (needs a new setting).
 - Human response: none
 - Resolution: option 1, pending review
+
+## D-24: Human response to D-18 to D-23 (agent to choose)
+- Timestamp: 2026-10-06T18:02:22Z
+- Phase: 1
+- Type: blocking
+- Trigger: follow-up to D-18 (blocking) and D-19 to D-23 (non-blocking); the human answered each.
+- Options: as in D-18 to D-23.
+- Human response: for each of D-18, D-19, D-20, D-21, D-22 and D-23: "No further information is available. Choose an option and record it as a decision." (2026-10-06T18:02:22Z)
+- Resolution: the agent chooses option 1 of each record, the more conservative behaviour as `general/working-rules.md` requires. D-18: this system issues no invoice (AR-08); AC-001-04 stays as written (payer invoice data and amounts stored and available to accounting through the organizer API); "invoice reaches the payer" goes on the manual-test list in the release notes. D-19: the configured fee is gross, VAT is split out, rounding is half-up to cents. D-20: at most one configured workshop, optional, no effect on the fee, no capacity. D-21: validation rules as listed in D-21. D-22: no registration is stored when the e-mail cannot be sent; 5xx with a retry hint. D-23: duplicates allowed, no capacity, no closing date. These are the agent's choices, not the product owner's, so all six remain pending review in the phase 7 release notes. No acceptance criterion changes.
