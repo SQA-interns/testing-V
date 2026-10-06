@@ -54,7 +54,8 @@ class ValidationAcceptanceTest extends AcceptanceTestBase {
 
   @Test
   void ac001_12_invalidEmailAddressIsRejected() {
-    for (String email : List.of("not-an-email", "ana@", "@example.org", "ana novak@example.org")) {
+    for (String email :
+        List.of("not-an-email", "ana@", "@missing-local-part.invalid", "ana novak@example.org")) {
       assertThat(assertRejected(Registrations.with(Registrations.privatePerson(), "email", email)))
           .as(email)
           .contains("email");
