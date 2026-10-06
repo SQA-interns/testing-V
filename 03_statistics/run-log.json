@@ -1,0 +1,140 @@
+{
+  "runId": "kyuhi-confreg-C2-r1",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "templateVersion": "1.2",
+  "transcript": "C:/Users/sense/.claude/projects/e--13---Lab-Projects-03-Vasilka-Testing-kyuhi-confreg-C2/5fbf7f3e-d706-4942-a823-25ce8f7eaa7e.jsonl",
+  "startCommit": "2bab314fc372c581a8b5b8d7f148355ec7722849",
+  "finalCommit": null,
+  "start": "2026-10-06T22:18:37Z",
+  "end": null,
+  "phases": [
+    {
+      "phase": 0,
+      "name": "preflight-and-bootstrap",
+      "start": "2026-10-06T22:18:37Z",
+      "end": null
+    },
+    {
+      "phase": 1,
+      "name": "requirements",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 2,
+      "name": "design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 3,
+      "name": "test-design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 4,
+      "name": "build",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 5,
+      "name": "unit-tests",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 6,
+      "name": "verify",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 7,
+      "name": "release",
+      "start": null,
+      "end": null
+    }
+  ],
+  "firstTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "finalTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "fixLoops": [],
+  "decisions": [
+    {
+      "id": "D-01",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:31:30Z",
+      "end": null
+    },
+    {
+      "id": "D-02",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:31:30Z",
+      "end": null
+    },
+    {
+      "id": "D-03",
+      "type": "non-blocking",
+      "start": "2026-10-06T22:31:30Z",
+      "end": null
+    },
+    {
+      "id": "D-04",
+      "type": "blocking",
+      "start": "2026-10-06T22:31:30Z",
+      "end": null
+    },
+    {
+      "id": "D-05",
+      "type": "blocking",
+      "start": "2026-10-06T22:31:30Z",
+      "end": null
+    }
+  ],
+  "humanInterventions": [
+    {
+      "start": null,
+      "end": null,
+      "startReason": "timestamp of the rejection not observable",
+      "reason": "human rejected a phase 0 version re-check with a message about lowering an HTTP Basic finding to Low (no such finding exists yet); then approved continuing"
+    },
+    {
+      "start": "2026-10-06T22:33:47Z",
+      "end": null,
+      "reason": "phase 0 blocking decisions D-04, D-05 (dependency vulnerabilities)"
+    }
+  ],
+  "codeMetrics": {
+    "components": [],
+    "complexity": null,
+    "duplicationPct": null
+  },
+  "commits": [],
+  "usage": {
+    "inputTokens": null,
+    "outputTokens": null,
+    "cacheReadTokens": null,
+    "cacheWriteTokens": null,
+    "modelCalls": null,
+    "toolCalls": {
+      "total": null,
+      "byTool": {}
+    },
+    "costUsd": null,
+    "priceTableDate": null
+  }
+}

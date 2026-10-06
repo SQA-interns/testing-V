@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ registration-backend ---
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to "-javaagent:C:\\Users\\sense\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=E:\\13 - Lab Projects\\03_Vasilka_Testing\\kyuhi\\confreg-C2\\02_output\\backend\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ registration-backend ---
+[INFO] Building jar: E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend\target\registration-backend-0.1.0.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ registration-backend ---
+[INFO] Replacing main artifact E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend\target\registration-backend-0.1.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C2\02_output\backend\target\registration-backend-0.1.0.jar.original
+[INFO] 
+[INFO] --- jacoco:0.8.12:report (report) @ registration-backend ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.521 s
+[INFO] Finished at: 2026-10-07T00:25:34+02:00
+[INFO] ------------------------------------------------------------------------
