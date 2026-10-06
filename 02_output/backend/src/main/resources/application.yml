@@ -1,6 +1,45 @@
+# Every setting can be overridden by an environment variable of the same name
+# (docs/02_specification.md section 3). Values without a default are required.
+app:
+  conference-tz: ${APP_CONFERENCE_TZ:Europe/Ljubljana}
+  early-bird-deadline: ${APP_EARLY_BIRD_DEADLINE:2026-07-31}
+  fee-early: ${APP_FEE_EARLY:240.00}
+  fee-regular: ${APP_FEE_REGULAR:300.00}
+  vat-rate: ${APP_VAT_RATE:0.22}
+  workshops: ${APP_WORKSHOPS:W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains}
+  rate-limit-per-hour: ${APP_RATE_LIMIT_PER_HOUR:100}
+  test-clock: ${APP_TEST_CLOCK:disabled}
+  mail-from: ${APP_MAIL_FROM:registration@conference.example}
+  smtp-host: ${APP_SMTP_HOST}
+  smtp-port: ${APP_SMTP_PORT}
+  smtp-tls: ${APP_SMTP_TLS:false}
+
 spring:
   application:
     name: registration-backend
+  datasource:
+    url: ${APP_DB_URL}
+    username: ${APP_DB_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+
+server:
+  max-http-form-post-size: 16KB
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+    include-exception: false
+
 management:
   endpoints:
     web:
@@ -8,5 +47,15 @@ management:
         include: health
   endpoint:
     health:
+      show-details: never
+      show-components: never
       probes:
         enabled: true
+  health:
+    mail:
+      enabled: false
+
+logging:
+  level:
+    org.hibernate.SQL: off
+    org.hibernate.orm.jdbc.bind: off

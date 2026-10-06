@@ -1,0 +1,3 @@
+# Production: behind the external HTTPS reverse proxy (environments.md).
+server:
+  forward-headers-strategy: native
