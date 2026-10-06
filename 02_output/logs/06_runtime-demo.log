@@ -1,0 +1,63 @@
+# Runtime demonstration 2026-10-06T13:02:32Z against docker compose (02_output)
+## POST /api/registrations (public), e-mail demo+1791291752@example.org
+{"detail":"Failed to read request","instance":"/api/registrations","status":400,"title":"Bad Request"}
+400
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;print(json.load(sys.stdin)['registrationNumber'])
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'registrationNumber'
+## GET /api/registrations/ with organizer credentials from .env (values not shown)
+{"detail":"No static resource api/registrations.","instance":"/api/registrations/","status":404,"title":"Not Found"}
+status 404
+## GET without credentials
+status 401
+## Through the frontend proxy: invalid registration
+{"instance":"/api/registrations","status":422,"title":"Validation failed","errors":[{"message":"is required","field":"lastName"},{"message":"is required","field":"email"},{"message":"must be private or company","field":"payerType"}]}
+status 422
+## Mailpit messages to demo+1791291752@example.org
+count 0 subjects []
+## Storage row
+## Readiness inside backend container (management port not published)
+{"status":"UP"}
+host 8081 reachable? 000
+## Container users
+backend uid 100, frontend user nginx
+
+# Re-run 2026-10-06T13:03:18Z: first POST above sent non-UTF-8 bytes (Git Bash command-line encoding), answered 400 without internals; body now sent from a UTF-8 file
+## POST /api/registrations (public), e-mail demo+1791291797@example.org
+{"registrationNumber":"CR-2RMJX9N19J","firstName":"Žiga","lastName":"Čašič","email":"demo+1791291797@example.org","payerType":"company","companyName":"Primer d.o.o.","companyAddress":"Koroška cesta 1, 2000 Maribor","companyVatId":"SI00000001","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00}
+201
+## GET /api/registrations/CR-2RMJX9N19J with organizer credentials from .env (values not shown)
+{"registrationNumber":"CR-2RMJX9N19J","firstName":"Žiga","lastName":"Čašič","email":"demo+1791291797@example.org","payerType":"company","companyName":"Primer d.o.o.","companyAddress":"Koroška cesta 1, 2000 Maribor","companyVatId":"SI00000001","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00}
+status 200
+## GET without credentials
+{"status":401,"title":"Unauthorized"}
+status 401
+## Mailpit messages to demo+1791291797@example.org
+count 1
+Subject: Registration confirmation CR-2RMJX9N19J
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u010c' in position 10: character maps to <undefined>
+## Storage row (UTC timestamp)
+CR-2RMJX9N19J|Žiga|Čašič|company|W2|300.00|66.00|366.00|sent|1|2026-10-06 13:03:18.190862+00
+## Mail text (re-printed as UTF-8)
+Dear Žiga Čašič,
+
+thank you for registering for the conference.
+
+Registration number: CR-2RMJX9N19J
+Payer: Primer d.o.o., Koroška cesta 1, 2000 Maribor, VAT ID SI00000001
+Workshop: Data spaces in practice
+
+Net fee: 300.00 EUR
+VAT (22 %): 66.00 EUR
+Gross fee: 366.00 EUR
+
+The invoice will be issued after the conference.
+
+## e2e against the stack: see logs/06_e2e.log (2 passed)

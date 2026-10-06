@@ -188,3 +188,14 @@
   2. Pin vitest back to 3.2.7 for mutation runs only (reintroduces the Critical findings of D-03).
 - Human response: none
 - Resolution: 1, pending review
+
+## D-18: Semgrep "use-of-basic-authentication" (ERROR, maps to High) on the organizer endpoint
+- Timestamp: 2026-10-06T13:20:57Z
+- Phase: 6
+- Type: blocking
+- Trigger: F-02. Semgrep 1.177.0 rule `yaml.openapi.security.use-of-basic-authentication` (severity ERROR → High per `severity-scale.md`) on `docs/02_contracts/registration-api.openapi.yaml` line 117 (`organizerBasic: {type: http, scheme: basic}`). Evidence for lowering: HTTP Basic with `ORGANIZER_USERNAME`/`ORGANIZER_PASSWORD` is required by `project/02_design/architecture.md` ("Fixed registration API") and `security-requirements.md`; credentials are accepted only over HTTPS or on localhost (SR-03, `CredentialTransportFilter`, tests `SecurityUnitTest.credentialsArePassedOnLocalhostOrHttpsOnly`, `SecurityResponseTest.credentialTransportRejectionIsA401Problem`); the password is random, at least 16 characters (human-confirmed), stored only as a BCrypt hash (SB-03); failed logins are rate limited per client (SB-06, `FailedLoginRateLimitIntegrationTest`); the API is stateless (no session to hijack). The rule's alternatives (OAuth2, OIDC, mTLS) would change a fixed input.
+- Options:
+  1. (proposed default) Lower F-02 to Low (required design with the listed compensating controls) and accept it.
+  2. Keep it High; the phase 6 gate stays failed until the input requirement changes (for example to mTLS or OIDC for the organizer).
+- Human response: none
+- Resolution: pending review

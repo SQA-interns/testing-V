@@ -1,0 +1,36 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 86 files tracked by git with 1078 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      76      57          Community    1078                                                                
+  java            118      32                                                                                           
+  ts              164      12                                                                                           
+  json              4       7                                                                                           
+  yaml             36       5                                                                                           
+  dockerfile        6       2                                                                                           
+  bash              4       2                                                                                           
+  js              154       1                                                                                           
+  html              1       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 11 (11 blocking)
+ • Rules run: 404
+ • Targets scanned: 86
+ • Parsed lines: ~99.9%
+ • Scan skipped: 
+   ◦ Matching --exclude patterns: 6
+   ◦ Files matching .semgrepignore patterns: 3
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 404 rules on 86 files: 11 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading

@@ -68,11 +68,31 @@
   },
   "findings": {
     "critical": 0,
-    "high": 0,
-    "medium": 0,
-    "low": 0
+    "high": 1,
+    "medium": 5,
+    "low": 4
   },
-  "fixLoops": [],
+  "fixLoops": [
+    {
+      "loop": 1,
+      "findings": [
+        "F-01"
+      ],
+      "change": "02_output/.gitleaksignore for generated dev password in phase 3 logs",
+      "start": "2026-10-06T13:04:30Z",
+      "end": "2026-10-06T13:06:30Z"
+    },
+    {
+      "loop": 2,
+      "findings": [
+        "F-04",
+        "F-05"
+      ],
+      "change": "runtime-config script without IFS; nginx expires for /config.js",
+      "start": "2026-10-06T13:10:00Z",
+      "end": "2026-10-06T13:16:00Z"
+    }
+  ],
   "decisions": [
     {
       "id": "D-01",
@@ -175,6 +195,12 @@
       "type": "non-blocking",
       "start": "2026-10-06T12:54:22Z",
       "end": null
+    },
+    {
+      "id": "D-18",
+      "type": "blocking",
+      "start": "2026-10-06T13:20:57Z",
+      "end": null
     }
   ],
   "humanInterventions": [
@@ -187,12 +213,35 @@
       "start": "2026-10-06T11:13:58Z",
       "end": "2026-10-06T11:17:25Z",
       "reason": "phase 0: D-08 downgrade of High CVE-2025-7962 (false positive) needs approval"
+    },
+    {
+      "start": "2026-10-06T13:20:57Z",
+      "end": null,
+      "reason": "phase 6: D-18 lowering of Semgrep High F-02 (required HTTP Basic)"
     }
   ],
   "codeMetrics": {
-    "components": [],
+    "components": [
+      {
+        "name": "backend",
+        "productionLoc": 1365,
+        "testLoc": 2276,
+        "tool": "aldanial/cloc:2.10"
+      },
+      {
+        "name": "frontend",
+        "productionLoc": 407,
+        "testLoc": 507,
+        "tool": "aldanial/cloc:2.10"
+      }
+    ],
     "complexity": null,
-    "duplicationPct": null
+    "complexityReason": "no tool with purpose complexity in tech-stack.md tooling",
+    "duplicationPct": {
+      "backend": 0.0,
+      "frontend": 2.94
+    },
+    "duplicationTools": "PMD CPD (50 tokens), jscpd 5.4.0"
   },
   "commits": [],
   "usage": {

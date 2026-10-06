@@ -1,0 +1,183 @@
+ Image confreg-backend:0.1.0 Building 
+ Image confreg-frontend:0.1.0 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.12kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 825B 0.0s done
+#2 DONE 0.1s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 739B 0.0s done
+#3 DONE 0.1s
+
+#4 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#5 DONE 0.1s
+
+#6 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#6 DONE 0.1s
+
+#4 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#4 DONE 0.1s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 131B 0.0s done
+#7 DONE 0.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 81B 0.0s done
+#8 DONE 0.0s
+
+#9 [frontend internal] load build context
+#9 DONE 0.0s
+
+#10 [backend internal] load build context
+#10 ...
+
+#11 [backend 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#11 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.2s done
+#11 DONE 0.2s
+
+#12 [frontend stage-1 1/5] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#12 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.2s done
+#12 DONE 0.2s
+
+#13 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#13 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.2s done
+#13 DONE 0.2s
+
+#9 [frontend internal] load build context
+#9 transferring context: 10.27kB 0.0s done
+#9 DONE 0.0s
+
+#10 [backend internal] load build context
+#10 ...
+
+#14 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#14 CACHED
+
+#15 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
+#15 CACHED
+
+#16 [frontend build 2/7] WORKDIR /build
+#16 CACHED
+
+#17 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
+#17 CACHED
+
+#18 [frontend build 6/7] COPY src ./src
+#18 DONE 0.1s
+
+#10 [backend internal] load build context
+#10 transferring context: 61.98MB 5.3s
+#10 transferring context: 80.18MB 6.7s done
+#10 DONE 6.7s
+
+#19 [backend 2/4] RUN addgroup -S app && adduser -S -G app -H -s /sbin/nologin app
+#19 CACHED
+
+#20 [backend 3/4] WORKDIR /app
+#20 CACHED
+
+#21 [backend 4/4] COPY --chown=root:root target/registration-backend-0.1.0.jar /app/app.jar
+#21 DONE 1.0s
+
+#22 [frontend build 7/7] RUN npm run build
+#22 3.127 
+#22 3.127 > registration-frontend@0.1.0 build
+#22 3.127 > tsc --noEmit && vite build
+#22 3.127 
+#22 ...
+
+#23 [backend] exporting to image
+#23 exporting layers
+#23 exporting layers 5.3s done
+#23 exporting manifest sha256:f8139ea9b620451d72761215baf32f3d8f1e571df77b1e85be304b4d505fe5ba 0.0s done
+#23 exporting config sha256:992ef774b74adfdbb9b85cd83509adf475decf9a1ae298b00ee6f90434dfb1f0 0.0s done
+#23 exporting attestation manifest sha256:42c3dbcc5e42b3c7c61dbcca80a5acbc0964b30b465ec13d3a1a940811cb3560
+#23 exporting attestation manifest sha256:42c3dbcc5e42b3c7c61dbcca80a5acbc0964b30b465ec13d3a1a940811cb3560 0.0s done
+#23 exporting manifest list sha256:837357fe4036e00a616fe64e320e162de1f805605c16b17ae2438a4e7318972e 0.0s done
+#23 naming to docker.io/library/confreg-backend:0.1.0 done
+#23 unpacking to docker.io/library/confreg-backend:0.1.0
+#23 unpacking to docker.io/library/confreg-backend:0.1.0 1.0s done
+#23 DONE 6.6s
+
+#22 [frontend build 7/7] RUN npm run build
+#22 10.56 vite v6.4.3 building for production...
+#22 10.80 <script src="/config.js"> in "/index.html" can't be bundled without type="module" attribute
+#22 10.84 transforming...
+#22 ...
+
+#24 [backend] resolving provenance for metadata file
+#24 DONE 0.0s
+
+#22 [frontend build 7/7] RUN npm run build
+#22 16.09 ✓ 33 modules transformed.
+#22 16.65 rendering chunks...
+#22 16.67 computing gzip size...
+#22 16.74 dist/index.html                  0.37 kB │ gzip:  0.25 kB
+#22 16.74 dist/assets/index-_AL1qUn6.js  229.46 kB │ gzip: 71.39 kB
+#22 16.74 ✓ built in 6.05s
+#22 DONE 17.1s
+
+#25 [frontend stage-1 4/5] COPY --from=build /build/dist /usr/share/nginx/html
+#25 CACHED
+
+#26 [frontend stage-1 2/5] COPY docker/nginx.conf /etc/nginx/nginx.conf
+#26 CACHED
+
+#27 [frontend stage-1 3/5] COPY docker/40-runtime-config.sh /docker-entrypoint.d/40-runtime-config.sh
+#27 CACHED
+
+#28 [frontend stage-1 5/5] RUN chmod 0755 /docker-entrypoint.d/40-runtime-config.sh   && touch /usr/share/nginx/html/config.js   && chown nginx:nginx /usr/share/nginx/html/config.js
+#28 CACHED
+
+#29 [frontend] exporting to image
+#29 exporting layers 0.0s done
+#29 exporting manifest sha256:083cd74c5c1fecb4b84fba0c53cc9d9eca3dbc35ee1a918d18bd3391b8c73ae0 0.0s done
+#29 exporting config sha256:5caefae831b792b4e826a7094cf50167aabed54a8a75a5ac604337f86b4f0ccf done
+#29 exporting attestation manifest sha256:145e75639c27c8e6f1cb116d3bf072aaa4ddf4d2c5d3882efa38487ddeda495e
+#29 exporting attestation manifest sha256:145e75639c27c8e6f1cb116d3bf072aaa4ddf4d2c5d3882efa38487ddeda495e 0.0s done
+#29 exporting manifest list sha256:a4fa03df1b39e3ff15c5663e30e0aa555ebfdeac4fc6a773aae8e41a2f209989 0.0s done
+#29 naming to docker.io/library/confreg-frontend:0.1.0 done
+#29 unpacking to docker.io/library/confreg-frontend:0.1.0 0.1s done
+#29 DONE 0.4s
+
+#30 [frontend] resolving provenance for metadata file
+#30 DONE 0.0s
+ Image confreg-backend:0.1.0 Built 
+ Image confreg-frontend:0.1.0 Built 
+ Network confreg_default Creating 
+ Volume confreg_pgdata Creating 
+ Volume confreg_pgdata Creating 
+ Network confreg_default Creating 
+ Volume confreg_pgdata Created 
+ Volume confreg_pgdata Created 
+ Network confreg_default Created 
+ Network confreg_default Created 
+ Container confreg-mailpit-1 Creating 
+ Container confreg-postgres-1 Creating 
+ Container confreg-mailpit-1 Created 
+ Container confreg-postgres-1 Created 
+ Container confreg-backend-1 Creating 
+ Container confreg-backend-1 Created 
+ Container confreg-frontend-1 Creating 
+ Container confreg-frontend-1 Created 
+ Container confreg-postgres-1 Starting 
+ Container confreg-mailpit-1 Starting 
+ Container confreg-postgres-1 Started 
+ Container confreg-mailpit-1 Started 
+ Container confreg-mailpit-1 Waiting 
+ Container confreg-postgres-1 Waiting 
+ Container confreg-mailpit-1 Healthy 
+ Container confreg-postgres-1 Healthy 
+ Container confreg-backend-1 Starting 
+ Container confreg-backend-1 Started 
+ Container confreg-backend-1 Waiting 
+ Container confreg-backend-1 Healthy 
+ Container confreg-frontend-1 Starting 
+ Container confreg-frontend-1 Started 

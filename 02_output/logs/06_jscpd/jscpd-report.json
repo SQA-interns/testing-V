@@ -1,0 +1,83 @@
+{
+  "duplicates": [
+    {
+      "firstFile": {
+        "end": 200,
+        "endLoc": {
+          "column": 24,
+          "line": 200,
+          "position": 5464
+        },
+        "name": "RegistrationForm.tsx",
+        "start": 188,
+        "startLoc": {
+          "column": 25,
+          "line": 188,
+          "position": 5157
+        }
+      },
+      "format": "tsx",
+      "fragment": "      {PARTICIPANT_FIELDS.map((field) => (\n        <TextField\n          key={field.name}\n          {...field}\n          value={values[field.name]}\n          error={errors[field.name]}\n          onChange={(value) => setValue(field.name, value)}\n        />\n      ))}\n\n      <fieldset\n        role=\"radiogroup\"\n        aria-labelledby=\"payer-legend\"",
+      "isNew": false,
+      "kind": "exact",
+      "lines": 13,
+      "secondFile": {
+        "end": 244,
+        "endLoc": {
+          "column": 24,
+          "line": 244,
+          "position": 6682
+        },
+        "name": "RegistrationForm.tsx",
+        "start": 232,
+        "startLoc": {
+          "column": 22,
+          "line": 232,
+          "position": 6359
+        }
+      },
+      "tokens": 70
+    }
+  ],
+  "statistics": {
+    "detectionDate": "2026-10-06T13:20:29.282Z",
+    "formats": {
+      "tsx": {
+        "clones": 1,
+        "duplicatedLines": 13,
+        "duplicatedTokens": 70,
+        "lines": 332,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 3.91566265060241,
+        "percentageTokens": 3.632589517384536,
+        "sources": 4,
+        "tokens": 1927
+      },
+      "typescript": {
+        "clones": 0,
+        "duplicatedLines": 0,
+        "duplicatedTokens": 0,
+        "lines": 110,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 0.0,
+        "percentageTokens": 0.0,
+        "sources": 2,
+        "tokens": 527
+      }
+    },
+    "total": {
+      "clones": 1,
+      "duplicatedLines": 13,
+      "duplicatedTokens": 70,
+      "lines": 442,
+      "newClones": 0,
+      "newDuplicatedLines": 0,
+      "percentage": 2.941176470588235,
+      "percentageTokens": 2.852485737571312,
+      "sources": 6,
+      "tokens": 2454
+    }
+  }
+}
