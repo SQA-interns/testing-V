@@ -1,0 +1,671 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (prepare-agent) @ registration-backend ---
+[INFO] argLine set to -javaagent:C:\\Users\\tanej\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\tanej\\Documents\\LAB\\tanej-confreg-C2\\02_output\\backend\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ registration-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ registration-backend ---
+[INFO] skip non existing resourceDirectory C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ registration-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ registration-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+13:34:23.424 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationAcceptanceTest]: ConfirmationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:34:23.895 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+13:34:24.349 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ConfirmationAcceptanceTest]: ConfirmationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:34:24.351 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:34:24.360 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+13:34:24.780 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+13:34:24.788 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+13:34:24.836 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+13:34:26.469 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+13:34:28.256 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+13:34:28.262 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+13:34:28.330 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.8.0
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 7612 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+13:34:29.212 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+13:34:29.489 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+13:34:30.061 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 72aada26e4bb062b34b3fcf9b6d84adbfeb9b3d74503231002d6ef694bf18a19
+13:34:31.091 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT1.8787656S
+13:34:31.110 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+13:34:31.111 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+13:34:31.113 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+13:34:31.114 [main] INFO tc.postgres:16.15-alpine -- Creating container for image: postgres:16.15-alpine
+13:34:31.389 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine is starting: cd2177de504cde12bf1fe1d88378ae2c8c8c7c8b1522128055160748703ca66d
+13:34:36.560 [main] INFO tc.postgres:16.15-alpine -- Container postgres:16.15-alpine started in PT5.4460024S
+13:34:36.561 [main] INFO tc.postgres:16.15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:53532/test?loggerLevel=OFF)
+13:34:36.563 [main] INFO tc.axllent/mailpit:v1.31.1 -- Creating container for image: axllent/mailpit:v1.31.1
+13:34:36.780 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 is starting: 0ff096c1eac724e8bbfe163baeeaa1f5178c28bd68b3658b79f022fc2eaefaed
+13:34:37.663 [main] INFO tc.axllent/mailpit:v1.31.1 -- Container axllent/mailpit:v1.31.1 started in PT1.09961S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T13:34:39.547+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : Starting ConfirmationAcceptanceTest using Java 21.0.11 with PID 43240 (started by tanej in C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\backend)
+2026-10-06T13:34:39.550+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T13:34:41.847+02:00  INFO 43240 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T13:34:41.969+02:00  INFO 43240 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 0 JPA repository interfaces.
+2026-10-06T13:34:43.834+02:00  INFO 43240 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T13:34:43.885+02:00  INFO 43240 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T13:34:43.886+02:00  INFO 43240 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T13:34:44.093+02:00  INFO 43240 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4482 ms
+2026-10-06T13:34:45.272+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T13:34:45.823+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@610480b5
+2026-10-06T13:34:45.826+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T13:34:45.899+02:00  INFO 43240 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:53532/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T13:34:46.114+02:00  INFO 43240 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-10-06T13:34:46.122+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.031s)
+2026-10-06T13:34:46.122+02:00  WARN 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2026-10-06T13:34:46.178+02:00  INFO 43240 --- [registration-backend] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-10-06T13:34:46.333+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T13:34:46.348+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T13:34:46.697+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T13:34:46.932+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-06T13:34:48.504+02:00  INFO 43240 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T13:34:48.863+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53532/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T13:34:50.218+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T13:34:50.354+02:00  INFO 43240 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T13:34:51.979+02:00  WARN 43240 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ea0d0700-0c81-4b5a-a1ab-6843f1bb6ced
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-06T13:34:52.052+02:00  INFO 43240 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-06T13:34:52.604+02:00  INFO 43240 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T13:34:52.897+02:00  INFO 43240 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 52086 (http) with context path '/'
+2026-10-06T13:34:52.914+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.ConfirmationAcceptanceTest       : Started ConfirmationAcceptanceTest in 14.363 seconds (process running for 33.581)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\tanej\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-06T13:34:54.858+02:00  INFO 43240 --- [registration-backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T13:34:54.859+02:00  INFO 43240 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T13:34:54.862+02:00  INFO 43240 --- [registration-backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+[ERROR] Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 32.57 s <<< FAILURE! -- in si.confreg.registration.acceptance.ConfirmationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_storedRegistrationAnswers201WithRegistrationNumber -- Time elapsed: 2.117 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_storedRegistrationAnswers201WithRegistrationNumber(ConfirmationAcceptanceTest.java:17)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_eachOfTwoRegistrationsGetsItsOwnSingleConfirmation -- Time elapsed: 0.031 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_eachOfTwoRegistrationsGetsItsOwnSingleConfirmation(ConfirmationAcceptanceTest.java:46)
+
+[ERROR] si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_exactlyOneConfirmationMailStatesNumberAndFees -- Time elapsed: 0.028 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.ConfirmationAcceptanceTest.ac_001_04_exactlyOneConfirmationMailStatesNumberAndFees(ConfirmationAcceptanceTest.java:26)
+
+[INFO] Running si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T13:34:55.321+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.326+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+2026-10-06T13:34:55.330+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.FeeAcceptanceTest]: FeeAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.331+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.332+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.FeeAcceptanceTest
+[ERROR] Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.222 s <<< FAILURE! -- in si.confreg.registration.acceptance.FeeAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_03_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird -- Time elapsed: 0.031 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_03_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird(FeeAcceptanceTest.java:39)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_submissionAfterDeadlineIsStoredWithRegularFee -- Time elapsed: 0.028 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_02_submissionAfterDeadlineIsStoredWithRegularFee(FeeAcceptanceTest.java:32)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatEarlyBird -- Time elapsed: 0.029 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatEarlyBird(FeeAcceptanceTest.java:51)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_submissionOnOrBeforeDeadlineIsStoredWithEarlyBirdFee -- Time elapsed: 0.021 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_submissionOnOrBeforeDeadlineIsStoredWithEarlyBirdFee(FeeAcceptanceTest.java:20)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_submissionOnDeadlineDayIsStoredWithEarlyBirdFee -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_01_submissionOnDeadlineDayIsStoredWithEarlyBirdFee(FeeAcceptanceTest.java:26)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatRegular -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatRegular(FeeAcceptanceTest.java:57)
+
+[ERROR] si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_03_firstSecondAfterDeadlineDayInConferenceTimeZoneIsRegular -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.FeeAcceptanceTest.ac_001_03_firstSecondAfterDeadlineDayInConferenceTimeZoneIsRegular(FeeAcceptanceTest.java:45)
+
+[INFO] Running si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+2026-10-06T13:34:55.546+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest]: OrganizerAccessAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.549+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+2026-10-06T13:34:55.552+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest]: OrganizerAccessAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.552+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.555+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[ERROR] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.138 s <<< FAILURE! -- in si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithoutCredentialsIsRejectedWithoutData -- Time elapsed: 0.028 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithoutCredentialsIsRejectedWithoutData(OrganizerAccessAcceptanceTest.java:44)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongPasswordIsRejectedWithoutData -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongPasswordIsRejectedWithoutData(OrganizerAccessAcceptanceTest.java:56)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongUsernameIsRejectedWithoutData -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongUsernameIsRejectedWithoutData(OrganizerAccessAcceptanceTest.java:71)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_10_organizerReadsEveryFieldOfStoredRegistration -- Time elapsed: 0.022 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_10_organizerReadsEveryFieldOfStoredRegistration(OrganizerAccessAcceptanceTest.java:20)
+
+[ERROR] si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_12_unknownRegistrationNumberAnswers404WithoutData -- Time elapsed: 0.018 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.OrganizerAccessAcceptanceTest.ac_001_12_unknownRegistrationNumberAnswers404WithoutData(OrganizerAccessAcceptanceTest.java:83)
+
+[INFO] Running si.confreg.registration.acceptance.PayerDataAcceptanceTest
+2026-10-06T13:34:55.688+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.PayerDataAcceptanceTest]: PayerDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.692+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.PayerDataAcceptanceTest
+2026-10-06T13:34:55.692+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.PayerDataAcceptanceTest]: PayerDataAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.692+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.692+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.PayerDataAcceptanceTest
+[ERROR] Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! -- in si.confreg.registration.acceptance.PayerDataAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_privatePayerIsStoredWithoutCompanyData -- Time elapsed: 0.021 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_privatePayerIsStoredWithoutCompanyData(PayerDataAcceptanceTest.java:25)
+
+[ERROR] si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_noInvoiceAndNoPaymentRequestIsCreated -- Time elapsed: 0.019 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_noInvoiceAndNoPaymentRequestIsCreated(PayerDataAcceptanceTest.java:38)
+
+[ERROR] si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_companyPayerDataIsStoredWithRegistration -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.PayerDataAcceptanceTest.ac_001_05_companyPayerDataIsStoredWithRegistration(PayerDataAcceptanceTest.java:14)
+
+[INFO] Running si.confreg.registration.acceptance.RateLimitAcceptanceTest
+2026-10-06T13:34:55.772+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RateLimitAcceptanceTest]: RateLimitAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.776+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RateLimitAcceptanceTest
+2026-10-06T13:34:55.778+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RateLimitAcceptanceTest]: RateLimitAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.778+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:55.781+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RateLimitAcceptanceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-06T13:34:55.846+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.RateLimitAcceptanceTest          : Starting RateLimitAcceptanceTest using Java 21.0.11 with PID 43240 (started by tanej in C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\backend)
+2026-10-06T13:34:55.846+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.RateLimitAcceptanceTest          : No active profile set, falling back to 1 default profile: "default"
+2026-10-06T13:34:56.253+02:00  INFO 43240 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T13:34:56.260+02:00  INFO 43240 --- [registration-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2026-10-06T13:34:56.490+02:00  INFO 43240 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-06T13:34:56.493+02:00  INFO 43240 --- [registration-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T13:34:56.493+02:00  INFO 43240 --- [registration-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.26]
+2026-10-06T13:34:56.569+02:00  INFO 43240 --- [registration-backend] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 723 ms
+2026-10-06T13:34:56.702+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-06T13:34:56.737+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5152c930
+2026-10-06T13:34:56.737+02:00  INFO 43240 --- [registration-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-06T13:34:56.742+02:00  INFO 43240 --- [registration-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:53532/test?loggerLevel=OFF (PostgreSQL 16.15)
+2026-10-06T13:34:56.808+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.020s)
+2026-10-06T13:34:56.809+02:00  WARN 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2026-10-06T13:34:56.877+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-10-06T13:34:56.879+02:00  INFO 43240 --- [registration-backend] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-06T13:34:56.924+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-06T13:34:56.993+02:00  INFO 43240 --- [registration-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T13:34:57.022+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:53532/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T13:34:57.079+02:00  INFO 43240 --- [registration-backend] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T13:34:57.149+02:00  INFO 43240 --- [registration-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T13:34:57.424+02:00  WARN 43240 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7a376990-1493-42ee-969f-84e03acaad3e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-06T13:34:57.442+02:00  INFO 43240 --- [registration-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-06T13:34:57.508+02:00  INFO 43240 --- [registration-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-06T13:34:57.555+02:00  INFO 43240 --- [registration-backend] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 52099 (http) with context path '/'
+2026-10-06T13:34:57.558+02:00  INFO 43240 --- [registration-backend] [           main] s.c.r.a.RateLimitAcceptanceTest          : Started RateLimitAcceptanceTest in 1.765 seconds (process running for 38.228)
+2026-10-06T13:34:57.570+02:00  INFO 43240 --- [registration-backend] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T13:34:57.570+02:00  INFO 43240 --- [registration-backend] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T13:34:57.580+02:00  INFO 43240 --- [registration-backend] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.826 s <<< FAILURE! -- in si.confreg.registration.acceptance.RateLimitAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.RateLimitAcceptanceTest.ac_001_13_requestOverTheHourlyLimitIsRejectedNothingStoredNoMail -- Time elapsed: 0.033 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.RateLimitAcceptanceTest.ac_001_13_requestOverTheHourlyLimitIsRejectedNothingStoredNoMail(RateLimitAcceptanceTest.java:19)
+
+[INFO] Running si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+2026-10-06T13:34:57.602+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest]: RepeatedRegistrationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.603+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+2026-10-06T13:34:57.606+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest]: RepeatedRegistrationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.606+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.606+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.058 s <<< FAILURE! -- in si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest.ac_001_09_eachRepeatedRegistrationGetsItsOwnConfirmation -- Time elapsed: 0.015 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest.ac_001_09_eachRepeatedRegistrationGetsItsOwnConfirmation(RepeatedRegistrationAcceptanceTest.java:37)
+
+[ERROR] si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest.ac_001_09_secondRegistrationIsStoredWithOwnNumberAndFeeFirstUnchanged -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.RepeatedRegistrationAcceptanceTest.ac_001_09_secondRegistrationIsStoredWithOwnNumberAndFeeFirstUnchanged(RepeatedRegistrationAcceptanceTest.java:14)
+
+[INFO] Running si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T13:34:57.658+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.659+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+2026-10-06T13:34:57.661+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.ValidationAcceptanceTest]: ValidationAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.661+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.661+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] Tests run: 13, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 0.301 s <<< FAILURE! -- in si.confreg.registration.acceptance.ValidationAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_companyPayerWithoutCompanyDataIsRejectedPerField -- Time elapsed: 0.016 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_companyPayerWithoutCompanyDataIsRejectedPerField(ValidationAcceptanceTest.java:87)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_emailWithLineBreakIsRejected -- Time elapsed: 0.024 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_emailWithLineBreakIsRejected(ValidationAcceptanceTest.java:64)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingEmailIsRejected -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingEmailIsRejected(ValidationAcceptanceTest.java:52)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_severalInvalidFieldsGiveOneErrorEach -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_severalInvalidFieldsGiveOneErrorEach(ValidationAcceptanceTest.java:119)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingPayerTypeIsRejected -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingPayerTypeIsRejected(ValidationAcceptanceTest.java:71)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_moreThanOneWorkshopIsRejected -- Time elapsed: 0.049 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_moreThanOneWorkshopIsRejected(ValidationAcceptanceTest.java:103)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_companyPayerWithoutVatIdIsRejected -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_companyPayerWithoutVatIdIsRejected(ValidationAcceptanceTest.java:94)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingFirstNameIsRejected -- Time elapsed: 0.018 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_missingFirstNameIsRejected(ValidationAcceptanceTest.java:38)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_unknownWorkshopIsRejected -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_unknownWorkshopIsRejected(ValidationAcceptanceTest.java:110)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_unknownPayerTypeIsRejected -- Time elapsed: 0.014 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_unknownPayerTypeIsRejected(ValidationAcceptanceTest.java:78)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_invalidEmailIsRejected -- Time elapsed: 0.015 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_invalidEmailIsRejected(ValidationAcceptanceTest.java:58)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_blankLastNameIsRejected -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.assertRejected(ValidationAcceptanceTest.java:18)
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_blankLastNameIsRejected(ValidationAcceptanceTest.java:45)
+
+[ERROR] si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_emptyObjectIsRejectedForEveryRequiredParticipantField -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 422
+ but was: 401
+	at si.confreg.registration.acceptance.ValidationAcceptanceTest.ac_001_07_emptyObjectIsRejectedForEveryRequiredParticipantField(ValidationAcceptanceTest.java:126)
+
+[INFO] Running si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T13:34:57.960+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.962+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+2026-10-06T13:34:57.962+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.WorkshopAcceptanceTest]: WorkshopAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.967+02:00  INFO 43240 --- [registration-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [si.confreg.registration.acceptance.AcceptanceTestBase]: AcceptanceTestBase does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-06T13:34:57.968+02:00  INFO 43240 --- [registration-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration si.confreg.registration.RegistrationApplication for test class si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.090 s <<< FAILURE! -- in si.confreg.registration.acceptance.WorkshopAcceptanceTest
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_noCapacityIsCheckedForAWorkshop -- Time elapsed: 0.016 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_noCapacityIsCheckedForAWorkshop(WorkshopAcceptanceTest.java:51)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_registrationWithoutWorkshopStoresNoWorkshop -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_registrationWithoutWorkshopStoresNoWorkshop(WorkshopAcceptanceTest.java:29)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_absentWorkshopsFieldMeansNoWorkshop -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_absentWorkshopsFieldMeansNoWorkshop(WorkshopAcceptanceTest.java:40)
+
+[ERROR] si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_registrationWithOneWorkshopStoresThatWorkshop -- Time elapsed: 0.016 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[status of ] 
+expected: 201
+ but was: 401
+	at si.confreg.registration.acceptance.AcceptanceTestBase.register(AcceptanceTestBase.java:254)
+	at si.confreg.registration.acceptance.WorkshopAcceptanceTest.ac_001_08_registrationWithOneWorkshopStoresThatWorkshop(WorkshopAcceptanceTest.java:19)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ConfirmationAcceptanceTest.ac_001_04_eachOfTwoRegistrationsGetsItsOwnSingleConfirmation:46->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   ConfirmationAcceptanceTest.ac_001_04_exactlyOneConfirmationMailStatesNumberAndFees:26->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   ConfirmationAcceptanceTest.ac_001_04_storedRegistrationAnswers201WithRegistrationNumber:17 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_01_submissionOnDeadlineDayIsStoredWithEarlyBirdFee:26->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_01_submissionOnOrBeforeDeadlineIsStoredWithEarlyBirdFee:20->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_02_submissionAfterDeadlineIsStoredWithRegularFee:32->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_03_firstSecondAfterDeadlineDayInConferenceTimeZoneIsRegular:45->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_03_lastSecondOfDeadlineDayInConferenceTimeZoneIsEarlyBird:39->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatEarlyBird:51->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   FeeAcceptanceTest.ac_001_06_companyFromOtherEuMemberStatePaysSlovenianVatRegular:57->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   OrganizerAccessAcceptanceTest.ac_001_10_organizerReadsEveryFieldOfStoredRegistration:20->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongPasswordIsRejectedWithoutData:56->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   OrganizerAccessAcceptanceTest.ac_001_11_readingWithWrongUsernameIsRejectedWithoutData:71->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   OrganizerAccessAcceptanceTest.ac_001_11_readingWithoutCredentialsIsRejectedWithoutData:44->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   OrganizerAccessAcceptanceTest.ac_001_12_unknownRegistrationNumberAnswers404WithoutData:83->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   PayerDataAcceptanceTest.ac_001_05_companyPayerDataIsStoredWithRegistration:14->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   PayerDataAcceptanceTest.ac_001_05_noInvoiceAndNoPaymentRequestIsCreated:38->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   PayerDataAcceptanceTest.ac_001_05_privatePayerIsStoredWithoutCompanyData:25->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   RateLimitAcceptanceTest.ac_001_13_requestOverTheHourlyLimitIsRejectedNothingStoredNoMail:19->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   RepeatedRegistrationAcceptanceTest.ac_001_09_eachRepeatedRegistrationGetsItsOwnConfirmation:37->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   RepeatedRegistrationAcceptanceTest.ac_001_09_secondRegistrationIsStoredWithOwnNumberAndFeeFirstUnchanged:14->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_blankLastNameIsRejected:45->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_companyPayerWithoutCompanyDataIsRejectedPerField:87->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_companyPayerWithoutVatIdIsRejected:94->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_emailWithLineBreakIsRejected:64->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_emptyObjectIsRejectedForEveryRequiredParticipantField:126 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_invalidEmailIsRejected:58->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_missingEmailIsRejected:52->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_missingFirstNameIsRejected:38->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_missingPayerTypeIsRejected:71->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_moreThanOneWorkshopIsRejected:103->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_severalInvalidFieldsGiveOneErrorEach:119->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_unknownPayerTypeIsRejected:78->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   ValidationAcceptanceTest.ac_001_07_unknownWorkshopIsRejected:110->assertRejected:18 [status of ] 
+expected: 422
+ but was: 401
+[ERROR]   WorkshopAcceptanceTest.ac_001_08_absentWorkshopsFieldMeansNoWorkshop:40->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   WorkshopAcceptanceTest.ac_001_08_noCapacityIsCheckedForAWorkshop:51->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   WorkshopAcceptanceTest.ac_001_08_registrationWithOneWorkshopStoresThatWorkshop:19->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[ERROR]   WorkshopAcceptanceTest.ac_001_08_registrationWithoutWorkshopStoresNoWorkshop:29->AcceptanceTestBase.register:254 [status of ] 
+expected: 201
+ but was: 401
+[INFO] 
+[ERROR] Tests run: 38, Failures: 38, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  46.571 s
+[INFO] Finished at: 2026-10-06T13:34:59+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project registration-backend: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\tanej\Documents\LAB\tanej-confreg-C2\02_output\backend\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
