@@ -5,7 +5,7 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven phases 0-7 (`general/phases.md`); run `kyuhi-confreg-C1-r1`
-- Current phase: 4 (build), started 2026-10-06T18:15:46Z
-- Last gate result: phase 3 passed at 2026-10-06T18:15:46Z. 64 backend acceptance and 4 end-to-end tests written and frozen (freeze commit: manifest `docs/03_acceptance-manifest.sha256` only); all fail for behavioural reasons (`docs/03_test-strategy.md`).
-- Next step: phase 4. Build the backend per `docs/02_specification.md` (config, time, domain, persistence + V1 migration, mail, security, service, api), then the frontend form, Dockerfiles and `02_output/docker-compose.yml`; one commit per coherent AC group of US-001; all frozen tests pass; format, lint and type checks clean.
-- Waiting for the human on: nothing
+- Current phase: 4 (build), started 2026-10-06T18:07:06Z
+- Last gate result: phase 4 gate not passed. Backend, frontend, images and compose stack built and committed; format, lint, type and static checks clean (`out/logs/p4-backend-check.log`, `p4-frontend-check.log`). Backend acceptance: 62 of 64 pass (`out/logs/p4-backend-test-run2.log`); the 2 failures are frozen-test defects (D-28: AC-001-09 `@example.com` e-mail check; D-29: AC-001-18 SMTP override not applied). End-to-end: 4 of 4 pass against the compose stack on override ports 18080/15173/18025 (`out/logs/p4-frontend-e2e.log`; D-31).
+- Next step: apply the human's answers to D-28, D-29 and D-31 (test change and re-freeze only by the human's decision); re-run `./mvnw -B test` and the e2e suite; close the phase 4 gate; start phase 5 (unit tests, ArchUnit ARCH-1..6).
+- Waiting for the human on: D-28, D-29, D-31

@@ -244,3 +244,48 @@
 - Options: 1. (chosen) Keep the history, record the deviation here, and list it in the phase 6 evidence. 2. Rewrite history (not allowed).
 - Human response: none
 - Resolution: option 1, pending review
+
+## D-28: Frozen test AC-001-09 fails for input "@example.com" because of its e-mail check
+- Timestamp: 2026-10-06T18:33:39Z
+- Phase: 4
+- Type: blocking
+- Trigger: `ValidationAcceptanceTest.ac_001_09_invalidEmailRejected` parameter [3] (`@example.com`) fails at `AcceptanceTestBase.assertRejected`, assertion "e-mails sent" (log `out/logs/p4-backend-test-run1.log`). The backend did reject the registration: the 4xx status and the unchanged row count assertions passed. `assertRejected` then calls `messagesTo("@example.com")`, which runs the Mailpit search `to:"@example.com"`. That is a substring search and returns every confirmation sent to any `p-…@example.com` address in the run. The test is listed in `docs/03_acceptance-manifest.sha256`; only a human may change it.
+- Options: 1. (proposed default) In `AcceptanceTestBase.messagesTo`, keep only messages whose `To` address equals the searched address (case-insensitive), then re-freeze the manifest. This makes the check exact without weakening it. 2. In `assertRejected`, skip the e-mail check when the submitted address is not a complete address. 3. Keep the test; AC-001-09 stays red.
+- Human response: none
+- Resolution: pending review
+
+## D-29: Frozen test AC-001-18 never makes the SMTP server unreachable
+- Timestamp: 2026-10-06T18:33:39Z
+- Phase: 4
+- Type: blocking
+- Trigger: `MailFailureAcceptanceTest.ac_001_18_registrationNotStoredWhenEmailCannotBeSent` registers `spring.mail.host` and `spring.mail.port` (a closed port) in its own `@DynamicPropertySource`, but the base class registers the same keys for Mailpit, and the base class's values win. The backend therefore sent the e-mail to Mailpit, answered 201 and stored REG-000016 (Mailpit holds that confirmation). The test asserts a 5xx, so it fails without exercising the behaviour. Spec 3.1 (rollback and 503) is implemented in `RegistrationService`. The test is frozen.
+- Options: 1. (proposed default) Remove the subclass `@DynamicPropertySource`. Instead, pause the shared Mailpit container (`docker pause` through the Testcontainers Docker client) around the request in `MailFailureAcceptanceTest`, and unpause it in `finally`. With the 5-second SMTP timeouts the send then fails, which tests the real "SMTP unavailable" case. Then re-freeze the manifest. 2. Make the base class read the mail host and port from an overridable static hook. 3. Keep the test; AC-001-18 stays red.
+- Human response: none
+- Resolution: pending review
+
+## D-30: JDK build image added for the backend container
+- Timestamp: 2026-10-06T18:33:39Z
+- Phase: 4
+- Type: non-blocking
+- Trigger: `tech-stack.md` lists only the JRE image `eclipse-temurin:21.0.10_7-jre-alpine`. Building the jar inside `docker compose build` needs a JDK.
+- Options: 1. (chosen) Use `eclipse-temurin:21.0.10_7-jdk-alpine` (same Temurin release and licence, GPL-2.0-with-classpath-exception, build stage only, not shipped) as the build stage of `backend/Dockerfile`; verified to pull and report 21.0.10+7. 2. Build the jar on the host and copy it in (`docker compose up` would not work from a clean checkout).
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-31: Host ports 8080 and 5173 are already in use on this machine
+- Timestamp: 2026-10-06T18:33:39Z
+- Phase: 4
+- Type: blocking
+- Trigger: `environments.md` puts the backend on port 8080 and Mailpit on 8025. On the host, the container `backtesting-tool` (not part of this project) publishes 0.0.0.0:8080, and another process answers on 127.0.0.1:5173, so `docker compose up` failed with "port is already allocated". The agent does not stop other projects' containers. The compose file now keeps the defaults (8080, 5173, 8025) but lets `BACKEND_HOST_PORT`, `FRONTEND_HOST_PORT` and `MAILPIT_HOST_PORT` move the host side. The stack ran healthy on 18080, 15173 and 18025, and the 4 end-to-end tests passed there (`out/logs/p4-frontend-e2e.log`).
+- Options: 1. (proposed default) Keep the defaults; for this run's checks and the phase 6 runtime demonstration, use the override ports and record them in the evidence. 2. The human stops `backtesting-tool` (and the process on 5173) during the phase 6 demonstration, so the default ports are used.
+- Human response: none
+- Resolution: pending review
+
+## D-32: Three phase 4 commit subjects exceed 72 characters
+- Timestamp: 2026-10-06T18:33:39Z
+- Phase: 4
+- Type: non-blocking
+- Trigger: `general/working-rules.md` limits commit subjects to 72 characters. Commits a0e8c3f (93), c2af805 (90) and f6204cb (84) are longer because they list every AC id. History may not be rewritten.
+- Options: 1. (chosen) Keep them, record the deviation here for the phase 6 evidence, and keep later subjects within 72 characters (ranges such as AC-001-08..16). 2. Rewrite history (not allowed).
+- Human response: none
+- Resolution: option 1, pending review

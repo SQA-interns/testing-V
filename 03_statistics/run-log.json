@@ -235,6 +235,36 @@
       "type": "non-blocking",
       "start": "2026-10-06T18:07:06Z",
       "end": "2026-10-06T18:07:06Z"
+    },
+    {
+      "id": "D-28",
+      "type": "blocking",
+      "start": "2026-10-06T18:33:39Z",
+      "end": null
+    },
+    {
+      "id": "D-29",
+      "type": "blocking",
+      "start": "2026-10-06T18:33:39Z",
+      "end": null
+    },
+    {
+      "id": "D-30",
+      "type": "non-blocking",
+      "start": "2026-10-06T18:33:39Z",
+      "end": "2026-10-06T18:33:39Z"
+    },
+    {
+      "id": "D-31",
+      "type": "blocking",
+      "start": "2026-10-06T18:33:39Z",
+      "end": null
+    },
+    {
+      "id": "D-32",
+      "type": "non-blocking",
+      "start": "2026-10-06T18:33:39Z",
+      "end": "2026-10-06T18:33:39Z"
     }
   ],
   "humanInterventions": [
@@ -252,6 +282,11 @@
       "start": "2026-10-06T17:59:35Z",
       "end": "2026-10-06T18:02:22Z",
       "reason": "Phase 1: D-18 US-001 AC4 invoice conflicts with AR-08; confirm D-19 fee includes VAT"
+    },
+    {
+      "start": "2026-10-06T18:33:39Z",
+      "end": null,
+      "reason": "Phase 4: D-28 and D-29 frozen acceptance tests appear wrong; D-31 host ports 8080/5173 in use"
     }
   ],
   "codeMetrics": {
