@@ -1,5 +1,6 @@
 package si.confreg.registration.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,7 @@ class ApiExceptionHandler {
   private static final MediaType PROBLEM = MediaType.APPLICATION_PROBLEM_JSON;
   private static final int BODY_LIMIT_BYTES = 16 * 1024;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   record Problem(String type, String title, int status, String detail, List<FieldError> errors) {}
 
   private static ResponseEntity<Problem> problem(

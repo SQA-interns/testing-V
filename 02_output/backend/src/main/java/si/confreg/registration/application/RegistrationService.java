@@ -1,6 +1,7 @@
 package si.confreg.registration.application;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -39,7 +40,8 @@ public class RegistrationService {
   @Transactional
   public Registration register(RegistrationCommand command) {
     NewRegistration data = validator.validate(command);
-    Instant now = timeSource.now();
+    // PostgreSQL stores microseconds; the answer must equal what is stored.
+    Instant now = timeSource.now().truncatedTo(ChronoUnit.MICROS);
     Price price = pricing.price(data.student(), now);
     if (repository.existsByEmailNormalized(Registration.normalizeEmail(data.email()))) {
       throw new DuplicateRegistrationException();
