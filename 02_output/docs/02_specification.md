@@ -205,7 +205,7 @@ Stored items exactly as `security-requirements.md` "Personal data": names, e-mai
 
 | Component | build | test | check | run |
 |---|---|---|---|---|
-| backend | `./mvnw -B package -DskipTests` | `./mvnw -B verify` (unit, integration, acceptance; needs Docker for Testcontainers) | `./mvnw -B spotless:check pmd:check pmd:cpd-check spotbugs:check` | `docker compose up` in `02_output/` (or `./mvnw spring-boot:run` with the variables of §3) |
+| backend | `./mvnw -B package -DskipTests` | `./mvnw -B verify` (unit, integration, acceptance; needs Docker for Testcontainers) | `./mvnw -B compile spotless:check pmd:check pmd:cpd-check spotbugs:check` | `docker compose --env-file ../.env up --build` in `02_output/` after `./mvnw -B package -DskipTests` (or `./mvnw spring-boot:run` with the variables of §3) |
 | frontend | `npm ci && npm run build` | `npm test` (unit/component); `npm run test:e2e` (end-to-end, needs the local stack) | `npm run check` | `docker compose up` in `02_output/` (or `npm run dev` with the backend on 8080) |
 
 ## 13. Test design hooks (for phase 3)
