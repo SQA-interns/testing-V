@@ -51,7 +51,14 @@ class FiltersTest {
   private static MockHttpServletResponse run(Filter filter, MockHttpServletRequest request)
       throws Exception {
     MockHttpServletResponse response = new MockHttpServletResponse();
-    filter.doFilter(request, response, new MockFilterChain());
+    MockFilterChain chain = new MockFilterChain();
+    filter.doFilter(request, response, chain);
+    // a request reaches the next filter exactly when it is not rejected (F-02)
+    assertThat(chain.getRequest() != null).isEqualTo(response.getStatus() == 200);
+    if (response.getStatus() != 200) {
+      assertThat(response.getContentType()).startsWith("application/json");
+      assertThat(response.getCharacterEncoding()).isEqualTo("UTF-8");
+    }
     return response;
   }
 
@@ -129,6 +136,18 @@ class FiltersTest {
             run(filter, new ChunkedRequest(new byte[RequestSizeFilter.MAX_BODY_BYTES + 1]))
                 .getStatus())
         .isEqualTo(413);
+  }
+
+  @Test
+  void emptyBodyAndChunkedBodyAtLimitPass() throws Exception {
+    RequestSizeFilter filter = new RequestSizeFilter();
+    MockHttpServletRequest empty = api("127.0.0.1");
+    empty.setContent(new byte[0]);
+
+    assertThat(run(filter, empty).getStatus()).isEqualTo(200);
+    assertThat(
+            run(filter, new ChunkedRequest(new byte[RequestSizeFilter.MAX_BODY_BYTES])).getStatus())
+        .isEqualTo(200);
   }
 
   // ---- TransportFilter (SR-03, D-27) ----

@@ -121,7 +121,12 @@ class RegisterParticipantTest {
   void findDelegatesToStore() {
     FindRegistration find = new FindRegistration(store);
     when(store.find("REG-000001")).thenReturn(Optional.empty());
+    when(time.now()).thenReturn(EARLY);
+    when(store.nextRegistrationNumber()).thenReturn("REG-000002");
+    Registration stored = useCase.register(valid(), List.of());
+    when(store.find("REG-000002")).thenReturn(Optional.of(stored));
 
     assertThat(find.find("REG-000001")).isEmpty();
+    assertThat(find.find("REG-000002")).contains(stored);
   }
 }

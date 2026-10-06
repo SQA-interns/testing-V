@@ -83,6 +83,8 @@ class TestClockTest {
 
     assertThat(response.getStatus()).isEqualTo(400);
     assertThat(response.getContentAsString()).isEqualTo("{\"error\":\"invalid_test_clock\"}");
+    assertThat(response.getContentType()).startsWith("application/json");
+    assertThat(response.getCharacterEncoding()).isEqualTo("UTF-8");
     assertThat(chain.getRequest()).isNull();
   }
 
