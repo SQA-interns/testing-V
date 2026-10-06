@@ -37,12 +37,12 @@
       "phase": 4,
       "name": "build",
       "start": "2026-10-06T19:34:51Z",
-      "end": null
+      "end": "2026-10-06T20:07:52Z"
     },
     {
       "phase": 5,
       "name": "unit-tests",
-      "start": null,
+      "start": "2026-10-06T20:07:52Z",
       "end": null
     },
     {
