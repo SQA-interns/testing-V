@@ -154,3 +154,57 @@
 - Options: as in D-14.
 - Human response: "is false positive" (2026-10-06T17:55:48Z)
 - Resolution: D-14 option 1. CVE-2025-7962 on `org.eclipse.angus:angus-activation` is classified Low (false positive) and suppressed for that artifact only in `backend/dependency-check-suppressions.xml`. CVE-2025-15104 on `hibernate-validator` is suppressed in the same file (D-15).
+
+## D-18: US-001 AC4 "an invoice is issued to the payer" conflicts with AR-08
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: blocking
+- Trigger: US-001 AC4 (`project/01_requirements/user-stories.md`) says that after a completed registration "an invoice is issued to the payer". AR-08 (`project/02_design/architecture.md`) says invoicing is owned by the accounting team and invoices are produced by a separate process of the accounting system, which is not part of this repository; `environments.md` lists the accounting system with no local substitute and no interface. Phase 1 must adopt product-owner criteria without changing their meaning, so AC4 cannot be adopted as written without breaking AR-08, and no precedence rule resolves two `project/` files.
+- Options: 1. (proposed default) This system does not issue invoices (AR-08). AC-001-04 is met when the payer's invoice data (private: participant name and e-mail; company: company name, address and VAT ID) and the amounts are stored and available to the accounting system through the organizer-only `GET /api/registrations/{registrationNumber}`; release notes list "invoice reaches the payer" for manual testing with accounting. 2. The backend produces and sends an invoice document to the payer itself (contradicts AR-08; needs invoice numbering and legal content that no input defines). 3. The backend notifies the accounting system per registration, for example by e-mail to a configured accounting address (needs a new setting and an interface that no input defines).
+- Human response: none
+- Resolution: pending review
+
+## D-19: Meaning of "the fee is 240 EUR / 300 EUR" (gross, VAT split, rounding)
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 AC1 and AC2 give one fee; the fixed API stores `netFee`, `vat` and `grossFee`, and `environments.md` sets `APP_FEE_EARLY` 240.00, `APP_FEE_REGULAR` 300.00 and `APP_VAT_RATE` 0.22. Whether the fee includes VAT is not stated; a participant notices the difference (240.00 or 292.80 to pay). No rule says whether VAT differs by payer type (for example reverse charge for foreign companies).
+- Options: 1. (chosen, more conservative: the payer never pays more than the advertised fee, and prices advertised to private consumers include VAT) The configured fee is the gross amount: `grossFee` = fee, `netFee` = gross / (1 + rate) rounded half-up to cents, `vat` = gross − net (240.00 = 196.72 + 43.28; 300.00 = 245.90 + 54.10). The same VAT rate applies to every payer type. 2. The configured fee is net and VAT is added (240.00 + 52.80 = 292.80).
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-20: Workshops (count, validity, effect on fee)
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 does not mention workshops, but the fixed API accepts `workshops` (array of ids) and stores a single `workshop` (id or null); `APP_WORKSHOPS` configures W1, W2 and W3. Not stated: whether a workshop is required, how many may be chosen, whether a workshop costs extra, and whether workshops have a capacity.
+- Options: 1. (chosen, more conservative: nothing submitted is silently dropped, and no fee or limit is invented) A workshop is optional; at most one may be chosen; it must be a configured id; anything else is rejected (no silent truncation of the array); a workshop does not change the fee; there is no capacity limit. 2. Accept several workshops and store only the first (silently drops input). 3. Require a workshop.
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-21: Input validation rules for registration fields
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: `business-rules.md` records no data rules. Not stated: which fields are required, whether company fields are required for company payers or allowed for private payers, the e-mail format, and field lengths (SB-01, SB-12).
+- Options: 1. (chosen, more conservative) Required: `firstName`, `lastName`, `email` (syntactically valid), `payerType` (`private` or `company`). For `company`, `companyName`, `companyAddress` and `companyVatId` are required (needed for invoicing). For `private`, non-blank company fields are rejected rather than ignored (SB-12, and no accepted input is silently not stored). Maximum lengths: names 100, e-mail 254, company name 200, address 500, VAT ID 30 characters. No VAT ID format check (not defined). Every violation rejects the whole registration with a 4xx status. 2. Accept company fields for private payers and ignore them. 3. Check the VAT ID against a national format.
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-22: Confirmation e-mail cannot be sent
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: US-001 AC3 requires a confirmation e-mail for every completed registration, but does not say what happens when the SMTP server does not accept the message.
+- Options: 1. (chosen, more conservative: no participant believes they are registered without a confirmation, and no reservation exists that the participant was told failed) The e-mail is handed to the SMTP server before the registration is committed; if that fails, nothing is stored and the API answers with a 5xx status asking the participant to try again. 2. Store the registration, answer 2xx, and retry the e-mail later (needs an outbox; AC3 is not met at the end of the request). 3. Store the registration and answer with an error (the participant would register twice).
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-23: Duplicates, capacity and registration period
+- Timestamp: 2026-10-06T17:59:35Z
+- Phase: 1
+- Type: non-blocking
+- Trigger: not stated in US-001 or `scope.md`: whether the same e-mail address may register more than once, whether the conference has a capacity, and whether registration closes at some date.
+- Options: 1. (chosen: no restriction that the inputs do not state; a duplicate check could lock out legitimate users, for example an assistant registering colleagues with one address) Duplicates are allowed and each gets its own registration number; no capacity; no closing date. 2. Reject a second registration with the same e-mail address. 3. Close registration at a configured date (needs a new setting).
+- Human response: none
+- Resolution: option 1, pending review

@@ -18,7 +18,7 @@
     {
       "phase": 1,
       "name": "requirements",
-      "start": null,
+      "start": "2026-10-06T17:57:50Z",
       "end": null
     },
     {
@@ -175,6 +175,42 @@
       "type": "blocking",
       "start": "2026-10-06T17:55:48Z",
       "end": "2026-10-06T17:55:48Z"
+    },
+    {
+      "id": "D-18",
+      "type": "blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": null
+    },
+    {
+      "id": "D-19",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": "2026-10-06T17:59:35Z"
+    },
+    {
+      "id": "D-20",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": "2026-10-06T17:59:35Z"
+    },
+    {
+      "id": "D-21",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": "2026-10-06T17:59:35Z"
+    },
+    {
+      "id": "D-22",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": "2026-10-06T17:59:35Z"
+    },
+    {
+      "id": "D-23",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:59:35Z",
+      "end": "2026-10-06T17:59:35Z"
     }
   ],
   "humanInterventions": [
@@ -187,6 +223,11 @@
       "start": "2026-10-06T17:48:42Z",
       "end": "2026-10-06T17:55:48Z",
       "reason": "Phase 0 re-check: D-13 organizer username still in repository paths, D-14 approve false-positive classification of CVE-2025-7962"
+    },
+    {
+      "start": "2026-10-06T17:59:35Z",
+      "end": null,
+      "reason": "Phase 1: D-18 US-001 AC4 invoice conflicts with AR-08; confirm D-19 fee includes VAT"
     }
   ],
   "codeMetrics": {
