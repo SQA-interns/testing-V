@@ -184,3 +184,21 @@
   3. Run the end-to-end tests in a Playwright container image (an unlisted image, so it would need its own approval).
 - Human response: none
 - Resolution: pending review
+
+## D-18: Human response to D-15 (angus-activation CVE-2025-7962)
+- Timestamp: 2026-10-06T19:07:39Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-15.
+- Options: as in D-15.
+- Human response: 2026-10-06T19:07:39Z (received): "default, classify CVE-2025-7962 on angus-activation 2.0.3 as a false positive (Low), with a suppression scoped to this jar. Keep the raw report."
+- Resolution: D-15 option 1. Low (false positive); suppression scoped to `angus-activation` and CPE `cpe:/a:eclipse:angus_mail`; the unsuppressed raw report stays in `out/logs/00_bootstrap/backend-dependency-check-report.json`.
+
+## D-19: Human response to D-17 (Playwright Chromium)
+- Timestamp: 2026-10-06T19:07:39Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-17.
+- Options: as in D-17.
+- Human response: 2026-10-06T19:07:39Z (received): "default, run npx playwright install chromium (user cache only)."
+- Resolution: D-17 option 1.

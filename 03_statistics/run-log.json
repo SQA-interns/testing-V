@@ -13,12 +13,12 @@
       "phase": 0,
       "name": "preflight-and-bootstrap",
       "start": "2026-10-06T17:50:55Z",
-      "end": null
+      "end": "2026-10-06T19:09:11Z"
     },
     {
       "phase": 1,
       "name": "requirements",
-      "start": null,
+      "start": "2026-10-06T19:09:11Z",
       "end": null
     },
     {
@@ -162,7 +162,7 @@
       "id": "D-15",
       "type": "blocking",
       "start": "2026-10-06T18:58:32Z",
-      "end": null
+      "end": "2026-10-06T19:07:39Z"
     },
     {
       "id": "D-16",
@@ -174,7 +174,19 @@
       "id": "D-17",
       "type": "blocking",
       "start": "2026-10-06T19:01:12Z",
-      "end": null
+      "end": "2026-10-06T19:07:39Z"
+    },
+    {
+      "id": "D-18",
+      "type": "blocking",
+      "start": "2026-10-06T19:07:39Z",
+      "end": "2026-10-06T19:07:39Z"
+    },
+    {
+      "id": "D-19",
+      "type": "blocking",
+      "start": "2026-10-06T19:07:39Z",
+      "end": "2026-10-06T19:07:39Z"
     }
   ],
   "humanInterventions": [
@@ -190,7 +202,7 @@
     },
     {
       "start": "2026-10-06T19:01:12Z",
-      "end": null,
+      "end": "2026-10-06T19:07:39Z",
       "reason": "Phase 0: asked to resolve blocking decisions D-15 (angus-activation CVE) and D-17 (Playwright Chromium download)"
     }
   ],

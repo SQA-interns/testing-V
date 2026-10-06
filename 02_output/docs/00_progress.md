@@ -5,10 +5,10 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 0 (preflight and bootstrap), started 2026-10-06T17:50:55Z
-- Last gate result: phase 0 gate not passed: Maven dependency scan reports CVE-2025-7962 (D-15); Playwright browser not installed (D-17). All other checks pass.
-- Next step: apply the answers to D-15 and D-17, re-run Dependency-Check on the backend, re-check the gate, then start phase 1 (raise AC4 (invoice) vs AR-08 (invoicing outside this repo) as a decision)
-- Waiting for the human on: D-15, D-17 (asked 2026-10-06T19:01Z)
+- Current phase: 1 (requirements), started 2026-10-06T19:09:11Z
+- Last gate result: phase 0 gate passed 2026-10-06T19:09:11Z
+- Next step: write `docs/01_acceptance-criteria.md` from US-001; raise AC4 (invoice issued) vs AR-08 (invoicing outside this repo) as a decision
+- Waiting for the human on: nothing
 
 ## Done in phase 0
 
@@ -24,6 +24,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Human answered D-01, D-02, D-04, D-07, D-08 at 18:54Z (recorded as D-09 to D-13); timestamp correction D-14
 - Backend skeleton builds and checks clean (`e54e530`); frontend skeleton builds, checks clean, lock matches (`d572bb6`)
 - Re-run of failed checks: platforms pass (as amended), npm audit passes, Dependency-Check finds CVE-2025-7962 (D-15); D-16 suppression scope
+
+- Human answered D-15 and D-17 at 19:07Z (D-18, D-19); backend scan passes; Playwright Chromium installed; all tools run
+- Phase 0 gate passed 2026-10-06T19:09:11Z
 
 ## Interruptions
 

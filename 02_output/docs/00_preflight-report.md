@@ -36,7 +36,7 @@ The scan covers the `dependencies` set of `tech-stack.md`. npm: `npm audit` with
 | When | What was missing | Answer | Re-check |
 |---|---|---|---|
 | 2026-10-06T18:49Z | D-01 Temurin JDK 21.0.10+7; D-02 Node.js 24.13.0 / npm 11.6.2; D-04 vitest/jscpd vulnerabilities; D-07, D-08 Testcontainers scan findings | 18:54Z: D-01 approve Oracle 21.0.11 (D-09); D-02 approve Node 24.10.0 / npm 10.9.4 (D-10); D-04 vitest + coverage-v8 5.0.3, jscpd 5.4.0 (D-11); D-07 Low + suppression (D-12); D-08 Medium + suppression (D-13) | see re-check below |
-| 2026-10-06T19:01Z | D-15 angus-activation CVE-2025-7962 (High by CVSS v3); D-17 Playwright Chromium download | pending | |
+| 2026-10-06T19:01Z | D-15 angus-activation CVE-2025-7962 (High by CVSS v3); D-17 Playwright Chromium download | 19:07Z: D-15 Low + scoped suppression, keep raw report (D-18); D-17 install Chromium to user cache (D-19) | see final re-check below |
 
 ## Re-check after the human's answers (2026-10-06T18:54Z)
 
@@ -57,3 +57,15 @@ Only the failed checks were re-run.
 | frontend | Pass: `npm run build` | Pass: `npm run check` (prettier, eslint, tsc); `npm test` runs (no tests yet) | Pass: 0 mismatches between `package.json` and `package-lock.json`, all exact; vitest, coverage-v8 and jscpd as amended (D-11) |
 
 Tools run at their pinned or approved versions: vite 6.4.3, tsc 5.9.3, eslint 9.39.5, prettier 3.9.9, vitest 5.0.3, playwright 1.63.0 (browser not yet installed, D-17), stryker 10.0.0, jscpd 5.4.0. Logs: `out/logs/00_bootstrap/`.
+
+## Final re-check (2026-10-06T19:08Z)
+
+| Check | Method | Result |
+|---|---|---|
+| Maven dependencies, no Critical/High | `dependency-check-maven` 12.1.0 on `02_output/backend/pom.xml`, suppressions per D-12, D-13, D-16, D-18 | Pass: BUILD SUCCESS at fail threshold CVSS 7; 47 suppressed; open Medium: CVE-2026-64607 (shaded httpclient5, CVSS v3 5.3), CVE-2025-15104 (hibernate-validator 9.1.3.Final, v3 5.3 / v4 6.9). The report before the D-18 suppression is kept as `out/logs/00_bootstrap/backend-dependency-check-report-raw.json`; the full unsuppressed preflight report is `out/logs/00_preflight/dependency-check-report.json` |
+| Playwright Chromium (D-19) | `npx playwright install chromium`; second check: launch through `@playwright/test` | Pass: Chromium 153.0.8010.12 in the user cache `%LOCALAPPDATA%\ms-playwright` |
+| Remaining tools run | pitest-maven 1.30.0 `mutationCoverage` (no mutations yet), jacoco 0.8.12, `npm run coverage` (vitest 5.0.3 with coverage-v8), jscpd 5.4.0 (0 clones), gitleaks v8.30.1 (no leaks) | Pass |
+
+## Gate
+
+Phase 0 gate passed 2026-10-06T19:09Z: every preflight check passes (as amended by D-09 to D-13, D-18, D-19); both components build; manifests and lock files match `tech-stack.md` as amended; every listed tool runs; input manifest written.
