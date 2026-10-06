@@ -1,0 +1,39 @@
+{
+  "$comment": "E-mail contract between backend and SMTP server (docs/02_specification.md section 9). Placeholders in {braces} are filled by the backend; amounts with two decimals and the suffix ' EUR'. Every line is plain text; no HTML.",
+  "trigger": "one message per stored registration, after the database commit (AC-001-04)",
+  "transport": "SMTP to SPRING_MAIL_HOST:SPRING_MAIL_PORT via JavaMailSender (AR-07)",
+  "headers": {
+    "From": "{APP_MAIL_FROM}",
+    "To": "{email}",
+    "Subject": "Registration confirmation {registrationNumber}",
+    "Content-Type": "text/plain; charset=UTF-8"
+  },
+  "bodyLines": [
+    "Dear {firstName} {lastName},",
+    "",
+    "your registration for the conference has been received.",
+    "",
+    "Registration number: {registrationNumber}",
+    "Workshop: {workshopTitle}",
+    "Net fee: {netFee} EUR",
+    "VAT: {vat} EUR",
+    "Gross fee: {grossFee} EUR",
+    "",
+    "Conference organizing committee"
+  ],
+  "placeholderRules": {
+    "workshopTitle": "title from APP_WORKSHOPS for the selected id, or 'none' when no workshop is selected",
+    "netFee": "stored net fee, two decimals, '.' as decimal separator",
+    "vat": "stored VAT, two decimals",
+    "grossFee": "stored gross fee, two decimals",
+    "firstName": "stored value, UTF-8 unchanged (NFR-01)",
+    "lastName": "stored value, UTF-8 unchanged (NFR-01)"
+  },
+  "safety": [
+    "user input appears only in the body and in the To address (SR-05)",
+    "the To address is parsed with InternetAddress; validation rejects control characters, so no CR/LF can reach a header",
+    "the Subject contains only fixed text and the system-generated registration number",
+    "no HTML part, so no markup can be injected"
+  ],
+  "failure": "registration stays stored, API still answers 201, log line with the registration number and exception class only, no retry (D-09)"
+}
