@@ -69,7 +69,7 @@ public class RegistrationValidator {
       companyVatId = null;
     }
     String workshop = workshop(command, errors);
-    boolean student = Boolean.TRUE.equals(command.student());
+    boolean student = command.student();
 
     if (!errors.isEmpty()) {
       throw new ValidationFailedException(errors);

@@ -16,7 +16,7 @@ public record RegistrationCommand(
     String companyAddress,
     String companyVatId,
     List<String> workshops,
-    Boolean student,
+    boolean student,
     Set<String> typeErrors) {
 
   public RegistrationCommand {

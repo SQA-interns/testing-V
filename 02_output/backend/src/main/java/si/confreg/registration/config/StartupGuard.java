@@ -10,7 +10,7 @@ import si.confreg.registration.application.AppProperties;
  * TLS to the SMTP server (SB-04).
  */
 @Component
-public class StartupGuard {
+public final class StartupGuard {
 
   public StartupGuard(Environment environment, AppProperties properties) {
     check(environment.acceptsProfiles(Profiles.of("prod")), properties);

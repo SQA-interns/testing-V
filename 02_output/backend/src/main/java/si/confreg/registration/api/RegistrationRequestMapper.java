@@ -39,13 +39,15 @@ final class RegistrationRequestMapper {
     return null;
   }
 
-  private static Boolean bool(Map<String, Object> body, String field, Set<String> typeErrors) {
+  private static boolean bool(Map<String, Object> body, String field, Set<String> typeErrors) {
     Object value = body.get(field);
-    if (value == null || value instanceof Boolean) {
-      return (Boolean) value;
+    if (value instanceof Boolean flag) {
+      return flag;
     }
-    typeErrors.add(field);
-    return null;
+    if (value != null) {
+      typeErrors.add(field);
+    }
+    return false;
   }
 
   private static List<String> workshops(Map<String, Object> body, Set<String> typeErrors) {

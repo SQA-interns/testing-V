@@ -17,7 +17,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * once at startup; an invalid value stops startup with a message naming the setting.
  */
 @ConfigurationProperties(prefix = "app")
-public class AppProperties {
+public final class AppProperties {
 
   private final ZoneId conferenceTz;
   private final LocalDate earlyBirdDeadline;
@@ -64,7 +64,7 @@ public class AppProperties {
   static Map<String, String> parseWorkshops(String raw) {
     Map<String, String> result = new LinkedHashMap<>();
     if (raw == null || raw.isBlank()) {
-      return Collections.unmodifiableMap(result);
+      return result;
     }
     for (String entry : raw.split(";")) {
       if (entry.isBlank()) {
@@ -78,7 +78,7 @@ public class AppProperties {
       }
       result.put(id, title);
     }
-    return Collections.unmodifiableMap(result);
+    return result;
   }
 
   private static ZoneId zone(String value) {
@@ -176,7 +176,7 @@ public class AppProperties {
 
   /** Workshop ids to titles, in configuration order. */
   public Map<String, String> workshops() {
-    return workshops;
+    return Collections.unmodifiableMap(workshops);
   }
 
   public List<String> workshopIds() {
