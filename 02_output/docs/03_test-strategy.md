@@ -54,7 +54,25 @@ Harness defects found and fixed before the freeze (not behavioural): static init
 
 ## First complete run (before any fix)
 
-Phase 5.
+Phase 5, 2026-10-06, all levels together, before any fix. Logs: `out/logs/05_first-full-run-backend.log` (`./mvnw -B verify`), `05_first-full-run-frontend.log` (`npx vitest run`), `05_first-full-run-e2e.log` (Playwright against the compose stack, `E2E_BASE_URL=http://127.0.0.1:3000`).
+
+| Level | Suite (location) | Passed | Failed |
+|---|---|---|---|
+| Acceptance | backend `acceptance/` (8 classes) | 52 | 0 |
+| Acceptance | frontend `tests/acceptance/` | 10 | 0 |
+| End-to-end | frontend `e2e/` | 3 | 0 |
+| Unit | backend `domain/` (FeePolicyTest 7, DomainValuesTest 9) | 16 | 0 |
+| Unit | backend `application/` (RegistrationValidatorTest 24, RegisterParticipantTest 7, RateLimiterTest 9) | 40 | 0 |
+| Unit | backend `web/` (WebFiltersTest 27, RegistrationRequestReaderTest 4) | 31 | 0 |
+| Unit | backend `mail/` (SmtpConfirmationSenderTest 3), `config/` (StartupGuardsTest 4) | 7 | 0 |
+| Architecture | backend `architecture/ArchitectureTest` (rules A1-A7, 10 rules) | 10 | 0 |
+| Integration | backend `integration/ApiIntegrationTest` (SB-10, SR-01, SR-02, SB-07, storage) | 6 | 0 |
+| Unit | frontend `src/api.test.ts` 8, `src/App.test.tsx` 2 | 10 | 0 |
+| **Total** | | **185** | **0** |
+
+Classification: no failures, so nothing to classify. Two defects in non-frozen tests were corrected while writing them, before this run (not counted as failures): a jsdom `requestSubmit()` that native validation would block (now `fireEvent.submit`), and a convoluted registration number literal in `ApiIntegrationTest`.
+
+What the unit and integration tests add beyond the acceptance tests: fee rule in a zone where local and UTC dates differ, rounding half up, scaling; every validation rule incl. limits at the boundary, control characters, wrong JSON types; number collision retry (spec 4.3) and e-mail failure keeping the registration (D-09); sliding window edges; test clock scoping and 400 on a malformed `X-Test-Now`; body limit with and without Content-Length (SR-02); SR-03 loopback detection and 403; failed-login blocking (SB-06); SR-04 and organizer-credential start-up refusals; e-mail contract incl. header-injection rejection (SR-05) and UTF-8 (NFR-01); security headers (SB-10); no personal data in logs (SR-01); architecture rules A1-A7 (DoD-04).
 
 ## Final run (phase 6)
 
