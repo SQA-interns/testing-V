@@ -12,10 +12,7 @@ trim() {
 }
 
 items=""
-old_ifs=$IFS
-IFS=';'
-for entry in ${APP_WORKSHOPS:-}; do
-  IFS=$old_ifs
+while read -r entry; do
   case "$entry" in
     *=*) id=$(trim "${entry%%=*}"); title=$(trim "${entry#*=}") ;;
     *) id=$(trim "$entry"); title=$id ;;
@@ -23,8 +20,8 @@ for entry in ${APP_WORKSHOPS:-}; do
   if [ -n "$id" ]; then
     items="${items}${items:+,}{\"id\":\"$(escape "$id")\",\"title\":\"$(escape "$title")\"}"
   fi
-  IFS=';'
-done
-IFS=$old_ifs
+done <<EOF
+$(printf '%s\n' "${APP_WORKSHOPS:-}" | tr ';' '\n')
+EOF
 
-printf 'window.APP_CONFIG = {"workshops":[%s]};\n' "$items" > /usr/share/nginx/html/config.js
+printf 'window.APP_CONFIG = {"workshops":[%s]};\n' "$items" > "${CONFIG_JS:-/usr/share/nginx/html/config.js}"
