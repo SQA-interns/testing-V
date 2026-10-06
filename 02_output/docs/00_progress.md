@@ -5,9 +5,9 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 7 (release), started 2026-10-06T21:14:20Z
-- Last gate result: phase 6 gate passed 2026-10-06T21:14:20Z (D-34 resolved by D-35)
-- Next step: root README, component READMEs (ES-06), clean-checkout check, release notes with manual tests, `03_statistics/run-summary.md`, final run-log fields
+- Current phase: done (phase 7 ended 2026-10-06T21:21:14Z)
+- Last gate result: phase 7 gate passed 2026-10-06T21:21:14Z (clean-checkout check passed; release notes with manual tests; every decision resolved or pending review)
+- Next step: none by the agent. Human: review D-20 to D-29, run the manual tests in `docs/release-notes.md`, fill section 2 of `03_statistics/metrics.md` in a post-run session and `03_statistics/usage.md`
 - Waiting for the human on: nothing
 
 ## Done in phase 0
@@ -41,6 +41,9 @@ Updated at every gate and before any stop, so a fresh session can resume from he
 - Phase 5: 128 backend unit/integration and 18 frontend tests; first run 200 passed / 2 failed (both non-frozen test defects, fixed); full suite 202/202; gate passed 2026-10-06T20:22:50Z
 
 - Phase 6: verification report with 10 findings (0 Critical, 0 High, 4 Medium, 6 Low); fix loops F-01, F-02; runtime demonstration passed; D-34 raised
+
+- D-34 answered (D-35, 21:14Z); phase 6 gate passed
+- Phase 7: root and component READMEs, clean-checkout check, release notes, run summary; gate passed 2026-10-06T21:21:14Z
 
 ## Interruptions
 

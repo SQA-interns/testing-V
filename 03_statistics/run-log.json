@@ -5,9 +5,9 @@
   "templateVersion": "1.2",
   "transcript": "C:/Users/tanej/.claude/projects/c--Users-tanej-Documents-LAB-tanej-confreg-C1/707941d4-fc8f-4bd6-bc1a-a6c8077ff6ab.jsonl",
   "startCommit": "9deb9569337af90b061eba8a72b80ee53778f99d",
-  "finalCommit": null,
+  "finalCommit": "5dfe2e5d271924966fcba98ac0086e214c5f20c4",
   "start": "2026-10-06T17:50:55Z",
-  "end": null,
+  "end": "2026-10-06T21:21:14Z",
   "phases": [
     {
       "phase": 0,
@@ -55,7 +55,7 @@
       "phase": 7,
       "name": "release",
       "start": "2026-10-06T21:14:20Z",
-      "end": null
+      "end": "2026-10-06T21:21:14Z"
     }
   ],
   "firstTestRun": {
@@ -323,7 +323,7 @@
     {
       "start": "2026-10-06T19:17:00Z",
       "end": "2026-10-06T19:23:29Z",
-      "reason": "Phase 2\u21923 checkpoint: asked to review pending decisions D-20 to D-29; human gave no further information (D-30)"
+      "reason": "Phase 2→3 checkpoint: asked to review pending decisions D-20 to D-29; human gave no further information (D-30)"
     },
     {
       "start": "2026-10-06T19:56:45Z",
@@ -380,5 +380,6 @@
     },
     "costUsd": null,
     "priceTableDate": null
-  }
+  },
+  "finalCommitNote": "last commit before this statistics commit, which records end time and finalCommit"
 }
