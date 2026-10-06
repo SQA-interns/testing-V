@@ -1,5 +1,21 @@
-# Every setting can be overridden by an environment variable of the same name (environments.md).
-# Secrets have no default (ES-01).
+# Every setting can be overridden by an environment variable of the same name (environments.md);
+# app.* settings bind from APP_* variables. Secrets have no default (ES-01). Specification section 3.
+app:
+  conference-tz: Europe/Ljubljana
+  early-bird-deadline: 2026-07-31
+  fee-early: 240.00
+  fee-regular: 300.00
+  vat-rate: 0.22
+  workshops: W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains
+  rate-limit-per-hour: 100
+  test-clock: disabled
+  mail-from: registration@localhost
+  mail-retry-interval: PT60S
+  mail-max-attempts: 10
+  organizer:
+    username: ${ORGANIZER_USERNAME:}
+    password: ${ORGANIZER_PASSWORD:}
+
 spring:
   application:
     name: registration-backend
@@ -15,13 +31,51 @@ spring:
       hibernate:
         jdbc:
           time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+  mail:
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: ${SMTP_AUTH:false}
+          starttls:
+            enable: ${SMTP_TLS:false}
+            required: ${SMTP_TLS:false}
+          connectiontimeout: 5000
+          timeout: 10000
+          writetimeout: 10000
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  forward-headers-strategy: native
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+    include-binding-errors: never
 
 management:
+  server:
+    port: 8081
+    address: 127.0.0.1
   endpoints:
     web:
       exposure:
         include: health
   endpoint:
     health:
+      show-details: never
       probes:
         enabled: true
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+    org.hibernate.orm.jdbc.bind: warn
