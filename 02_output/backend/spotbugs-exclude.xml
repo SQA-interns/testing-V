@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Narrow exclusions of SpotBugs false positives; each names the class and the reason. -->
+<FindBugsFilter>
+  <!-- Collaborators injected through the constructor (ports, Spring beans) are shared on purpose. -->
+  <Match>
+    <Or>
+      <Class name="si.confreg.registration.application.RegisterParticipant"/>
+      <Class name="si.confreg.registration.application.RegistrationQuery"/>
+    </Or>
+    <Bug pattern="EI_EXPOSE_REP2"/>
+  </Match>
+  <!-- HttpSecurity.build() declares "throws Exception"; the bean method has to pass it on. -->
+  <Match>
+    <Class name="si.confreg.registration.config.SecurityConfig"/>
+    <Bug pattern="THROWS_METHOD_THROWS_CLAUSE_BASIC_EXCEPTION"/>
+  </Match>
+  <!-- A request wrapper exists to hand out its (size-limited) input stream. -->
+  <Match>
+    <Class name="si.confreg.registration.web.RequestBodyLimitFilter$LimitedRequest"/>
+    <Method name="getInputStream"/>
+    <Bug pattern="EI_EXPOSE_REP"/>
+  </Match>
+</FindBugsFilter>
