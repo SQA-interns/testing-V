@@ -7,14 +7,9 @@
 [INFO] 
 [INFO] --- dependency-check:12.1.0:check (default-cli) @ registration-backend ---
 [INFO] Checking for updates
-[INFO] NVD API has 2.952 records in this update
-[INFO] Downloaded 2.952/2.952 (100%)
-[INFO] Completed processing batch 1/2 (50%) in 1.606ms
-[INFO] Completed processing batch 2/2 (100%) in 108ms
+[INFO] Skipping the NVD API Update as it was completed within the last 240 minutes
 [INFO] Skipping Known Exploited Vulnerabilities update check since last check was within 24 hours.
-[INFO] Begin database defrag
-[INFO] End database defrag (9427 ms)
-[INFO] Check for updates complete (22098 ms)
+[INFO] Check for updates complete (726 ms)
 [INFO] 
 
 Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user's risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
@@ -33,9 +28,9 @@ Dependency-Check is an open source tool performing a best effort analysis of 3rd
 [INFO] Finished Dependency Merging Analyzer (0 seconds)
 [INFO] Finished Hint Analyzer (0 seconds)
 [INFO] Finished Version Filter Analyzer (0 seconds)
-Oct 06, 2026 7:47:43 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+Oct 06, 2026 7:56:14 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
 INFO: Using MemorySegmentIndexInput with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
-Oct 06, 2026 7:47:43 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+Oct 06, 2026 7:56:14 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
 WARNING: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
 [INFO] Created CPE Index (2 seconds)
 [INFO] Finished CPE Analyzer (4 seconds)
@@ -49,34 +44,9 @@ WARNING: Java vector incubator module is not readable. For optimal vector perfor
 [INFO] Analysis Complete (8 seconds)
 [INFO] Writing HTML report to: E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\dependency-check-report.html
 [INFO] Writing JSON report to: E:\13 - Lab Projects\03_Vasilka_Testing\kyuhi\confreg-C1\02_output\backend\target\dependency-check-report.json
-[WARNING] 
-
-One or more dependencies were identified with known vulnerabilities in registration-backend:
-
-angus-activation-2.0.3.jar (pkg:maven/org.eclipse.angus/angus-activation@2.0.3, cpe:2.3:a:eclipse:angus_mail:2.0.3:*:*:*:*:*:*:*) : CVE-2025-7962
-hibernate-validator-9.1.3.Final.jar (pkg:maven/org.hibernate.validator/hibernate-validator@9.1.3.Final, cpe:2.3:a:hibernate:hibernate-validator:9.1.3:*:*:*:*:*:*:*, cpe:2.3:a:redhat:hibernate_validator:9.1.3:*:*:*:*:*:*:*, cpe:2.3:a:validator:validator:9.1.3:*:*:*:*:*:*:*) : CVE-2025-15104
-
-
-See the dependency-check report for more details.
-
-
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  35.518 s
-[INFO] Finished at: 2026-10-06T19:47:50+02:00
+[INFO] Total time:  14.138 s
+[INFO] Finished at: 2026-10-06T19:56:21+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.owasp:dependency-check-maven:12.1.0:check (default-cli) on project registration-backend: 
-[ERROR] 
-[ERROR] One or more dependencies were identified with vulnerabilities that have a CVSS score greater than or equal to '7,0': 
-[ERROR] 
-[ERROR] angus-activation-2.0.3.jar (pkg:maven/org.eclipse.angus/angus-activation@2.0.3, cpe:2.3:a:eclipse:angus_mail:2.0.3:*:*:*:*:*:*:*): CVE-2025-7962(6.0)
-[ERROR] 
-[ERROR] See the dependency-check report for more details.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -16,8 +16,7 @@
 [INFO] Nothing to compile - all classes are up to date.
 [INFO] 
 [INFO] --- spotless:2.44.3:check (default-cli) @ registration-backend ---
-[INFO] Index file corresponds to a different configuration of the plugin. Either the plugin version or its configuration has changed. Fallback to an empty index
-[INFO] Spotless.Java is keeping 1 files clean - 0 needs changes to be clean, 1 were already clean, 0 were skipped because caching determined they were already clean
+[INFO] Spotless.Java is keeping 1 files clean - 0 needs changes to be clean, 0 were already clean, 1 were skipped because caching determined they were already clean
 [INFO] 
 [INFO] >>> pmd:3.26.0:check (default-cli) > :pmd @ registration-backend >>>
 [INFO] 
@@ -62,6 +61,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.821 s
-[INFO] Finished at: 2026-10-06T19:34:14+02:00
+[INFO] Total time:  11.384 s
+[INFO] Finished at: 2026-10-06T19:56:43+02:00
 [INFO] ------------------------------------------------------------------------

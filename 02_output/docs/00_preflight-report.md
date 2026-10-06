@@ -9,9 +9,9 @@ Run `kyuhi-confreg-C1-r1`, starting commit `a33129ca3ce82866e3fa4652ad8894707ab8
 | Run configuration complete | `project/00_setup/run-config.md` | Pass: model, effort, template version and run id present (read the file) |
 | Platforms and tools installed at the listed versions | `project/00_setup/tech-stack.md` | Pass after re-check: Docker 29.8.1 accepted (D-08), Playwright Chromium installed (D-11); non-blocking D-02. Details below |
 | Local environments and services running or reachable | `project/00_setup/environments.md` | Pass: Docker daemon answers (`docker info`); Docker Hub, Maven Central and the npm registry reachable; `postgres` and `axllent/mailpit` images pulled and run |
-| Secrets present in `.env` or marked test-only | `project/00_setup/secrets.env.example` | Pass: all 6 keys non-empty (POSTGRES_PASSWORD, ORGANIZER_USERNAME, ORGANIZER_PASSWORD, SMTP_USERNAME, SMTP_PASSWORD, NVD_API_KEY). Method 1: `sed -n 's/^KEY=//p' .env \| tr -d ' \r"'"'"'' \| grep -q .`; method 2: key names listed with values masked. The SMTP keys are marked "not needed". NVD_API_KEY was first rejected by NVD (D-04); after the human updated it (D-09) the NVD API answers HTTP 200 with it. **ORGANIZER_USERNAME still occurs in repository paths (D-13)** |
+| Secrets present in `.env` or marked test-only | `project/00_setup/secrets.env.example` | Pass: all 6 keys non-empty (POSTGRES_PASSWORD, ORGANIZER_USERNAME, ORGANIZER_PASSWORD, SMTP_USERNAME, SMTP_PASSWORD, NVD_API_KEY). Method 1: `sed -n 's/^KEY=//p' .env \| tr -d ' \r"'"'"'' \| grep -q .`; method 2: key names listed with values masked. The SMTP keys are marked "not needed". NVD_API_KEY was first rejected by NVD (D-04); after the human updated it (D-09) the NVD API answers HTTP 200 with it. ORGANIZER_USERNAME still occurs in repository paths; the human keeps it (D-16), so path and run-id matches are false positives |
 | Every listed dependency resolves | `project/00_setup/tech-stack.md` | Pass: 20 Maven dependency poms plus 10 build or tool poms return HTTP 200 from Maven Central; 24 npm packages resolve with `npm view` (licences as listed); 8 container images pulled. Second method: backend `./mvnw dependency:list` and frontend `npm ls --depth=0` show exactly the pinned versions |
-| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | **Open (D-14).** Frontend after D-10: 0 Critical, 0 High, 2 Moderate (`npm audit`). Backend (Dependency-Check, OSS Index off per D-03): CVE-2025-7962, CVSS v3 7.5, on `angus-activation` 2.0.3, evidence of a false positive awaiting approval (D-14); CVE-2025-15104 Medium false positive on `hibernate-validator` (D-15) |
+| No listed dependency has a known Critical or High vulnerability | `project/00_setup/tech-stack.md` | Pass. Frontend after D-10: 0 Critical, 0 High, 2 Moderate (`npm audit`). Backend (Dependency-Check, OSS Index off per D-03): 67 dependencies, 0 open vulnerabilities, 2 suppressed false positives: CVE-2025-7962 on `angus-activation` (D-14, D-17) and CVE-2025-15104 on `hibernate-validator` (D-15) |
 | Clean working tree on the starting commit | repository | Pass: `git status --porcelain --ignored` at start showed only the ignored `.env`; HEAD = starting commit |
 | Input manifest written | `docs/00_input-manifest.sha256` | Pass: 25 files (all of `01_input/`, `AGENTS.md`, `README.md`, `03_statistics/metrics.md`, `run-log.template.json`, `usage.md`), SHA-256 after removing CR |
 
@@ -94,8 +94,8 @@ Maven artifacts resolve from Maven Central and npm packages from registry.npmjs.
 | vitest (tooling) | 5.0.3 (D-10) | yes | none |
 | @vitest/coverage-v8 (tooling) | 5.0.3 (D-10) | yes | none |
 | jscpd (tooling) | 5.4.0 (D-10) | yes | none |
-| transitive: org.eclipse.angus:angus-activation | 2.0.3 (Boot-managed) | yes | CVSS v3 7.5, CVE-2025-7962, false positive pending (D-14) |
-| transitive: org.hibernate.validator:hibernate-validator | 9.1.3.Final (Boot-managed) | yes | Medium, CVE-2025-15104, false positive (D-15) |
+| transitive: org.eclipse.angus:angus-activation | 2.0.3 (Boot-managed) | yes | CVE-2025-7962 (CVSS v3 7.5), false positive, suppressed (D-17) |
+| transitive: org.hibernate.validator:hibernate-validator | 9.1.3.Final (Boot-managed) | yes | CVE-2025-15104 (Medium), false positive, suppressed (D-15) |
 | other npm tooling | as listed | yes | none, apart from Moderate `qs` and `typed-rest-client` (transitive) |
 | postgres | 16.15-alpine | yes (pulled) | not scanned (no container scanner listed) |
 | eclipse-temurin | 21.0.10_7-jre-alpine | yes (pulled) | not scanned (no container scanner listed) |
@@ -108,4 +108,8 @@ Maven artifacts resolve from Maven Central and npm packages from registry.npmjs.
 | When | What was missing | Answer | Re-check |
 |---|---|---|---|
 | 2026-10-06T17:39:03Z | D-01 Docker Engine version; D-04 valid NVD API key; D-05 vulnerable dev tooling; D-06 Playwright Chromium install; D-07 username values | D-01 accept 29.8.1; D-04 key updated; D-05 vitest and coverage-v8 5.0.3; D-06 install Chromium; D-07 credentials updated (D-08 to D-12, 2026-10-06T17:46:32Z) | D-01, D-04, D-05, D-06 pass; D-07 partly: ORGANIZER_USERNAME unchanged (D-13) |
-| 2026-10-06T17:48:42Z | D-13 organizer username; D-14 approval of the CVE-2025-7962 false positive | pending | pending |
+| 2026-10-06T17:48:42Z | D-13 organizer username; D-14 approval of the CVE-2025-7962 false positive | D-13 keep the name; D-14 false positive (D-16, D-17, 2026-10-06T17:55:48Z) | dependency scan passes with the suppressions; input manifest still matches |
+
+## Gate
+
+Phase 0 gate passed at 2026-10-06T17:56:54Z: every preflight check passes (as amended by D-08 to D-17); both components build, test and check cleanly; the resolved Maven versions and `package-lock.json` match `tech-stack.md` as amended by D-08 and D-10; every listed tool runs; the input manifest is written and matches.

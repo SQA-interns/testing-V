@@ -136,3 +136,21 @@
 - Options: 1. (chosen) Classify as a false positive (Low), record it here, and suppress it on `hibernate-validator` together with D-14 if D-14 option 1 is approved; otherwise list it in the phase 6 findings. 2. Leave it as Medium.
 - Human response: none
 - Resolution: option 1, pending review
+
+## D-16: Human response to D-13 (organizer username)
+- Timestamp: 2026-10-06T17:55:48Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-13; the human answered.
+- Options: as in D-13.
+- Human response: "keep the name as is" (2026-10-06T17:55:48Z)
+- Resolution: D-13 option 2. `ORGANIZER_USERNAME` stays unchanged. In the phase 6 secret-leak check, matches of this value that are part of the repository path or the run id are classified as false positives with this record as the reason. Any other match is still a finding.
+
+## D-17: Human response to D-14 (CVE-2025-7962 on angus-activation)
+- Timestamp: 2026-10-06T17:55:48Z
+- Phase: 0
+- Type: blocking
+- Trigger: follow-up to D-14; the human answered.
+- Options: as in D-14.
+- Human response: "is false positive" (2026-10-06T17:55:48Z)
+- Resolution: D-14 option 1. CVE-2025-7962 on `org.eclipse.angus:angus-activation` is classified Low (false positive) and suppressed for that artifact only in `backend/dependency-check-suppressions.xml`. CVE-2025-15104 on `hibernate-validator` is suppressed in the same file (D-15).

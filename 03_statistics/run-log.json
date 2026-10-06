@@ -13,7 +13,7 @@
       "phase": 0,
       "name": "preflight-and-bootstrap",
       "start": "2026-10-06T17:26:13Z",
-      "end": null
+      "end": "2026-10-06T17:56:54Z"
     },
     {
       "phase": 1,
@@ -150,19 +150,31 @@
       "id": "D-13",
       "type": "blocking",
       "start": "2026-10-06T17:48:42Z",
-      "end": null
+      "end": "2026-10-06T17:55:48Z"
     },
     {
       "id": "D-14",
       "type": "blocking",
       "start": "2026-10-06T17:48:42Z",
-      "end": null
+      "end": "2026-10-06T17:55:48Z"
     },
     {
       "id": "D-15",
       "type": "non-blocking",
       "start": "2026-10-06T17:48:42Z",
       "end": "2026-10-06T17:48:42Z"
+    },
+    {
+      "id": "D-16",
+      "type": "blocking",
+      "start": "2026-10-06T17:55:48Z",
+      "end": "2026-10-06T17:55:48Z"
+    },
+    {
+      "id": "D-17",
+      "type": "blocking",
+      "start": "2026-10-06T17:55:48Z",
+      "end": "2026-10-06T17:55:48Z"
     }
   ],
   "humanInterventions": [
@@ -173,7 +185,7 @@
     },
     {
       "start": "2026-10-06T17:48:42Z",
-      "end": null,
+      "end": "2026-10-06T17:55:48Z",
       "reason": "Phase 0 re-check: D-13 organizer username still in repository paths, D-14 approve false-positive classification of CVE-2025-7962"
     }
   ],
