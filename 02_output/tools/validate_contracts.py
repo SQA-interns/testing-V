@@ -83,7 +83,7 @@ def check_sql(path):
     result = subprocess.run(cmd, input=sql, capture_output=True, text=True, encoding="utf-8")
     if result.returncode != 0:
         return [f"psql: {result.stderr.strip()}"]
-    print("    columns: " + ", ".join(result.stdout.split()))
+    print("    columns: " + ", ".join(result.stdout.splitlines()))
     return []
 
 

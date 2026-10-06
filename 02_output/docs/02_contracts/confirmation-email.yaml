@@ -1,0 +1,45 @@
+# Confirmation e-mail contract (docs/02_specification.md, section 4.2; AC-001-03, SR-05, NFR-01, AR-07).
+# Placeholders are {name}; every value is inserted as plain text, never into a header by concatenation.
+contract: confirmation-email
+version: 1
+transport:
+  protocol: SMTP
+  server: configured SMTP server only (SPRING_MAIL_HOST, SPRING_MAIL_PORT); Mailpit in local and test
+  starttls: APP_MAIL_STARTTLS (true in production)
+trigger: inside the registration transaction; the registration commits only if the SMTP server accepts the message (D-25)
+headers:
+  From: "{mailFrom}"
+  To: "{email}"
+  Subject: "Registration confirmation {registrationNumber}"
+  Content-Type: "text/plain; charset=UTF-8"
+body: |
+  Dear {firstName} {lastName},
+
+  thank you for registering for the conference. Your registration is confirmed.
+
+  Registration number: {registrationNumber}
+  Workshop: {workshopTitle}
+  Fee (net): {netFee} EUR
+  VAT ({vatPercent} %): {vat} EUR
+  Total (gross): {grossFee} EUR
+
+  Payer: {payerDescription}
+
+  The invoice will be sent to the payer by the conference accounting office.
+placeholders:
+  mailFrom: APP_MAIL_FROM
+  email: submitted e-mail address (validated, no control characters)
+  registrationNumber: generated number, e.g. REG-000001
+  firstName: submitted first name, unchanged (č, š, ž preserved)
+  lastName: submitted last name, unchanged
+  workshopTitle: title of the chosen workshop from APP_WORKSHOPS, or "none"
+  netFee: netFee with two decimals and a decimal point, e.g. 240.00
+  vatPercent: APP_VAT_RATE as a percentage without trailing zeros, e.g. 22
+  vat: vat with two decimals, e.g. 52.80
+  grossFee: grossFee with two decimals, e.g. 292.80
+  payerDescription: '"private" for a private payer; "{companyName}, {companyAddress}, VAT ID {companyVatId}" for a company'
+rules:
+  - plain text only; no HTML part, so submitted values cannot add markup
+  - headers are set through the Jakarta Mail API (InternetAddress, setSubject with UTF-8)
+  - the only user-controlled header value is To, which validation restricts to one address without CR, LF or control characters
+  - no personal data from the message is written to logs (SR-01)

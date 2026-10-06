@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Confirmation e-mail contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "transport", "trigger", "headers", "body", "placeholders", "rules"],
+  "properties": {
+    "contract": { "const": "confirmation-email" },
+    "version": { "type": "integer", "minimum": 1 },
+    "transport": {
+      "type": "object",
+      "required": ["protocol", "server", "starttls"],
+      "properties": { "protocol": { "const": "SMTP" } }
+    },
+    "trigger": { "type": "string", "minLength": 1 },
+    "headers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["From", "To", "Subject", "Content-Type"],
+      "properties": {
+        "From": { "type": "string" },
+        "To": { "const": "{email}" },
+        "Subject": { "type": "string", "pattern": "[{]registrationNumber[}]" },
+        "Content-Type": { "const": "text/plain; charset=UTF-8" }
+      }
+    },
+    "body": {
+      "type": "string",
+      "allOf": [
+        { "pattern": "[{]registrationNumber[}]" },
+        { "pattern": "[{]netFee[}]" },
+        { "pattern": "[{]grossFee[}]" }
+      ]
+    },
+    "placeholders": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "rules": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  }
+}
