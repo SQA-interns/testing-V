@@ -1,0 +1,146 @@
+{
+  "runId": "kyuhi-confreg-C1-r1",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "templateVersion": "1.2",
+  "transcript": "C:/Users/sense/.claude/projects/e--13---Lab-Projects-03-Vasilka-Testing-kyuhi-confreg-C1/4041dcfd-5063-41b7-aa92-06f25fd7fa97.jsonl",
+  "startCommit": "a33129ca3ce82866e3fa4652ad8894707ab85a9b",
+  "finalCommit": null,
+  "start": "2026-10-06T17:26:13Z",
+  "end": null,
+  "phases": [
+    {
+      "phase": 0,
+      "name": "preflight-and-bootstrap",
+      "start": "2026-10-06T17:26:13Z",
+      "end": null
+    },
+    {
+      "phase": 1,
+      "name": "requirements",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 2,
+      "name": "design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 3,
+      "name": "test-design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 4,
+      "name": "build",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 5,
+      "name": "unit-tests",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 6,
+      "name": "verify",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 7,
+      "name": "release",
+      "start": null,
+      "end": null
+    }
+  ],
+  "firstTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "finalTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "fixLoops": [],
+  "decisions": [
+    {
+      "id": "D-01",
+      "type": "blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": null
+    },
+    {
+      "id": "D-02",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": "2026-10-06T17:39:03Z"
+    },
+    {
+      "id": "D-03",
+      "type": "non-blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": "2026-10-06T17:39:03Z"
+    },
+    {
+      "id": "D-04",
+      "type": "blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": null
+    },
+    {
+      "id": "D-05",
+      "type": "blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": null
+    },
+    {
+      "id": "D-06",
+      "type": "blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": null
+    },
+    {
+      "id": "D-07",
+      "type": "blocking",
+      "start": "2026-10-06T17:39:03Z",
+      "end": null
+    }
+  ],
+  "humanInterventions": [
+    {
+      "start": "2026-10-06T17:39:03Z",
+      "end": null,
+      "reason": "Phase 0 preflight: D-01 Docker version, D-04 invalid NVD API key, D-05 vulnerable dev tooling, D-06 Playwright Chromium install, D-07 username values equal repository path segments"
+    }
+  ],
+  "codeMetrics": {
+    "components": [],
+    "complexity": null,
+    "duplicationPct": null
+  },
+  "commits": [],
+  "usage": {
+    "inputTokens": null,
+    "outputTokens": null,
+    "cacheReadTokens": null,
+    "cacheWriteTokens": null,
+    "modelCalls": null,
+    "toolCalls": {
+      "total": null,
+      "byTool": {}
+    },
+    "costUsd": null,
+    "priceTableDate": null
+  }
+}

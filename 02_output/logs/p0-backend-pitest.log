@@ -1,0 +1,55 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< si.confreg:registration-backend >-------------------
+[INFO] Building registration-backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.30.0:help (default-cli) @ registration-backend ---
+[INFO] pitest-maven 1.30.0
+  Pitest Maven Mojo.
+
+This plugin has 5 goals:
+
+pitest:help
+  Display help information on pitest-maven.
+  Call mvn pitest:help -Ddetail=true -Dgoal=<goal-name> to display parameter
+  details.
+
+pitest:mutationCoverage
+  Goal which runs a coverage mutation report
+
+pitest:report
+  Generates a report of the pit mutation testing.
+
+pitest:report-aggregate
+  Goal which aggregates the results of multiple tests into a single result.
+  Based upon Jacoco's ReportAggregateMojo, creates a structured report (HTML,
+  XML, or CSV) from multiple projects. The report is created the all modules
+  this project includes as dependencies.
+  
+  To successfully aggregate reports, each of the individual sub-module reports
+  must have the exportLineCoverage set to true, and must export an XML formatted
+  report. The the developer would simply include an extra module, which has all
+  of the modules which contain reports as dependencies. That
+  'report-aggregation' module would then call this mojo to aggregate all of the
+  individual reports into a single report.
+
+pitest:report-aggregate-module
+  Goal which aggregates the results of multiple tests into a single result.
+  Based upon Jacoco's ReportAggregateMojo, creates a structured report (HTML,
+  XML, or CSV) from multiple projects. The report is created the all modules
+  this project includes as dependencies.
+  
+  To successfully aggregate reports, each of the individual sub-module reports
+  must have the exportLineCoverage set to true, and must export an XML formatted
+  report. then call the mojo ONLY on the parent mvn
+  pitest:report-aggregate-module --non-recursive
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.848 s
+[INFO] Finished at: 2026-10-06T19:33:24+02:00
+[INFO] ------------------------------------------------------------------------
