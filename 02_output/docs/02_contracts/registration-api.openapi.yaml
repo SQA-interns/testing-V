@@ -1,0 +1,352 @@
+openapi: 3.1.0
+info:
+  title: Conference registration API
+  version: 1.0.0
+  description: >
+    Registration API between the frontend or an organizer and the backend
+    (docs/02_specification.md, section 4). Paths, field names and the test
+    clock header are fixed by project/02_design/architecture.md.
+servers:
+  - url: /
+tags:
+  - name: registrations
+  - name: workshops
+paths:
+  /api/registrations:
+    post:
+      tags: [registrations]
+      operationId: register
+      summary: Register a participant (public, rate limited)
+      description: >
+        AC-001-01 to AC-001-10. Stores the registration and sends the
+        confirmation e-mail atomically (D-25).
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/TestNow"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistrationRequest"
+            examples:
+              private:
+                value:
+                  firstName: Špela
+                  lastName: Žagar
+                  email: spela.zagar@example.com
+                  payerType: private
+                  companyName: null
+                  companyAddress: null
+                  companyVatId: null
+                  workshops: [W1]
+              company:
+                value:
+                  firstName: Matej
+                  lastName: Čuk
+                  email: matej.cuk@example.com
+                  payerType: company
+                  companyName: Podjetje d.o.o.
+                  companyAddress: Šmartinska cesta 1, 1000 Ljubljana
+                  companyVatId: SI12345678
+                  workshops: []
+      responses:
+        "201":
+          description: Registration completed
+          headers:
+            Location:
+              schema:
+                type: string
+                example: /api/registrations/REG-000001
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Registration"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "413":
+          $ref: "#/components/responses/PayloadTooLarge"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "500":
+          $ref: "#/components/responses/InternalError"
+        "503":
+          description: The confirmation e-mail was not accepted; nothing was stored
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                error: registration_unavailable
+  /api/registrations/{registrationNumber}:
+    get:
+      tags: [registrations]
+      operationId: getRegistration
+      summary: Read a stored registration (organizer only)
+      security:
+        - organizerBasic: []
+      parameters:
+        - name: registrationNumber
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^REG-[0-9]{6,}$"
+      responses:
+        "200":
+          description: The stored registration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Registration"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/InsecureTransport"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "500":
+          $ref: "#/components/responses/InternalError"
+  /api/workshops:
+    get:
+      tags: [workshops]
+      operationId: listWorkshops
+      summary: List the configured workshops (public, rate limited, D-28)
+      security: []
+      responses:
+        "200":
+          description: Workshops in configured order
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Workshop"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "500":
+          $ref: "#/components/responses/InternalError"
+components:
+  securitySchemes:
+    organizerBasic:
+      type: http
+      scheme: basic
+      description: >
+        ORGANIZER_USERNAME and ORGANIZER_PASSWORD. Rejected with 403 over
+        plain HTTP except from localhost (SR-03, D-27).
+  parameters:
+    TestNow:
+      name: X-Test-Now
+      in: header
+      required: false
+      description: >
+        Current time for this request, honoured only when
+        APP_TEST_CLOCK=enabled (never in production, SR-04).
+      schema:
+        type: string
+        format: date-time
+        example: "2026-07-31T21:59:59Z"
+  schemas:
+    PayerType:
+      type: string
+      enum: [private, company]
+    RegistrationRequest:
+      type: object
+      additionalProperties: false
+      required: [firstName, lastName, email, payerType]
+      description: >
+        Validation rules: docs/01_acceptance-criteria.md (D-23). For
+        payerType "company" the three company fields are required; for
+        "private" they must be absent, null or empty.
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        payerType:
+          $ref: "#/components/schemas/PayerType"
+        companyName:
+          type: [string, "null"]
+          maxLength: 200
+        companyAddress:
+          type: [string, "null"]
+          maxLength: 500
+        companyVatId:
+          type: [string, "null"]
+          maxLength: 20
+        workshops:
+          type: [array, "null"]
+          maxItems: 1
+          items:
+            type: string
+    Registration:
+      type: object
+      additionalProperties: false
+      required:
+        - registrationNumber
+        - firstName
+        - lastName
+        - email
+        - payerType
+        - companyName
+        - companyAddress
+        - companyVatId
+        - workshop
+        - netFee
+        - vat
+        - grossFee
+      properties:
+        registrationNumber:
+          type: string
+          pattern: "^REG-[0-9]{6,}$"
+          example: REG-000001
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        payerType:
+          $ref: "#/components/schemas/PayerType"
+        companyName:
+          type: [string, "null"]
+        companyAddress:
+          type: [string, "null"]
+        companyVatId:
+          type: [string, "null"]
+        workshop:
+          type: [string, "null"]
+          example: W1
+        netFee:
+          $ref: "#/components/schemas/Amount"
+        vat:
+          $ref: "#/components/schemas/Amount"
+        grossFee:
+          $ref: "#/components/schemas/Amount"
+    Amount:
+      type: number
+      multipleOf: 0.01
+      description: EUR, JSON number with two decimals (e.g. 292.80)
+      example: 292.80
+    Workshop:
+      type: object
+      additionalProperties: false
+      required: [id, title]
+      properties:
+        id:
+          type: string
+          example: W1
+        title:
+          type: string
+          example: Requirements engineering for AI coding agents
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+          enum:
+            - validation_failed
+            - malformed_request
+            - invalid_test_clock
+            - unauthorized
+            - insecure_transport
+            - not_found
+            - payload_too_large
+            - unsupported_media_type
+            - rate_limited
+            - internal_error
+            - registration_unavailable
+        fields:
+          type: array
+          description: Invalid request fields (validation_failed only)
+          items:
+            type: string
+  responses:
+    BadRequest:
+      description: Invalid field values, unknown property, malformed JSON or malformed X-Test-Now; nothing stored
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: validation_failed
+            fields: [email, companyVatId]
+    Unauthorized:
+      description: Missing or wrong organizer credentials
+      headers:
+        WWW-Authenticate:
+          schema:
+            type: string
+            example: Basic realm="confreg"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: unauthorized
+    InsecureTransport:
+      description: Credentials sent over plain HTTP from a non-local client (SR-03)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: insecure_transport
+    NotFound:
+      description: Unknown registration number
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: not_found
+    PayloadTooLarge:
+      description: Request body larger than 16 KiB (SR-02)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: payload_too_large
+    UnsupportedMediaType:
+      description: Request body is not application/json
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: unsupported_media_type
+    RateLimited:
+      description: Too many requests from this client in the current hour (SB-06)
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: rate_limited
+    InternalError:
+      description: Unexpected failure; no internal details
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: internal_error
