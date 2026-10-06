@@ -1,0 +1,24 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+target/
+dist/
+build/
+coverage/
+reports/
+test-results/
+playwright-report/
+.stryker-tmp/
+
+# Dependencies
+node_modules/
+
+# IDE and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
