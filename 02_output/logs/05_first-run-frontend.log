@@ -1,0 +1,9 @@
+
+ RUN  v5.0.3 C:/Users/tanej/Documents/LAB/tanej-confreg-C0/02_output/frontend
+
+
+ Test Files  3 passed (3)
+      Tests  22 passed (22)
+   Start at  18:16:22
+   Duration  3.17s (environment 62%, tests 15%, setup 11%, import 7%, transform 5%, worker 1%)
+

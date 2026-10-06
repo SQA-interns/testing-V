@@ -84,4 +84,29 @@ Controls without an acceptance criterion (SR-01 … SR-04, SB-06, SB-10, request
 
 ## First complete run (before any fix)
 
+Phase 5, 2026-10-06, all levels together (logs: `logs/05_first-run-backend.log`, `logs/05_first-run-frontend.log`; e2e last run in phase 4: 2/2, `logs/04_e2e-run.log`).
+
+| Suite | Tests | Passed | Failed |
+|---|---|---|---|
+| Backend acceptance + architecture (frozen) | 44 | 44 | 0 |
+| Backend unit (application, api, infrastructure, config) | 100 | 96 | 4 |
+| Backend integration (`integration/ApiProtectionIntegrationTest`) | 10 | 9 | 1 |
+| Frontend acceptance (frozen) | 9 | 9 | 0 |
+| Frontend unit (`src/*.test.ts(x)`) | 13 | 13 | 0 |
+| End-to-end (frozen, phase 4 run) | 2 | 2 | 0 |
+| **Total** | **178** | **173** | **5** |
+
+Classification of the failures (`general/quality/test-strategy.md`):
+
+| Test | Failure | Class | Action |
+|---|---|---|---|
+| `RegistrationServiceTest.storesPricedRegistrationWithFormattedNumberAndPublishesEvent`, `…studentIsStoredFree` | NPE on `getId()`: the mocked `saveAndFlush` returns the entity without the id that JPA assigns | defect in a non-frozen test | the mock assigns an id |
+| `RegistrationValidatorTest.companyAddressRejectsControlCharactersOtherThanLineBreaks` | a valid sub-case (trailing line break is trimmed) was sent through the "expect rejection" helper | defect in a non-frozen test | assert the valid case with `validate` |
+| `RegistrationValidatorTest.workshopRules` | NPE building a command with a `null` workshop id; the request mapper turns a `null` element into a type error, so the command never holds one | defect in a non-frozen test | case removed; the mapper case is covered in `RegistrationRequestMapperTest` |
+| `ApiProtectionIntegrationTest.es09_healthIsPublicWithoutDetails` | expected the exact body `{"status":"UP"}`; Spring adds the probe group names `"groups":["liveness","readiness"]`, which are not component details | defect in a non-frozen test | assert status `UP` and absence of `components`/`details` |
+
+No implementation defect and no frozen-test problem was found.
+
+After the test fixes (phase 5 end): backend 154/154 (`logs/05_backend-run2.log`), frontend 22/22 (`logs/05_frontend-run2.log`), end-to-end 2/2 against the rebuilt stack (`logs/05_e2e-run.log`): 178/178. A type-check error in the new frontend page test (unused parameter) was found by `npm run check` after commit 6e4e173 and fixed in 5415528.
+
 ## Final run (phase 6)

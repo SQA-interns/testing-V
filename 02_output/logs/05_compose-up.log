@@ -1,0 +1,240 @@
+ Image confreg-backend Building 
+ Image confreg-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 932B 0.0s done
+#2 DONE 0.1s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 683B 0.0s done
+#3 DONE 0.1s
+
+#4 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine
+#4 DONE 0.1s
+
+#5 [frontend internal] load metadata for docker.io/library/node:24.13.0-alpine
+#5 DONE 0.1s
+
+#6 [frontend internal] load metadata for docker.io/library/nginx:1.30.5-alpine
+#6 DONE 0.1s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 119B done
+#7 DONE 0.0s
+
+#8 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#8 resolve docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94 0.0s done
+#8 DONE 0.0s
+
+#9 [frontend build 1/7] FROM docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
+#9 resolve docker.io/library/node:24.13.0-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend internal] load build context
+#10 transferring context: 273.39kB 0.0s done
+#10 DONE 0.0s
+
+#8 [frontend stage-1 1/4] FROM docker.io/library/nginx:1.30.5-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
+#8 CACHED
+
+#11 [frontend build 2/7] WORKDIR /build
+#11 CACHED
+
+#12 [frontend stage-1 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#12 DONE 0.1s
+
+#13 [frontend build 3/7] COPY package.json package-lock.json .npmrc ./
+#13 DONE 0.1s
+
+#14 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#14 ...
+
+#15 [backend internal] load metadata for docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine
+#15 DONE 1.7s
+
+#16 [backend internal] load .dockerignore
+#16 transferring context: 59B done
+#16 DONE 0.0s
+
+#17 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#17 resolve docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9 0.0s done
+#17 DONE 0.2s
+
+#18 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a
+#18 resolve docker.io/library/eclipse-temurin:21.0.10_7-jre-alpine@sha256:ad0cdd9782db550ca7dde6939a16fd850d04e683d37d3cff79d84a5848ba6a5a 0.0s done
+#18 CACHED
+
+#19 [backend internal] load build context
+#19 transferring context: 106.98kB 0.0s done
+#19 DONE 0.1s
+
+#20 [backend stage-1 2/4] RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app app
+#20 DONE 0.4s
+
+#21 [backend stage-1 3/4] WORKDIR /app
+#21 DONE 0.1s
+
+#17 [backend build 1/7] FROM docker.io/library/eclipse-temurin:21.0.10_7-jdk-alpine@sha256:bcc7ec7e8fef937ba9f01ee5f810361d722c6b5dbe19ac188ab7b25c1a4dd2c9
+#17 sha256:5b440bedad35bcaf95f5c16474e5bcdc67677eca1377bc3b6bd9a64aa13552d0 130B / 130B 0.3s done
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 0B / 158.12MB 0.5s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 0B / 21.32MB 0.3s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 9.44MB / 158.12MB 0.9s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 2.10MB / 21.32MB 0.9s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 17.83MB / 158.12MB 1.4s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 5.24MB / 21.32MB 1.2s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 8.39MB / 21.32MB 1.5s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 27.26MB / 158.12MB 2.0s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 10.49MB / 21.32MB 1.8s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 12.58MB / 21.32MB 2.0s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 14.68MB / 21.32MB 2.1s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 17.12MB / 21.32MB 2.3s
+#17 sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 21.32MB / 21.32MB 2.5s done
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 41.94MB / 158.12MB 2.7s
+#17 extracting sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 50.33MB / 158.12MB 3.2s
+#17 extracting sha256:b5ef2c34364d42e41eb14af65c85cfcd9ba8407f18b51bde4f6428bff92388a2 1.1s done
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 58.72MB / 158.12MB 4.1s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 68.16MB / 158.12MB 4.8s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 79.69MB / 158.12MB 5.4s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 89.13MB / 158.12MB 5.9s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 97.52MB / 158.12MB 6.3s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 108.00MB / 158.12MB 6.8s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 117.44MB / 158.12MB 7.2s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 127.93MB / 158.12MB 7.8s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 136.31MB / 158.12MB 8.1s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 146.80MB / 158.12MB 8.6s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 154.73MB / 158.12MB 8.9s
+#17 sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 158.12MB / 158.12MB 9.2s done
+#17 extracting sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d
+#17 extracting sha256:136a888652a1277373c20061d1c0d79e332ba8eece5ba04c0c24fce61ce8940d 1.8s done
+#17 extracting sha256:5b440bedad35bcaf95f5c16474e5bcdc67677eca1377bc3b6bd9a64aa13552d0
+#17 extracting sha256:5b440bedad35bcaf95f5c16474e5bcdc67677eca1377bc3b6bd9a64aa13552d0 0.0s done
+#17 extracting sha256:07c1bb0b54884876ce179c9ad3683a68d7689b97597df8b1b2dfeeaaf5e7b60e 0.0s done
+#17 DONE 11.3s
+
+#22 [backend build 2/7] WORKDIR /build
+#22 DONE 1.1s
+
+#14 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#14 5.507 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#14 ...
+
+#23 [backend build 3/7] COPY mvnw pom.xml spotbugs-exclude.xml dependency-check-suppressions.xml ./
+#23 DONE 0.2s
+
+#14 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#14 ...
+
+#24 [backend build 4/7] COPY .mvn .mvn
+#24 DONE 0.1s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 ...
+
+#14 [frontend build 4/7] RUN npm ci --no-fund --no-audit
+#14 15.83 npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#14 19.43 
+#14 19.43 added 432 packages in 18s
+#14 19.43 npm notice
+#14 19.43 npm notice New minor version of npm available! 11.6.2 -> 11.21.0
+#14 19.43 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.21.0
+#14 19.43 npm notice To update run: npm install -g npm@11.21.0
+#14 19.43 npm notice
+#14 DONE 20.0s
+
+#26 [frontend build 5/7] COPY index.html tsconfig.json vite.config.ts ./
+#26 DONE 0.3s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 ...
+
+#27 [frontend build 6/7] COPY src src
+#27 DONE 0.1s
+
+#28 [frontend build 7/7] RUN npx vite build
+#28 1.286 vite v6.4.3 building for production...
+#28 1.393 transforming...
+#28 3.780 ✓ 30 modules transformed.
+#28 4.028 rendering chunks...
+#28 4.046 computing gzip size...
+#28 4.077 dist/index.html                   0.41 kB │ gzip:  0.27 kB
+#28 4.077 dist/assets/index-By__-kcE.css    1.34 kB │ gzip:  0.61 kB
+#28 4.077 dist/assets/index-Yx03Qczi.js   230.62 kB │ gzip: 71.58 kB
+#28 4.078 ✓ built in 2.75s
+#28 DONE 4.2s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 ...
+
+#29 [frontend stage-1 3/4] COPY --from=build /build/dist /usr/share/nginx/html
+#29 DONE 0.1s
+
+#30 [frontend stage-1 4/4] RUN mkdir -p /tmp/nginx && chown -R nginx:nginx /tmp/nginx /var/cache/nginx
+#30 DONE 0.4s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 ...
+
+#31 [frontend] exporting to image
+#31 exporting layers
+#31 exporting layers 0.2s done
+#31 exporting manifest sha256:a3596fbc04767ab7c859db950edde1e1e9a73c8906a8a6588d44cd6a200a5fa6 0.0s done
+#31 exporting config sha256:60af4c6516c5d6d50cbf4295e5ca856c5cb69ba15a5ee3def5a35f41f620e558 0.0s done
+#31 exporting attestation manifest sha256:d77b0aeea7cd18bc60c2aa8d61234c204b75c98801fd4b7c84e488abecdd7cc0 0.0s done
+#31 exporting manifest list sha256:5e0184c9df888554b05f97ed4d01f51cad00cccc16af5a85674710a76bf481d5 0.0s done
+#31 naming to docker.io/library/confreg-frontend:latest done
+#31 unpacking to docker.io/library/confreg-frontend:latest 0.1s done
+#31 DONE 0.5s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 ...
+
+#32 [frontend] resolving provenance for metadata file
+#32 DONE 0.0s
+
+#25 [backend build 5/7] RUN chmod +x mvnw && ./mvnw -B -q dependency:go-offline
+#25 DONE 71.7s
+
+#33 [backend build 6/7] COPY src/main src/main
+#33 DONE 0.2s
+
+#34 [backend build 7/7] RUN ./mvnw -B -q package -DskipTests && cp target/registration-backend-*.jar /build/app.jar
+#34 DONE 6.7s
+
+#35 [backend stage-1 4/4] COPY --from=build --chown=app:app /build/app.jar app.jar
+#35 DONE 0.3s
+
+#36 [backend] exporting to image
+#36 exporting layers
+#36 exporting layers 2.5s done
+#36 exporting manifest sha256:28cc174855f1621ae7b03f834b97fb188de38f4f9786653a7b5c7514b424cf23 0.0s done
+#36 exporting config sha256:51d53d9ca5626c7e43db88513f9e55867da82442e4745d6d9593be3ec97a2605 0.0s done
+#36 exporting attestation manifest sha256:d6e0be7d7501d6080f6c5d546e66def958e379978b8e8e555df1b24070a25058 0.0s done
+#36 exporting manifest list sha256:a87ed0c510cf2f114a02faefd248665e1088238b99e730d1a6d13dccdb3a24f5 0.0s done
+#36 naming to docker.io/library/confreg-backend:latest
+#36 naming to docker.io/library/confreg-backend:latest done
+#36 unpacking to docker.io/library/confreg-backend:latest
+#36 unpacking to docker.io/library/confreg-backend:latest 0.5s done
+#36 DONE 3.1s
+
+#37 [backend] resolving provenance for metadata file
+#37 DONE 0.0s
+ Image confreg-backend Built 
+ Image confreg-frontend Built 
+ Container confreg-postgres-1 Running 
+ Container confreg-mailpit-1 Running 
+ Container confreg-backend-1 Recreate 
+ Container confreg-backend-1 Recreated 
+ Container confreg-frontend-1 Recreate 
+ Container confreg-frontend-1 Recreated 
+ Container confreg-postgres-1 Waiting 
+ Container confreg-postgres-1 Healthy 
+ Container confreg-backend-1 Starting 
+ Container confreg-backend-1 Started 
+ Container confreg-backend-1 Waiting 
+ Container confreg-backend-1 Healthy 
+ Container confreg-frontend-1 Starting 
+ Container confreg-frontend-1 Started 
