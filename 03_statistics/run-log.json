@@ -49,12 +49,12 @@
       "phase": 6,
       "name": "verify",
       "start": "2026-10-06T20:22:50Z",
-      "end": null
+      "end": "2026-10-06T21:14:20Z"
     },
     {
       "phase": 7,
       "name": "release",
-      "start": null,
+      "start": "2026-10-06T21:14:20Z",
       "end": null
     }
   ],

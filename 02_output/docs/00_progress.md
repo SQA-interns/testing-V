@@ -5,10 +5,10 @@
 Updated at every gate and before any stop, so a fresh session can resume from here.
 
 - Workflow: spec-driven, acceptance tests first (`general/phases.md`); run `tanej-confreg-C1-r1`, starting commit `9deb956`
-- Current phase: 6 (verify), started 2026-10-06T20:22:50Z
-- Last gate result: phase 6 gate not yet passed: DoD-03 frontend mutation score depends on D-34; all other phase 6 checks pass (no open Critical/High, hashes match, no secret found, final run 203/203)
-- Next step: apply the answer to D-34 (update DoD-03 and F-03 in `docs/06_verification-report.md`), close phase 6, then phase 7 (root and component READMEs, clean-checkout check, release notes, `03_statistics/run-summary.md`)
-- Waiting for the human on: D-34 (asked 2026-10-06T21:11Z)
+- Current phase: 7 (release), started 2026-10-06T21:14:20Z
+- Last gate result: phase 6 gate passed 2026-10-06T21:14:20Z (D-34 resolved by D-35)
+- Next step: root README, component READMEs (ES-06), clean-checkout check, release notes with manual tests, `03_statistics/run-summary.md`, final run-log fields
+- Waiting for the human on: nothing
 
 ## Done in phase 0
 
