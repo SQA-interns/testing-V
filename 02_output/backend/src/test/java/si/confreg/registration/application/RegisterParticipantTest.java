@@ -98,6 +98,23 @@ class RegisterParticipantTest {
   }
 
   @Test
+  void submissionTimeIsKeptWithStoragePrecision() {
+    RegisterParticipant precise =
+        new RegisterParticipant(
+            new RegistrationValidator(new WorkshopCatalog(List.of(new Workshop("T1", "One")))),
+            feePolicy,
+            new RegistrationNumbers(),
+            store,
+            sender,
+            () -> Instant.parse("2031-05-05T10:00:00.123456789Z"));
+
+    Registration registration =
+        ((RegisterParticipant.Registered) precise.register(valid())).registration();
+
+    assertThat(registration.submittedAt()).isEqualTo(Instant.parse("2031-05-05T10:00:00.123456Z"));
+  }
+
+  @Test
   void invalidRequestStoresNothingAndSendsNothing() {
     RegistrationRequest invalid =
         new RegistrationRequest(null, "N", "x", "private", null, null, null, null, Set.of());
