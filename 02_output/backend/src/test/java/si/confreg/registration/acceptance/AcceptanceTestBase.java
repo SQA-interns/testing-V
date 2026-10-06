@@ -264,6 +264,9 @@ abstract class AcceptanceTestBase {
     JsonNode list = json(send(HttpRequest.newBuilder(search).GET().build()));
     Map<String, JsonNode> messages = new LinkedHashMap<>();
     for (JsonNode summary : list.path("messages")) {
+      if (!isAddressedTo(summary, address)) {
+        continue; // Mailpit's "to:" search matches substrings; keep exact recipients only (D-33)
+      }
       String id = summary.get("ID").asString();
       URI message =
           URI.create(
@@ -276,6 +279,15 @@ abstract class AcceptanceTestBase {
       messages.put(id, json(send(HttpRequest.newBuilder(message).GET().build())));
     }
     return messages;
+  }
+
+  private static boolean isAddressedTo(JsonNode summary, String address) {
+    for (JsonNode recipient : summary.path("To")) {
+      if (recipient.path("Address").asString("").equalsIgnoreCase(address)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /** Waits until Mailpit has stored the expected number of messages for the address. */
