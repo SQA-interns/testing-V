@@ -6,34 +6,32 @@
 
 | Environment | Purpose | How it runs |
 |---|---|---|
-| test | automated tests | Testcontainers PostgreSQL, in-process or container mail catcher, reCAPTCHA test mode; no network calls to Google |
-| local | development and the phase 6 runtime demonstration | `docker compose up` in `02_output/`: backend, frontend, PostgreSQL, Mailpit; plain HTTP on 127.0.0.1 only |
-| production | the public registration site | backend and frontend containers with HTTP inside; an external nginx reverse proxy terminates HTTPS (Let's Encrypt), serves `/` from the frontend and forwards `/api` to the backend |
-
-Persistent data (database and JSON copies) lives on named volumes and survives container recreation in local and production.
+| test | automated tests | Testcontainers PostgreSQL, in-process or container mail catcher; test clock enabled |
+| local | development and the phase 6 runtime demonstration | `docker compose up` in `02_output/`: backend, frontend, PostgreSQL, Mailpit; plain HTTP on 127.0.0.1 only. Backend on port 8080, Mailpit web and API on port 8025. |
+| production | the public registration site | backend and frontend containers behind an external nginx reverse proxy with HTTPS |
 
 ## Configuration
 
-Settings that differ between environments (ES-01). Secrets are listed in `project/00_setup/secrets.env.example`, not here.
+Every setting can be overridden by an environment variable of the same name; `02_output/docker-compose.yml` passes them through to the backend. Secrets are listed in `project/00_setup/secrets.env.example`, not here.
 
-| Setting | Environments | Default allowed? |
-|---|---|---|
-| Database URL and user | all | local and test only |
-| SMTP host, port, TLS on or off | all | local and test only (Mailpit) |
-| Sender address | all | yes |
-| Conference name shown in emails | all | yes |
-| Conference options source | all | local and test only |
-| JSON copy directory | all | yes (a path on a persistent volume) |
-| reCAPTCHA test mode | all | off by default; on only in test and local; production refuses to start if it is on or if the keys are empty |
-| Organizer HTTPS-only access | all | on by default; may be off only on local plain HTTP |
-| Allowed frontend origin (CORS) | all | local only |
-| Rate limits and request-size limit | all | yes |
+| Setting | Default | Environments | Default allowed? |
+|---|---|---|---|
+| `APP_CONFERENCE_TZ` | Europe/Ljubljana | all | yes |
+| `APP_EARLY_BIRD_DEADLINE` | 2026-07-31 | all | yes |
+| `APP_FEE_EARLY` | 240.00 | all | yes |
+| `APP_FEE_REGULAR` | 300.00 | all | yes |
+| `APP_VAT_RATE` | 0.22 | all | yes |
+| `APP_WORKSHOPS` | `W1` Requirements engineering for AI coding agents; `W2` Data spaces in practice; `W3` Secure software supply chains | all | yes |
+| `APP_RATE_LIMIT_PER_HOUR` | 100 | all | yes |
+| `APP_TEST_CLOCK` | disabled | test and local only | production refuses to start if enabled |
+| Database URL and user | – | all | local and test only |
+| SMTP host, port, TLS | – | all | local and test only (Mailpit) |
+| Sender address | – | all | yes |
 
 ## External services
 
 | Service | Production | Local/test substitute | Must be tested manually by a human? |
 |---|---|---|---|
-| Google reCAPTCHA v2 | live verification with real keys | deterministic test mode plus a mocked verification endpoint for the production code path | yes: one real submission with production keys |
 | SMTP | external SMTP server | Mailpit (`axllent/mailpit` from `tech-stack.md`) | yes: delivery to a real mailbox |
-| TLS and reverse proxy | external nginx with Let's Encrypt | none (plain HTTP on localhost) | yes: HTTPS, redirects and `/api` routing |
-| NVD vulnerability data | not used at runtime | Dependency-Check with `NVD_API_KEY` | no |
+| TLS and reverse proxy | external nginx | none (plain HTTP on localhost) | yes |
+| Accounting system | produces invoices; not part of this repository | none | no |
