@@ -1,0 +1,60 @@
+# Contract: confirmation e-mail (backend mail component -> SMTP server), interface "E-mail".
+# Source: AC-001-04, AR-07, SR-01, SR-05, NFR-01, D-12; docs/02_specification.md section 6.
+contract: confirmation-email
+version: 1.0.0
+transport:
+  protocol: SMTP
+  server: configured by SMTP_HOST, SMTP_PORT, SMTP_TLS (STARTTLS required when true); Mailpit locally
+  authentication: SMTP_USERNAME / SMTP_PASSWORD when set (production only)
+  sender_component: backend package si.confreg.registration.mail (only component that sends e-mail)
+trigger:
+  event: a registration has been stored (transaction committed)
+  count: exactly one confirmation per stored registration
+  on_failure: >-
+    The registration stays stored and `confirmation_status` stays `pending`; the mail component retries
+    pending confirmations every APP_MAIL_RETRY_INTERVAL (default 60 s) up to APP_MAIL_MAX_ATTEMPTS
+    (default 10), then marks it `failed` and logs the registration number only (D-12, SR-01).
+message:
+  from: APP_MAIL_FROM (sender address setting)
+  to: the registration's `email`, exactly one recipient, no Cc or Bcc
+  headers:
+    Subject: "Registration confirmation {registrationNumber}"
+    Content-Type: text/plain; charset=UTF-8
+    Content-Transfer-Encoding: quoted-printable or base64 (chosen by the mail library)
+  user_input_in_headers:
+    - field: email (recipient only)
+      rule: validated as a single address without control characters before storage (D-10, SR-05)
+  body:
+    format: plain text only, no HTML (no markup can be injected, SR-05)
+    encoding: UTF-8; names with č, š, ž are sent unchanged (NFR-01)
+    template: |
+      Dear {firstName} {lastName},
+
+      thank you for registering for the conference.
+
+      Registration number: {registrationNumber}
+      Payer: {payerDescription}
+      Workshop: {workshopTitle}
+
+      Net fee: {netFee} EUR
+      VAT ({vatRatePercent} %): {vat} EUR
+      Gross fee: {grossFee} EUR
+
+      The invoice will be issued after the conference.
+    placeholders:
+      registrationNumber: stored registration number
+      firstName: stored first name
+      lastName: stored last name
+      payerDescription: '"private person" or "{companyName}, {companyAddress}, VAT ID {companyVatId}"'
+      workshopTitle: title of the selected workshop from APP_WORKSHOPS, or "none"
+      netFee: two decimals, dot separator
+      vat: two decimals, dot separator
+      vatRatePercent: APP_VAT_RATE x 100 without trailing zeros (22)
+      grossFee: two decimals, dot separator
+    must_state: [registrationNumber, netFee, vat, grossFee]
+logging:
+  allowed: registration number, attempt count, exception class name
+  forbidden: recipient address, names, company data, exception messages (may contain addresses)
+test_substitute:
+  service: Mailpit (axllent/mailpit), SMTP port 1025, HTTP API port 8025
+  check: GET /api/v1/search?query=to:"{email}" returns exactly one message per registration
