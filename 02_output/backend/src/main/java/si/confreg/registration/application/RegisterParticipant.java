@@ -46,7 +46,12 @@ public final class RegisterParticipant {
 
   public record Registered(Registration registration) implements Outcome {}
 
-  public record Rejected(Map<String, String> errors) implements Outcome {}
+  public record Rejected(Map<String, String> errors) implements Outcome {
+
+    public Rejected {
+      errors = Map.copyOf(errors);
+    }
+  }
 
   public Outcome register(RegistrationRequest request) {
     RegistrationValidator.Result result = validator.validate(request);

@@ -54,6 +54,10 @@ public final class RegistrationValidator {
   /** Either a valid registration or the field errors. */
   public record Result(ValidRegistration valid, Map<String, String> errors) {
 
+    public Result {
+      errors = Map.copyOf(errors);
+    }
+
     public boolean isValid() {
       return errors.isEmpty();
     }
