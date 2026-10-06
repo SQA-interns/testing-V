@@ -1,0 +1,2943 @@
+[32m01:40:06 (52812) INFO ProjectReader[39m Found 3 of 30 file(s) to be mutated.
+[32m01:40:06 (52812) INFO Instrumenter[39m Instrumented 3 source file(s) with 232 mutant(s)
+[32m01:40:06 (52812) INFO ConcurrencyTokenProvider[39m Creating 31 test runner process(es).
+[32m01:40:08 (52812) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "off" coverage analysis). This may take a while.
+[32m01:40:11 (52812) INFO DryRunExecutor[39m Initial test run succeeded. Ran 20 tests in 3 seconds (net 586.189800000001 ms, overhead 2817.810199999999 ms).
+
+All tests
+  src
+    api.test.ts
+      ~ formatAmount writes two decimals and the currency (covered 2)
+      ~ formatAmount keeps a value that is not a number (covered 2)
+      ~ fetchWorkshops returns well-formed workshops only (covered 31)
+      ~ fetchWorkshops fails on an HTTP error or an unexpected body (covered 15)
+      ~ submitRegistration posts JSON to the registration endpoint (covered 15)
+      ~ submitRegistration returns field errors for 422 and drops non-string messages (covered 25)
+      ~ submitRegistration treats 422 without errors as no field errors (covered 19)
+      ~ submitRegistration fails for other statuses, unreadable bodies and network errors (covered 26)
+    App.test.tsx
+      ✓ App still offers registration without a workshop when the workshop list fails (killed 3)
+      ~ App shows a payer type error from the API next to the payer field (covered 140)
+  tests/acceptance/registration-form.acceptance.test.tsx
+    ✓ AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract (killed 1)
+    ~ AC-001-11 registration form AC-001-11 shows company fields only for a company payer (covered 121)
+    ~ AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields (covered 149)
+    ~ AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list (covered 150)
+    ~ AC-001-11 registration form AC-001-11 company payer sends the company fields (covered 163)
+    ~ AC-001-11 registration form AC-001-11 on 201 shows registration number, net fee, VAT and gross fee (covered 149)
+    ~ AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input (covered 169)
+    ~ AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field (covered 168)
+    ✓ AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input (killed 1)
+    ~ AC-001-11 registration form AC-001-11 submit is disabled while the request is pending (no double submission) (covered 150)
+
+[Survived] BlockStatement
+src/api.ts:34:21
+-     if (!response.ok) {
+-       throw new Error(`workshops: HTTP ${response.status}`);
+-     }
++     if (!response.ok) {}
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+    fetchWorkshops fails on an HTTP error or an unexpected body
+
+
+[Survived] StringLiteral
+src/api.ts:35:21
+-       throw new Error(`workshops: HTTP ${response.status}`);
++       throw new Error(``);
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+    fetchWorkshops fails on an HTTP error or an unexpected body
+
+
+[Survived] BooleanLiteral
+src/api.ts:34:7
+-     if (!response.ok) {
++     if (response.ok) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:34:7
+-     if (!response.ok) {
++     if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:34:7
+-     if (!response.ok) {
++     if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:32:14
+-       headers: { Accept: "application/json" },
++       headers: {},
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:32:24
+-       headers: { Accept: "application/json" },
++       headers: { Accept: "" },
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:31:32
+-     const response = await fetch("/api/workshops", {
++     const response = await fetch("", {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:30:61
+-   export async function fetchWorkshops(): Promise<Workshop[]> {
+-     const response = await fetch("/api/workshops", {
+-       headers: { Accept: "application/json" },
+-     });
+-     if (!response.ok) {
+-       throw new Error(`workshops: HTTP ${response.status}`);
+-     }
+-     const body: unknown = await response.json();
+-     if (!Array.isArray(body)) {
+-       throw new Error("workshops: unexpected body");
+-     }
+-     return body.filter(
+-       (w): w is Workshop =>
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
+-     );
+-   }
++   export async function fetchWorkshops(): Promise<Workshop[]> {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:31:50
+-     const response = await fetch("/api/workshops", {
+-       headers: { Accept: "application/json" },
+-     });
++     const response = await fetch("/api/workshops", {});
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 11 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:38:29
+-     if (!Array.isArray(body)) {
+-       throw new Error("workshops: unexpected body");
+-     }
++     if (!Array.isArray(body)) {}
+Tests ran:
+    fetchWorkshops fails on an HTTP error or an unexpected body
+
+
+[Survived] StringLiteral
+src/api.ts:39:21
+-       throw new Error("workshops: unexpected body");
++       throw new Error("");
+Tests ran:
+    fetchWorkshops fails on an HTTP error or an unexpected body
+
+
+[Survived] BooleanLiteral
+src/api.ts:38:7
+-     if (!Array.isArray(body)) {
++     if (Array.isArray(body)) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:38:7
+-     if (!Array.isArray(body)) {
++     if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
++         true,
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
++         false,
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
++         true &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] LogicalOperator
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
++         typeof w === "object" && w !== null && typeof (w as Workshop).id === "string" || typeof (w as Workshop).title === "string",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] LogicalOperator
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
++         typeof w === "object" && w !== null || typeof (w as Workshop).id === "string" &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] LogicalOperator
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
++         typeof w === "object" || w !== null &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:43:7
+-         typeof w === "object" &&
+-         w !== null &&
++         true &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:43:7
+-         typeof w === "object" &&
++         true &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:38:7
+-     if (!Array.isArray(body)) {
++     if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 10 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:43:7
+-         typeof w === "object" &&
++         typeof w !== "object" &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] MethodExpression
+src/api.ts:41:10
+-     return body.filter(
+-       (w): w is Workshop =>
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
+-     );
++     return body;
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/api.ts:42:5
+-       (w): w is Workshop =>
+-         typeof w === "object" &&
+-         w !== null &&
+-         typeof (w as Workshop).id === "string" &&
+-         typeof (w as Workshop).title === "string",
++       () => undefined,
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:43:20
+-         typeof w === "object" &&
++         typeof w === "" &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:44:7
+-         w !== null &&
++         true &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:44:7
+-         w !== null &&
++         w === null &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:45:7
+-         typeof (w as Workshop).id === "string" &&
++         true &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:63:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] EqualityOperator
+src/api.ts:45:7
+-         typeof (w as Workshop).id === "string" &&
++         typeof (w as Workshop).id !== "string" &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:45:37
+-         typeof (w as Workshop).id === "string" &&
++         typeof (w as Workshop).id === "" &&
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:64:12
+-       return { kind: "failed" };
++       return {};
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] StringLiteral
+src/api.ts:64:20
+-       return { kind: "failed" };
++       return { kind: "" };
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] ConditionalExpression
+src/api.ts:46:7
+-         typeof (w as Workshop).title === "string",
++         true,
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:46:7
+-         typeof (w as Workshop).title === "string",
++         typeof (w as Workshop).title !== "string",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:46:40
+-         typeof (w as Workshop).title === "string",
++         typeof (w as Workshop).title === "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:54:7
+-     try {
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(input),
+-       });
+-     } catch {
++     try {} catch {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:52:26
+-   ): Promise<SubmitResult> {
+-     let response: Response;
+-     try {
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(input),
+-       });
+-     } catch {
+-       return { kind: "failed" };
+-     }
+-     try {
+-       if (response.status === 201) {
+-         return {
+-           kind: "created",
+-           registration: (await response.json()) as Registration,
+-         };
+-       }
+-       if (response.status === 422) {
+-         const body = (await response.json()) as {
+-           errors?: Record<string, unknown>;
+-         };
+-         const errors: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(body.errors ?? {})) {
+-           if (typeof message === "string") {
+-             errors[field] = message;
+-           }
+-         }
+-         return { kind: "invalid", errors };
+-       }
+-     } catch {
+-       return { kind: "failed" };
+-     }
+-     return { kind: "failed" };
+-   }
++   ): Promise<SubmitResult> {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:55:50
+-       response = await fetch("/api/registrations", {
+-         method: "POST",
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
+-         body: JSON.stringify(input),
+-       });
++       response = await fetch("/api/registrations", {});
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:55:28
+-       response = await fetch("/api/registrations", {
++       response = await fetch("", {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:57:16
+-         headers: {
+-           "Content-Type": "application/json",
+-           Accept: "application/json",
+-         },
++         headers: {},
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:56:15
+-         method: "POST",
++         method: "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:58:25
+-           "Content-Type": "application/json",
++           "Content-Type": "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:67:34
+-       if (response.status === 201) {
+-         return {
+-           kind: "created",
+-           registration: (await response.json()) as Registration,
+-         };
+-       }
++       if (response.status === 201) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 4 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:69:15
+-           kind: "created",
++           kind: "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 4 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:68:14
+-         return {
+-           kind: "created",
+-           registration: (await response.json()) as Registration,
+-         };
++         return {};
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 4 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:59:17
+-           Accept: "application/json",
++           Accept: "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:67:9
+-       if (response.status === 201) {
++       if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:85:11
+-     } catch {
+-       return { kind: "failed" };
+-     }
++     } catch {}
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] ObjectLiteral
+src/api.ts:86:12
+-       return { kind: "failed" };
++       return {};
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] ConditionalExpression
+src/api.ts:73:9
+-       if (response.status === 422) {
++       if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 4 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:66:7
+-     try {
+-       if (response.status === 201) {
+-         return {
+-           kind: "created",
+-           registration: (await response.json()) as Registration,
+-         };
+-       }
+-       if (response.status === 422) {
+-         const body = (await response.json()) as {
+-           errors?: Record<string, unknown>;
+-         };
+-         const errors: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(body.errors ?? {})) {
+-           if (typeof message === "string") {
+-             errors[field] = message;
+-           }
+-         }
+-         return { kind: "invalid", errors };
+-       }
+-     } catch {
++     try {} catch {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:86:20
+-       return { kind: "failed" };
++       return { kind: "" };
+Tests ran:
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] ConditionalExpression
+src/api.ts:67:9
+-       if (response.status === 201) {
++       if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:73:9
+-       if (response.status === 422) {
++       if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 4 more tests!
+
+
+[Survived] EqualityOperator
+src/api.ts:67:9
+-       if (response.status === 201) {
++       if (response.status !== 201) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 10 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:96:7
+-       : `${String(value)} EUR`;
++       : ``;
+Tests ran:
+    formatAmount keeps a value that is not a number
+
+
+[Survived] EqualityOperator
+src/api.ts:73:9
+-       if (response.status === 422) {
++       if (response.status !== 422) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 4 more tests!
+
+
+[Survived] BlockStatement
+src/api.ts:73:34
+-       if (response.status === 422) {
+-         const body = (await response.json()) as {
+-           errors?: Record<string, unknown>;
+-         };
+-         const errors: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(body.errors ?? {})) {
+-           if (typeof message === "string") {
+-             errors[field] = message;
+-           }
+-         }
+-         return { kind: "invalid", errors };
+-       }
++       if (response.status === 422) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 2 more tests!
+
+
+[Survived] ConditionalExpression
+src/api.ts:79:13
+-           if (typeof message === "string") {
++           if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] LogicalOperator
+src/api.ts:78:53
+-         for (const [field, message] of Object.entries(body.errors ?? {})) {
++         for (const [field, message] of Object.entries(body.errors && {})) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 2 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:88:18
+-     return { kind: "failed" };
++     return { kind: "" };
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] ConditionalExpression
+src/api.ts:79:13
+-           if (typeof message === "string") {
++           if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/api.ts:78:73
+-         for (const [field, message] of Object.entries(body.errors ?? {})) {
+-           if (typeof message === "string") {
+-             errors[field] = message;
+-           }
+-         }
++         for (const [field, message] of Object.entries(body.errors ?? {})) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] EqualityOperator
+src/api.ts:79:13
+-           if (typeof message === "string") {
++           if (typeof message !== "string") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/api.ts:95:7
+-       ? `${amount.toFixed(2)} EUR`
++       ? ``
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 3 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:83:14
+-         return { kind: "invalid", errors };
++         return {};
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 2 more tests!
+
+
+[Survived] ObjectLiteral
+src/api.ts:88:10
+-     return { kind: "failed" };
++     return {};
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+    submitRegistration fails for other statuses, unreadable bodies and network errors
+
+
+[Survived] BlockStatement
+src/api.ts:92:62
+-   export function formatAmount(value: number | string): string {
+-     const amount = Number(value);
+-     return Number.isFinite(amount)
+-       ? `${amount.toFixed(2)} EUR`
+-       : `${String(value)} EUR`;
+-   }
++   export function formatAmount(value: number | string): string {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 4 more tests!
+
+
+[Survived] StringLiteral
+src/api.ts:79:32
+-           if (typeof message === "string") {
++           if (typeof message === "") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] BlockStatement
+src/api.ts:79:42
+-           if (typeof message === "string") {
+-             errors[field] = message;
+-           }
++           if (typeof message === "string") {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/api.ts:83:22
+-         return { kind: "invalid", errors };
++         return { kind: "", errors };
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+  and 2 more tests!
+
+
+[NoCoverage] StringLiteral
+src/App.tsx:233:37
+-                   onChange={() => set("workshop", "")}
++                   onChange={() => set("", "")}
+
+[NoCoverage] StringLiteral
+src/App.tsx:233:49
+-                   onChange={() => set("workshop", "")}
++                   onChange={() => set("workshop", "Stryker was here!")}
+
+[Survived] StringLiteral
+src/App.tsx:37:41
+-     return requestField === "workshops" ? "workshop" : requestField;
++     return requestField === "workshops" ? "" : requestField;
+Tests ran:
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+
+
+[Survived] BlockStatement
+src/App.tsx:36:50
+-   function fieldIdOf(requestField: string): string {
+-     return requestField === "workshops" ? "workshop" : requestField;
+-   }
++   function fieldIdOf(requestField: string): string {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] ConditionalExpression
+src/App.tsx:37:10
+-     return requestField === "workshops" ? "workshop" : requestField;
++     return true ? "workshop" : requestField;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] ConditionalExpression
+src/App.tsx:37:10
+-     return requestField === "workshops" ? "workshop" : requestField;
++     return false ? "workshop" : requestField;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] EqualityOperator
+src/App.tsx:37:10
+-     return requestField === "workshops" ? "workshop" : requestField;
++     return requestField !== "workshops" ? "workshop" : requestField;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] ConditionalExpression
+src/App.tsx:59:20
+-         .catch(() => active && setWorkshopsFailed(true));
++         .catch(() => true);
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+
+
+[Survived] ConditionalExpression
+src/App.tsx:59:20
+-         .catch(() => active && setWorkshopsFailed(true));
++         .catch(() => false);
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+
+
+[Survived] BlockStatement
+src/App.tsx:45:23
+-   export function App() {
+-     const [workshops, setWorkshops] = useState<Workshop[]>([]);
+-     const [workshopsFailed, setWorkshopsFailed] = useState(false);
+-     const [values, setValues] = useState<Values>(EMPTY);
+-     const [errors, setErrors] = useState<Record<string, string>>({});
+-     const [generalError, setGeneralError] = useState<string | null>(null);
+-     const [pending, setPending] = useState(false);
+-     const [registration, setRegistration] = useState<Registration | null>(null);
+-     const submitting = useRef(false);
+-     useEffect(() => {
+-       let active = true;
+-       fetchWorkshops()
+-         .then((list) => active && setWorkshops(list))
+-         .catch(() => active && setWorkshopsFailed(true));
+-       return () => {
+-         active = false;
+-       };
+-     }, []);
+-     function set<K extends keyof Values>(key: K, value: Values[K]) {
+-       setValues((current) => ({ ...current, [key]: value }));
+-     }
+-     async function onSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       if (submitting.current) {
+-         return;
+-       }
+-       submitting.current = true;
+-       setPending(true);
+-       setGeneralError(null);
+-       const input: RegistrationInput = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType: values.payerType,
+-         workshops: values.workshop === "" ? [] : [values.workshop],
+-       };
+-       if (values.payerType === "company") {
+-         input.companyName = values.companyName;
+-         input.companyAddress = values.companyAddress;
+-         input.companyVatId = values.companyVatId;
+-       }
+-       const result = await submitRegistration(input);
+-       submitting.current = false;
+-       setPending(false);
+-       if (result.kind === "created") {
+-         setErrors({});
+-         setRegistration(result.registration);
+-       } else if (result.kind === "invalid") {
+-         const byField: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(result.errors)) {
+-           byField[fieldIdOf(field)] = message;
+-         }
+-         setErrors(byField);
+-       } else {
+-         setErrors({});
+-         setGeneralError(GENERAL_ERROR);
+-       }
+-     }
+-     function textField(
+-       id: keyof Values,
+-       label: string,
+-       type = "text",
+-       autoComplete?: string,
+-     ) {
+-       const error = errors[id];
+-       return (
+-         <div className="field">
+-           <label htmlFor={id}>{label}</label>
+-           <input
+-             id={id}
+-             name={id}
+-             type={type}
+-             required
+-             autoComplete={autoComplete}
+-             value={values[id]}
+-             aria-invalid={error ? true : undefined}
+-             aria-describedby={error ? `${id}-error` : undefined}
+-             onChange={(e) => set(id, e.target.value)}
+-           />
+-           {error && (
+-             <p id={`${id}-error`} className="field-error">
+-               {error}
+-             </p>
+-           )}
+-         </div>
+-       );
+-     }
+-     return (
+-       <main>
+-         <h1>Conference registration</h1>
+-         {registration ? (
+-           <section id="confirmation" aria-live="polite">
+-             <h2>Thank you for registering</h2>
+-             <dl>
+-               <dt>Registration number</dt>
+-               <dd id="confirmation-registration-number">
+-                 {registration.registrationNumber}
+-               </dd>
+-               <dt>Net fee</dt>
+-               <dd id="confirmation-net-fee">
+-                 {formatAmount(registration.netFee)}
+-               </dd>
+-               <dt>VAT</dt>
+-               <dd id="confirmation-vat">{formatAmount(registration.vat)}</dd>
+-               <dt>Gross fee</dt>
+-               <dd id="confirmation-gross-fee">
+-                 {formatAmount(registration.grossFee)}
+-               </dd>
+-             </dl>
+-             <p>A confirmation has been sent to your e-mail address.</p>
+-           </section>
+-         ) : (
+-           <form id="registration-form" onSubmit={onSubmit}>
+-             {generalError && (
+-               <div id="general-error" role="alert" className="general-error">
+-                 {generalError}
+-               </div>
+-             )}
+-             {textField("firstName", "First name", "text", "given-name")}
+-             {textField("lastName", "Last name", "text", "family-name")}
+-             {textField("email", "E-mail", "email", "email")}
+-             <fieldset
+-               id="payerType"
+-               aria-describedby={errors.payerType ? "payerType-error" : undefined}
+-             >
+-               <legend>Payer</legend>
+-               <label>
+-                 <input
+-                   id="payerType-private"
+-                   type="radio"
+-                   name="payerType"
+-                   value="private"
+-                   checked={values.payerType === "private"}
+-                   onChange={() => set("payerType", "private")}
+-                 />
+-                 Private person
+-               </label>
+-               <label>
+-                 <input
+-                   id="payerType-company"
+-                   type="radio"
+-                   name="payerType"
+-                   value="company"
+-                   checked={values.payerType === "company"}
+-                   onChange={() => set("payerType", "company")}
+-                 />
+-                 Company
+-               </label>
+-               {errors.payerType && (
+-                 <p id="payerType-error" className="field-error">
+-                   {errors.payerType}
+-                 </p>
+-               )}
+-             </fieldset>
+-             {values.payerType === "company" && (
+-               <>
+-                 {textField("companyName", "Company name", "text", "organization")}
+-                 {textField(
+-                   "companyAddress",
+-                   "Company address",
+-                   "text",
+-                   "street-address",
+-                 )}
+-                 {textField("companyVatId", "Company VAT ID")}
+-               </>
+-             )}
+-             <fieldset
+-               id="workshop"
+-               aria-describedby={errors.workshop ? "workshop-error" : undefined}
+-             >
+-               <legend>Workshop</legend>
+-               <label>
+-                 <input
+-                   id="workshop-none"
+-                   type="radio"
+-                   name="workshop"
+-                   value=""
+-                   checked={values.workshop === ""}
+-                   onChange={() => set("workshop", "")}
+-                 />
+-                 No workshop
+-               </label>
+-               {workshops.map((workshop) => (
+-                 <label key={workshop.id} htmlFor={`workshop-${workshop.id}`}>
+-                   <input
+-                     id={`workshop-${workshop.id}`}
+-                     type="radio"
+-                     name="workshop"
+-                     value={workshop.id}
+-                     checked={values.workshop === workshop.id}
+-                     onChange={() => set("workshop", workshop.id)}
+-                   />
+-                   {workshop.title}
+-                 </label>
+-               ))}
+-               {workshopsFailed && <p className="note">{WORKSHOPS_ERROR}</p>}
+-               {errors.workshop && (
+-                 <p id="workshop-error" className="field-error">
+-                   {errors.workshop}
+-                 </p>
+-               )}
+-             </fieldset>
+-             <button id="submit" type="submit" disabled={pending}>
+-               Register
+-             </button>
+-           </form>
+-         )}
+-       </main>
+-     );
+-   }
++   export function App() {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:53:29
+-     const submitting = useRef(false);
++     const submitting = useRef(true);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:47:58
+-     const [workshopsFailed, setWorkshopsFailed] = useState(false);
++     const [workshopsFailed, setWorkshopsFailed] = useState(true);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:58:13
+-         .then((list) => active && setWorkshops(list))
++         .then(() => undefined)
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:37:27
+-     return requestField === "workshops" ? "workshop" : requestField;
++     return requestField === "" ? "workshop" : requestField;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] BlockStatement
+src/App.tsx:65:66
+-     function set<K extends keyof Values>(key: K, value: Values[K]) {
+-       setValues((current) => ({ ...current, [key]: value }));
+-     }
++     function set<K extends keyof Values>(key: K, value: Values[K]) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+  and 6 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:59:49
+-         .catch(() => active && setWorkshopsFailed(true));
++         .catch(() => active && setWorkshopsFailed(false));
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:46:58
+-     const [workshops, setWorkshops] = useState<Workshop[]>([]);
++     const [workshops, setWorkshops] = useState<Workshop[]>(["Stryker was here"]);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ObjectLiteral
+src/App.tsx:66:29
+-       setValues((current) => ({ ...current, [key]: value }));
++       setValues((current) => ({}));
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+  and 6 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:58:23
+-         .then((list) => active && setWorkshops(list))
++         .then((list) => false)
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:58:23
+-         .then((list) => active && setWorkshops(list))
++         .then((list) => active || setWorkshops(list))
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:59:14
+-         .catch(() => active && setWorkshopsFailed(true));
++         .catch(() => undefined);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:56:18
+-       let active = true;
++       let active = false;
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:58:23
+-         .then((list) => active && setWorkshops(list))
++         .then((list) => true)
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 8 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:66:15
+-       setValues((current) => ({ ...current, [key]: value }));
++       setValues(() => undefined);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+  and 6 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:59:20
+-         .catch(() => active && setWorkshopsFailed(true));
++         .catch(() => active || setWorkshopsFailed(true));
+Tests ran:
+    App still offers registration without a workshop when the workshop list fails
+
+
+[Survived] BlockStatement
+src/App.tsx:71:29
+-       if (submitting.current) {
+-         return;
+-       }
++       if (submitting.current) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 submit is disabled while the request is pending (no double submission)
+
+
+[Survived] BlockStatement
+src/App.tsx:60:18
+-       return () => {
+-         active = false;
+-       };
++       return () => {};
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:61:16
+-         active = false;
++         active = true;
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:69:62
+-     async function onSubmit(event: FormEvent<HTMLFormElement>) {
+-       event.preventDefault();
+-       if (submitting.current) {
+-         return;
+-       }
+-       submitting.current = true;
+-       setPending(true);
+-       setGeneralError(null);
+-       const input: RegistrationInput = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType: values.payerType,
+-         workshops: values.workshop === "" ? [] : [values.workshop],
+-       };
+-       if (values.payerType === "company") {
+-         input.companyName = values.companyName;
+-         input.companyAddress = values.companyAddress;
+-         input.companyVatId = values.companyVatId;
+-       }
+-       const result = await submitRegistration(input);
+-       submitting.current = false;
+-       setPending(false);
+-       if (result.kind === "created") {
+-         setErrors({});
+-         setRegistration(result.registration);
+-       } else if (result.kind === "invalid") {
+-         const byField: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(result.errors)) {
+-           byField[fieldIdOf(field)] = message;
+-         }
+-         setErrors(byField);
+-       } else {
+-         setErrors({});
+-         setGeneralError(GENERAL_ERROR);
+-       }
+-     }
++     async function onSubmit(event: FormEvent<HTMLFormElement>) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:82:48
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: values.workshop === "" ? [] : [],
+Tests ran:
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+
+
+[Survived] BooleanLiteral
+src/App.tsx:51:42
+-     const [pending, setPending] = useState(false);
++     const [pending, setPending] = useState(true);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:84:41
+-       if (values.payerType === "company") {
+-         input.companyName = values.companyName;
+-         input.companyAddress = values.companyAddress;
+-         input.companyVatId = values.companyVatId;
+-       }
++       if (values.payerType === "company") {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:71:9
+-       if (submitting.current) {
++       if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:55:19
+-     useEffect(() => {
+-       let active = true;
+-       fetchWorkshops()
+-         .then((list) => active && setWorkshops(list))
+-         .catch(() => active && setWorkshopsFailed(true));
+-       return () => {
+-         active = false;
+-       };
+-     }, []);
++     useEffect(() => {}, []);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:70:5
+-       event.preventDefault();
++       ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:92:36
+-       if (result.kind === "created") {
+-         setErrors({});
+-         setRegistration(result.registration);
+-       } else if (result.kind === "invalid") {
++       if (result.kind === "created") {} else if (result.kind === "invalid") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 2 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:82:18
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: false ? [] : [values.workshop],
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:93:7
+-         setErrors({});
++         ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 2 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:82:18
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: values.workshop !== "" ? [] : [values.workshop],
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:82:18
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: true ? [] : [values.workshop],
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:94:7
+-         setRegistration(result.registration);
++         ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 2 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:76:5
+-       setGeneralError(null);
++       ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:84:9
+-       if (values.payerType === "company") {
++       if (values.payerType !== "company") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:84:9
+-       if (values.payerType === "company") {
++       if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:75:16
+-       setPending(true);
++       setPending(false);
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ObjectLiteral
+src/App.tsx:77:38
+-       const input: RegistrationInput = {
+-         firstName: values.firstName,
+-         lastName: values.lastName,
+-         email: values.email,
+-         payerType: values.payerType,
+-         workshops: values.workshop === "" ? [] : [values.workshop],
+-       };
++       const input: RegistrationInput = {};
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:63:6
+-     }, []);
++     }, ["Stryker was here"]);
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:82:38
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: values.workshop === "Stryker was here!" ? [] : [values.workshop],
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:92:25
+-       if (result.kind === "created") {
++       if (result.kind === "") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:101:12
+-       } else {
+-         setErrors({});
+-         setGeneralError(GENERAL_ERROR);
+-       }
++       } else {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+
+
+[Survived] CallExpression
+src/App.tsx:102:7
+-         setErrors({});
++         ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+
+
+[Survived] BooleanLiteral
+src/App.tsx:74:26
+-       submitting.current = true;
++       submitting.current = false;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:110:12
+-       type = "text",
++       type = "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] BooleanLiteral
+src/App.tsx:124:33
+-             aria-invalid={error ? true : undefined}
++             aria-invalid={error ? false : undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+
+
+[Survived] ConditionalExpression
+src/App.tsx:95:16
+-       } else if (result.kind === "invalid") {
++       } else if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 1 more test!
+
+
+[Survived] CallExpression
+src/App.tsx:103:7
+-         setGeneralError(GENERAL_ERROR);
++         ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+
+
+[Survived] ConditionalExpression
+src/App.tsx:71:9
+-       if (submitting.current) {
++       if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:125:37
+-             aria-describedby={error ? `${id}-error` : undefined}
++             aria-describedby={error ? `` : undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+
+
+[Survived] ConditionalExpression
+src/App.tsx:92:9
+-       if (result.kind === "created") {
++       if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:91:16
+-       setPending(false);
++       setPending(true);
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ArrayDeclaration
+src/App.tsx:82:43
+-         workshops: values.workshop === "" ? [] : [values.workshop],
++         workshops: values.workshop === "" ? ["Stryker was here"] : [values.workshop],
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+    AC-001-11 registration form AC-001-11 on 201 shows registration number, net fee, VAT and gross fee
+  and 5 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:92:9
+-       if (result.kind === "created") {
++       if (true) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:95:43
+-       } else if (result.kind === "invalid") {
+-         const byField: Record<string, string> = {};
+-         for (const [field, message] of Object.entries(result.errors)) {
+-           byField[fieldIdOf(field)] = message;
+-         }
+-         setErrors(byField);
+-       } else {
++       } else if (result.kind === "invalid") {} else {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] EqualityOperator
+src/App.tsx:95:16
+-       } else if (result.kind === "invalid") {
++       } else if (result.kind !== "invalid") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 1 more test!
+
+
+[Survived] BooleanLiteral
+src/App.tsx:90:26
+-       submitting.current = false;
++       submitting.current = true;
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:95:32
+-       } else if (result.kind === "invalid") {
++       } else if (result.kind === "") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 1 more test!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:84:9
+-       if (values.payerType === "company") {
++       if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:112:5
+-     ) {
+-       const error = errors[id];
+-       return (
+-         <div className="field">
+-           <label htmlFor={id}>{label}</label>
+-           <input
+-             id={id}
+-             name={id}
+-             type={type}
+-             required
+-             autoComplete={autoComplete}
+-             value={values[id]}
+-             aria-invalid={error ? true : undefined}
+-             aria-describedby={error ? `${id}-error` : undefined}
+-             onChange={(e) => set(id, e.target.value)}
+-           />
+-           {error && (
+-             <p id={`${id}-error`} className="field-error">
+-               {error}
+-             </p>
+-           )}
+-         </div>
+-       );
+-     }
++     ) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:84:30
+-       if (values.payerType === "company") {
++       if (values.payerType === "") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:126:21
+-             onChange={(e) => set(id, e.target.value)}
++             onChange={() => undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:92:9
+-       if (result.kind === "created") {
++       if (result.kind !== "created") {
+Tests ran:
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+  and 6 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:128:10
+-           {error && (
+-             <p id={`${id}-error`} className="field-error">
+-               {error}
+-             </p>
+-           )}
++           {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] CallExpression
+src/App.tsx:100:7
+-         setErrors(byField);
++         ;
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] StringLiteral
+src/App.tsx:176:50
+-               aria-describedby={errors.payerType ? "payerType-error" : undefined}
++               aria-describedby={errors.payerType ? "" : undefined}
+Tests ran:
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] ConditionalExpression
+src/App.tsx:95:16
+-       } else if (result.kind === "invalid") {
++       } else if (false) {
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    AC-001-11 registration form AC-001-11 on 429 shows one general error and keeps the input
+  and 1 more test!
+
+
+[Survived] StringLiteral
+src/App.tsx:129:18
+-             <p id={`${id}-error`} className="field-error">
++             <p id={``} className="field-error">
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+
+
+[Survived] ConditionalExpression
+src/App.tsx:164:12
+-             {generalError && (
+-               <div id="general-error" role="alert" className="general-error">
+-                 {generalError}
+-               </div>
+-             )}
++             {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:170:57
+-             {textField("firstName", "First name", "text", "given-name")}
++             {textField("firstName", "First name", "text", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:170:22
+-             {textField("firstName", "First name", "text", "given-name")}
++             {textField("", "First name", "text", "given-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:164:12
+-             {generalError && (
+-               <div id="general-error" role="alert" className="general-error">
+-                 {generalError}
+-               </div>
+-             )}
++             {generalError || <div id="general-error" role="alert" className="general-error">
++                 {generalError}
++               </div>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:170:49
+-             {textField("firstName", "First name", "text", "given-name")}
++             {textField("firstName", "First name", "", "given-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:171:34
+-             {textField("lastName", "Last name", "text", "family-name")}
++             {textField("lastName", "", "text", "family-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:186:50
+-                   onChange={() => set("payerType", "private")}
++                   onChange={() => set("payerType", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+
+
+[Survived] StringLiteral
+src/App.tsx:172:22
+-             {textField("email", "E-mail", "email", "email")}
++             {textField("", "E-mail", "email", "email")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:171:22
+-             {textField("lastName", "Last name", "text", "family-name")}
++             {textField("", "Last name", "text", "family-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] BlockStatement
+src/App.tsx:97:69
+-         for (const [field, message] of Object.entries(result.errors)) {
+-           byField[fieldIdOf(field)] = message;
+-         }
++         for (const [field, message] of Object.entries(result.errors)) {}
+Tests ran:
+    AC-001-11 registration form AC-001-11 on 422 shows each field error next to its field and keeps the input
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+    App shows a payer type error from the API next to the payer field
+
+
+[Survived] StringLiteral
+src/App.tsx:171:55
+-             {textField("lastName", "Last name", "text", "family-name")}
++             {textField("lastName", "Last name", "text", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:128:10
+-           {error && (
+-             <p id={`${id}-error`} className="field-error">
+-               {error}
+-             </p>
+-           )}
++           {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:164:12
+-             {generalError && (
+-               <div id="general-error" role="alert" className="general-error">
+-                 {generalError}
+-               </div>
+-             )}
++             {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:185:26
+-                   checked={values.payerType === "private"}
++                   checked={values.payerType !== "private"}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:128:10
+-           {error && (
+-             <p id={`${id}-error`} className="field-error">
+-               {error}
+-             </p>
+-           )}
++           {error || <p id={`${id}-error`} className="field-error">
++               {error}
++             </p>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:197:50
+-                   onChange={() => set("payerType", "company")}
++                   onChange={() => set("payerType", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] StringLiteral
+src/App.tsx:170:35
+-             {textField("firstName", "First name", "text", "given-name")}
++             {textField("firstName", "", "text", "given-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:186:37
+-                   onChange={() => set("payerType", "private")}
++                   onChange={() => set("", "private")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+
+
+[Survived] ArrowFunction
+src/App.tsx:186:27
+-                   onChange={() => set("payerType", "private")}
++                   onChange={() => undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:171:47
+-             {textField("lastName", "Last name", "text", "family-name")}
++             {textField("lastName", "Last name", "", "family-name")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:210:26
+-                 {textField("companyName", "Company name", "text", "organization")}
++                 {textField("", "Company name", "text", "organization")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:185:26
+-                   checked={values.payerType === "private"}
++                   checked={true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:197:37
+-                   onChange={() => set("payerType", "company")}
++                   onChange={() => set("", "company")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:196:26
+-                   checked={values.payerType === "company"}
++                   checked={false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:172:50
+-             {textField("email", "E-mail", "email", "email")}
++             {textField("email", "E-mail", "email", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:196:47
+-                   checked={values.payerType === "company"}
++                   checked={values.payerType === ""}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:172:31
+-             {textField("email", "E-mail", "email", "email")}
++             {textField("email", "", "email", "email")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:197:27
+-                   onChange={() => set("payerType", "company")}
++                   onChange={() => undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:201:14
+-               {errors.payerType && (
+-                 <p id="payerType-error" className="field-error">
+-                   {errors.payerType}
+-                 </p>
+-               )}
++               {errors.payerType || <p id="payerType-error" className="field-error">
++                   {errors.payerType}
++                 </p>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:210:65
+-                 {textField("companyName", "Company name", "text", "organization")}
++                 {textField("companyName", "Company name", "text", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:185:26
+-                   checked={values.payerType === "private"}
++                   checked={false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:185:47
+-                   checked={values.payerType === "private"}
++                   checked={values.payerType === ""}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:201:14
+-               {errors.payerType && (
+-                 <p id="payerType-error" className="field-error">
+-                   {errors.payerType}
+-                 </p>
+-               )}
++               {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:213:17
+-                   "Company address",
++                   "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] StringLiteral
+src/App.tsx:172:41
+-             {textField("email", "E-mail", "email", "email")}
++             {textField("email", "E-mail", "", "email")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:217:26
+-                 {textField("companyVatId", "Company VAT ID")}
++                 {textField("", "Company VAT ID")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] StringLiteral
+src/App.tsx:214:17
+-                   "text",
++                   "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] LogicalOperator
+src/App.tsx:208:12
+-             {values.payerType === "company" && (
+-               <>
+-                 {textField("companyName", "Company name", "text", "organization")}
+-                 {textField(
+-                   "companyAddress",
+-                   "Company address",
+-                   "text",
+-                   "street-address",
+-                 )}
+-                 {textField("companyVatId", "Company VAT ID")}
+-               </>
+-             )}
++             {values.payerType === "company" || <>
++                 {textField("companyName", "Company name", "text", "organization")}
++                 {textField("companyAddress", "Company address", "text", "street-address")}
++                 {textField("companyVatId", "Company VAT ID")}
++               </>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:208:12
+-             {values.payerType === "company" && (
+-               <>
+-                 {textField("companyName", "Company name", "text", "organization")}
+-                 {textField(
+-                   "companyAddress",
+-                   "Company address",
+-                   "text",
+-                   "street-address",
+-                 )}
+-                 {textField("companyVatId", "Company VAT ID")}
+-               </>
+-             )}
++             {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:208:12
+-             {values.payerType === "company" && (
++             {values.payerType !== "company" && (
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:223:49
+-               aria-describedby={errors.workshop ? "workshop-error" : undefined}
++               aria-describedby={errors.workshop ? "" : undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 workshop error from the API is shown at the workshop field
+
+
+[Survived] ConditionalExpression
+src/App.tsx:196:26
+-                   checked={values.payerType === "company"}
++                   checked={true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:208:12
+-             {values.payerType === "company" && (
++             {true && (
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:201:14
+-               {errors.payerType && (
+-                 <p id="payerType-error" className="field-error">
+-                   {errors.payerType}
+-                 </p>
+-               )}
++               {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:210:41
+-                 {textField("companyName", "Company name", "text", "organization")}
++                 {textField("companyName", "", "text", "organization")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] EqualityOperator
+src/App.tsx:196:26
+-                   checked={values.payerType === "company"}
++                   checked={values.payerType !== "company"}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:210:57
+-                 {textField("companyName", "Company name", "text", "organization")}
++                 {textField("companyName", "Company name", "", "organization")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] StringLiteral
+src/App.tsx:240:23
+-                     id={`workshop-${workshop.id}`}
++                     id={``}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:217:42
+-                 {textField("companyVatId", "Company VAT ID")}
++                 {textField("companyVatId", "")}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:208:12
+-             {values.payerType === "company" && (
+-               <>
+-                 {textField("companyName", "Company name", "text", "organization")}
+-                 {textField(
+-                   "companyAddress",
+-                   "Company address",
+-                   "text",
+-                   "street-address",
+-                 )}
+-                 {textField("companyVatId", "Company VAT ID")}
+-               </>
+-             )}
++             {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:208:33
+-             {values.payerType === "company" && (
++             {values.payerType === "" && (
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:215:17
+-                   "street-address",
++                   "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] StringLiteral
+src/App.tsx:212:17
+-                   "companyAddress",
++                   "",
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 company payer sends the company fields
+
+
+[Survived] ConditionalExpression
+src/App.tsx:244:28
+-                     checked={values.workshop === workshop.id}
++                     checked={true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:245:29
+-                     onChange={() => set("workshop", workshop.id)}
++                     onChange={() => undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:238:49
+-                 <label key={workshop.id} htmlFor={`workshop-${workshop.id}`}>
++                 <label key={workshop.id} htmlFor={``}>
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:245:39
+-                     onChange={() => set("workshop", workshop.id)}
++                     onChange={() => set("", workshop.id)}
+Tests ran:
+    AC-001-11 registration form AC-001-11 selected workshop is sent as a one-element list
+
+
+[Survived] EqualityOperator
+src/App.tsx:244:28
+-                     checked={values.workshop === workshop.id}
++                     checked={values.workshop !== workshop.id}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] EqualityOperator
+src/App.tsx:232:26
+-                   checked={values.workshop === ""}
++                   checked={values.workshop !== ""}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:244:28
+-                     checked={values.workshop === workshop.id}
++                     checked={false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 7 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:233:27
+-                   onChange={() => set("workshop", "")}
++                   onChange={() => undefined}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:232:26
+-                   checked={values.workshop === ""}
++                   checked={false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:250:14
+-               {workshopsFailed && <p className="note">{WORKSHOPS_ERROR}</p>}
++               {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:251:14
+-               {errors.workshop && (
+-                 <p id="workshop-error" className="field-error">
+-                   {errors.workshop}
+-                 </p>
+-               )}
++               {errors.workshop || <p id="workshop-error" className="field-error">
++                   {errors.workshop}
++                 </p>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:251:14
+-               {errors.workshop && (
+-                 <p id="workshop-error" className="field-error">
+-                   {errors.workshop}
+-                 </p>
+-               )}
++               {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:251:14
+-               {errors.workshop && (
+-                 <p id="workshop-error" className="field-error">
+-                   {errors.workshop}
+-                 </p>
+-               )}
++               {false}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:232:26
+-                   checked={values.workshop === ""}
++                   checked={true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:232:46
+-                   checked={values.workshop === ""}
++                   checked={values.workshop === "Stryker was here!"}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ConditionalExpression
+src/App.tsx:250:14
+-               {workshopsFailed && <p className="note">{WORKSHOPS_ERROR}</p>}
++               {true}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] ArrowFunction
+src/App.tsx:237:28
+-               {workshops.map((workshop) => (
+-                 <label key={workshop.id} htmlFor={`workshop-${workshop.id}`}>
+-                   <input
+-                     id={`workshop-${workshop.id}`}
+-                     type="radio"
+-                     name="workshop"
+-                     value={workshop.id}
+-                     checked={values.workshop === workshop.id}
+-                     onChange={() => set("workshop", workshop.id)}
+-                   />
+-                   {workshop.title}
+-                 </label>
+-               ))}
++               {workshops.map(() => undefined)}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] LogicalOperator
+src/App.tsx:250:14
+-               {workshopsFailed && <p className="note">{WORKSHOPS_ERROR}</p>}
++               {workshopsFailed || <p className="note">{WORKSHOPS_ERROR}</p>}
+Tests ran:
+    AC-001-11 registration form AC-001-11 shows the participant, payer and workshop fields of the contract
+    AC-001-11 registration form AC-001-11 shows company fields only for a company payer
+    AC-001-11 registration form AC-001-11 private payer without workshop: one POST without company fields
+  and 9 more tests!
+
+
+[Survived] StringLiteral
+src/App.tsx:31:17
+-     companyVatId: "",
++     companyVatId: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:25:14
+-     firstName: "",
++     firstName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:26:13
+-     lastName: "",
++     lastName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:27:10
+-     email: "",
++     email: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:29:16
+-     companyName: "",
++     companyName: "Stryker was here!",
+Ran all tests for this mutant.
+
+[Survived] StringLiteral
+src/App.tsx:30:19
+-     companyAddress: "",
++     companyAddress: "Stryker was here!",
+Ran all tests for this mutant.
+
+Ran 0.38 tests per mutant on average.
+----------|------------------|----------|-----------|------------|----------|----------|
+          | % Mutation score |          |           |            |          |          |
+File      |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+----------|--------|---------|----------|-----------|------------|----------|----------|
+All files |   2.16 |    2.17 |        5 |         0 |        225 |        2 |        0 |
+ api.ts   |   0.00 |    0.00 |        0 |         0 |         74 |        0 |        0 |
+ App.tsx  |   3.16 |    3.21 |        5 |         0 |        151 |        2 |        0 |
+----------|--------|---------|----------|-----------|------------|----------|----------|
+[32m01:40:49 (52812) INFO HtmlReporter[39m Your report can be found at: file:///E:/13%20-%20Lab%20Projects/03_Vasilka_Testing/kyuhi/confreg-C2/02_output/frontend/reports/mutation/mutation.html
+[32m01:40:49 (52812) INFO MutationTestExecutor[39m Done in 43 seconds.

@@ -1,0 +1,34 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 89 files tracked by git with 1079 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      65      89          Community    1079                                                                
+  java            118      37                                                                                           
+  ts              164      11                                                                                           
+  json              4       9                                                                                           
+  yaml             36       3                                                                                           
+  dockerfile        7       2                                                                                           
+  js              154       1                                                                                           
+  bash              4       1                                                                                           
+  html              1       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 2 (2 blocking)
+ • Rules run: 394
+ • Targets scanned: 89
+ • Parsed lines: ~99.9%
+ • Scan skipped: 
+   ◦ Matching --exclude patterns: 5
+   ◦ Files matching .semgrepignore patterns: 2
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 394 rules on 89 files: 2 findings.

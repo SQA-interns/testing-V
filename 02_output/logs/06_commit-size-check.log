@@ -1,0 +1,4 @@
+d7ac2b5 test: add backend acceptance test harness (US-001) | files=2 lines=556 | reason stated: yes
+b40fd80 feat: add registration use cases, validation, rate limiter (AC-001-04..12) | files=9 lines=458 | reason stated: yes
+d1e5738 feat: add registration form page (AC-001-11) | files=3 lines=452 | reason stated: NO
+fd52f82 test: add application unit tests (AC-001-07, 09, 12, D-09) | files=3 lines=541 | reason stated: NO

@@ -1,0 +1,4 @@
+# F-07 runtime re-verification 2026-10-06T23:55:52Z
+POST response: {"registrationNumber":"REG-E3MD3EDNGQ","status":"registered","firstName":"Ana","lastName":"Novak","email":"f07.check@example.org","payerType":"private","companyName":null,"companyAddress":null,"companyVatId":null,"workshop":null,"netFee":300.00,"vat":66.00,"grossFee":366.00,"submittedAt":"2026-10-06T23:55:51.475995Z"}
+GET  response: {"registrationNumber":"REG-E3MD3EDNGQ","status":"registered","firstName":"Ana","lastName":"Novak","email":"f07.check@example.org","payerType":"private","companyName":null,"companyAddress":null,"companyVatId":null,"workshop":null,"netFee":300.00,"vat":66.00,"grossFee":366.00,"submittedAt":"2026-10-06T23:55:51.475995Z"}
+RESULT: response of POST equals stored registration

@@ -1,0 +1,9 @@
+
+ RUN  v5.0.3 E:/13 - Lab Projects/03_Vasilka_Testing/kyuhi/confreg-C2/02_output/frontend
+
+
+ Test Files  3 passed (3)
+      Tests  20 passed (20)
+   Start at  01:55:17
+   Duration  1.33s (environment 56%, tests 19%, setup 10%, transform 8%, import 7%, worker 1%)
+

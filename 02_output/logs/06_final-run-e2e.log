@@ -1,0 +1,8 @@
+
+Running 3 tests using 1 worker
+
+  ok 1 [chromium] › e2e\registration.e2e.spec.ts:77:1 › AC-001-11 the form offers exactly the workshops of the API (213ms)
+  ok 2 [chromium] › e2e\registration.e2e.spec.ts:97:1 › AC-001-11 AC-001-04 registration through the page shows the confirmation and sends one e-mail (523ms)
+  ok 3 [chromium] › e2e\registration.e2e.spec.ts:140:1 › AC-001-11 AC-001-07 server-side validation error is shown next to the field (237ms)
+
+  3 passed (1.6s)

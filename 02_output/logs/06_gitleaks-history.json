@@ -1,0 +1,20 @@
+[
+  {
+    "RuleID": "generic-api-key",
+    "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+    "StartLine": 111,
+    "EndLine": 111,
+    "StartColumn": 27,
+    "EndColumn": 72,
+    "Match": "password: REDACTED",
+    "Secret": "REDACTED",
+    "File": "02_output/logs/03_backend-acceptance-first-run.log",
+    "SymlinkFile": "",
+    "Commit": "b9b4d85908fc918d9bd8498139e0762c7b7fd670",
+    "Entropy": 3.6416042,
+    "Date": "2026-10-06T23:07:05Z",
+    "Message": "docs: add test strategy and phase 3 acceptance runs (US-001)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "Tags": [],
+    "Fingerprint": "b9b4d85908fc918d9bd8498139e0762c7b7fd670:02_output/logs/03_backend-acceptance-first-run.log:generic-api-key:111"
+  }
+]

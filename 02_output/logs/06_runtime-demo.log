@@ -1,0 +1,37 @@
+# Runtime demonstration 2026-10-06T23:45:45Z — docker compose stack (profile local), requests through the frontend container on 127.0.0.1:3000
+# Request bodies are sent from UTF-8 files (--data-binary): Windows curl.exe re-encodes non-ASCII command-line arguments, which the backend correctly rejects as malformed JSON (400).
+backend: Up 48 seconds (healthy)
+frontend: Up 37 seconds (healthy)
+mailpit: Up 54 seconds (healthy)
+postgres: Up 54 seconds (healthy)
+## 1 page
+GET / -> 200
+## 2 workshops (AC-001-11)
+[{"id":"W1","title":"Requirements engineering for AI coding agents"},{"id":"W2","title":"Data spaces in practice"},{"id":"W3","title":"Secure software supply chains"}]
+-> 200
+## 3 registration accepted and stored (DoD-P01, AC-001-04, NFR-01)
+{"registrationNumber":"REG-RW0MDEHA93","status":"registered","firstName":"Čedomir","lastName":"Novak","email":"runtime.demo.1791330345@example.org","payerType":"company","companyName":"Primer d.o.o.","companyAddress":"Koroška cesta 1, 2000 Maribor","companyVatId":"SI00000001","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00,"submittedAt":"2026-10-06T23:45:46.034838485Z"}
+201
+## 4 organizer reads it with HTTP Basic (AC-001-10)
+{"registrationNumber":"REG-RW0MDEHA93","status":"registered","firstName":"Čedomir","lastName":"Novak","email":"runtime.demo.1791330345@example.org","payerType":"company","companyName":"Primer d.o.o.","companyAddress":"Koroška cesta 1, 2000 Maribor","companyVatId":"SI00000001","workshop":"W2","netFee":300.00,"vat":66.00,"grossFee":366.00,"submittedAt":"2026-10-06T23:45:46.034838Z"}
+-> 200
+## 5 without credentials (AC-001-10)
+{"type":"about:blank","title":"Unauthorized","status":401}
+-> 401
+## 6 confirmation e-mail in Mailpit (AC-001-04)
+messages to address: 1
+subject: Registration confirmation REG-RW0MDEHA93 | snippet: Dear Čedomir Novak, your registration for the conference has been received. Registration number: REG-RW0MDEHA93 Workshop: Data spaces in practice Net fee: 300.00 EUR VAT: 66.00 EUR Gross fee: 366.00 ...
+## 7 invalid registration (AC-001-07)
+{"type":"about:blank","title":"Validation failed","status":422,"errors":{"companyVatId":"is required for a company payer","companyName":"is required for a company payer","firstName":"is required","companyAddress":"is required for a company payer","email":"must be a valid e-mail address"}}
+-> 422
+## 8 health (management port, inside the backend container; not published)
+{"status":"UP"}
+management port 8081 from host -> 000 (000 = not reachable)
+## 9 stored row in PostgreSQL (UTC timestamp, AR-05; Flyway history, AR-06)
+REG-RW0MDEHA93|company|W2|300.00|66.00|366.00|2026-10-06 23:45:46.034838
+1|create registration|t
+## 10 containers run as non-root (SB-11)
+backend user: app
+frontend user: nginx
+## 11 backend log contains no personal data of this demo (SR-01)
+matching lines: 0

@@ -1,0 +1,8 @@
+== frontend production (src without tests, index.html)
+4,TypeScript,25,4,346
+1,CSS,15,0,82
+1,HTML,0,0,12
+6,SUM,40,4,440
+== frontend tests (src tests, tests/, e2e/)
+7,TypeScript,82,18,589
+7,SUM,82,18,589
