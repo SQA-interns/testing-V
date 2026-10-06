@@ -5,9 +5,9 @@
   "templateVersion": "1.2",
   "transcript": "C:/Users/tanej/.claude/projects/c--Users-tanej-Documents-LAB-tanej-confreg-C2/9698f6fc-0783-4524-89d5-7b5f778e7e59.jsonl",
   "startCommit": "8b4fb643b0c36b7a8e36ef9d977dc7595e4ade61",
-  "finalCommit": null,
+  "finalCommit": "55d0f21a3137209f414c70a92a4d30cb06c6325f",
   "start": "2026-10-06T10:55:19Z",
-  "end": null,
+  "end": "2026-10-06T13:28:33Z",
   "phases": [
     {
       "phase": 0,
@@ -55,7 +55,7 @@
       "phase": 7,
       "name": "release",
       "start": "2026-10-06T13:24:07Z",
-      "end": null
+      "end": "2026-10-06T13:28:33Z"
     }
   ],
   "firstTestRun": {
@@ -63,8 +63,8 @@
     "failed": 0
   },
   "finalTestRun": {
-    "passed": null,
-    "failed": null
+    "passed": 177,
+    "failed": 0
   },
   "findings": {
     "critical": 0,
