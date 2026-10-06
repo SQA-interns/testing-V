@@ -1,0 +1,26 @@
+# Clean checkout test 2026-10-06T13:25:17Z
+cloned 77bd7e8
+## step 1: .env from secrets.env.example with fresh random values (no real secret copied)
+keys: ['POSTGRES_PASSWORD', 'ORGANIZER_USERNAME', 'ORGANIZER_PASSWORD', 'SMTP_USERNAME', 'SMTP_PASSWORD', 'NVD_API_KEY']
+## step 2: backend build
+target/registration-backend-0.1.0.jar
+## step 3: docker compose up --build -d
+exit 0
+backend healthy
+frontend healthy
+mailpit healthy
+postgres healthy
+## step 4: open URLs
+form 200
+mailpit 200
+api POST {} 422
+## frontend README: npm ci, check, test, e2e
+npm ci exit 0
+check exit 1
+      Tests  26 passed (26)
+  2 passed (7.9s)
+## backend README: check
+check exit 0
+## step 5: docker compose down -v
+exit 0
+## re-check after formatting fix 2026-10-06T13:28:01Z: git pull; npm run check exit 0
