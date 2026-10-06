@@ -1,0 +1,240 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Conference registration API",
+    "version": "1.0.0",
+    "description": "Registration API between the frontend or organizer and the backend. Names of POST /api/registrations, GET /api/registrations/{registrationNumber} and the stored registration are fixed by project/02_design/architecture.md; items marked 'added' come from docs/02_specification.md."
+  },
+  "servers": [{ "url": "/" }],
+  "tags": [
+    { "name": "public" },
+    { "name": "organizer" }
+  ],
+  "paths": {
+    "/api/registrations": {
+      "post": {
+        "tags": ["public"],
+        "operationId": "createRegistration",
+        "summary": "Register for the conference (AC-001-01..04, 06..19)",
+        "security": [],
+        "parameters": [{ "$ref": "#/components/parameters/XTestNow" }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/RegistrationRequest" } }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Stored registration",
+            "headers": {
+              "Location": { "schema": { "type": "string" }, "description": "/api/registrations/{registrationNumber}" }
+            },
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Registration" } } }
+          },
+          "400": { "$ref": "#/components/responses/ValidationProblem" },
+          "409": { "$ref": "#/components/responses/Problem" },
+          "413": { "$ref": "#/components/responses/Problem" },
+          "415": { "$ref": "#/components/responses/Problem" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/Problem" }
+        }
+      }
+    },
+    "/api/registrations/{registrationNumber}": {
+      "get": {
+        "tags": ["organizer"],
+        "operationId": "getRegistration",
+        "summary": "Read one stored registration (AC-001-28..30)",
+        "security": [{ "organizerBasic": [] }],
+        "parameters": [
+          {
+            "name": "registrationNumber",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "pattern": "^CR-[0-9]{6}$" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Stored registration", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Registration" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Problem" },
+          "404": { "$ref": "#/components/responses/Problem" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/api/registrations/export": {
+      "get": {
+        "tags": ["organizer"],
+        "operationId": "exportRegistrations",
+        "summary": "Added: invoicing export for the accounting system (AC-001-05, D-07)",
+        "security": [{ "organizerBasic": [] }],
+        "responses": {
+          "200": {
+            "description": "Excel workbook, sheet 'Registrations', columns as in docs/02_specification.md 4.4",
+            "headers": {
+              "Content-Disposition": { "schema": { "type": "string", "const": "attachment; filename=\"registrations.xlsx\"" } }
+            },
+            "content": {
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": { "schema": { "type": "string", "format": "binary" } }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Problem" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/api/registration-options": {
+      "get": {
+        "tags": ["public"],
+        "operationId": "getRegistrationOptions",
+        "summary": "Added: workshops and the price that applies now (AC-001-20, 22)",
+        "security": [],
+        "parameters": [
+          { "name": "student", "in": "query", "required": false, "schema": { "type": "boolean", "default": false } },
+          { "$ref": "#/components/parameters/XTestNow" }
+        ],
+        "responses": {
+          "200": { "description": "Options", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RegistrationOptions" } } } },
+          "400": { "$ref": "#/components/responses/Problem" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/actuator/health": {
+      "get": {
+        "tags": ["public"],
+        "operationId": "health",
+        "summary": "Health (ES-09, NFR-02); also /actuator/health/liveness and /actuator/health/readiness",
+        "security": [],
+        "responses": {
+          "200": { "description": "UP", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Health" } } } },
+          "503": { "description": "DOWN or OUT_OF_SERVICE", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Health" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "organizerBasic": { "type": "http", "scheme": "basic", "description": "ORGANIZER_USERNAME / ORGANIZER_PASSWORD; HTTPS only except on localhost (SR-03)" }
+    },
+    "parameters": {
+      "XTestNow": {
+        "name": "X-Test-Now",
+        "in": "header",
+        "required": false,
+        "description": "Current time for this request when APP_TEST_CLOCK=enabled; ignored otherwise (AR-05).",
+        "schema": { "type": "string", "format": "date-time" }
+      }
+    },
+    "schemas": {
+      "RegistrationRequest": {
+        "type": "object",
+        "required": ["firstName", "lastName", "email", "payerType"],
+        "properties": {
+          "firstName": { "type": "string", "maxLength": 100 },
+          "lastName": { "type": "string", "maxLength": 100 },
+          "email": { "type": "string", "maxLength": 254, "format": "email" },
+          "payerType": { "type": "string", "enum": ["private", "company"] },
+          "companyName": { "type": ["string", "null"], "maxLength": 200, "description": "required for company; absent or blank for private" },
+          "companyAddress": { "type": ["string", "null"], "maxLength": 500, "description": "required for company; absent or blank for private" },
+          "companyVatId": { "type": ["string", "null"], "maxLength": 30, "pattern": "^[A-Za-z0-9 ./-]*$", "description": "optional for company; absent or blank for private" },
+          "workshops": { "type": ["array", "null"], "maxItems": 1, "items": { "type": "string" }, "description": "0 or 1 id from APP_WORKSHOPS (D-11)" },
+          "student": { "type": ["boolean", "null"], "default": false, "description": "added (D-06)" }
+        }
+      },
+      "Registration": {
+        "type": "object",
+        "required": ["registrationNumber", "firstName", "lastName", "email", "payerType", "companyName", "companyAddress", "companyVatId", "workshop", "netFee", "vat", "grossFee", "student", "registeredAt"],
+        "properties": {
+          "registrationNumber": { "type": "string", "pattern": "^CR-[0-9]{6}$" },
+          "firstName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "email": { "type": "string" },
+          "payerType": { "type": "string", "enum": ["private", "company"] },
+          "companyName": { "type": ["string", "null"] },
+          "companyAddress": { "type": ["string", "null"] },
+          "companyVatId": { "type": ["string", "null"] },
+          "workshop": { "type": ["string", "null"] },
+          "netFee": { "$ref": "#/components/schemas/Amount" },
+          "vat": { "$ref": "#/components/schemas/Amount" },
+          "grossFee": { "$ref": "#/components/schemas/Amount" },
+          "student": { "type": "boolean", "description": "added (D-06)" },
+          "registeredAt": { "type": "string", "format": "date-time", "description": "added; UTC" }
+        }
+      },
+      "Amount": { "type": "number", "multipleOf": 0.01, "minimum": 0, "description": "EUR, serialised with exactly two decimals" },
+      "Price": {
+        "type": "object",
+        "required": ["tier", "netFee", "vat", "grossFee"],
+        "properties": {
+          "tier": { "type": "string", "enum": ["early", "regular", "student"] },
+          "netFee": { "$ref": "#/components/schemas/Amount" },
+          "vat": { "$ref": "#/components/schemas/Amount" },
+          "grossFee": { "$ref": "#/components/schemas/Amount" }
+        }
+      },
+      "Workshop": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": { "id": { "type": "string" }, "title": { "type": "string" } }
+      },
+      "RegistrationOptions": {
+        "type": "object",
+        "required": ["workshops", "conferenceTimeZone", "earlyBirdDeadline", "price"],
+        "properties": {
+          "workshops": { "type": "array", "items": { "$ref": "#/components/schemas/Workshop" } },
+          "conferenceTimeZone": { "type": "string" },
+          "earlyBirdDeadline": { "type": "string", "format": "date" },
+          "price": { "$ref": "#/components/schemas/Price" }
+        }
+      },
+      "FieldError": {
+        "type": "object",
+        "required": ["field", "code", "message"],
+        "properties": {
+          "field": { "type": "string" },
+          "code": { "type": "string", "enum": ["required", "too_long", "invalid", "not_allowed", "too_many"] },
+          "message": { "type": "string" }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "required": ["title", "status"],
+        "properties": {
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "integer" },
+          "detail": { "type": "string" },
+          "errors": { "type": "array", "items": { "$ref": "#/components/schemas/FieldError" } }
+        }
+      },
+      "Health": {
+        "type": "object",
+        "required": ["status"],
+        "properties": { "status": { "type": "string", "enum": ["UP", "DOWN", "OUT_OF_SERVICE", "UNKNOWN"] } }
+      }
+    },
+    "responses": {
+      "Problem": {
+        "description": "Error without internal details (ES-07)",
+        "content": { "application/problem+json": { "schema": { "$ref": "#/components/schemas/Problem" } } }
+      },
+      "ValidationProblem": {
+        "description": "Rejected: per-field errors; nothing stored; no e-mail",
+        "content": { "application/problem+json": { "schema": { "$ref": "#/components/schemas/Problem" } } }
+      },
+      "Unauthorized": {
+        "description": "Missing or wrong organizer credentials; no data",
+        "headers": { "WWW-Authenticate": { "schema": { "type": "string", "const": "Basic realm=\"registration\"" } } }
+      },
+      "RateLimited": {
+        "description": "More than APP_RATE_LIMIT_PER_HOUR requests in the client's current one-hour window",
+        "headers": { "Retry-After": { "schema": { "type": "integer" } } },
+        "content": { "application/problem+json": { "schema": { "$ref": "#/components/schemas/Problem" } } }
+      }
+    }
+  }
+}
