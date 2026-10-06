@@ -1,0 +1,76 @@
+# Local stack (environments.md "local"; spec 10.1). Start in 02_output/ with: docker compose up --build
+# Build the backend jar first: (cd backend && ./mvnw -DskipTests package).
+# Secrets come from the repository-root .env; settings pass through from the environment and
+# fall back to the backend defaults (environments.md). Ports are bound to 127.0.0.1 only.
+name: confreg
+
+x-workshops: &workshops "${APP_WORKSHOPS:-W1=Requirements engineering for AI coding agents;W2=Data spaces in practice;W3=Secure software supply chains}"
+
+services:
+  postgres:
+    image: postgres:16.15-alpine
+    env_file:
+      - path: ../.env
+        required: true
+    environment:
+      POSTGRES_DB: confreg
+      POSTGRES_USER: confreg
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U confreg -d confreg"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.31.1
+    ports:
+      - "127.0.0.1:8025:8025"
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build: ./backend
+    image: confreg-backend:0.1.0
+    env_file:
+      - path: ../.env
+        required: true
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/confreg
+      DATABASE_USER: confreg
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      APP_WORKSHOPS: *workshops
+      APP_CONFERENCE_TZ:
+      APP_EARLY_BIRD_DEADLINE:
+      APP_FEE_EARLY:
+      APP_FEE_REGULAR:
+      APP_VAT_RATE:
+      APP_RATE_LIMIT_PER_HOUR:
+      APP_TEST_CLOCK:
+      APP_MAIL_FROM:
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    image: confreg-frontend:0.1.0
+    environment:
+      APP_WORKSHOPS: *workshops
+    ports:
+      - "127.0.0.1:8000:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:
