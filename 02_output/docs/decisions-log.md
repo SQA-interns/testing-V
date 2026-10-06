@@ -350,3 +350,12 @@
   3. Leave the frozen test as is. The phase 4 gate ("all frozen acceptance tests pass") and DoD-01 cannot pass.
 - Human response: none
 - Resolution: pending review
+
+## D-33: Human response to D-32 (frozen mail-failure test)
+- Timestamp: 2026-10-06T20:03:40Z
+- Phase: 4
+- Type: blocking
+- Trigger: follow-up to D-32.
+- Options: as in D-32.
+- Human response: 2026-10-06T20:03:40Z (received): "D-32: option 1. Add only that one line to MailFailureAcceptanceTest.unreachableSmtp, leave every assertion unchanged, update only that file's hash in the manifest in one commit naming D-32, record my answer and its time, re-run the full suite and continue."
+- Resolution: D-32 option 1, applied as one commit that changes only that line and that file's manifest hash.

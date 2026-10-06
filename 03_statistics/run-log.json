@@ -264,7 +264,13 @@
       "id": "D-32",
       "type": "blocking",
       "start": "2026-10-06T19:51:03Z",
-      "end": null
+      "end": "2026-10-06T20:03:40Z"
+    },
+    {
+      "id": "D-33",
+      "type": "blocking",
+      "start": "2026-10-06T20:03:40Z",
+      "end": "2026-10-06T20:03:40Z"
     }
   ],
   "humanInterventions": [
@@ -290,7 +296,7 @@
     },
     {
       "start": "2026-10-06T19:56:45Z",
-      "end": null,
+      "end": "2026-10-06T20:03:40Z",
       "reason": "Phase 4: asked to decide blocking D-32 (frozen MailFailureAcceptanceTest harness defect)"
     }
   ],
