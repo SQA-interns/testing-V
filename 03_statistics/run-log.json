@@ -245,16 +245,20 @@
   },
   "commits": [],
   "usage": {
-    "inputTokens": null,
-    "outputTokens": null,
-    "cacheReadTokens": null,
-    "cacheWriteTokens": null,
-    "modelCalls": null,
+    "inputTokens": 440,
+    "outputTokens": 338594,
+    "cacheReadTokens": 58947616,
+    "cacheWriteTokens": 471732,
+    "modelCalls": 219,
     "toolCalls": {
-      "total": null,
-      "byTool": {}
+      "total": 265,
+      "byTool": {
+        "Bash": 191,
+        "Edit": 4,
+        "Write": 70
+      }
     },
-    "costUsd": null,
-    "priceTableDate": null
+    "costUsd": 22.34,
+    "priceTableDate": "2026-09-25"
   }
 }
