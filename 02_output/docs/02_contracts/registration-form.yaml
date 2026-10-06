@@ -1,0 +1,48 @@
+# Registration form contract (UI). Spec: docs/02_specification.md 3.6.
+# End-to-end tests locate elements by their accessible label or role, as below.
+interface: registration-form
+page: /
+title: Conference registration
+form:
+  accessible_name: Registration
+  fields:
+    - { name: firstName, label: First name, type: text, required: true, maxLength: 100 }
+    - { name: lastName, label: Last name, type: text, required: true, maxLength: 100 }
+    - { name: email, label: E-mail, type: email, required: true, maxLength: 254 }
+    - name: payerType
+      label: Payer
+      type: radio
+      required: true
+      options:
+        - { value: private, label: Private person }
+        - { value: company, label: Company }
+      default: none
+    - { name: companyName, label: Company name, type: text, required_when: payerType=company, visible_when: payerType=company, maxLength: 200 }
+    - { name: companyAddress, label: Company address, type: textarea, required_when: payerType=company, visible_when: payerType=company, maxLength: 500 }
+    - { name: companyVatId, label: VAT ID, type: text, required_when: payerType=company, visible_when: payerType=company, maxLength: 30 }
+    - name: workshop
+      label: Workshop
+      type: select
+      required: false
+      options: "'No workshop' (value empty) followed by every workshop from /config.json, label '{id} - {name}'"
+  submit: { role: button, label: Register }
+request:
+  method: POST
+  path: /api/registrations
+  body: "fields above; workshop sent as workshops: [id] or []; company fields omitted for private"
+outcomes:
+  "201":
+    role: status
+    text: "Registration completed. Your registration number is {registrationNumber}. Fee: {grossFee} EUR (including VAT). A confirmation e-mail has been sent to {email}."
+    form: reset
+  "400":
+    field_errors: "each errors[].message shown next to the field named errors[].field, linked with aria-describedby"
+    form: input kept
+  "429":
+    role: alert
+    text: "Too many registration attempts. Please try again later."
+    form: input kept
+  "5xx or network error":
+    role: alert
+    text: "The registration could not be completed. Please try again later."
+    form: input kept

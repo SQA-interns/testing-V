@@ -1,0 +1,281 @@
+openapi: 3.1.0
+info:
+  title: Conference registration API
+  version: 1.0.0
+  description: >
+    Fixed registration API (project/02_design/architecture.md). Behaviour:
+    docs/02_specification.md sections 3 and 6. Amounts are EUR with two decimals.
+servers:
+  - url: http://127.0.0.1:8080
+    description: local
+paths:
+  /api/registrations:
+    post:
+      operationId: createRegistration
+      summary: Register a participant (public, rate limited)
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/TestNow"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistrationRequest"
+            examples:
+              private:
+                value:
+                  firstName: Ana
+                  lastName: Kovač
+                  email: ana.kovac@example.com
+                  payerType: private
+                  workshops: ["W1"]
+              company:
+                value:
+                  firstName: Žiga
+                  lastName: Šuštar
+                  email: ziga@example.com
+                  payerType: company
+                  companyName: Primer d.o.o.
+                  companyAddress: Čopova ulica 1, 1000 Ljubljana
+                  companyVatId: SI12345678
+                  workshops: []
+      responses:
+        "201":
+          description: Registration completed and confirmation e-mail sent
+          headers:
+            Location:
+              description: /api/registrations/{registrationNumber}
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Registration"
+        "400":
+          $ref: "#/components/responses/ValidationProblem"
+        "413":
+          $ref: "#/components/responses/Problem"
+        "415":
+          $ref: "#/components/responses/Problem"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "500":
+          $ref: "#/components/responses/Problem"
+        "503":
+          $ref: "#/components/responses/Problem"
+  /api/registrations/{registrationNumber}:
+    get:
+      operationId: getRegistration
+      summary: Read a stored registration (organizer only)
+      security:
+        - organizerBasic: []
+      parameters:
+        - name: registrationNumber
+          in: path
+          required: true
+          schema:
+            type: string
+            examples: ["REG-000001"]
+      responses:
+        "200":
+          description: The stored registration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Registration"
+        "401":
+          description: Missing or wrong organizer credentials
+          headers:
+            WWW-Authenticate:
+              schema:
+                type: string
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "403":
+          $ref: "#/components/responses/Problem"
+        "404":
+          $ref: "#/components/responses/Problem"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+  /actuator/health/liveness:
+    get:
+      operationId: liveness
+      security: []
+      responses:
+        "200":
+          $ref: "#/components/responses/Health"
+  /actuator/health/readiness:
+    get:
+      operationId: readiness
+      security: []
+      responses:
+        "200":
+          $ref: "#/components/responses/Health"
+        "503":
+          $ref: "#/components/responses/Health"
+components:
+  securitySchemes:
+    organizerBasic:
+      type: http
+      scheme: basic
+      description: ORGANIZER_USERNAME and ORGANIZER_PASSWORD
+  parameters:
+    TestNow:
+      name: X-Test-Now
+      in: header
+      required: false
+      description: Only honoured when APP_TEST_CLOCK=enabled; current time for this request.
+      schema:
+        type: string
+        format: date-time
+  responses:
+    Problem:
+      description: Error (RFC 9457)
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+    ValidationProblem:
+      description: Invalid registration; nothing stored, no e-mail sent
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ValidationProblem"
+    RateLimited:
+      description: Rate limit per client exceeded
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+    Health:
+      description: Health status without details
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [status]
+            properties:
+              status:
+                type: string
+                enum: [UP, DOWN, OUT_OF_SERVICE, UNKNOWN]
+  schemas:
+    PayerType:
+      type: string
+      enum: [private, company]
+    RegistrationRequest:
+      type: object
+      additionalProperties: false
+      required: [firstName, lastName, email, payerType]
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        payerType:
+          $ref: "#/components/schemas/PayerType"
+        companyName:
+          type: [string, "null"]
+          maxLength: 200
+          description: Required for company, must be absent or blank for private.
+        companyAddress:
+          type: [string, "null"]
+          maxLength: 500
+          description: Required for company, must be absent or blank for private.
+        companyVatId:
+          type: [string, "null"]
+          maxLength: 30
+          description: Required for company, must be absent or blank for private.
+        workshops:
+          type: [array, "null"]
+          maxItems: 1
+          items:
+            type: string
+            description: A workshop id configured in APP_WORKSHOPS.
+    Registration:
+      type: object
+      required:
+        - registrationNumber
+        - firstName
+        - lastName
+        - email
+        - payerType
+        - companyName
+        - companyAddress
+        - companyVatId
+        - workshop
+        - netFee
+        - vat
+        - grossFee
+      properties:
+        registrationNumber:
+          type: string
+          pattern: "^REG-[0-9]{6,}$"
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        payerType:
+          $ref: "#/components/schemas/PayerType"
+        companyName:
+          type: [string, "null"]
+        companyAddress:
+          type: [string, "null"]
+        companyVatId:
+          type: [string, "null"]
+        workshop:
+          type: [string, "null"]
+        netFee:
+          type: number
+          multipleOf: 0.01
+        vat:
+          type: number
+          multipleOf: 0.01
+        grossFee:
+          type: number
+          multipleOf: 0.01
+    Problem:
+      type: object
+      required: [title, status]
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+    ValidationProblem:
+      allOf:
+        - $ref: "#/components/schemas/Problem"
+        - type: object
+          required: [errors]
+          properties:
+            errors:
+              type: array
+              minItems: 1
+              items:
+                type: object
+                required: [field, message]
+                properties:
+                  field:
+                    type: string
+                  message:
+                    type: string

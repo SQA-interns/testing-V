@@ -1,0 +1,36 @@
+
+> contract-check@1.0.0 validate
+> node validate.mjs
+
+registration-api.openapi.yaml: valid OpenAPI 3.1.0, 4 paths
+confirmation-email.yaml: valid YAML, required keys present
+registration-form.yaml: valid YAML, 8 fields all in the API
+frontend-config.schema.json: valid JSON Schema 2020-12, sample accepted
+CREATE SEQUENCE
+CREATE TABLE
+                                     Table "public.registration"
+       Column        |           Type           | Collation | Nullable |           Default            
+---------------------+--------------------------+-----------+----------+------------------------------
+ id                  | bigint                   |           | not null | generated always as identity
+ registration_number | character varying(20)    |           | not null | 
+ first_name          | character varying(100)   |           | not null | 
+ last_name           | character varying(100)   |           | not null | 
+ email               | character varying(254)   |           | not null | 
+ payer_type          | character varying(10)    |           | not null | 
+ company_name        | character varying(200)   |           |          | 
+ company_address     | character varying(500)   |           |          | 
+ company_vat_id      | character varying(30)    |           |          | 
+ workshop            | character varying(20)    |           |          | 
+ net_fee             | numeric(10,2)            |           | not null | 
+ vat                 | numeric(10,2)            |           | not null | 
+ gross_fee           | numeric(10,2)            |           | not null | 
+ created_at          | timestamp with time zone |           | not null | 
+Indexes:
+    "registration_pkey" PRIMARY KEY, btree (id)
+    "uq_registration_number" UNIQUE CONSTRAINT, btree (registration_number)
+ first_name 
+------------
+ Žiga
+(1 row)
+
+INSERT 0 1

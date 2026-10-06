@@ -217,3 +217,21 @@
 - Options: as in D-18 to D-23.
 - Human response: for each of D-18, D-19, D-20, D-21, D-22 and D-23: "No further information is available. Choose an option and record it as a decision." (2026-10-06T18:02:22Z)
 - Resolution: the agent chooses option 1 of each record, the more conservative behaviour as `general/working-rules.md` requires. D-18: this system issues no invoice (AR-08); AC-001-04 stays as written (payer invoice data and amounts stored and available to accounting through the organizer API); "invoice reaches the payer" goes on the manual-test list in the release notes. D-19: the configured fee is gross, VAT is split out, rounding is half-up to cents. D-20: at most one configured workshop, optional, no effect on the fee, no capacity. D-21: validation rules as listed in D-21. D-22: no registration is stored when the e-mail cannot be sent; 5xx with a retry hint. D-23: duplicates allowed, no capacity, no closing date. These are the agent's choices, not the product owner's, so all six remain pending review in the phase 7 release notes. No acceptance criterion changes.
+
+## D-25: Dev-only contract validation tools added
+- Timestamp: 2026-10-06T18:06:20Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: the phase 2 gate requires the contracts to validate with a parser, and `tech-stack.md` lists no OpenAPI, YAML or JSON Schema parser. The `tech-stack.md` rules allow adding a dev-only tool with an exact version and a non-blocking record.
+- Options: 1. (chosen) `02_output/tools/contract-check` with `@apidevtools/swagger-parser` 13.1.0 (MIT), `ajv` 8.20.0 (MIT), `ajv-formats` 3.0.1 (MIT) and `yaml` 2.9.1 (ISC), exact pins and a committed lock file; `npm audit`: 0 vulnerabilities. The SQL contract is validated by the pinned `postgres` image. Not part of any shipped component; scanned again in phase 6. 2. Check the contracts with JSON parsing only (does not validate OpenAPI semantics).
+- Human response: none
+- Resolution: option 1, pending review
+
+## D-26: Configuration settings added or named in the design
+- Timestamp: 2026-10-06T18:06:20Z
+- Phase: 2
+- Type: non-blocking
+- Trigger: `environments.md` lists "Database URL and user", "SMTP host, port, TLS" and "Sender address" without variable names. SR-03 forbids organizer credentials over plain HTTP except on localhost, but in the local compose stack the backend sees the Docker bridge address, not a loopback address, although its port is bound to 127.0.0.1 only.
+- Options: 1. (chosen) Use `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_MAIL_HOST`, `SPRING_MAIL_PORT`, `APP_MAIL_TLS` (default `false`, required `true` in `prod`) and `APP_MAIL_FROM` (default `registration@confreg.local`). Add `APP_INSECURE_AUTH_ALLOWED` (default `false`; set to `true` only by the local compose file; the `prod` profile refuses to start with it), so credentials over plain HTTP are accepted only from loopback or in the localhost-bound local stack (spec 6.3). 2. Treat every non-TLS request in the local stack as allowed by profile, with no explicit setting (less visible). 3. Refuse organizer access in the local stack (DoD-P01 and the runtime demonstration could not read registrations).
+- Human response: none
+- Resolution: option 1, pending review

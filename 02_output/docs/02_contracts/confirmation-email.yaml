@@ -1,0 +1,39 @@
+# Confirmation e-mail contract (SMTP). Spec: docs/02_specification.md 3.4.
+# Placeholders {name} are filled by the backend mail component; values are
+# inserted as plain text only (SR-05). Amounts use two decimals and "EUR".
+interface: confirmation-email
+transport: SMTP to the configured server (AR-07)
+trigger: every completed registration, before the transaction commits (D-22)
+headers:
+  From: "{APP_MAIL_FROM}"
+  To: "{email}"
+  Subject: "Registration confirmation {registrationNumber}"
+  Content-Type: "text/plain; charset=UTF-8"
+rules:
+  - The only user input in a header is the validated recipient address.
+  - No HTML part; no attachments.
+  - Names, company data and addresses are copied unchanged (NFR-01).
+body: |
+  Dear {firstName} {lastName},
+
+  thank you for registering for the conference.
+
+  Registration number: {registrationNumber}
+  Workshop: {workshopLine}
+  Fee: {grossFee} EUR (net {netFee} EUR + VAT {vatPercent}% {vat} EUR)
+
+  Payer: {payerLine}
+
+  The invoice will be sent to the payer by the organizer's accounting department.
+
+  Kind regards,
+  The conference organizers
+placeholders:
+  workshopLine: "{workshopId} - {workshopName}, or 'none' when no workshop was chosen"
+  vatPercent: "APP_VAT_RATE x 100 without trailing zeros, for example 22"
+  payerLine: "private: '{firstName} {lastName}'; company: '{companyName}, {companyAddress}, VAT ID {companyVatId}'"
+must_contain:
+  - registrationNumber
+  - grossFee
+  - netFee
+  - vat
