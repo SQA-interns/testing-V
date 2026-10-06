@@ -1,0 +1,97 @@
+{
+  "runId": null,
+  "model": null,
+  "effort": null,
+  "templateVersion": null,
+  "transcript": null,
+  "startCommit": null,
+  "finalCommit": null,
+  "start": null,
+  "end": null,
+  "phases": [
+    {
+      "phase": 0,
+      "name": "preflight-and-bootstrap",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 1,
+      "name": "requirements",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 2,
+      "name": "design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 3,
+      "name": "test-design",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 4,
+      "name": "build",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 5,
+      "name": "unit-tests",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 6,
+      "name": "verify",
+      "start": null,
+      "end": null
+    },
+    {
+      "phase": 7,
+      "name": "release",
+      "start": null,
+      "end": null
+    }
+  ],
+  "firstTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "finalTestRun": {
+    "passed": null,
+    "failed": null
+  },
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "fixLoops": [],
+  "decisions": [],
+  "humanInterventions": [],
+  "codeMetrics": {
+    "components": [],
+    "complexity": null,
+    "duplicationPct": null
+  },
+  "commits": [],
+  "usage": {
+    "inputTokens": null,
+    "outputTokens": null,
+    "cacheReadTokens": null,
+    "cacheWriteTokens": null,
+    "modelCalls": null,
+    "toolCalls": {
+      "total": null,
+      "byTool": {}
+    },
+    "costUsd": null,
+    "priceTableDate": null
+  }
+}
