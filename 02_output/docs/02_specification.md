@@ -113,7 +113,7 @@ No uniqueness on e-mail; each valid request creates one new row; existing rows a
 
 - HTTP Basic, user `ORGANIZER_USERNAME`, role `ORGANIZER`. 200 with stored registration; 401 (`WWW-Authenticate: Basic realm="confreg"`) without or with wrong credentials, body without registration data; 404 unknown number (only after successful authentication); 403 when credentials arrive over plain HTTP from a non-loopback client (§7.2).
 
-### 5.3 `GET /api/workshops` (public, AC-001-11; pending D-10)
+### 5.3 `GET /api/workshops` (public, AC-001-11; approved in D-10)
 
 - Returns `[{"id":"W1","title":"…"}, …]` from `APP_WORKSHOPS`, in configured order. No personal data; rate limited with the same per-client limiter as registrations but in a separate bucket.
 
