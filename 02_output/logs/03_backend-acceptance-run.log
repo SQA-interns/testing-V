@@ -104,7 +104,7 @@
 2026-10-06T16:38:21.923+02:00  WARN 26072 --- [registration-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-10-06T16:38:22.605+02:00  WARN 26072 --- [registration-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 860d9b93-69a4-46e5-aa42-e88d303cefca
+Using generated security password: [redacted: ephemeral skeleton password, F-02]
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
