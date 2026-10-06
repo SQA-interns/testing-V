@@ -17,8 +17,8 @@ Run `tanej-confreg-C1-r1`, verified on 2026-10-06 at commit `daeccf9` plus this 
 | DoD-05 No open Critical or High | Pass | Findings below: none Critical or High open. Dependency-Check (with D-12, D-13, D-16, D-18 suppressions) and npm audit: 0 Critical, 0 High; gitleaks clean after F-01; semgrep: no ERROR |
 | DoD-06 Runtime demonstration | Pass | `runtime-demonstration.log`: local stack healthy; US-001 flow through the frontend proxy, organizer read, storage, e-mail; AC-001-09 at runtime: `out/logs/04_build/runtime-mail-failure-check.log` |
 | DoD-07 Every AC → test and commit | Pass | Traceability table below |
-| DoD-08 READMEs work from a clean checkout | Phase 7 | Checked in phase 7 (clone log) |
-| DoD-09 Release notes list manual tests | Phase 7 | Written in phase 7 |
+| DoD-08 READMEs work from a clean checkout | Pass (phase 7) | `out/logs/07_release/clone-check.log`: fresh clone of `d247efc`; backend build, check, 181 tests; frontend `npm ci`, check, 18 tests, build; Compose stack healthy; e2e 4/4 |
+| DoD-09 Release notes list manual tests | Pass (phase 7) | `docs/release-notes.md`, "Must be tested manually by a human" (10 items) |
 | DoD-10 Decisions resolved or pending review; inputs unchanged | Pass | `docs/00_input-manifest.sha256` 25/25 match and `git diff 9deb956 -- 01_input …` empty (`hash-check.log`). Pending review: D-20 to D-29 (applied options, D-30); D-34 resolved by D-35 |
 | DoD-11 Evidence checks of `phases.md` | Pass, one Low exception | Phase 3 commits touch no `src/main` (0 files between `f1770c5` and the freeze); freeze commit `05ef03e` adds only the manifest, all 12 listed files committed earlier in phase 3; build commits name US-001 / AC ids; one commit over the size guide without a stated reason (F-10, `commit-size-check.txt`); all hashes match |
 | DoD-P01 Registration accepted and stored on the running stack | Pass | `runtime-demonstration.log`: `POST /api/registrations` → 201 `REG-000014`, row in `registration`, organizer `GET` returns the same JSON |
