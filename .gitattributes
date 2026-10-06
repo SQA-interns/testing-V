@@ -1,0 +1,11 @@
+# ES-03: normalise every text file to LF
+* text=auto eol=lf
+
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+*.jar binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.xlsx binary
