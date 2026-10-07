@@ -255,17 +255,25 @@
   },
   "commits": [],
   "usage": {
-    "inputTokens": null,
-    "outputTokens": null,
-    "cacheReadTokens": null,
-    "cacheWriteTokens": null,
-    "modelCalls": null,
+    "inputTokens": 408,
+    "outputTokens": 343136,
+    "cacheReadTokens": 56821408,
+    "cacheWriteTokens": 944778,
+    "modelCalls": 204,
     "toolCalls": {
-      "total": null,
-      "byTool": {}
+      "total": 284,
+      "byTool": {
+        "Bash": 152,
+        "Write": 81,
+        "Read": 34,
+        "Edit": 13,
+        "Glob": 2,
+        "PowerShell": 1,
+        "Grep": 1
+      }
     },
-    "costUsd": null,
-    "priceTableDate": null
+    "costUsd": 25.79,
+    "priceTableDate": "2026-09-25"
   },
   "finalCommitNote": "HEAD before this last run-log.json commit (a commit cannot contain its own hash)"
 }
