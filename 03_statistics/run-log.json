@@ -49,12 +49,12 @@
       "phase": 6,
       "name": "verify",
       "start": "2026-10-06T23:35:05Z",
-      "end": null
+      "end": "2026-10-07T06:54:11Z"
     },
     {
       "phase": 7,
       "name": "release",
-      "start": null,
+      "start": "2026-10-07T06:54:11Z",
       "end": null
     }
   ],
@@ -200,7 +200,7 @@
       "id": "D-16",
       "type": "blocking",
       "start": "2026-10-06T23:56:27Z",
-      "end": null
+      "end": "2026-10-07T06:54:11Z"
     },
     {
       "id": "D-17",
@@ -225,6 +225,11 @@
       "start": "2026-10-06T22:51:13Z",
       "end": "2026-10-06T22:56:01Z",
       "reason": "phase 2 blocking decision D-10 (public workshop endpoint)"
+    },
+    {
+      "start": "2026-10-06T23:56:27Z",
+      "end": "2026-10-07T06:54:11Z",
+      "reason": "phase 6 blocking decision D-16 (frontend mutation tooling)"
     }
   ],
   "codeMetrics": {

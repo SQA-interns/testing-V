@@ -143,8 +143,8 @@
 - Type: blocking
 - Trigger: `@stryker-mutator/core` and `@stryker-mutator/vitest-runner` 10.0.0 (`tech-stack.md`, the latest published version) run with vitest 5.0.3 (approved in D-05), but mutants are never activated: score 2.16 % with `coverageAnalysis` perTest and with off, while mutants such as `if (!response.ok)` → `if (false)` are certainly killed by `src/api.test.ts` (`out/logs/06_frontend-stryker.log`, `06_frontend-stryker-coverage-off.log`). DoD-03 needs a recorded mutation score; the project threshold is "record only".
 - Options: 1. record the frontend mutation score as not measurable with the pinned tools; backend mutation score (PIT, 82 %) and frontend line/branch coverage are recorded; list it as an open item for the next tool update (proposed); 2. measure once in a throw-away copy outside the repository with vitest 3.2.7 (the version D-05 replaced for its Critical advisories), report the score, change nothing in the repository; 3. another mutation tool or version named by the human.
-- Human response: none
-- Resolution: pending
+- Human response: option 1, 2026-10-07T06:54:11Z: go with the proposed solution.
+- Resolution: option 1; frontend mutation score recorded as not measurable with the pinned tools; open item F-09 for the next Stryker or vitest update.
 
 ## D-17: Semgrep "use-of-basic-authentication" (ERROR = High) lowered to Low
 - Timestamp: 2026-10-06T23:56:27Z
