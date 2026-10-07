@@ -1,0 +1,30 @@
+# Clean-checkout check 2026-10-07T06:59:37Z: git clone of HEAD 462b220 into a deep Windows path (needs core.longpaths, see root README troubleshooting); README steps followed; .env referenced from the original repository root (not copied)
+clone ok, files: 203, status clean: 0 changes
+## backend README: build
+exit 0
+target/registration-backend-0.1.0.jar
+## backend README: check
+exit 0
+## backend README: test
+exit 0
+[INFO] Tests run: 167, Failures: 0, Errors: 0, Skipped: 0
+## frontend README: build
+npm ci exit 0
+build exit 0
+## frontend README: check
+exit 0
+## frontend README: test
+      Tests  20 passed (20)
+## root README: quick start (compose up)
+exit 0
+backend: Up 18 seconds (healthy)
+frontend: Up 7 seconds (healthy)
+mailpit: Up 24 seconds (healthy)
+postgres: Up 24 seconds (healthy)
+form http://127.0.0.1:3000 -> 200
+api http://127.0.0.1:8080/api/workshops -> 200
+mailpit http://127.0.0.1:8025 -> 200
+## frontend README: e2e against the container
+  3 passed (1.7s)
+## root README: stop
+exit 0

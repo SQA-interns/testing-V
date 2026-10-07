@@ -40,6 +40,16 @@ Needs Docker Engine with Compose, and Java 21 to build the backend jar (versions
    ```
 6. Stop with `docker compose --env-file ../.env down` (add `-v` to delete the database volume).
 
+## Troubleshooting
+
+| Symptom | Cause and fix |
+|---|---|
+| `git clone` on Windows reports `Filename too long` and the backend then fails to compile | The clone directory is deep enough to exceed Windows' 260-character path limit. Clone to a shorter path, or clone with `git clone -c core.longpaths=true …`. |
+| `docker compose` reports `set POSTGRES_PASSWORD in .env` | `.env` is missing or not passed: run compose from `02_output/` with `--env-file ../.env`. |
+| The backend image build fails with `target/registration-backend-0.1.0.jar not found` | Build the jar first (quick start step 2). |
+
+Component-specific problems: see the component READMEs.
+
 ## Documentation
 
 | Document | Content |
